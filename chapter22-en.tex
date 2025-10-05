@@ -7,14 +7,18 @@
 \begin{document}
 
 %\chapter{Fonts in Formulas}\label{mathfont}
-\chapter{公式中的字体}\label{mathfont}
+\chapter{Fonts in Formulas}\label{mathfont}
 
 %For math typesetting a single current font is not sufficient, as it
 %is for text typesetting. Instead \TeX\ uses several font families,
 %and each family can contain three fonts. This chapter
 %explains how font families are organized, and how \TeX\ determines
 %from what families characters should be taken.
-对于数学排版，单个当前字体不足以满足需求，这与文本排版不同。相反，\TeX\ 使用多个字体族，每个字体族可以包含三种字体。本章解释了字体族的组织方式，以及 \TeX\ 如何确定字符应取自哪个字体族。
+For math typesetting a single current font is not sufficient, as it
+is for text typesetting. Instead \TeX\ uses several font families,
+and each family can contain three fonts. This chapter
+explains how font families are organized, and how \TeX\ determines
+from what families characters should be taken.
 
 %\label{cschap:fam}\label{cschap:newfam}\label{cschap:textfont}\label{cschap:scriptfont}\label{cschap:scriptscriptfont}
 %\begin{inventory}
@@ -24,27 +28,27 @@
 %\item [\cs{fam}]  
 %      The number of the current font family.
 \item [\cs{fam}]  
-      当前字体族的编号。
+      The number of the current font family.
 
 %\item [\cs{newfam}]  
 %      Allocate a new math font family.
 \item [\cs{newfam}]  
-      分配一个新的数学字体族。
+      Allocate a new math font family.
 
 %\item [\cs{textfont}]   
 %      Access the textstyle font of a family.\alt
 \item [\cs{textfont}]   
-      访问字体族的文本样式字体。\alt
+      Access the textstyle font of a family.\alt
 
 %\item [\cs{scriptfont}]  
 %      Access the scriptstyle font of a family.\alt
 \item [\cs{scriptfont}]  
-      访问字体族的角标样式字体。\alt
+      Access the scriptstyle font of a family.\alt
 
 %\item [\cs{scriptscriptfont}]  
 %      Access the scriptscriptstyle font of a family.\alt
 \item [\cs{scriptscriptfont}]  
-      访问字体族的次角标样式字体。\alt
+      Access the scriptscriptstyle font of a family.\alt
 
 %\end{inventory}
 \end{inventory}
@@ -52,14 +56,18 @@
 %%\point Determining the font of a character in math mode
 %\section{Determining the font of a character in math mode}
 %\point Determining the font of a character in math mode
-\section{确定数学模式中字符的字体}
+\section{Determining the font of a character in math mode}
 
 %The characters in math formulas can be taken from several
 %different fonts (or better, \indexterm{font families}) without any user
 %commands. For instance, in plain \TeX\ math formulas use
 %the roman font, the math italic font, 
 %the symbol font and the math extension font.
-数学公式中的字符可以取自几种不同的字体（或者更确切地说，\indexterm{字体族}），而无需任何用户命令。例如，在 plain \TeX\ 中，数学公式使用罗马字体、数学斜体字体、符号字体和数学扩展字体。
+The characters in math formulas can be taken from several
+different fonts (or better, \indexterm{font families}) without any user
+commands. For instance, in plain \TeX\ math formulas use
+the roman font, the math italic font, 
+the symbol font and the math extension font.
 
 %In order to determine from which font a character is to be
 %taken, \TeX\ considers for each character in a formula its
@@ -71,11 +79,16 @@
 %\n x:~class,\nl
 %\n y:~family,\nl
 %\n{zz}:~position in font.\end{disp}
-为了确定一个字符应取自哪个字体，\TeX\ 会考虑公式中每个字符的 \cs{mathcode}（这在第 \ref{mathchar} 章中讨论）。一个 \cs{mathcode} 是一个 15 位数字，形式为 \verb."xyzz."，其中十六进制数字具有以下含义：
+In order to determine from which font a character is to be
+taken, \TeX\ considers for each character in a formula its
+\cs{mathcode} (this is treated in Chapter~\ref{mathchar}).
+A~\cs{mathcode} is a 15-bit number of the form
+\verb."xyzz., where the hex digits
+have the following meaning:
 \begin{disp}
-\n x:~类别,\nl
-\n y:~字体族,\nl
-\n{zz}:~字体中的位置。\end{disp}
+\n x:~class,\nl
+\n y:~family,\nl
+\n{zz}:~position in font.\end{disp}
 
 %In general only the family determines from what font 
 %a character is to be taken.
@@ -83,7 +96,12 @@
 %control spacing and other aspects of  typesetting.
 %Typical classes include `relation', `operator', `delimiter';
 %see section~\ref{math:class} for details.
-通常，只有字体族决定了字符应取自哪个字体。数学字符的类别主要用于控制间距和排版的其他方面。典型的类别包括“关系”、“运算符”、“定界符”；详情请参见 \ref{math:class} 节。
+In general only the family determines from what font 
+a character is to be taken.
+The class of a math character is mostly used to
+control spacing and other aspects of  typesetting.
+Typical classes include `relation', `operator', `delimiter';
+see section~\ref{math:class} for details.
 
 %Class~7 is special in this respect: 
 %it is called `variable family'. 
@@ -91,13 +109,18 @@
 %it is taken from family \n{y},
 %unless the parameter \cs{fam} has a value in the range 0--15;
 %then it is taken from family~\cs{fam}.
-类别 7 在这方面是特殊的：它被称为“可变字体族”。如果一个字符的 \cs{mathcode} 形式为 \verb."7yzz."，则它取自字体族 \n{y}，除非参数 \cs{fam} 的值在 0--15 的范围内；此时它取自字体族 \cs{fam}。
+Class~7 is special in this respect: 
+it is called `variable family'. 
+If a character has a \cs{mathcode} of the form \verb."7yzz.
+it is taken from family \n{y},
+unless the parameter \cs{fam} has a value in the range 0--15;
+then it is taken from family~\cs{fam}.
 
 
 %%\point Initial family settings
 %\section{Initial family settings}
 %\point Initial family settings
-\section{初始字体族设置}
+\section{Initial family settings}
 
 %Both lowercase and uppercase letters
 %are defined by \IniTeX\ to have math codes \verb>"71zz>,
@@ -108,7 +131,15 @@
 %an invalid value, when a formula starts, 
 %characters are indeed taken from
 %family~1, which in plain \TeX\ is math italic.
-小写字母和大写字母都被 \IniTeX\ 定义为具有数学代码 \verb>"71zz>"，\label{ini:fam}% 这意味着它们是可变字体族，最初来自字体族 1。由于 \TeX\ 在公式开始时将 \verb.fam=-1. 设置为无效值，因此字符确实取自字体族 1，在 plain \TeX\ 中这是数学斜体。
+Both lowercase and uppercase letters
+are defined by \IniTeX\ to have math codes \verb>"71zz>,
+\label{ini:fam}%
+which means that they are of variable family, initially from
+family~1.
+As \TeX\ sets \verb.fam=-1., that is,
+an invalid value, when a formula starts, 
+characters are indeed taken from
+family~1, which in plain \TeX\ is math italic.
 
 %Digits have math code \verb>"70zz> so they are initially from
 %family~0, in plain \TeX\ the roman font. 
@@ -116,7 +147,12 @@
 %assigned by \IniTeX\ as
 %\begin{disp}\cs{mathcode}$\,x=x$\end{disp} which puts them in class~0,
 %ordinary, and family~0, roman in plain \TeX.
-数字的数学代码为 \verb>"70zz>"，因此它们最初来自字体族 0，在 plain \TeX\ 中是罗马字体。所有其他字符代码都由 \IniTeX\ 赋值为 \begin{disp}\cs{mathcode}$\,x=x$\end{disp}，这使得它们属于类别 0（普通）和字体族 0（plain \TeX\ 中的罗马字体）。
+Digits have math code \verb>"70zz> so they are initially from
+family~0, in plain \TeX\ the roman font. 
+All other character codes have a mathcode
+assigned by \IniTeX\ as
+\begin{disp}\cs{mathcode}$\,x=x$\end{disp} which puts them in class~0,
+ordinary, and family~0, roman in plain \TeX.
 
 %In plain \TeX, commands such as \cs{sl} then set both a font and
 %a family:
@@ -126,11 +162,14 @@
 %so putting \cs{sl} in a formula will cause all letters, digits,
 %and  uppercase Greek characters, to change to
 %slanted style.
-在 plain \TeX\ 中，像 \cs{sl} 这样的命令会同时设置字体和字体族：
+In plain \TeX, commands such as \cs{sl} then set both a font and
+a family:
 \begin{verbatim}
 \def\sl{\fam\slfam\tensl}
 \end{verbatim}
-因此，在公式中放置 \cs{sl} 将导致所有字母、数字和大写希腊字符变为倾斜样式。
+so putting \cs{sl} in a formula will cause all letters, digits,
+and  uppercase Greek characters, to change to
+slanted style.
 
 %In most cases, any font can be assigned to any family, but
 %two families in \TeX\ have a special meaning: these are
@@ -141,32 +180,43 @@
 %specialized meaning for positioning in math typesetting. 
 %Their meaning is explained below, but for the full story
 %the reader is referred to appendix~G of \TeXbook.
-在大多数情况下，任何字体都可以分配给任何字体族，但 \TeX\ 中的两个字体族具有特殊含义：它们是字体族 2 和 3。例如，它们的 \cs{fontdimen} 参数数量与通常的 7 不同。字体族 2 需要 22 个参数，而字体族 3 需要 13 个。这些参数在数学排版中都具有非常专业的定位含义。它们的含义在下文解释，但完整的故事请读者参阅 \TeXbook\ 附录 G。
+In most cases, any font can be assigned to any family, but
+two families in \TeX\ have a special meaning: these are
+families 2 and~3.
+For instance, their number of \cs{fontdimen} parameters
+is different from the usual~7. Family~2 needs 22 parameters,
+and family~3 needs~13. These parameters have all a very
+specialized meaning for positioning in math typesetting. 
+Their meaning is explained below, but for the full story
+the reader is referred to appendix~G of \TeXbook.
 
 
 %%\point Family definition
 %\section{Family definition}
 %\point Family definition
-\section{字体族定义}
+\section{Family definition}
 
 %\TeX\ can access 16 families of fonts in math mode;
 %font families have numbers 0--15. 
 %The number of the
 %current family is recorded in the parameter~\csidx{fam}.
-\TeX\ 在数学模式下可以访问 16 个字体族；
-字体族的编号为 0--15。
-当前字体族的编号记录在参数 \csidx{fam} 中。
+\TeX\ can access 16 families of fonts in math mode;
+font families have numbers 0--15. 
+The number of the
+current family is recorded in the parameter~\csidx{fam}.
 
 %The macro \csidx{newfam} gives the number of an unused family.
 %This number is assigned using \cs{chardef} to the control sequence.
-宏 \csidx{newfam} 返回一个未使用的字体族编号。
-这个编号使用 \cs{chardef} 赋值给控制序列。
+The macro \csidx{newfam} gives the number of an unused family.
+This number is assigned using \cs{chardef} to the control sequence.
 
 
 %Each font family can have a font meant for text style, script style,
 %and scriptscript style. Below it is explained how \TeX\
 %determines in what style a (sub-) formula is to be typeset.
-每个字体族都可以有一个用于文本样式、角标样式和次角标样式的字体。下文解释了 \TeX\ 如何确定（子）公式应以何种样式排版。
+Each font family can have a font meant for text style, script style,
+and scriptscript style. Below it is explained how \TeX\
+determines in what style a (sub-) formula is to be typeset.
 
 %Fonts are assigned to a family
 %\cstoidx textfont\par\cstoidx scriptfont\par\cstoidx scriptscriptfont\par
@@ -183,29 +233,32 @@
 %that has not been filled,
 %it uses the \cs{nullfont} instead,
 %a~primitive font that has no characters (nor a \n{.tfm} file).
-字体按以下方式分配给字体族：
+Fonts are assigned to a family
 \cstoidx textfont\par\cstoidx scriptfont\par\cstoidx scriptscriptfont\par
+as follows:
 \begin{verbatim}
 \newfam\MyFam
 \textfont\MyFam=\tfont \scriptfont\MyFam=\sfont
 \scriptscriptfont\MyFam=\ssfont
 \end{verbatim}
-用于一个字体族的文本、角标和次角标字体。
-通常不需要填充一个字体族的所有三个成员（但字体族 3 需要）。
-如果 \TeX\ 需要一个字符，而该字符来自一个未填充的字体族成员，
-它会转而使用 \cs{nullfont}，
-这是一个没有字符（也没有 \n{.tfm} 文件）的原始字体。
+for the text, script, and scriptscript fonts of a family.
+In general it is not necessary to fill all three members
+of a family (but it is for family~3). 
+If \TeX\ needs a character from a family member
+that has not been filled,
+it uses the \cs{nullfont} instead,
+a~primitive font that has no characters (nor a \n{.tfm} file).
 
 
 %%\point Some specific font changes
 %\section{Some specific font changes}
 %\point Some specific font changes
-\section{一些特定的字体更改}
+\section{Some specific font changes}
 
 %%\spoint Change the font of ordinary characters and uppercase Greek
 %\subsection{Change the font of ordinary characters and uppercase Greek}
 %\spoint Change the font of ordinary characters and uppercase Greek
-\subsection{更改普通字符和大写希腊字母的字体}
+\subsection{Change the font of ordinary characters and uppercase Greek}
 
 %All letters and the uppercase Greek characters are
 %by default in plain \TeX\ of class~7,
@@ -216,26 +269,29 @@
 %{\fam=9 x}
 %\end{verbatim}
 % gives an \n{x} from family~9.
-所有字母和大写希腊字符在 plain \TeX\ 中默认属于类别 7，
-即可变字体族，因此更改 \cs{fam} 将改变它们所取用的字体。
-例如
+All letters and the uppercase Greek characters are
+by default in plain \TeX\ of class~7,
+variable family, so changing \cs{fam} will change the font
+from which they are taken.
+For example
 \begin{verbatim}
 {\fam=9 x}
 \end{verbatim}
-给出字体族 9 的 \n{x}。
+ gives an \n{x} from family~9.
 
 %Uppercase Greek characters are defined by
 %\cs{mathchardef} statements in the plain format as \verb>"70zz>,
 %that is, variable family, initially roman.
 %Therefore, uppercase Greek character also change with the family.
-大写希腊字符在 plain 格式中通过 \cs{mathchardef} 语句定义为 \verb>"70zz>"，
-即，可变字体族，最初为罗马字体。
-因此，大写希腊字符也会随字体族而改变。
+Uppercase Greek characters are defined by
+\cs{mathchardef} statements in the plain format as \verb>"70zz>,
+that is, variable family, initially roman.
+Therefore, uppercase Greek character also change with the family.
 
 %%\spoint Change uppercase Greek independent of text font
 %\subsection{Change uppercase Greek independent of text font}
 %\spoint Change uppercase Greek independent of text font
-\subsection{独立于文本字体更改大写希腊字母}
+\subsection{Change uppercase Greek independent of text font}
 
 %In the Computer Modern font layout, uppercase Greek letters
 %are part of the roman font; see page~\pageref{cmr:table}.
@@ -263,15 +319,18 @@
 %\n{\#1} in the definition of \cs{hex}. This implies that this
 %macro can only be called with an argument that is a 
 %control sequence.
-在 Computer Modern 字体布局中，大写希腊字母是罗马字体的一部分；参见第 \pageref{cmr:table} 页。
+In the Computer Modern font layout, uppercase Greek letters
+are part of the roman font; see page~\pageref{cmr:table}.
 \alt
-因此，引入另一种
-文本字体（具有另一种布局）
-将改变大写希腊字符
-（甚至可能使它们消失）。
-补救此问题的一种方法是引入一个新的字体族，
-其中包含大写希腊字母的 \n{cmr} 字体。
-然后必须重新定义访问这些字符的控制序列：
+Therefore, introducing another
+text font (with another layout)
+will change the uppercase Greek characters
+(or even make them disappear).
+One way of remedying this is by introducing a new family in
+which the \n{cmr} font, which contains the uppercase Greek,
+resides.
+The control sequences accessing these characters then have
+to be redefined:
 \begin{verbatim}
 \newfam\Kgreek 
 \textfont\Kgreek=cmr10 ...
@@ -281,15 +340,18 @@
 \mathchardef\Beta ="0\hex\Kgreek01 % was: "0101
 \mathchardef\Gamma ...
 \end{verbatim}
-顺便提一下，请注意
-在 \cs{hex} 定义中 \n{\#1} 之后没有空格或 \cs{relax} 记号。这意味着这个
-宏只能以控制序列作为参数调用。
+Note, by the way,
+the absence of a either a space or a \cs{relax} token after
+\n{\#1} in the definition of \cs{hex}. This implies that this
+macro can only be called with an argument that is a 
+control sequence.
 
 %%\spoint Change the font of lowercase Greek 
 %\subsection{Change the font of lowercase Greek
 %       and mathematical symbols}
 %\spoint Change the font of lowercase Greek 
-\subsection{更改小写希腊字母和数学符号的字体}
+\subsection{Change the font of lowercase Greek
+       and mathematical symbols}
 
 %Lowercase Greek characters have math code
 %\verb>"01zz>, meaning they are always from the math italic family. 
@@ -301,32 +363,36 @@
 %This is not done in plain \TeX, because the Computer Modern
 %roman font does not
 %have Greek lowercase, although it does have the uppercase characters.
-小写希腊字符的数学代码为 \verb>"01zz>"，这意味着它们总是来自数学斜体字体族。
-为了改变这一点，可以重新定义它们，
+Lowercase Greek characters have math code
+\verb>"01zz>, meaning they are always from the math italic family. 
+In order to change this one might redefine them,
 \mdqon
-例如 \verb.\mathchardef.""\verb.\alpha="710B.，
+for instance \verb.\mathchardef.""\verb.\alpha="710B., 
 \mdqoff
-使它们成为可变字体族。
-在 plain \TeX\ 中没有这样做，因为 Computer Modern
-罗马字体不包含希腊小写字母，尽管它确实包含大写字母。
+to make them variable family.
+This is not done in plain \TeX, because the Computer Modern
+roman font does not
+have Greek lowercase, although it does have the uppercase characters.
 
 %Another way is to redefine them like \verb.\mathchardef\alpha="0n0B.
 %where \n{n} is the (hexadecimal) number of a family
 %compatible with math italic, containing for instance a bold
 %math italic font.
-另一种方法是重新定义它们，例如 \verb.\mathchardef\alpha="0n0B.，
-其中 \n{n} 是与数学斜体兼容的字体族（十六进制）编号，例如包含粗体数学斜体字体。
+Another way is to redefine them like \verb.\mathchardef\alpha="0n0B.
+where \n{n} is the (hexadecimal) number of a family
+compatible with math italic, containing for instance a bold
+math italic font.
 
 
 %%\point Assorted remarks
 %\section{Assorted remarks}
 %\point Assorted remarks
-\section{杂项备注}
+\section{Assorted remarks}
 
 %%\spoint New fonts in formulas
 %\subsection{New fonts in formulas}
 %\spoint New fonts in formulas
-\subsection{公式中的新字体}
+\subsection{New fonts in formulas}
 
 %There are two ways to access a font inside mathematics.
 %\howto Change fonts in a math formula\par
@@ -341,18 +407,19 @@
 %\end{verbatim}
 %but this precludes the use of the new font in script and 
 %scriptscript styles.
-在数学内部访问字体有两种方式。
-\howto 在数学公式中更改字体\par
+There are two ways to access a font inside mathematics.
+\howto Change fonts in a math formula\par
 \mdqon
-在 \cs{font}""\cs{newfont=....} 之后，无法通过 \verb-$...{\newfont a}...$- 获取
+After \cs{font}""\cs{newfont=....} it is not possible to get
 \mdqoff
-新字体的“a”，因为 \TeX\ 在数学模式下不查看当前字体。
-可行的方法是
+the `a' of the new font by \verb-$...{\newfont a}...$-
+because \TeX\ does not look at the current font in math mode.
+What does work is
 \begin{verbatim}
 $ ... \hbox{\newfont a} ...$
 \end{verbatim}
-但这排除了在新字体中以角标和
-次角标样式使用。
+but this precludes the use of the new font in script and 
+scriptscript styles.
 
 %The proper solution  takes a bit more work:
 %\begin{verbatim}
@@ -369,7 +436,7 @@ $ ... \hbox{\newfont a} ...$
 %$... {\newfont a_{b_c}} ...$
 %\end{verbatim}
 %in all three styles.
-正确的解决方案需要更多工作：
+The proper solution  takes a bit more work:
 \begin{verbatim}
 \font\newtextfont=... 
 \font\newscriptfont=... \font\newsscriptfont=...
@@ -379,16 +446,16 @@ $ ... \hbox{\newfont a} ...$
 \scriptscriptfont\newfontfam=\newsscriptfont
 \def\newfont{\newtextfont \fam=\newfontfam}
 \end{verbatim}
-之后，字体可以按以下方式使用：
+after which the font can be used as
 \begin{verbatim}
 $... {\newfont a_{b_c}} ...$
 \end{verbatim}
-在所有三种样式中。
+in all three styles.
 
 %%\spoint Evaluating the families
 %\subsection{Evaluating the families}
 %\spoint Evaluating the families
-\subsection{评估字体族}
+\subsection{Evaluating the families}
 
 %\TeX\ will only look at what is actually in the \cs{textfont}
 %et cetera of the various families at the end of the whole
@@ -396,9 +463,12 @@ $... {\newfont a_{b_c}} ...$
 %inside a single formula.
 %The number of 16 families may therefore turn out to be restrictive
 %for some applications.
-\TeX\ 只会在整个公式结束时查看各个字体族的 \cs{textfont}
-等实际内容。因此，在单个公式内部切换字体族是不可能的。
-因此，16 个字体族的数量对于某些应用来说可能具有限制性。
+\TeX\ will only look at what is actually in the \cs{textfont}
+et cetera of the various families at the end of the whole
+formula. Switching fonts in the families is thus not possible
+inside a single formula.
+The number of 16 families may therefore turn out to be restrictive
+for some applications.
 
 
 %\endofchapter

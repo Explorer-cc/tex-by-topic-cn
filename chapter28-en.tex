@@ -8,7 +8,7 @@
 
 %\chapter{Output Routines}\label{output}
 %\index{output routine|(}
-\chapter{输出例程}\label{output}
+\chapter{Output Routines}\label{output}
 \index{output routine|(}
 
 %The final stages of page processing are performed by the
@@ -17,7 +17,12 @@
 %in \cs{box255}. This chapter treats the commands and parameters
 %that pertain to the output routine, and it explains how
 %output routines can receive information through marks.
-页面处理的最后阶段由输出例程执行。页面构建器从主垂直列表中截取一部分，并将其放入 \cs{box255} 中交给输出例程。本章讨论与输出例程相关的命令和参数，并解释输出例程如何通过标记接收信息。
+The final stages of page processing are performed by the
+output routine. The page builder cuts off a certain portion
+of the main vertical list and hands it to the output routine
+in \cs{box255}. This chapter treats the commands and parameters
+that pertain to the output routine, and it explains how
+output routines can receive information through marks.
 
 %\label{cschap:output}\label{cschap:shipout}\label{cschap:mark}\label{cschap:topmark}\label{cschap:botmark}\label{cschap:firstmark}\label{cschap:splitbotmark}\label{cschap:splitfirstmark}\label{cschap:deadcycles}\label{cschap:maxdeadcycles}\label{cschap:outputpenalty2}
 %\begin{inventory}
@@ -26,65 +31,68 @@
 \label{cschap:output}\label{cschap:shipout}\label{cschap:mark}\label{cschap:topmark}\label{cschap:botmark}\label{cschap:firstmark}\label{cschap:splitbotmark}\label{cschap:splitfirstmark}\label{cschap:deadcycles}\label{cschap:maxdeadcycles}\label{cschap:outputpenalty2}
 \begin{inventory}
 \item [\cs{output}] 
-      包含页面输出指令的记号列表。
+      Token list with instructions for shipping out pages.
 
 %\item [\cs{shipout}] 
 %      Ship a box to the \n{dvi} file.
 \item [\cs{shipout}] 
-      将盒子输出到 \n{dvi} 文件。
+      Ship a box to the \n{dvi} file.
 
 
 %\item [\cs{mark}] 
 %      Specify a mark text.
 \item [\cs{mark}] 
-      指定一个标记文本。
+      Specify a mark text.
 
 %\item [\cs{topmark}] 
 %      The last mark on the previous page.
 \item [\cs{topmark}] 
-      上一页的最后一个标记。
+      The last mark on the previous page.
 
 %\item [\cs{botmark}] 
 %      The last mark on the current page.
 \item [\cs{botmark}] 
-      当前页的最后一个标记。
+      The last mark on the current page.
 
 %\item [\cs{firstmark}] 
 %      The first mark on the current page.
 \item [\cs{firstmark}] 
-      当前页的第一个标记。
+      The first mark on the current page.
 
 %\item [\cs{splitbotmark}] 
 %      The last mark on a split-off page.
 \item [\cs{splitbotmark}] 
-      分割页上的最后一个标记。
+      The last mark on a split-off page.
 
 %\item [\cs{splitfirstmark}] 
 %      The first mark on a split-off page.
 \item [\cs{splitfirstmark}] 
-      分割页上的第一个标记。
+      The first mark on a split-off page.
 
 %\item [\cs{deadcycles}] 
 %      Counter that keeps track of how many times 
 %      the output routine has been called without a \cs{shipout} 
 %      taking place. 
 \item [\cs{deadcycles}] 
-      一个计数器，用于记录输出例程在没有发生 \cs{shipout} 的情况下被调用的次数。
+      Counter that keeps track of how many times 
+      the output routine has been called without a \cs{shipout} 
+      taking place. 
 
 %\item [\cs{maxdeadcycles}] 
 %      The maximum number of times that the output routine is allowed to
 %      be called without a \cs{shipout} occurring.
 \item [\cs{maxdeadcycles}] 
-      输出例程在没有发生 \cs{shipout} 的情况下被允许调用的最大次数。
+      The maximum number of times that the output routine is allowed to
+      be called without a \cs{shipout} occurring.
 
 %\item [\cs{outputpenalty}] 
 %      Value of the penalty at the current page break,
 % \alt
 %      or $10\,000$ if the break was not at a penalty.
 \item [\cs{outputpenalty}] 
-      当前分页处的罚值，
+      Value of the penalty at the current page break,
  \alt
-      如果分页不是在罚值处，则为 $10\,000$。
+      or $10\,000$ if the break was not at a penalty.
 
 %\end{inventory}
 \end{inventory}
@@ -93,16 +101,18 @@
 %%\point The \cs{output} token list
 %\section{The \protect\cs{output} token list}
 %\point The \cs{output} token list
-\section{\protect\cs{output} 记号列表}
+\section{The \protect\cs{output} token list}
 
 %Common parlance has it that
 %`the output routine is called' when \TeX\ has found a place
 %to break the main vertical list.
 %Actually, \cs{output} is not a macro but a token list that
 %is inserted into \TeX's command stream.
-通常的说法是，当 \TeX\ 找到一个断开主垂直列表的位置时，
-“输出例程被调用”。
-实际上，\cs{output} 不是一个宏，而是一个插入到 \TeX\ 命令流中的记号列表。
+Common parlance has it that
+`the output routine is called' when \TeX\ has found a place
+to break the main vertical list.
+Actually, \cs{output} is not a macro but a token list that
+is inserted into \TeX's command stream.
 
 %Insertion of the \cs{output} token list happens
 %\cstoidx output\par
@@ -114,15 +124,16 @@
 %The vertical mode implies that during the workings of the 
 %output routine 
 %spaces are mostly harmless.
-\cs{output} 记号列表的插入发生在
+Insertion of the \cs{output} token list happens
 \cstoidx output\par
-一个隐式打开的组内部。
-同时，\TeX\ 进入内部垂直模式。
-由于这个组，非局部赋值
-（例如对页码的赋值）
-必须以 \cs{global} 作为前缀。
-垂直模式意味着在输出例程运行期间，
-空格大多无害。
+inside a group that is implicitly opened.
+Also, \TeX\ enters internal vertical mode.
+Because of the group, non-local assignments 
+(to the page number, for instance)
+have to be prefixed with \cs{global}.
+The vertical mode implies that during the workings of the 
+output routine 
+spaces are mostly harmless.
 
 %The \cs{output} token list belongs
 %to the class of the
@@ -134,13 +145,15 @@
 %or\quad 
 %\cs{output}\gr{equals}\gr{filler}\gr{token variable}
 %\end{disp}
-\cs{output} 记号列表属于
-\gr{记号参数} 的类别。它们的行为与
-\cs{toks}$nnn$ 记号列表相同；参见第 \ref{token} 章。
-因此，赋值输出例程可以采用以下形式：
-\begin{disp}\cs{output}\gr{等于}\gr{通用文本}\quad
-或\quad 
-\cs{output}\gr{等于}\gr{填充符}\gr{记号变量}
+The \cs{output} token list belongs
+to the class of the
+\gr{token parameter}s. These behave the same as
+\cs{toks}$nnn$ token lists; see Chapter~\ref{token}.
+Assigning an output routine can therefore take the following
+forms:
+\begin{disp}\cs{output}\gr{equals}\gr{general text}\quad
+or\quad 
+\cs{output}\gr{equals}\gr{filler}\gr{token variable}
 \end{disp}
 
 
@@ -148,7 +161,7 @@
 %\section{Output and \protect\cs{box255}}
 %\label{output255}
 %\point[output255] Output and \cs{box255}
-\section{输出和 \protect\cs{box255}}
+\section{Output and \protect\cs{box255}}
 \label{output255}
 
 %\TeX's page builder breaks the current page at the optimal point,
@@ -166,20 +179,21 @@
 %When the output routine is finished, \cs{box255} is
 %supposed to be empty.
 %If it is not, \TeX\ gives an error message.
-\TeX\ 的页面构建器在最佳位置断开当前页面，
-并将该位置以上的所有内容存储在 \cs{box255} 中；
-然后，\cs{output} 记号被插入到输入流中。
-主垂直列表中任何剩余的材料
-会被推回到最近的
-贡献。
-如果页面是在罚值处断开的，
+\TeX's page builder breaks the current page at the optimal point,
+and stores everything above that in \cs{box255};
+then, the \cs{output} tokens are inserted into the input stream.
+Any remaining material on the main vertical list
+is pushed back to the recent 
+contributions. 
+If the page is broken at a penalty,
 \alt
-该值记录在 \cs{outputpenalty} 中，并且
-一个大小为 $10\,000$ 的罚值被放置在
-最近贡献的顶部；否则，\cs{outputpenalty}
-被设置为 $10\,000$。
-当输出例程完成时，\cs{box255} 应该为空。
-如果不是，\TeX\ 会给出错误消息。
+that value is recorded in \cs{outputpenalty}, and 
+a penalty of size $10\,000$ is placed on top of the
+recent contributions; otherwise, \cs{outputpenalty}
+is set to~$10\,000$.
+When the output routine is finished, \cs{box255} is
+supposed to be empty.
+If it is not, \TeX\ gives an error message.
 
 %Usually, the output routine will take the pagebox,
 %\cstoidx shipout\par
@@ -201,13 +215,13 @@
 %smaller height.
 %Thus, the above output routine may lead to underfull boxes.
 %This can be remedied with a \cs{vfil}.
-通常，输出例程会获取页面盒子，
+Usually, the output routine will take the pagebox,
 \cstoidx shipout\par
 \mdqon
-添加页眉和/或页脚，
+append a headline and/""or footline,
 \mdqoff
-可能合并一些插入内容，例如脚注，
-然后将页面输出到 \n{dvi} 文件：
+maybe merge in some insertions such as footnotes,
+and ship the page to the \n{dvi} file:
 \begin{verbatim}
 \output={\setbox255=\vbox
            {\someheadline 
@@ -215,12 +229,12 @@
             \somefootline}
          \shipout\box255}
 \end{verbatim}
-当盒子 255 到达输出例程时，其高度已
-设置为 \cs{vsize}。
-然而，其中的内容可能具有明显
-更小的高度。
-因此，上述输出例程可能导致盒子不满。
-这可以通过 \cs{vfil} 弥补。
+When box 255 reaches the output routine, its height has
+been set to \cs{vsize}.
+However, the material in it can have considerably
+smaller height.
+Thus, the above output routine may lead to underfull boxes.
+This can be remedied with a \cs{vfil}.
 
 %The output routine is under no obligation to
 %\cstoidx deadcycles\par
@@ -231,13 +245,15 @@
 %is recorded in \cs{deadcycles}: this parameter is set to~0
 %by \cs{shipout}, and increased by~1 just before 
 %every \cs{output}.
-输出例程没有义务
+The output routine is under no obligation to
 \cstoidx deadcycles\par
-对 \cs{box255} 做任何有用的事情；它可以清空它，或者
-将其解包，让 \TeX\ 再次尝试寻找分页符。
-输出例程推迟 \cs{shipout} 的次数
-记录在 \cs{deadcycles} 中：此参数在 \cs{shipout} 时设置为 0，
-并在每次 \cs{output} 之前增加 1。
+do anything useful with \cs{box255}; it can empty it, or
+unbox it to let \TeX\ have another go at finding a page
+break. The number of times
+that the output routing  postpones the \cs{shipout}
+is recorded in \cs{deadcycles}: this parameter is set to~0
+by \cs{shipout}, and increased by~1 just before 
+every \cs{output}.
 
 %When  the number of dead cycles reaches
 %\csidx{maxdeadcycles}, \TeX\ gives an error message,
@@ -251,26 +267,27 @@
 %than plain \TeX, because the output routine in \LaTeX\
 %is often called for
 %intermediate handling of floats and marginal notes.
-当死循环次数达到
-\csidx{maxdeadcycles} 时，\TeX\ 会给出错误消息，
-并执行默认输出例程
+When  the number of dead cycles reaches
+\csidx{maxdeadcycles}, \TeX\ gives an error message,
+and performs the default output routine
 \begin{verbatim}
 \shipout\box255
 \end{verbatim}
-而不是它即将开始的例程。
-\LaTeX\ 格式的 \cs{maxdeadcycles} 值远高于 plain \TeX\ ，
-因为 \LaTeX\ 中的输出例程
-经常被调用以进行
-浮动体和旁注的中间处理。
+instead of the routine it was about
+to start.
+The \LaTeX\ format has a much higher value for \cs{maxdeadcycles}
+than plain \TeX, because the output routine in \LaTeX\
+is often called for
+intermediate handling of floats and marginal notes.
 
 %The \cs{shipout} command can send any \gr{box} to the \n{dvi} file;
 %this need not be box 255, or even a box
 %containing the current page.
 %It does not have to be called inside the output routine, either.
-\cs{shipout} 命令可以将任何 \gr{盒子} 发送到 \n{dvi} 文件；
-这不一定是盒子 255，甚至不一定是
-包含当前页面的盒子。
-它也不必在输出例程内部调用。
+The \cs{shipout} command can send any \gr{box} to the \n{dvi} file;
+this need not be box 255, or even a box
+containing the current page.
+It does not have to be called inside the output routine, either.
 
 %If the output routine produces any material, for instance
 %by calling
@@ -279,29 +296,29 @@
 %\end{verbatim}
 %this is put on top
 %of the recent contributions.
-如果输出例程产生任何材料，例如
-通过调用
+If the output routine produces any material, for instance
+by calling
 \begin{verbatim}
 \unvbox255
 \end{verbatim}
-这会放在
-最近贡献的顶部。
+this is put on top
+of the recent contributions.
 
 %After the output routine finishes, the page builder is
 %activated. In particular, because the current page
 %has been emptied, the \cs{vsize} is read again.
 %Changes made to this parameter inside the output
 %routine (using \cs{global}) will therefore take effect.
-输出例程结束后，页面构建器被
-激活。特别是，由于当前页面
-已清空，\cs{vsize} 会再次读取。
-在输出例程内部对该参数所做的更改
-（使用 \cs{global}）因此会生效。
+After the output routine finishes, the page builder is
+activated. In particular, because the current page
+has been emptied, the \cs{vsize} is read again.
+Changes made to this parameter inside the output
+routine (using \cs{global}) will therefore take effect.
 
 %%\point Marks
 %\section{Marks}
 %\point Marks
-\section{标记}
+\section{Marks}
 
 %Information can be passed to the output routine through the
 %\cstoidx mark\par
@@ -310,22 +327,24 @@
 %\begin{disp}\cs{mark}\lb\gr{mark text}\rb\end{disp}
 %which is put in a mark item on the current vertical list.
 %The mark text is subject to expansion as in \cs{edef}.
-信息可以通过
+Information can be passed to the output routine through the
 \cstoidx mark\par
-\indexterm{标记} 机制传递给输出例程。用户可以指定一个记号列表
-，通过
-\begin{disp}\cs{mark}\lb\gr{标记文本}\rb\end{disp}
-将其放置在当前垂直列表中的标记项中。
-标记文本像 \cs{edef} 一样会进行展开。
+mechanism of \indexterm{marks}. The user can specify a token list
+with 
+\begin{disp}\cs{mark}\lb\gr{mark text}\rb\end{disp}
+which is put in a mark item on the current vertical list.
+The mark text is subject to expansion as in \cs{edef}.
 
 %If the mark is given in horizontal mode it migrates to
 %the surrounding vertical lists like an insertion item
 %(see page~\pageref{migrate});
 %however, if this is not the external vertical list, the
 %output routine will not find the mark.
-如果标记是在水平模式下给出的，它会像插入项一样迁移到
-周围的垂直列表（参见第 \pageref{migrate} 页）；
-然而，如果这不是外部垂直列表，输出例程将找不到该标记。
+If the mark is given in horizontal mode it migrates to
+the surrounding vertical lists like an insertion item
+(see page~\pageref{migrate});
+however, if this is not the external vertical list, the
+output routine will not find the mark.
 
 %Marks are the main mechanism through which the output routine
 %can obtain information about the contents of the currently
@@ -345,33 +364,35 @@
 %if no marks occurred on the current page, 
 %all three mark variables are equal
 %to the \cs{botmark} of the previous page.
-标记是输出例程获取当前
-已断开页面内容信息的主要机制，特别是其顶部和底部。
-\TeX\ 设置了三个变量：
+Marks are the main mechanism through which the output routine
+can obtain information about the contents of the currently
+broken-off page, in particular its top and bottom.
+\TeX\ sets three variables:
 \begin{description} 
 \item [\csidx{botmark}]
-   当前页面上出现的最后一个标记；
+   the last mark occurring on the current page;
 \item [\csidx{firstmark}]
-   当前页面上出现的第一个标记；
+   the first mark occurring on the current page;
 \item [\csidx{topmark}]
-   上一页的最后一个标记，
-   即上一页的 \cs{botmark} 值。
+   the last mark of the previous page,
+   that is, the value of \cs{botmark}
+   on the previous page.
 \end{description}
-如果尚未出现任何标记，则这三个变量都为空；
-如果当前页面上没有出现任何标记，
-则这三个标记变量都等于
-上一页的 \cs{botmark}。
+If no marks have occurred yet, all three are empty;
+if no marks occurred on the current page, 
+all three mark variables are equal
+to the \cs{botmark} of the previous page.
 
 %For boxes generated by a \cs{vsplit} command (see previous chapter),
 %the \cs{splitbotmark} and \cs{splitfirstmark}
 %\cstoidx splitbotmark\par\cstoidx splitfirstmark\par
 %contain the marks of the split-off part; \cs{firstmark}
 %and \cs{botmark} reflect the state of what remains in the register.
-对于由 \cs{vsplit} 命令生成的盒子（参见上一章），
-\cs{splitbotmark} 和 \cs{splitfirstmark}
+For boxes generated by a \cs{vsplit} command (see previous chapter),
+the \cs{splitbotmark} and \cs{splitfirstmark}
 \cstoidx splitbotmark\par\cstoidx splitfirstmark\par
-包含分割部分的标记；\cs{firstmark}
-和 \cs{botmark} 反映了寄存器中剩余内容的状态。
+contain the marks of the split-off part; \cs{firstmark}
+and \cs{botmark} reflect the state of what remains in the register.
 
 %\begin{example} Marks can be used to get a section heading into
 %\howto Do tricks with headlines\par
@@ -388,9 +409,9 @@
 %that starts on the right page in the right headline.
 %Placing the headlines on the page is the job of the output routine;
 %see below.
-\begin{example} 标记可以用于将章节标题放入
-\howto 在页眉中玩花样\par
-页眉或页脚中。
+\begin{example} Marks can be used to get a section heading into
+\howto Do tricks with headlines\par
+the headline or footline of the page.
 \begin{verbatim}
 \def\section#1{ ... \mark{#1} ... }
 \def\rightheadline{\hbox to \hsize
@@ -398,10 +419,11 @@
 \def\leftheadline{\hbox to \hsize
    {\headlinefont \pagenumber\hfil\firstmark}}
 \end{verbatim}
-这会将左页开头的第一节标题放置在左页眉中，并将右页开头
-的最后一节标题放置在右页眉中。
-将页眉放置在页面上是输出例程的工作；
-见下文。
+This places the title of the first section that starts on a 
+left page in the left headline, and the title of the last section
+that starts on the right page in the right headline.
+Placing the headlines on the page is the job of the output routine;
+see below.
 
 %It is important that no page breaks can occur in between the
 %mark and the box that places the title:
@@ -415,7 +437,8 @@
 %    \noindent}
 %\end{verbatim}
 %\end{example}
-重要的是，标记和放置标题的盒子之间不能发生分页：
+It is important that no page breaks can occur in between the
+mark and the box that places the title:
 \begin{verbatim}
 \def\section#1{ ...
     \penalty\beforesectionpenalty
@@ -439,27 +462,28 @@
 %\end{verbatim}
 %Only on the page where a chapter starts will the mark be~1,
 %and on all other pages a headline is placed.
-让我们考虑
-另一个带有页眉的例子：通常，如果章节开始的页面省略页眉，页面会看起来更好。
-这可以通过以下方式实现：
+Let us consider
+another example with headlines: often a page looks better if
+the headline is omitted on pages where a chapter starts.
+This can be implemented as follows:
 \begin{verbatim}
 \def\endofchapter
 \chapter#1{ ... \def\chtitle{#1}\mark{1}\mark{0} ... }
 \def\theheadline{\expandafter\ifx\firstmark1 
     \else \chapheadline \fi}
 \end{verbatim}
-只有在章节开始的页面上，标记才会是 1，
-而在所有其他页面上，都会放置页眉。
+Only on the page where a chapter starts will the mark be~1,
+and on all other pages a headline is placed.
 
 %%\point Assorted remarks
 %\section{Assorted remarks}
 %\point Assorted remarks
-\section{杂项备注}
+\section{Assorted remarks}
 
 %%\spoint Hazards in non-trivial output routines
 %\subsection{Hazards in non-trivial output routines}
 %\spoint Hazards in non-trivial output routines
-\subsection{非平凡输出例程中的危险}
+\subsection{Hazards in non-trivial output routines}
 
 %If the final call to the output routine does not
 %perform a \cs{shipout}, \TeX\ will call the output
@@ -467,27 +491,28 @@
 %the vertical list is empty, and \cs{deadcycles}
 %is zero. The output routine can set \cs{deadcycles}
 %to zero to prevent this.
-如果对输出例程的最后一次调用没有
-执行 \cs{shipout}，\TeX\ 将会无休止地调用输出
-例程，因为只有当垂直列表为空且 \cs{deadcycles}
-为零时，运行才会停止。输出例程可以将 \cs{deadcycles}
-设置为零以防止这种情况发生。
+If the final call to the output routine does not
+perform a \cs{shipout}, \TeX\ will call the output
+routine endlessly, since a run will only stop if both
+the vertical list is empty, and \cs{deadcycles}
+is zero. The output routine can set \cs{deadcycles}
+to zero to prevent this.
 
 %%\spoint Page numbering
 %\subsection{Page numbering}
 %\index{page!numbering|(}
 %\spoint Page numbering
-\subsection{页码编号}
+\subsection{Page numbering}
 \index{page!numbering|(}
 
 %The page number is not an intrinsic property of the output
 %routine; in plain \TeX\ it is  the value of \cs{count0}.
 %The output routine is responsible for increasing the
 %page number when a shipout of a  page occurs.
-页码不是输出例程的固有属性；
-在 plain \TeX\ 中，它是 \cs{count0} 的值。
-当页面输出时，输出例程负责增加
-页码。
+The page number is not an intrinsic property of the output
+routine; in plain \TeX\ it is  the value of \cs{count0}.
+The output routine is responsible for increasing the
+page number when a shipout of a  page occurs.
 
 %Apart from   \cs{count0}, counter registers~1--9 are also used
 %for page identification: at shipout \TeX\ writes the values
@@ -497,20 +522,20 @@
 %a higher number exists, that is, if \cs{count0}${}=1$ and
 %\cs{count3}${}=5$ are the only non-zero counters, the
 %displayed list of counters is~\n{[1.0.0.5]}.
-除了 \cs{count0} 之外，计数器寄存器 1--9 也用于
-页面标识：在输出时，\TeX\ 将这十个计数器的值
-写入 \n{dvi} 文件（参见第 \ref{TeXcomm} 章）。
-终端和日志文件输出只显示非零计数器，
-以及存在更高编号的非零计数器的零计数器，
-也就是说，如果 \cs{count0}${}=1$ 和
-\cs{count3}${}=5$ 是唯一的非零计数器，则
-显示的计数器列表是 \n{[1.0.0.5]}。
+Apart from   \cs{count0}, counter registers~1--9 are also used
+for page identification: at shipout \TeX\ writes the values
+of these ten counters to the \n{dvi} file (see Chapter~\ref{TeXcomm}).
+Terminal and log file output display only the non-zero counters,
+and the zero counters for which a non-zero counter with
+a higher number exists, that is, if \cs{count0}${}=1$ and
+\cs{count3}${}=5$ are the only non-zero counters, the
+displayed list of counters is~\n{[1.0.0.5]}.
 
 %\index{page!numbering|)}
 \index{page!numbering|)}
 
 %\subsection{Headlines and footlines in plain \TeX}
-\subsection{plain \TeX\ 中的页眉和页脚}
+\subsection{Headlines and footlines in plain \TeX}
 
 %Plain \TeX\ has token lists \cs{headline} and
 %\cs{footline}; these are used in the macros
@@ -519,10 +544,10 @@
 %\begin{verbatim}
 %\vbox{\makeheadline\pagebody\makefootline}
 %\end{verbatim}
-Plain \TeX\ 具有记号列表 \cs{headline} 和
-\cs{footline}；它们用于宏
-\handbreak \cs{makeheadline} 和 \cs{makefootline} 中。
-页面输出时（或多或少）为
+Plain \TeX\ has token lists \cs{headline} and
+\cs{footline}; these are used in the macros
+\handbreak \cs{makeheadline} and \cs{makefootline}.
+The page is shipped out as (more or less)
 \begin{verbatim}
 \vbox{\makeheadline\pagebody\makefootline}
 \end{verbatim}
@@ -531,14 +556,15 @@ Plain \TeX\ 具有记号列表 \cs{headline} 和
 %For non-standard headers and footers it is easier to
 %redefine the macros \cs{makeheadline} and \cs{makefootline}
 %than to tinker with the token lists.
-页眉和页脚都插入在 \cs{line} 内部。
-对于非标准页眉和页脚，重新定义宏 \cs{makeheadline} 和 \cs{makefootline}
-比修改记号列表更容易。
+Both headline and footline are inserted inside a \cs{line}.
+For non-standard headers and footers it is easier to
+redefine the macros \cs{makeheadline} and \cs{makefootline}
+than to tinker with the token lists.
 
 %%\spoint Example: no widow lines
 %\subsection{Example: no widow lines}
 %\spoint Example: no widow lines
-\subsection{示例：无孤行}
+\subsection{Example: no widow lines}
 
 %Suppose that one does not want to allow widow lines,
 %but pages have in general no stretch or shrink,
@@ -546,11 +572,12 @@ Plain \TeX\ 具有记号列表 \cs{headline} 和
 %A~solution would be to increase the page length
 %by one line if a page turns out to be broken
 %at a widow line.
-假设不希望出现孤行，
-但页面通常没有伸展或收缩，
-例如因为它们只包含纯文本。
-一个解决方案是，如果页面恰好在
-孤行处断开，则将页面长度增加一行。
+Suppose that one does not want to allow widow lines,
+but pages have in general no stretch or shrink,
+for instance because they only contain plain text.
+A~solution would be to increase the page length
+by one line if a page turns out to be broken
+at a widow line.
 
 %\TeX's output routine can perform this sort of
 %trick: if the \cs{widowpenalty} is set to
@@ -560,14 +587,14 @@ Plain \TeX\ 具有记号列表 \cs{headline} 和
 %can temporarily increase the \cs{vsize}, and
 %let the page builder have another go at
 %finding a break point.
-\TeX\ 的输出例程可以执行这种
-技巧：如果 \cs{widowpenalty} 设置为
-某个可识别的值，输出例程
-可以通过 \cs{outputpenalty} 查看是否出现了孤行。
-在这种情况下，输出例程
-可以暂时增加 \cs{vsize}，然后
-让页面构建器再次尝试
-寻找断点。
+\TeX's output routine can perform this sort of
+trick: if the \cs{widowpenalty} is set to
+some recognizable value, the output routine
+can see by the \cs{outputpenalty} if a widow
+line occurred. In that case, the output routine
+can temporarily increase the \cs{vsize}, and
+let the page builder have another go at
+finding a break point.
 
 %Here is the skeleton of such an output routine.
 %No headers or footers are provided for.
@@ -590,8 +617,8 @@ Plain \TeX\ 具有记号列表 \cs{headline} 和
 %equals the \cs{widowpenalty}. The page box
 %is then \cs{unvbox}$\,$ed, so that the page builder
 %will tackle the same material once more.
-以下是此类输出例程的骨架。
-未提供页眉或页脚。
+Here is the skeleton of such an output routine.
+No headers or footers are provided for.
 \begin{verbatim}
 \newif\ifLargePage \widowpenalty=147
 \newdimen\oldvsize \oldvsize=\vsize
@@ -606,24 +633,25 @@ Plain \TeX\ 具有记号列表 \cs{headline} 和
           \else  \shipout\box255
     \fi   \fi}
 \end{verbatim}
-如果 \cs{outputpenalty} 等于 \cs{widowpenalty}，
-则输出例程会将 \cs{ifLargePage} 测试设置为真。
-然后页面盒子被 \cs{unvbox}$\,$ed，
-这样页面构建器将再次处理相同的材料。
+The test \cs{ifLargePage} is set to true by the
+output routine if the \cs{outputpenalty}
+equals the \cs{widowpenalty}. The page box
+is then \cs{unvbox}$\,$ed, so that the page builder
+will tackle the same material once more.
 
 %%\spoint Example: no indentation top of page
 %\subsection{Example: no indentation top of page}
 %\spoint Example: no indentation top of page
-\subsection{示例：页面顶部无缩进}
+\subsection{Example: no indentation top of page}
 
 %Some  output routines can be classified
 %\howto Prevent indentation on top of page\par
 %as abuse of the output routine mechanism.
 %The output routine in this section is a good example of this.
-有些输出例程可以归类为
-\howto 阻止页面顶部缩进\par
-滥用输出例程机制。
-本节中的输出例程就是一个很好的例子。
+Some  output routines can be classified
+\howto Prevent indentation on top of page\par
+as abuse of the output routine mechanism.
+The output routine in this section is a good example of this.
 
 %It is imaginable that one wishes paragraphs not to indent
 %if they start at the top of a page. (There are plenty of objections
@@ -631,18 +659,23 @@ Plain \TeX\ 具有记号列表 \cs{headline} 和
 %This problem can be solved using the output routine to
 %investigate whether the page is still empty and, if so,
 %to give a signal that a paragraph should not indent.
-可以想象，人们可能希望段落如果从页面顶部开始就不缩进。（这种布局有很多反对意见，但偶尔也会使用。）
-这个问题可以通过使用输出例程来解决，以检查页面是否仍然为空，如果是，则发出信号表明段落不应缩进。
+It is imaginable that one wishes paragraphs not to indent
+if they start at the top of a page. (There are plenty of objections
+to this layout, but occasionally it is used.)
+This problem can be solved using the output routine to
+investigate whether the page is still empty and, if so,
+to give a signal that a paragraph should not indent.
 
 %Note that we cannot use the fact here
 %that the page builder comes into play after
 %the insertion of \cs{everypar}: even if we could
 %force the output routine to be activated here,
 %there is no way for it to remove the indentation box.
-请注意，我们不能在这里利用
-页面构建器在插入 \cs{everypar} 之后才起作用的事实：
-即使我们能够强制输出例程在此处激活，
-它也无法移除缩进盒子。
+Note that we cannot use the fact here
+that the page builder comes into play after
+the insertion of \cs{everypar}: even if we could
+force the output routine to be activated here,
+there is no way for it to remove the indentation box.
 
 %The solution given here lets the \cs{everypar}
 %terminate the paragraph immediately
@@ -656,17 +689,18 @@ Plain \TeX\ 具有记号列表 \cs{headline} 和
 %the output routine then can set a switch
 %signalling whether the retry of the paragraph
 %should indent.
-这里给出的解决方案让 \cs{everypar}
-立即终止段落，
-通过
+The solution given here lets the \cs{everypar}
+terminate the paragraph immediately
+with
 \begin{verbatim}
 \par\penalty-\specialpenalty
 \end{verbatim}
-这会激活输出例程。
-查看页面盒子是否为空（在移除
-空行和任何 \cs{parskip} 粘连之后），
-输出例程然后可以设置一个开关，
-指示段落的重试是否应该缩进。
+which activates the output routine.
+Seeing whether the pagebox is empty (after removing
+the empty line and any \cs{parskip} glue),
+the output routine then can set a switch
+signalling whether the retry of the paragraph
+should indent.
 
 %There are some minor matters in the following
 %routines, the sense of which is left
@@ -691,8 +725,9 @@ Plain \TeX\ 具有记号列表 \cs{headline} 和
 %        \else \topskip=0pt \unvbox\testbox \fi
 %    \else \shipout\box255 \global\advance\pageno1 \fi}
 %\end{verbatim}
-以下例程中存在一些小细节，其含义留待
-读者思考。
+There are some minor matters in the following
+routines, the sense of which is left
+for the reader to ponder.
 \begin{verbatim}
 \mathchardef\specialpenalty=10001
 \newif\ifPreventSwitch 
@@ -717,11 +752,12 @@ Plain \TeX\ 具有记号列表 \cs{headline} 和
 %%\spoint More examples of output routines
 %\subsection{More examples of output routines}
 %\spoint More examples of output routines
-\subsection{更多输出例程示例}
+\subsection{More examples of output routines}
 
 %A large number of examples of output routines
 %can be found in~\cite{Sal1} and~\cite{Sal2}.
-大量输出例程的示例可以在 \cite{Sal1} 和 \cite{Sal2} 中找到。
+A large number of examples of output routines
+can be found in~\cite{Sal1} and~\cite{Sal2}.
 
 %\index{output routine|)}
 \index{output routine|)}

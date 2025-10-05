@@ -7,15 +7,16 @@
 \begin{document}
 
 %\chapter{Rules and Leaders}\label{rules}
-\chapter{标尺与引导线}\label{rules}
+\chapter{Rules and Leaders}\label{rules}
 
 %Rules and leaders are two ways of getting \TeX\ to draw a line.
 %Leaders are more general than rules: they can also fill
 %available space with copies of a certain box. This chapter
 %explain how rules and leaders work, and how they interact with modes.
-标尺和引导线是让 \TeX\ 绘制线条的两种方法。
-引导线比标尺更通用：它们还可以用某个盒子的副本来填充可用空间。
-本章将解释标尺和引导线的工作原理，以及它们如何与模式交互。
+Rules and leaders are two ways of getting \TeX\ to draw a line.
+Leaders are more general than rules: they can also fill
+available space with copies of a certain box. This chapter
+explain how rules and leaders work, and how they interact with modes.
 
 %\label{cschap:hrule}\label{cschap:vrule}\label{cschap:leaders}\label{cschap:cleaders}\label{cschap:xleaders}
 %\begin{inventory}
@@ -24,29 +25,31 @@
 \label{cschap:hrule}\label{cschap:vrule}\label{cschap:leaders}\label{cschap:cleaders}\label{cschap:xleaders}
 \begin{inventory}
 \item [\cs{hrule}] 
-      在水平方向上延伸的标尺。
+      Rule that spreads in horizontal direction.
 
 %\item [\cs{vrule}] 
 %      Rule that spreads in vertical direction.
 \item [\cs{vrule}] 
-      在垂直方向上延伸的标尺。
+      Rule that spreads in vertical direction.
 
 %\item [\cs{leaders}] 
 %      Fill a specified amount of space with a rule or copies of box.
 \item [\cs{leaders}] 
-      用标尺或盒子的副本填充指定的空间。
+      Fill a specified amount of space with a rule or copies of box.
 
 %\item [\cs{cleaders}] 
 %      Like \verb=\leaders=, but with box leaders 
 %      any excess space is split equally before and after the leaders.
 \item [\cs{cleaders}] 
-      类似于 \verb=\leaders=，但对于盒子引导线，任何多余的空间会在引导线前后平分。
+      Like \verb=\leaders=, but with box leaders 
+      any excess space is split equally before and after the leaders.
 
 %\item [\cs{xleaders}] 
 %      Like \verb=\leaders=, but with box leaders any excess space is 
 %      spread equally before, after, and between the boxes.
 \item [\cs{xleaders}] 
-      类似于 \verb=\leaders=，但对于盒子引导线，任何多余的空间会在盒子之前、之后以及盒子之间平均分布。
+      Like \verb=\leaders=, but with box leaders any excess space is 
+      spread equally before, after, and between the boxes.
 
 %\end{inventory}
 \end{inventory}
@@ -54,7 +57,7 @@
 %%\point Rules
 %\section{Rules}
 %\point Rules
-\section{标尺}
+\section{Rules}
 
 %\TeX's rule commands give
 %\indexterm{rules}:
@@ -62,9 +65,12 @@
 %Most of the times, a rule command will give output that
 %looks like a rule, but~\hbox{\vrule height 1.5ex width 1.5ex}
 %can also be produced by a rule.
-\TeX\ 的标尺命令可以生成\indexterm{标尺} (rules)：
-带有水平和垂直边的矩形黑色块。
-大多数情况下，标尺命令会产生看起来像一条线的输出，但像 \hbox{\vrule height 1.5ex width 1.5ex} 这样的方块也可以由标尺生成。
+\TeX's rule commands give
+\indexterm{rules}:
+rectangular black patches with horizontal and vertical sides.
+Most of the times, a rule command will give output that
+looks like a rule, but~\hbox{\vrule height 1.5ex width 1.5ex}
+can also be produced by a rule.
 
 %\TeX\ has both horizontal and vertical rules, 
 %but the names do not necessarily imply anything about the shape.
@@ -74,20 +80,25 @@
 %In fact, an \cs{hrule} is a \gr{vertical command}, and a \cs{vrule}
 %is a \gr{horizontal command}, so \TeX\ may change
 %modes when encountering these commands.
-\TeX\ 有水平标尺和垂直标尺，
-但它们的名称不一定暗示其形状。
-然而，它们确实暗示了与模式相关的信息：
-\csidx{hrule} 命令只能在垂直模式下使用，
-而 \csidx{vrule} 只能在水平模式下使用。
-事实上，\cs{hrule} 是一个\gr{垂直命令}，而 \cs{vrule} 是一个\gr{水平命令}，所以 \TeX\ 在遇到这些命令时可能会改变模式。
+\TeX\ has both horizontal and vertical rules, 
+but the names do not necessarily imply anything about the shape.
+They do, however, imply something about modes:
+an \csidx{hrule} command can only be used in vertical mode,
+and a \csidx{vrule} only in horizontal mode.
+In fact, an \cs{hrule} is a \gr{vertical command}, and a \cs{vrule}
+is a \gr{horizontal command}, so \TeX\ may change
+modes when encountering these commands.
 
 %Why then is a \cs{vrule} called a {\em vertical\/} rule?
 %The reason is that a \cs{vrule} can expand arbitrarily
 %far in the vertical direction: if its height and depth are not
 %specified explicitly it will take as much room as its
 %surroundings allow\altt.
-那么为什么 \cs{vrule} 被称为{\em 垂直\/}标尺呢？
-原因在于 \cs{vrule} 可以在垂直方向上任意延伸：如果它的高度和深度没有明确指定，它将占据其周围环境所允许的全部空间\altt。
+Why then is a \cs{vrule} called a {\em vertical\/} rule?
+The reason is that a \cs{vrule} can expand arbitrarily
+far in the vertical direction: if its height and depth are not
+specified explicitly it will take as much room as its
+surroundings allow\altt.
 
 %\begin{example}
 %\begin{verbatim}
@@ -105,12 +116,12 @@
 \begin{verbatim}
 \hbox{\vrule\ text \vrule}
 \end{verbatim}
-看起来像 \begin{disp}\leavevmode\hbox{\vrule\ text \vrule}\end{disp}
-并且
+looks like \begin{disp}\leavevmode\hbox{\vrule\ text \vrule}\end{disp}
+and
 \begin{verbatim}
 \hbox{\vrule\ A gogo! \vrule}
 \end{verbatim}
-看起来像
+looks like
 \begin{disp}\leavevmode\hbox{\vrule\ A gogo! \vrule}\end{disp}
 \end{example}
 
@@ -122,19 +133,20 @@
 %\end{verbatim}
 %looks like
 %\begin{disp}\leavevmode\vtop{\hbox{One line of text}\hrule}\end{disp}
-对于 \cs{hrule} 命令，类似的说法也成立：
-水平标尺可以延伸以占据其周围环境的宽度。因此
+For the \cs{hrule} command a similar statement is true:
+a horizontal rule can spread to assume the width of
+its surroundings. Thus 
 \begin{verbatim}
 \vbox{\hbox{One line of text}\hrule}
 \end{verbatim}
-看起来像
+looks like
 \begin{disp}\leavevmode\vtop{\hbox{One line of text}\hrule}\end{disp}
 
 
 %%\spoint Rule dimensions
 %\subsection{Rule dimensions}
 %\spoint Rule dimensions
-\subsection{标尺尺寸}
+\subsection{Rule dimensions}
 
 %Horizontal and vertical rules have a default thickness:
 %\begin{Disp} \cs{hrule}\quad is the same as\quad \verb-\hrule height.4pt depth0pt-
@@ -143,12 +155,13 @@
 %\begin{Disp} \cs{vrule}\quad is the same as\quad \verb-\vrule width.4pt- \end{Disp}
 %and if the remaining dimension remains unspecified, the rule
 %extends in that direction to fill the enclosing box.
-水平和垂直标尺有默认的厚度：
-\begin{Disp} \cs{hrule}\quad 与\quad \verb-\hrule height.4pt depth0pt- 相同
+Horizontal and vertical rules have a default thickness:
+\begin{Disp} \cs{hrule}\quad is the same as\quad \verb-\hrule height.4pt depth0pt-
 \end{Disp}
-并且
-\begin{Disp} \cs{vrule}\quad 与\quad \verb-\vrule width.4pt- 相同 \end{Disp}
-如果剩下的维度未指定，标尺将向该方向延伸以填充所在的盒子。
+and 
+\begin{Disp} \cs{vrule}\quad is the same as\quad \verb-\vrule width.4pt- \end{Disp}
+and if the remaining dimension remains unspecified, the rule
+extends in that direction to fill the enclosing box.
 
 %Here is the formal specification of how to indicate rule sizes:
 %\begin{disp}\gr{vertical rule} $\longrightarrow$ 
@@ -178,7 +191,7 @@
 %\hrule height 2pt
 %\end{verbatim}
 %to specify other heights.
-以下是如何指定标尺尺寸的正式规范：
+Here is the formal specification of how to indicate rule sizes:
 \begin{disp}\gr{vertical rule} $\longrightarrow$ 
                         \cs{vrule}\gr{rule specification}\nl
      \gr{horizontal rule} $\longrightarrow$
@@ -190,19 +203,22 @@
                         \n{width}\gr{dimen} $|$ \n{height}\gr{dimen} $|$
                         \n{depth}\gr{dimen}
      \end{disp}
-如果一个标尺尺寸被指定了两次，后一个实例将覆盖前一个。
-这使得覆盖默认尺寸成为可能。例如，
-在
+If a rule dimension is specified twice, the second instance
+takes precedence over the first. This makes it possible
+to override the default dimensions. For instance,
+after
 \alt
-\howto 更改标尺的默认尺寸\par
+\howto Change the default dimensions of rules\par
 \begin{verbatim}
 \let\xhrule\hrule  \def\hrule{\xhrule height .8pt}
 \end{verbatim}
-之后，宏 \cs{hrule} 会生成一个两倍于原始高度的水平标尺，并且仍然可以使用
+the macro \cs{hrule} gives a horizontal rule
+of double the original height, and it is still possible
+with
 \begin{verbatim}
 \hrule height 2pt
 \end{verbatim}
-来指定其他高度。
+to specify other heights.
 
 %It is possible to specify all three dimensions; then
 %\begin{verbatim}
@@ -214,21 +230,21 @@
 %\end{verbatim}
 %look the same.
 %Still, each of them can be used only in the appropriate mode.
-可以指定所有三个维度；那么
+It is possible to specify all three dimensions; then
 \begin{verbatim}
 \vrule height1ex depth0pt width1ex
 \end{verbatim}
-和
+and
 \begin{verbatim}
 \hrule height1ex depth0pt width1ex
 \end{verbatim}
-看起来是一样的。
-尽管如此，它们各自只能在相应的模式下使用。
+look the same.
+Still, each of them can be used only in the appropriate mode.
 
 %%\point Leaders
 %\section{Leaders}
 %\point Leaders
-\section{引导线}
+\section{Leaders}
 
 %Rules are intimately connected to modes, which makes it easy
 %to obtain some effects. For instance, a typical application
@@ -246,19 +262,22 @@
 %    \hbox to 5cm{from here\leaders\hrule\hfil to there}}\end{disp}
 %An \cs{hrule} can not be used in horizontal mode, and
 %a vertical rule will not spread automatically.
-标尺与模式紧密相关，这使得实现某些效果变得容易。
-例如，垂直标尺的一个典型应用看起来像
+Rules are intimately connected to modes, which makes it easy
+to obtain some effects. For instance, a typical application
+of a vertical rule looks like
 \begin{verbatim}
 \hbox{\vrule width1pt\ Important text! \vrule width 1pt}
 \end{verbatim}
-它会产生
+which gives
 \begin{disp}\leavevmode\hbox{\vrule width 1pt\ Important text! 
                       \vrule width 1pt}\end{disp}
-然而，人们可能希望在水平模式下使用水平标尺来实现诸如
+However, one might want to have a horizontal rule
+in horizontal mode for effects such as
 \begin{disp}\leavevmode
 \vbox{\hbox to 5cm{$\longleftarrow$\hfil 5cm\hfil$\longrightarrow$}
     \hbox to 5cm{from here\leaders\hrule\hfil to there}}\end{disp}
-这样的效果。\cs{hrule} 不能在水平模式下使用，而垂直标尺不会自动延伸。
+An \cs{hrule} can not be used in horizontal mode, and
+a vertical rule will not spread automatically.
 
 %However, there is a way to use an \cs{hrule} command in
 %horizontal mode and a \cs{vrule} in vertical mode,
@@ -274,12 +293,20 @@
 %an \cs{hfil}.
 %Note that the leader was given a horizontal skip,
 %corresponding to the horizontal mode in which it appeared.
-然而，有一种方法可以在水平模式下使用 \cs{hrule} 命令，在垂直模式下使用 \cs{vrule} 命令，那就是使用\indexterm{引导线} (leaders)，之所以这么叫是因为它们能引导你的视线横跨页面。
-引导线命令告诉 \TeX\ ，在任何模式下，用所需数量的某个盒子或标尺规范的副本来填充指定的空间。
-例如，上面的例子是这样给出的
+However, there is a way to use an \cs{hrule} command in
+horizontal mode and a \cs{vrule} in vertical mode,
+and that is with \indexterm{leaders}, so called because
+they lead your eye across the page. 
+A~leader command tells \TeX\
+to fill a~specified space, in whatever mode it is in,
+with as many copies of some box or rule specification
+as are needed. For instance, the above example
+was given as
 \begin{disp}\verb>\hbox to 5cm{from here\leaders\hrule\hfil to there}>\end{disp}
-也就是说，使用了一个允许沿着 \cs{hfil} 伸展的 \cs{hrule}。
-请注意，引导线被赋予了一个水平跳跃，这与它出现的水平模式相对应。
+that is, with an \cs{hrule} that was allowed to stretch along
+an \cs{hfil}.
+Note that the leader was given a horizontal skip,
+corresponding to the horizontal mode in which it appeared.
 
 %A general leader command looks like
 %\begin{Disp} \gr{leaders}\gr{box or rule}%
@@ -292,23 +319,31 @@
 %(see page~\pageref{muglue}).
 %Leaders can thus be used in all three modes. Of course, the
 %appropriate kind of skip must be specified. 
-一个通用的引导线命令看起来像
+A general leader command looks like
 \begin{Disp} \gr{leaders}\gr{box or rule}%
       \gr{vertical/horizontal/mathematical skip}\end{Disp}
-其中 \gr{leaders} 是 \cs{leaders}、\cs{cleaders} 或 \cs{xleaders}，\gr{box~or~rule} 是一个 \gr{box}、\cs{vrule} 或 \cs{hrule}，水平和垂直跳跃的列表出现在第 \ref{hvmode} 章；
-数学跳跃要么是水平跳跃，要么是 \cs{mskip}（见第 \pageref{muglue} 页）。
-因此，引导线可以在所有三种模式下使用。当然，必须指定相应类型的跳跃。
+where \gr{leaders} is \cs{leaders}, \cs{cleaders}, 
+or~\cs{xleaders}, a \gr{box~or~rule}
+is a~\gr{box}, \cs{vrule}, or~\cs{hrule}, and the
+lists of horizontal and vertical skips appear in Chapter~\ref{hvmode};
+a~mathematical skip is either a horizontal skip or an~\cs{mskip}
+(see page~\pageref{muglue}).
+Leaders can thus be used in all three modes. Of course, the
+appropriate kind of skip must be specified. 
 
 %A horizontal (vertical) box containing leaders has at least
 %the height and depth (width) of the \gr{box~or~rule} used
 %in the leaders, even if, as can happen in the case of box leaders,
 %no actual leaders are placed.
-一个包含引导线的水平（垂直）盒子至少具有引导线中使用的 \gr{box~or~rule} 的高度和深度（宽度），即使在盒子引导线的情况下没有实际放置任何引导线。
+A horizontal (vertical) box containing leaders has at least
+the height and depth (width) of the \gr{box~or~rule} used
+in the leaders, even if, as can happen in the case of box leaders,
+no actual leaders are placed.
 
 %%\spoint Rule leaders
 %\subsection{Rule leaders}
 %\spoint Rule leaders
-\subsection{标尺引导线}
+\subsection{Rule leaders}
 
 %\emph{Rule leaders}\index{leaders!rule}
 %fill the specified amount of space with a rule
@@ -318,12 +353,14 @@
 %are determined by the sort of rule that is used:
 %either dimensions can be specified explicitly, or
 %the default values can be used.
-\emph{标尺引导线}\index{leaders!rule}
-用一条标尺填充指定的空间，
+\emph{Rule leaders}\index{leaders!rule}
+fill the specified amount of space with a rule
 \cstoidx leaders\par
-该标尺在指定的跳跃方向上延伸。
-最终生成的标尺引导线的其他维度由所使用的标尺类型决定：
-维度可以明确指定，也可以使用默认值。
+extending in the direction of the skip specified.
+The other dimensions of the resulting rule leader
+are determined by the sort of rule that is used:
+either dimensions can be specified explicitly, or
+the default values can be used.
 
 %For instance, 
 %\begin{verbatim}
@@ -338,18 +375,19 @@
 %gives \begin{disp}\leavevmode\hbox{g\leaders\vrule\hskip20pt f}\end{disp}
 %because the height and depth of a vertical rule
 %by default fill the surrounding box.
-例如，
+For instance, 
 \begin{verbatim}
 \hbox{g\leaders\hrule\hskip20pt f}
 \end{verbatim}
-会产生 \begin{disp}\leavevmode\hbox{g\leaders\hrule\hskip20pt f}\end{disp}
-因为水平标尺的默认高度是 \n{.4pt}。
-另一方面，
+gives \begin{disp}\leavevmode\hbox{g\leaders\hrule\hskip20pt f}\end{disp}
+because a horizontal rule has a default height of~\n{.4pt}.
+On the other hand,
 \begin{verbatim}
 \hbox{g\leaders\vrule\hskip20pt f}
 \end{verbatim}
-会产生 \begin{disp}\leavevmode\hbox{g\leaders\vrule\hskip20pt f}\end{disp}
-因为垂直标尺的高度和深度默认会填充周围的盒子。
+gives \begin{disp}\leavevmode\hbox{g\leaders\vrule\hskip20pt f}\end{disp}
+because the height and depth of a vertical rule
+by default fill the surrounding box.
 
 %Spurious rule dimensions are ignored: in horizontal mode
 %\begin{verbatim}
@@ -359,11 +397,11 @@
 %\begin{verbatim}
 %\leaders\hrule \hskip 20pt
 %\end{verbatim}
-多余的标尺维度会被忽略：在水平模式下
+Spurious rule dimensions are ignored: in horizontal mode
 \begin{verbatim}
 \leaders\hrule width 10pt \hskip 20pt
 \end{verbatim}
-等价于
+is equivalent to
 \begin{verbatim}
 \leaders\hrule \hskip 20pt
 \end{verbatim}
@@ -371,17 +409,19 @@
 %If the width or height-plus-depth
 %of either the skip or the box is negative, 
 %\TeX\ uses ordinary glue instead of leaders.
-如果跳跃或盒子的宽度或高度加深度为负，
-\TeX\ 会使用普通胶水而不是引导线。
+If the width or height-plus-depth
+of either the skip or the box is negative, 
+\TeX\ uses ordinary glue instead of leaders.
 
 %%\spoint Box leaders
 %\subsection{Box leaders}
 %\spoint Box leaders
-\subsection{盒子引导线}
+\subsection{Box leaders}
 
 %Box leaders fill the available spaces with copies of
 %a given box, instead of with a rule. 
-盒子引导线用给定盒子的副本来填充可用空间，而不是用标尺。
+Box leaders fill the available spaces with copies of
+a given box, instead of with a rule. 
 
 %\newbox\centerdot  \setbox\centerdot=\hbox{\hskip.7em.\hskip.7em}
 \newbox\centerdot  \setbox\centerdot=\hbox{\hskip.7em.\hskip.7em}
@@ -399,17 +439,19 @@
 %\begin{disp}\leavevmode\hbox to 8cm {here\leaders\copy\centerdot\hfil there}
 %\end{disp} That is, copies of the box register fill up the
 %available space.
-对于以下所有示例，假设已经分配了一个盒子寄存器：
+For all of the following examples, assume that a box register
+has been allocated:
 \begin{verbatim}
 \newbox\centerdot  \setbox\centerdot=\hbox{\hskip.7em.\hskip.7em}
 \end{verbatim}
-现在
+Now the output of
 \begin{verbatim}
 \hbox to 8cm {here\leaders\copy\centerdot\hfil there}
 \end{verbatim}
-的输出是
+is 
 \begin{disp}\leavevmode\hbox to 8cm {here\leaders\copy\centerdot\hfil there}
-\end{disp} 也就是说，盒子寄存器的副本填充了可用空间。
+\end{disp} That is, copies of the box register fill up the
+available space.
 
 %Dot leaders, as in the above example, are often used for
 %tables of contents. In such applications it is desirable that
@@ -429,20 +471,24 @@
 %and the row of copies actually placed is 
 %merely the part of this row that is not obscured by
 %the other contents of the box.
-点状引导线，如上例所示，常用于目录。
-在这种应用中，希望后续行上的点是垂直对齐的。
-\cs{leaders} 命令会自动做到这一点：
+Dot leaders, as in the above example, are often used for
+tables of contents. In such applications it is desirable that
+dots on subsequent lines are vertically aligned.
+The \cs{leaders} command does this automatically:
 \begin{verbatim}
 \hbox to 8cm {here\leaders\copy\centerdot\hfil there}
 \hbox to 8cm {over here\leaders\copy\centerdot\hfil over there}
 \end{verbatim}
-会产生 \begin{disp}\leavevmode
+gives \begin{disp}\leavevmode
 \vtop{\hbox to 8cm {here\leaders\copy\centerdot\hfil there}
 \hbox to 8cm {over here\leaders\copy\centerdot\hfil over there\strut}}
 \end{disp}
-这背后的机制如下：
-\TeX\ 的行为就好像一排无限的盒子（不可见地）从周围盒子的左边缘开始，
-而实际放置的一排副本仅仅是这排盒子中未被盒子其他内容遮挡的部分。
+The mechanism behind this is the following:
+\TeX\ acts as if an infinite row of boxes starts (invisibly) at 
+the left edge of the surrounding box, 
+and the row of copies actually placed is 
+merely the part of this row that is not obscured by
+the other contents of the box.
 
 %Stated differently, box leaders are a window on an infinite
 %row of boxes, and the row starts at the left edge of the
@@ -456,29 +502,32 @@
 %\hbox to 8cm {word\leaders\copy\centerdot\hfil\strut}}\end{disp}
 %The row of leaders boxes becomes visible as soon as it
 %does not coincide with other material.
-换句话说，盒子引导线是观察一排无限盒子的窗口，而这排盒子从周围盒子的左边缘开始。
-考虑以下示例：
+Stated differently, box leaders are a window on an infinite
+row of boxes, and the row starts at the left edge of the
+surrounding box. Consider the following example:
 \begin{verbatim}
 \hbox to 8cm {\leaders\copy\centerdot\hfil}
 \hbox to 8cm {word\leaders\copy\centerdot\hfil}
 \end{verbatim}
-它会产生
+which gives
 \begin{disp}\leavevmode\vtop{\hbox to 8cm {\leaders\copy\centerdot\hfil}
 \hbox to 8cm {word\leaders\copy\centerdot\hfil\strut}}\end{disp}
-引导线盒子的一排一旦不与其他材料重合，就变得可见。
+The row of leaders boxes becomes visible as soon as it
+does not coincide with other material.
 
 %The above discussion only talked about leaders in horizontal
 %mode. Leaders can equally well be placed in vertical mode;
 %for box leaders the `infinite row' then starts at the top
 %of the surrounding box.
-以上讨论只涉及水平模式下的引导线。
-引导线同样可以放置在垂直模式下；
-对于盒子引导线，那么“无限的一排”就从周围盒子的顶部开始。
+The above discussion only talked about leaders in horizontal
+mode. Leaders can equally well be placed in vertical mode;
+for box leaders the `infinite row' then starts at the top
+of the surrounding box.
 
 %%\spoint Evenly spaced leaders
 %\subsection{Evenly spaced leaders}
 %\spoint Evenly spaced leaders
-\subsection{均匀间隔的引导线}
+\subsection{Evenly spaced leaders}
 
 %Aligning subsequent box leaders in the way described above
 %means that the white space before and after the
@@ -490,10 +539,16 @@
 %except that it splits excess space before and after the leaders
 %into two equal parts, centring the row of boxes in the
 %available space.
-以上述方式对齐后续的盒子引导线意味着引导线前后的空白通常是不同的。
-如果垂直对齐不是问题，那么让引导线均匀间隔可能在美学上更令人愉悦。
-\csidx{cleaders} 命令类似于 \cs{leaders}，
-不同之处在于它将引导线前后的多余空间分成两个相等的部分，从而将一排盒子在可用空间中居中。
+Aligning subsequent box leaders in the way described above
+means that the white space before and after the
+leaders will in general be different.
+If vertical alignment is not
+an issue it may be aesthetically more pleasing to have
+the leaders evenly spaced.
+The \csidx{cleaders} command is like \cs{leaders},
+except that it splits excess space before and after the leaders
+into two equal parts, centring the row of boxes in the
+available space.
 
 %\begin{example}\message{check verbatim indentation}
 %\begin{verbatim}
@@ -513,11 +568,13 @@
 \hbox to 7.8cm {here\cleaders\copy\centerdot\hfil there}
 \hbox to 7.8cm {here is\cleaders\copy\centerdot\hfil there}
 \end{verbatim}
-会产生 \begin{disp}\leavevmode\vbox{
+gives \begin{disp}\leavevmode\vbox{
 \hbox to 7.8cm {here\cleaders\copy\centerdot\hfil there}
 \hbox to 7.8cm {here is\cleaders\copy\centerdot\hfil there\strut}
 }\end{disp}
-“扩展引导线” \csidx{xleaders} 会将多余的空间均匀地分布在盒子之间，在引导线盒子之前、之后以及盒子之间都有相等的胶水块。
+The `expanding leaders' \csidx{xleaders} spread excess space evenly
+between the boxes, with equal globs of glue before, after,
+and in between leader boxes.
 \end{example}
 
 %\begin{example}
@@ -543,28 +600,29 @@
 \hbox to 7.8cm{here\hskip.7em
       \xleaders\copy\centerdot\hfil  \hskip.7em there}
 \end{verbatim}
-会产生 \begin{disp}\leavevmode
+gives \begin{disp}\leavevmode
 \hbox to 7.8cm {here\hskip.7em\xleaders\copy\centerdot\hfil\hskip.7em there}
-\end{disp} 请注意，这里引导线盒子中的胶水通过在引导线前后显式添加胶水来平衡；
-如果省略这些胶水项，如
+\end{disp} Note that the glue in the leader box is balanced here
+with explicit glue before and after the leaders;
+leaving out these glue items, as in
 \begin{verbatim}
 \hbox to 7.8cm {here\xleaders\copy\centerdot\hfil there}
 \end{verbatim}
-会产生 \begin{disp}\leavevmode
+gives \begin{disp}\leavevmode
 \hbox to 7.8cm {here\xleaders\copy\centerdot\hfil there}
 \end{disp}
-这显然不是预期的效果。
+which is clearly not what was intended.
 \end{example}
 
 %%\point Assorted remarks
 %\section{Assorted remarks}
 %\point Assorted remarks
-\section{杂项备注}
+\section{Assorted remarks}
 
 %%\spoint Rules and modes
 %\subsection{Rules and modes}
 %\spoint Rules and modes
-\subsection{标尺与模式}
+\subsection{Rules and modes}
 
 %Above it was explained how rules can only occur in the 
 %appropriate modes. Rules also influence mode-specific
@@ -576,21 +634,23 @@
 %(see Chapter~\ref{baseline}).
 %Similarly the \cs{spacefactor} is set to 1000 after a \cs{vrule}
 %in horizontal mode (see Chapter~\ref{line:break}).
-上面解释了标尺只能出现在相应的模式中。
-标尺也会影响特定于模式的量：
-在垂直模式下，标尺前不会添加基线跳跃。
-为了防止标尺后出现胶水，\TeX\ 将 \cs{prevdepth} 设置为
+Above it was explained how rules can only occur in the 
+appropriate modes. Rules also influence mode-specific
+quantities:
+no baselineskip is added before rules in 
+vertical mode. In order to prevent glue after rules,
+\TeX\ sets \cs{prevdepth} to
 \n{\hbox{-}1000pt}
-（见第 \ref{baseline} 章）。
-类似地，在水平模式下，\cs{vrule} 之后的 \cs{spacefactor} 会被设置为 1000
-（见第 \ref{line:break} 章）。
+(see Chapter~\ref{baseline}).
+Similarly the \cs{spacefactor} is set to 1000 after a \cs{vrule}
+in horizontal mode (see Chapter~\ref{line:break}).
 
 
 %%\spoint[par:leaders:end] Ending a paragraph with leaders
 %\subsection{Ending a paragraph with leaders}
 %\label{par:leaders:end}
 %\spoint[par:leaders:end] Ending a paragraph with leaders
-\subsection{用引导线结束段落}
+\subsection{Ending a paragraph with leaders}
 \label{par:leaders:end}
 
 %An attempt to simulate an \cs{hrule} at the end of a paragraph by
@@ -604,20 +664,22 @@
 %any space token inserted by the input processor after the
 %last line. Remedy: stick an \verb.\hbox{}. at the end of
 %the leaders.
-尝试通过
-\howto 用引导线结束段落\par
+An attempt to simulate an \cs{hrule} at the end of a paragraph by
+\howto End a paragraph with leaders\par
 \begin{verbatim}
 \nobreak\leaders\hrule\hfill\par
 \end{verbatim}
-来模拟段落末尾的 \cs{hrule} 是行不通的。
-原因在于 \TeX\ 在段落末尾会执行一个 \cs{unskip}，
-这会移除引导线。通常这个 \cs{unskip} 会移除输入处理器在最后一行后插入的任何空格标记。
-解决方法：在引导线末尾加上一个 \verb.\hbox{}.。
+does not work. The reason for this is that \TeX\
+performs an \cs{unskip} at the end of a paragraph,
+which removes the leaders. Normally this \cs{unskip} removes
+any space token inserted by the input processor after the
+last line. Remedy: stick an \verb.\hbox{}. at the end of
+the leaders.
 
 %%\spoint Leaders and box registers
 %\subsection{Leaders and box registers}
 %\spoint Leaders and box registers
-\subsection{引导线与盒子寄存器}
+\subsection{Leaders and box registers}
 
 %In the above examples the leader box was inserted with
 %\cs{copy}. The output of
@@ -633,36 +695,39 @@
 %           }\end{disp}
 %The box register is emptied after the first leader command,
 %but more than one copy is placed in that first command.
-在上面的例子中，引导线盒子是用 \cs{copy} 插入的。
+In the above examples the leader box was inserted with
+\cs{copy}. The output of
 \begin{verbatim}
 \hbox to 8cm {here\leaders\box\centerdot\hfil there}
 \hbox to 8cm {over here\leaders\box\centerdot\hfil 
                    over there}
 \end{verbatim}
-的输出是
+is
 \begin{disp}\leavevmode
      \vtop{\hbox to 8cm {here\leaders\box\centerdot\hfil there}
            \hbox to 8cm {over here\leaders\box\centerdot\hfil over there}
            }\end{disp}
-盒子寄存器在第一个引导线命令后被清空，
-但在那第一个命令中放置了不止一个副本。
+The box register is emptied after the first leader command,
+but more than one copy is placed in that first command.
 
 %%\spoint Output in leader boxes
 %\subsection{Output in leader boxes}
 %\spoint Output in leader boxes
-\subsection{引导线盒子中的输出}
+\subsection{Output in leader boxes}
 
 %Any \cs{write}, \cs{openout}, or \cs{closeout} operation
 %appearing in leader boxes is ignored. 
 %Otherwise such an operation would be executed once for every
 %copy of the box that would be shipped out.
-出现在引导线盒子中的任何 \cs{write}、\cs{openout} 或 \cs{closeout} 操作都会被忽略。
-否则，这样的操作将对每个要输出的盒子副本执行一次。
+Any \cs{write}, \cs{openout}, or \cs{closeout} operation
+appearing in leader boxes is ignored. 
+Otherwise such an operation would be executed once for every
+copy of the box that would be shipped out.
 
 %%\spoint Box leaders in trace output
 %\subsection{Box leaders in trace output}
 %\spoint Box leaders in trace output
-\subsection{追踪输出中的盒子引导线}
+\subsection{Box leaders in trace output}
 
 %The dumped box representation obtained from,
 %for instance, \cs{tracingoutput}
@@ -670,14 +735,17 @@
 %one copy of the box used are dumped. In particular,
 %the surrounding white space before and after the leaders
 %is not indicated.
-从例如 \cs{tracingoutput} 获得的转储盒子表示不会完整地写出盒子引导线：
-只转储了总大小和所用盒子的一份副本。
-特别是，引导线前后的周围空白不会被标示出来。
+The dumped box representation obtained from,
+for instance, \cs{tracingoutput}
+does not write out box leaders in full: only the total size and
+one copy of the box used are dumped. In particular,
+the surrounding white space before and after the leaders
+is not indicated.
 
 %%\spoint Leaders and shifted margins
 %\subsection{Leaders and shifted margins}
 %\spoint Leaders and shifted margins
-\subsection{引导线与移动的页边距}
+\subsection{Leaders and shifted margins}
 
 %If margins have been shifted,
 %leaders may look different
@@ -691,15 +759,18 @@
 %The horizontal boxes above  the leaders
 %\altt
 %serve to indicate the starting point of the row of leaders.
-如果页边距被移动了，引导线可能会看起来不同，
-这取决于移动是如何实现的。
-为了说明 \cs{hangindent} 和 \cs{leftskip} 如何影响引导线的外观，
-考虑以下示例，其中
+If margins have been shifted,
+leaders may look different
+depending on how the shift has been realized.
+For an illustration of how \cs{hangindent} and \cs{leftskip}
+influence the look of leaders, consider the following
+examples, where
 \begin{verbatim}
 \setbox0=\hbox{K o }
 \end{verbatim}
-引导线上方的水平盒子\altt
-用于指示引导线行的起始点。
+The horizontal boxes above  the leaders
+\altt
+serve to indicate the starting point of the row of leaders.
 
 %First
 %\begin{verbatim}
@@ -733,35 +804,38 @@
 %row of leaders. Hanging indentation is performed in \TeX\
 %by a \cs{moveright} of the boxes containing the lines
 %of the paragraph.
-首先
+First
 \begin{verbatim}
 \hbox{\leaders\copy0\hskip5cm}
 \noindent\advance\leftskip 1em
       \leaders\copy0\hskip5cm\hbox{}\par
 \end{verbatim}
-会产生\message{examples on}
+gives\message{examples on}
 \begin{disp}\leavevmode\vbox{\leftskip=0pt \hsize=7cm
 \setbox0=\hbox{K o }
 \hbox{\leaders\copy0\hskip5cm}
 \noindent\advance\leftskip 1em
       \leaders\copy0\hskip5cm\hbox{}\par
     }\end{disp}
-然后
+Then
 \begin{verbatim}
 \hbox{\kern1em\hbox{\leaders\copy0\hskip5cm}}
 \hangindent=1em \hangafter=-1 \noindent
       \leaders\copy0\hskip5cm\hbox{}\par
 \end{verbatim}
-会产生（注意与前一个例子的位移）
+gives (note the shift with respect to the previous example)
 \begin{disp}\leavevmode\vbox{\leftskip=0pt \hsize=7cm
 \setbox0=\hbox{K o }
 \hbox{\kern1em\hbox{\leaders\copy0\hskip5cm}}
 \hangindent=1em \hangafter=-1 \noindent
       \leaders\copy0\hskip5cm\hbox{}\par}\end{disp}
 \message{one page}
-在第一个段落中，\cs{leftskip} 胶水只遮挡了第一个引导线盒子；
-在第二个段落中，悬挂缩进实际上移动了引导线行的对齐点。
-\TeX\ 中的悬挂缩进是通过对包含段落行的盒子进行 \cs{moveright} 来实现的。
+In the first paragraph the \cs{leftskip} glue only obscures
+the first leader box; in the second paragraph the hanging
+indentation actually shifts the orientation point for the 
+row of leaders. Hanging indentation is performed in \TeX\
+by a \cs{moveright} of the boxes containing the lines
+of the paragraph.
 
 %\endofchapter
 %%%%% end of input file [rules]

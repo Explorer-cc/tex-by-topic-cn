@@ -7,7 +7,7 @@
 \begin{document}
 
 %\chapter{Dimensions and Glue}\label{glue}
-\chapter{尺寸与胶水}\label{glue}
+\chapter{Dimensions and Glue}\label{glue}
 
 %In \TeX\ vertical and horizontal white space
 %can have a possibility to adjust itself through `stretching' or
@@ -15,9 +15,12 @@
 %This chapter treats all technical concepts related to
 %dimensions and glue, and it explains how the badness of stretching or shrinking
 %a  certain amount is calculated.
-在 \TeX\ 中，垂直和水平空白可以通过“拉伸”或“收缩”来进行自我调整。
-一个可调节的空白被称为\indexterm{胶水} (glue)。
-本章将讨论与尺寸和胶水相关的所有技术概念，并解释拉伸或收缩一定量所产生的劣度是如何计算的。
+In \TeX\ vertical and horizontal white space
+can have a possibility to adjust itself through `stretching' or
+`shrinking'. An~adjustable white space is called \indexterm{glue}.
+This chapter treats all technical concepts related to
+dimensions and glue, and it explains how the badness of stretching or shrinking
+a  certain amount is calculated.
 
 %\label{cschap:dimen}\label{cschap:dimendef}\label{cschap:newdimen}\label{cschap:skip}\label{cschap:skipdef}\label{cschap:newskip}\label{cschap:hskip}\label{cschap:hfil}\label{cschap:hfilneg}\label{cschap:hfill}\label{cschap:hss}\label{cschap:vskip}\label{cschap:vfil}\label{cschap:vfill}\label{cschap:vfilneg}\label{cschap:vss}\label{cschap:kern}\label{cschap:lastkern}\label{cschap:lastskip}\label{cschap:unkern}\label{cschap:unskip}\label{cschap:removelastskip}\label{cschap:advance2}\label{cschap:multiply2}\label{cschap:divide2}
 %\begin{inventory}
@@ -26,143 +29,154 @@
 \label{cschap:dimen}\label{cschap:dimendef}\label{cschap:newdimen}\label{cschap:skip}\label{cschap:skipdef}\label{cschap:newskip}\label{cschap:hskip}\label{cschap:hfil}\label{cschap:hfilneg}\label{cschap:hfill}\label{cschap:hss}\label{cschap:vskip}\label{cschap:vfil}\label{cschap:vfill}\label{cschap:vfilneg}\label{cschap:vss}\label{cschap:kern}\label{cschap:lastkern}\label{cschap:lastskip}\label{cschap:unkern}\label{cschap:unskip}\label{cschap:removelastskip}\label{cschap:advance2}\label{cschap:multiply2}\label{cschap:divide2}
 \begin{inventory}
 \item [\cs{dimen}] 
-      尺寸寄存器前缀。
+      Dimension register prefix.
 
 %\item [\cs{dimendef}] 
 %      Define a control sequence to be a synonym for
 %      a~\cs{dimen} register.
 \item [\cs{dimendef}] 
-      定义一个控制序列，作为 \cs{dimen} 寄存器的同义词。
+      Define a control sequence to be a synonym for
+      a~\cs{dimen} register.
 
 %\item [\cs{newdimen}] 
 %      Allocate an unused dimen register. 
 \item [\cs{newdimen}] 
-      分配一个未使用的尺寸寄存器。
+      Allocate an unused dimen register. 
 
 %\item [\cs{skip}] 
 %      Skip register prefix.
 \item [\cs{skip}] 
-      跳跃寄存器前缀。
+      Skip register prefix.
 
 %\item [\cs{skipdef}] 
 %      Define a control sequence to be a synonym for
 %      a~\cs{skip} register.
 \item [\cs{skipdef}] 
-      定义一个控制序列，作为 \cs{skip} 寄存器的同义词。
+      Define a control sequence to be a synonym for
+      a~\cs{skip} register.
 
 %\item [\cs{newskip}]
 %      Allocate an unused skip register.
 \item [\cs{newskip}]
-      分配一个未使用的跳跃寄存器。
+      Allocate an unused skip register.
 
 %\item [\cs{ifdim}] 
 %      Compare two dimensions. 
 \item [\cs{ifdim}] 
-      比较两个尺寸。
+      Compare two dimensions. 
 
 %\item [\cs{hskip}]  
 %      Insert in horizontal mode a glue item.
 \item [\cs{hskip}]  
-      在水平模式下插入一个胶水项。
+      Insert in horizontal mode a glue item.
 
 %\item [\csidx{hfil}] 
 %      Equivalent to 
 %      \verb-\hskip 0cm plus 1fil-.
 \item [\csidx{hfil}] 
-      等价于 \verb-\hskip 0cm plus 1fil-。
+      Equivalent to 
+      \verb-\hskip 0cm plus 1fil-.
 
 %\item [\csidx{hfilneg}] 
 %      Equivalent to 
 %      \verb-\hskip 0cm minus 1fil-.
 \item [\csidx{hfilneg}] 
-      等价于 \verb-\hskip 0cm minus 1fil-。
+      Equivalent to 
+      \verb-\hskip 0cm minus 1fil-.
 
 %\item [\csidx{hfill}] 
 %      Equivalent to 
 %      \verb-\hskip 0cm plus 1fill-.
 \item [\csidx{hfill}] 
-      等价于 \verb-\hskip 0cm plus 1fill-。
+      Equivalent to 
+      \verb-\hskip 0cm plus 1fill-.
 
 %\item [\csidx{hss}] 
 %      Equivalent to 
 %      \verb-\hskip 0cm plus 1fil minus 1fil-.
 \item [\csidx{hss}] 
-      等价于 \verb-\hskip 0cm plus 1fil minus 1fil-。
+      Equivalent to 
+      \verb-\hskip 0cm plus 1fil minus 1fil-.
 
 %\item [\cs{vskip}]  
 %      Insert in vertical mode a glue item.
 \item [\cs{vskip}]  
-      在垂直模式下插入一个胶水项。
+      Insert in vertical mode a glue item.
 
 %\item [\csidx{vfil}] 
 %      Equivalent to 
 %      \verb-\vskip 0cm plus 1fil-.
 \item [\csidx{vfil}] 
-      等价于 \verb-\vskip 0cm plus 1fil-。
+      Equivalent to 
+      \verb-\vskip 0cm plus 1fil-.
 
 %\item [\csidx{vfill}] 
 %      Equivalent to 
 %      \verb-\vskip 0cm plus 1fill-.
 \item [\csidx{vfill}] 
-      等价于 \verb-\vskip 0cm plus 1fill-。
+      Equivalent to 
+      \verb-\vskip 0cm plus 1fill-.
 
 %\item [\csidx{vfilneg}] 
 %      Equivalent to 
 %      \verb-\vskip 0cm minus 1fil-.
 \item [\csidx{vfilneg}] 
-      等价于 \verb-\vskip 0cm minus 1fil-。
+      Equivalent to 
+      \verb-\vskip 0cm minus 1fil-.
 
 %\item [\csidx{vss}] 
 %      Equivalent to 
 %      \verb-\vskip 0cm plus 1fil minus 1fil-.
 \item [\csidx{vss}] 
-      等价于 \verb-\vskip 0cm plus 1fil minus 1fil-。
+      Equivalent to 
+      \verb-\vskip 0cm plus 1fil minus 1fil-.
 
 %\item [\cs{kern}]  
 %      Add a kern item to the current horizontal or vertical list.
 \item [\cs{kern}]  
-      向当前水平或垂直列表添加一个字偶距项。
+      Add a kern item to the current horizontal or vertical list.
 
 %\item [\cs{lastkern}] 
 %      If the last item on the current list was a kern, the size of it.
 \item [\cs{lastkern}] 
-      如果当前列表的最后一项是字偶距，则为其大小。
+      If the last item on the current list was a kern, the size of it.
 
 %\item [\cs{lastskip}] 
 %      If the last item on the current list was a~glue, the size of it.
 \item [\cs{lastskip}] 
-      如果当前列表的最后一项是胶水，则为其大小。
+      If the last item on the current list was a~glue, the size of it.
 
 %\item [\cs{unkern}] 
 %      If the last item of the current list was a~kern, remove it.
 \item [\cs{unkern}] 
-      如果当前列表的最后一项是字偶距，则移除它。
+      If the last item of the current list was a~kern, remove it.
 
 %\item [\cs{unskip}] 
 %      If the last item of the current list was a~glue, remove it.
 \item [\cs{unskip}] 
-      如果当前列表的最后一项是胶水，则移除它。
+      If the last item of the current list was a~glue, remove it.
 
 %\item [\cs{removelastskip}]
 %      Macro to append the negative of the \cs{lastskip}.
 \item [\cs{removelastskip}]
-      用于追加 \cs{lastskip} 的负值的宏。
+      Macro to append the negative of the \cs{lastskip}.
 
 %\item [\cs{advance}] 
 %      Arithmetic command to add to or subtract from
 %      a~\gr{numeric variable}.
 \item [\cs{advance}] 
-      对\gr{数值变量}进行加减的算术命令。
+      Arithmetic command to add to or subtract from
+      a~\gr{numeric variable}.
 
 %\item [\cs{multiply}] 
 %      Arithmetic command to multiply a~\gr{numeric variable}.
 \item [\cs{multiply}] 
-      对\gr{数值变量}进行乘法运算的算术命令。
+      Arithmetic command to multiply a~\gr{numeric variable}.
 
 %\item [\cs{divide}] 
 %      Arithmetic command to divide a~\gr{numeric variable}.
 \item [\cs{divide}] 
-      对\gr{数值变量}进行除法运算的算术命令。
+      Arithmetic command to divide a~\gr{numeric variable}.
 
 %\end{inventory}
 \end{inventory}
@@ -172,14 +186,16 @@
 %%\point Definition of \gr{glue} and \gr{dimen}
 %\section{Definition of \gr{glue} and \gr{dimen}}
 %\point Definition of \gr{glue} and \gr{dimen}
-\section{\gr{胶水} (glue) 与 \gr{尺寸} (dimen) 的定义}
+\section{Definition of \gr{glue} and \gr{dimen}}
 
 %This section gives
 %the syntax of the quantities
 %\gr{dimen} and \gr{glue}. 
 %In the next section the practical aspects of glue are treated.
-本节给出 \gr{尺寸} (dimen) 和 \gr{胶水} (glue) 这两个量的语法。
-下一节将讨论胶水的实际应用方面。
+This section gives
+the syntax of the quantities
+\gr{dimen} and \gr{glue}. 
+In the next section the practical aspects of glue are treated.
 
 %Unfortunately the terminology for glue is slightly confusing.
 %The syntactical quantity~\gr{glue} is a dimension (a distance) with
@@ -188,15 +204,19 @@
 %\mdqoff
 %In order to add a glob of `glue' (a white space) to a list one has to
 %let a \gr{glue} be preceded by commands such as \cs{vskip}.
-不幸的是，关于胶水的术语有点令人困惑。
-语法量 \gr{胶水} (glue) 是一个带有可能的拉伸和/或收缩分量的尺寸（一段距离）。
-为了向列表中添加一块“胶水”（一段空白），必须让一个 \gr{胶水} (glue) 值跟在诸如 \cs{vskip} 这样的命令之后。
+Unfortunately the terminology for glue is slightly confusing.
+The syntactical quantity~\gr{glue} is a dimension (a distance) with
+\mdqon
+possibly a stretch and/""or shrink component.
+\mdqoff
+In order to add a glob of `glue' (a white space) to a list one has to
+let a \gr{glue} be preceded by commands such as \cs{vskip}.
 
 
 %%\spoint Definition of dimensions
 %\subsection{Definition of dimensions}
 %\spoint Definition of dimensions
-\subsection{尺寸的定义}
+\subsection{Definition of dimensions}
 
 %A~\gr{dimen} is what \TeX\ expects to see when
 %it needs to indicate a dimension; it can be positive or negative.
@@ -236,18 +256,20 @@
 % coerced to a dimension by omitting
 % the stretch and shrink components, for example \cs{parfillskip}.
 %\end{itemize}
-\gr{尺寸} (dimen) 是 \TeX\ 在需要表示一个维度时所期望看到的内容；它可以是正数也可以是负数。
+A~\gr{dimen} is what \TeX\ expects to see when
+it needs to indicate a dimension; it can be positive or negative.
 \begin{disp}\gr{dimen} $\longrightarrow$ \gr{optional signs}%
      \gr{unsigned dimen}\end{disp}
-一个 \gr{尺寸} (dimen) 的无符号部分可以是
+The unsigned part of a \gr{dimen} can be
 \begin{disp}\gr{unsigned dimen} $\longrightarrow$ \gr{normal dimen}
      $|$ \gr{coerced dimen}\nl
      \gr{normal dimen} $\longrightarrow$ \gr{internal dimen}
      $|$ \gr{factor}\gr{unit of measure}\nl
      \gr{coerced dimen} $\longrightarrow$ \gr{internal glue}
      \end{disp}
-也就是说，我们有以下三种情况：
-\begin{itemize} \item 一个\gr{内部尺寸} (internal dimen)；这是 \TeX\ 中任何具有 \gr{尺寸} (dimen) 值的寄存器或参数：
+That is, we have the following three cases:
+\begin{itemize} \item an \gr{internal dimen}; this is
+ any register or parameter of \TeX\ that has a \gr{dimen} value:
  \begin{disp}\PopIndentLevel\gr{internal dimen} $\longrightarrow$
       \gr{dimen parameter}\nl
       \indent $|$ \gr{special dimen} $|$ \cs{lastkern}\nl
@@ -265,8 +287,12 @@
       \indent $|$ \cs{splitmaxdepth} $|$ \cs{vfuzz}\nl
       \indent $|$ \cs{voffset} $|$ \cs{vsize}
  \end{disp}
-\item  一个尺寸标记，由 \gr{因子}\gr{度量单位} 组成，例如 \verb>0.7\vsize>；或者
-\item 一个\gr{内部胶水} (internal glue)（见下文），通过省略其拉伸和收缩分量被强制转换为一个尺寸，例如 \cs{parfillskip}。
+\item  a dimension denotation, 
+ consisting of \gr{factor}\gr{unit of measure},
+ for example \verb>0.7\vsize>; or
+\item an \gr{internal glue} (see below) 
+ coerced to a dimension by omitting
+ the stretch and shrink components, for example \cs{parfillskip}.
 \end{itemize}
 
 %A dimension denotation is a somewhat complicated entity:
@@ -307,8 +333,11 @@
 %      \indent $|$ \gr{internal dimen} $|$ \gr{internal glue}
 %      \end{disp}
 %\end{itemize}
-一个尺寸标记是一个有些复杂的实体：
-\begin{itemize} \item \gr{因子} (factor) 是一个整数标记、一个十进制常数标记（一个带有整数和小数部分的数），或一个 \gr{内部整数} (internal integer)
+A dimension denotation is a somewhat complicated entity:
+\begin{itemize} \item a \gr{factor} is an integer denotation,
+ a decimal constant denotation (a number with an integral and
+ a fractional part),
+ or an \gr{internal integer}
  \begin{disp}\PopIndentLevel
       \gr{factor} $\longrightarrow$ \gr{normal integer} 
       $|$ \gr{decimal constant}\nl
@@ -319,14 +348,17 @@
       \indent $|$ \gr{digit}\gr{decimal constant}\nl
       \indent $|$ \gr{decimal constant}\gr{digit}
  \end{disp}
- 内部整数是一个“真正”的整数参数（例如，\cs{count0}），而不是从尺寸或胶水强制转换而来的。
- 参见第 \ref{number} 章关于各种整数的定义。
-\item \gr{度量单位} (unit of measure) 可以是
- 一个 \gr{物理单位} (physical unit)，即一个普通单位，如 \n{cm}
- （可能前面有 \n{true}），
- 一个内部单位，如 \n{em}，但也可以是一个 \gr{内部整数} (internal integer)
- （通过转换为缩放点），
- 一个 \gr{内部尺寸} (internal dimen)，或一个 \gr{内部胶水} (internal glue)。
+ An internal integer is a parameter that is `really' an
+\alt
+ integer (for instance, \cs{count0}), and not coerced from a dimension or glue.
+ See Chapter~\ref{number}
+ for the definition of various kinds of integers.
+\item a \gr{unit of measure} can be 
+ a \gr{physical unit}, that is, an ordinary unit such as~\n{cm} 
+ (possibly preceded by \n{true}),
+ an internal unit such as~\n{em}, but also an \gr{internal integer}
+ (by conversion to scaled points),
+ an \gr{internal dimen}, or an \gr{internal glue}.
  \begin{disp}\PopIndentLevel
       \gr{unit of measure} $\longrightarrow$
       \gr{optional spaces}\gr{internal unit}\nl
@@ -352,20 +384,23 @@
 %dimensions is explained in Chapter \ref{page:break}, with the
 %exception of \cs{prevdepth} which is treated in
 %Chapter~\ref{baseline}.
-一些 \gr{尺寸} (dimen) 被称为 \gr{特殊尺寸} (special dimen)：\label{special:dimen:list}
+Some \gr{dimen}s are called \gr{special dimen}s:\label{special:dimen:list}
 \begin{disp}\gr{special dimen} $\longrightarrow$ \cs{prevdepth}\nl
      \indent $|$ \cs{pagegoal} $|$ \cs{pagetotal} $|$ \cs{pagestretch}\nl
      \indent $|$ \cs{pagefilstretch} $|$ \cs{pagefillstretch}\nl
      \indent $|$ \cs{pagefilllstretch} $|$ \cs{pageshrink} $|$ \cs{pagedepth}
      \end{disp}
-对其中任何一个的赋值被称为 \gr{内部赋值} (intimate assignment)，并且它自动是全局的（见第 \ref{group} 章）。
-这些尺寸的含义在第 \ref{page:break} 章中解释，
-除了 \cs{prevdepth}，它在第 \ref{baseline} 章中处理。
+An assignment to any of these is
+called an \gr{intimate assignment}, and it is automatically
+global (see Chapter~\ref{group}). The meaning of these 
+dimensions is explained in Chapter \ref{page:break}, with the
+exception of \cs{prevdepth} which is treated in
+Chapter~\ref{baseline}.
 
 %%\spoint Definition of glue
 %\subsection{Definition of glue}
 %\spoint Definition of glue
-\subsection{胶水的定义}
+\subsection{Definition of glue}
 
 %A \gr{glue} is either some form of glue variable, or
 %a glue denotation with explicitly indicated stretch and
@@ -396,7 +431,9 @@
 %     \gr{fil unit}\gr{optional spaces}\nl
 %\gr{fil unit} $\longrightarrow$ \n{ $|$ fil $|$ fill $|$ filll}
 %\end{disp}
-\gr{胶水} (glue) 要么是某种形式的胶水变量，要么是明确指出拉伸和收缩的胶水标记。具体来说，
+A \gr{glue} is either some form of glue variable, or
+a glue denotation with explicitly indicated stretch and
+shrink. Specifically,
 \begin{disp}\gr{glue} $\longrightarrow$ \gr{optional signs}\gr{internal glue}
      $|$ \gr{dimen}\gr{stretch}\gr{shrink}\nl
      \gr{internal glue} $\longrightarrow$ \gr{glue parameter}
@@ -411,7 +448,9 @@
              $|$ \cs{splittopskip} $|$ \cs{tabskip}\nl
      \indent $|$ \cs{topskip} $|$ \cs{xspaceskip}
 \end{disp}
-胶水标记中的拉伸和收缩分量是可选的，但如果两者都指定，则必须按顺序给出；它们的定义如下
+The stretch and shrink components in a glue denotation
+are optional, but when both are specified they have to
+be given in sequence; they are defined as
 \begin{disp}
 \gr{stretch} $\longrightarrow$ \n{plus} \gr{dimen}
       $|$ \n{plus}\gr{fil dimen} $|$ \gr{optional spaces}\nl
@@ -425,12 +464,14 @@
 %The actual definition of \gr{fil unit} is recursive
 %(see Chapter~\ref{gramm}), but these are the only valid
 %possibilities.
-\gr{fil unit} 的实际定义是递归的（见第 \ref{gramm} 章），但这些是唯一有效的可能性。
+The actual definition of \gr{fil unit} is recursive
+(see Chapter~\ref{gramm}), but these are the only valid
+possibilities.
 
 %%\spoint Conversion of \gr{glue} to \gr{dimen}
 %\subsection{Conversion of \gr{glue} to \gr{dimen}}
 %\spoint Conversion of \gr{glue} to \gr{dimen}
-\subsection{\gr{胶水} (glue) 到 \gr{尺寸} (dimen) 的转换}
+\subsection{Conversion of \gr{glue} to \gr{dimen}}
 
 %The grammar rule
 %\begin{disp}\gr{dimen} $\longrightarrow$
@@ -439,11 +480,13 @@
 %has some noteworthy consequences, caused by the fact
 %that a \gr{unit of measure} need not look like a `unit of measure'
 %at all (see the list above).
-语法规则
+The grammar rule
 \begin{disp}\gr{dimen} $\longrightarrow$
      \gr{factor}\gr{unit of measure}
 \end{disp}
-有一些值得注意的后果，这是因为 \gr{度量单位} (unit of measure) 根本不必看起来像一个“度量单位”（见上面的列表）。
+has some noteworthy consequences, caused by the fact
+that a \gr{unit of measure} need not look like a `unit of measure'
+at all (see the list above).
 
 %For instance, from this definition we conclude that the statement
 %\begin{verbatim}
@@ -455,12 +498,16 @@
 %its value in scaled points.
 %After \verb>\penalty8> the \cs{dimen0} thus defined will
 %have a size of~\n{64sp}.
-例如，从这个定义我们可以得出结论，语句
+For instance, from this definition we conclude that the statement
 \begin{verbatim}
 \dimen0=\lastpenalty\lastpenalty
 \end{verbatim}
-在语法上是正确的，因为 \cs{lastpenalty} 既可以作为一个整数，也可以通过取其缩放点 (sp) 的值来作为一个 \gr{度量单位}。
-在 \verb>\penalty8> 之后，这样定义的 \cs{dimen0} 将具有 \n{64sp} 的大小。
+is
+syntactically correct because \cs{lastpenalty} can function
+both as an integer and as \gr{unit of measure} by taking
+its value in scaled points.
+After \verb>\penalty8> the \cs{dimen0} thus defined will
+have a size of~\n{64sp}.
 
 %More importantly, consider the case where the \gr{unit of measure} is
 %an \gr{internal glue}, that is, any sort of glue parameter.
@@ -480,24 +527,30 @@
 %the \cs{skip1} to a \gr{dimen} before assigning it.
 %In other words, the \cs{skip0} defined by the second statement
 %has no stretch or shrink.
-更重要的是，考虑 \gr{度量单位} 是一个 \gr{内部胶水} (internal glue) 的情况，即任何类型的胶水参数。
-在这样的胶水前加上一个数字（\gr{因子}）使其成为一个有效的 \gr{尺寸} (dimen) 规范。
-因此
+More importantly, consider the case where the \gr{unit of measure} is
+an \gr{internal glue}, that is, any sort of glue parameter.
+Prefixing such a glue with a number (the \gr{factor})
+makes it a valid \gr{dimen} specification.
+Thus
 \begin{verbatim}
 \skip0=\skip1
 \end{verbatim}
-与
+is very different
+from
 \begin{verbatim}
 \skip0=1\skip1
 \end{verbatim}
-非常不同。第一个语句使 \cs{skip0} 等于 \cs{skip1}，第二个语句在赋值前将 \cs{skip1} 转换为一个 \gr{尺寸} (dimen)。
-换句话说，由第二个语句定义的 \cs{skip0} 没有拉伸或收缩量。
+The first statement makes
+\cs{skip0} equal to \cs{skip1}, the second converts
+the \cs{skip1} to a \gr{dimen} before assigning it.
+In other words, the \cs{skip0} defined by the second statement
+has no stretch or shrink.
 
 
 %%\spoint Registers for \cs{dimen} and \cs{skip}
 %\subsection{Registers for \cs{dimen} and \cs{skip}}
 %\spoint Registers for \cs{dimen} and \cs{skip}
-\subsection{\cs{dimen} 和 \cs{skip} 的寄存器}
+\subsection{Registers for \cs{dimen} and \cs{skip}}
 
 %\TeX\ has registers for storing \gr{dimen} and \gr{glue}
 %values: the \csidx{dimen} and \csidx{skip} registers
@@ -506,11 +559,13 @@
 %\begin{disp}\cs{skip}\gr{number}\end{disp}
 %As with all registers of \TeX, these registers are
 %numbered~0--255.
-\TeX\ 有用于存储 \gr{尺寸} (dimen) 和 \gr{胶水} (glue) 值的寄存器：分别为 \csidx{dimen} 和 \csidx{skip} 寄存器。
-它们可以通过表达式
-\begin{disp}\cs{dimen}\gr{number}\end{disp} 和
+\TeX\ has registers for storing \gr{dimen} and \gr{glue}
+values: the \csidx{dimen} and \csidx{skip} registers
+respectively. These are accessible by the expressions
+\begin{disp}\cs{dimen}\gr{number}\end{disp} and
 \begin{disp}\cs{skip}\gr{number}\end{disp}
-来访问。与 \TeX\ 的所有寄存器一样，这些寄存器的编号为 0-255。
+As with all registers of \TeX, these registers are
+numbered~0--255.
 
 %Synonyms for registers can be made with the \csidx{dimendef} and
 %\csidx{skipdef} commands. Their syntax is
@@ -520,30 +575,35 @@
 %\begin{Disp}\cs{skipdef}\gr{control sequence}\gr{equals}\gr{8-bit number}\end{Disp}
 %For example, after \verb-\skipdef\foo=13- using \cs{foo}
 %is equivalent to using \cs{skip13}.
-可以使用 \csidx{dimendef} 和 \csidx{skipdef} 命令为寄存器创建同义词。它们的语法是
+Synonyms for registers can be made with the \csidx{dimendef} and
+\csidx{skipdef} commands. Their syntax is
 \begin{Disp}\cs{dimendef}\gr{control sequence}\gr{equals}\gr{8-bit number}
 \end{Disp}
-和
+and 
 \begin{Disp}\cs{skipdef}\gr{control sequence}\gr{equals}\gr{8-bit number}\end{Disp}
-例如，在 \verb-\skipdef\foo=13- 之后，使用 \cs{foo} 等价于使用 \cs{skip13}。
+For example, after \verb-\skipdef\foo=13- using \cs{foo}
+is equivalent to using \cs{skip13}.
 
 %Macros \csidx{newdimen} and \csidx{newskip} exist in plain \TeX
 %for allocating an unused dimen or skip register.
 %These macros are defined to be \cs{outer} in the plain format.
-在 plain \TeX\ 中存在宏 \csidx{newdimen} 和 \csidx{newskip} 用于分配未使用的尺寸或跳跃寄存器。
-这些宏在 plain 格式中被定义为 \cs{outer}。
+Macros \csidx{newdimen} and \csidx{newskip} exist in plain \TeX
+for allocating an unused dimen or skip register.
+These macros are defined to be \cs{outer} in the plain format.
 
 %\subsection{Arithmetic: addition}
-\subsection{算术：加法}
+\subsection{Arithmetic: addition}
 
 %As for integer variables, arithmetic operations exist for
 %\cstoidx advance\par
 %\indextermbus{arithmetic on}{glue}\index{arithmetic! on glue|see{glue, arithmetic on}}:
 %dimen, glue, and muglue (mathematical glue; see page~\pageref{muglue})
 %variables.
-与整数变量一样，\cstoidx advance\par
-\indextermbus{arithmetic on}{glue}\index{arithmetic! on glue|see{glue, arithmetic on}}
-也存在用于尺寸、胶水和数学胶水 (muglue)（见第 \pageref{muglue} 页）变量的算术运算。
+As for integer variables, arithmetic operations exist for
+\cstoidx advance\par
+\indextermbus{arithmetic on}{glue}\index{arithmetic! on glue|see{glue, arithmetic on}}:
+dimen, glue, and muglue (mathematical glue; see page~\pageref{muglue})
+variables.
 
 %The expressions
 %\begin{Disp}\cs{advance}\gr{dimen variable}\gr{optional \n{by}}%
@@ -553,14 +613,14 @@
 %     \cs{advance}\gr{muglue variable}\gr{optional \n{by}}%
 %     \gr{muglue}\end{Disp}
 %add to the size of a dimen, glue, or muglue.
-表达式
+The expressions
 \begin{Disp}\cs{advance}\gr{dimen variable}\gr{optional \n{by}}%
      \gr{dimen}\nl
      \cs{advance}\gr{glue variable}\gr{optional \n{by}}%
      \gr{glue}\nl
      \cs{advance}\gr{muglue variable}\gr{optional \n{by}}%
      \gr{muglue}\end{Disp}
-会增加尺寸、胶水或数学胶水的大小。
+add to the size of a dimen, glue, or muglue.
 
 %Advancing a \gr{glue variable} by \gr{glue} is done by
 %adding the natural sizes, and the stretch and shrink components.
@@ -576,22 +636,25 @@
 %In the first case  \cs{dimen1} is coerced to \gr{glue} without
 %stretch or shrink; in the second case the \cs{skip1} is coerced
 %to a \gr{dimen} by taking its natural size.
-将一个 \gr{胶水变量} (glue variable) 增加一个 \gr{胶水} (glue) 值是通过将它们的自然尺寸以及拉伸和收缩分量相加来完成的。
-因为 \TeX\ 可以在 \gr{胶水} (glue) 和 \gr{尺寸} (dimen) 之间进行转换，
-所以可以写出例如
+Advancing a \gr{glue variable} by \gr{glue} is done by
+adding the natural sizes, and the stretch and shrink components.
+Because \TeX\ converts between \gr{glue} and \gr{dimen},
+it is possible to write for instance
 \begin{verbatim}
 \advance\skip1 by \dimen1
 \end{verbatim}
-或
+or
 \begin{verbatim}
 \advance\dimen1 by \skip1
 \end{verbatim}
-在第一种情况下，\cs{dimen1} 被强制转换为没有拉伸或收缩量的 \gr{胶水} (glue)；在第二种情况下，\cs{skip1} 通过取其自然尺寸被强制转换为 \gr{尺寸} (dimen)。
+In the first case  \cs{dimen1} is coerced to \gr{glue} without
+stretch or shrink; in the second case the \cs{skip1} is coerced
+to a \gr{dimen} by taking its natural size.
 
 %%\spoint Arithmetic: multiplication and division
 %\subsection{Arithmetic: multiplication and division}
 %\spoint Arithmetic: multiplication and division
-\subsection{算术：乘法和除法}
+\subsection{Arithmetic: multiplication and division}
 
 %Multiplication and division operations exist for glue
 %\cstoidx multiply\par\cstoidx divide\par
@@ -601,12 +664,14 @@
 %\end{verbatim}
 %which multiplies the natural size, and the stretch and shrink
 %components of \cs{skip1} by~2.
+Multiplication and division operations exist for glue
 \cstoidx multiply\par\cstoidx divide\par
-乘法和除法运算也存在于胶水和尺寸中。例如，可以写
+and dimensions. One may for instance write
 \begin{verbatim}
 \multiply\skip1 by 2
 \end{verbatim}
-这将 \cs{skip1} 的自然尺寸以及拉伸和收缩分量都乘以 2。
+which multiplies the natural size, and the stretch and shrink
+components of \cs{skip1} by~2.
 
 %The second operand of a \cs{multiply} or \cs{divide}
 %operation can only be a \gr{number}, that is, an integer.
@@ -620,15 +685,16 @@
 %and
 %\begin{Disp}\cs{divide}\gr{numeric variable}\gr{optional \n{by}}%
 %\gr{number}\end{Disp}
-\cs{multiply} 或 \cs{divide} 操作的第二个操作数只能是一个 \gr{数字} (number)，即一个整数。
-引入 \gr{数值变量} (numeric variable) 的概念：
+The second operand of a \cs{multiply} or \cs{divide}
+operation can only be a \gr{number}, that is, an integer.
+Introducing the notion of \gr{numeric variable}:
 \begin{disp}\gr{numeric variable} $\longrightarrow$ \gr{integer variable}
      $|$ \gr{dimen variable} \nl
      \indent $|$ \gr{glue variable} $|$ \gr{muglue variable}\end{disp}
-这些运算的形式为
+these operations take the form
 \begin{Disp}\cs{multiply}\gr{numeric variable}\gr{optional \n{by}}%
 \gr{number}\end{Disp} 
-和
+and
 \begin{Disp}\cs{divide}\gr{numeric variable}\gr{optional \n{by}}%
 \gr{number}\end{Disp}
 
@@ -640,22 +706,24 @@
 %\end{verbatim}
 %However, in the first line the \cs{skip2} is first coerced
 %to a \gr{dimen} value by omitting its stretch and shrink.
-胶水和尺寸可以乘以非整数：
+Glue and dimen can be multiplied by 
+non-integer quantities:
 \begin{verbatim}
 \skip1=2.5\skip2
 \dimen1=.78\dimen2
 \end{verbatim}
-然而，在第一行中，\cs{skip2} 首先通过省略其拉伸和收缩量被强制转换为一个 \gr{尺寸} (dimen) 值。
+However, in the first line the \cs{skip2} is first coerced
+to a \gr{dimen} value by omitting its stretch and shrink.
 
 %%\point More about dimensions
 %\section{More about dimensions}
 %\point More about dimensions
-\section{关于尺寸的更多信息}
+\section{More about dimensions}
 
 %%\spoint Units of measurement
 %\subsection{Units of measurement}
 %\spoint Units of measurement
-\subsection{度量单位}
+\subsection{Units of measurement}
 
 %In \TeX\ dimensions can be indicated in the following
 %\indexterm{units of measurement}:
@@ -686,30 +754,34 @@
 %    are integral multiples of one scaled point.
 %    There are $65\,536$ scaled points in a~point.
 %\end{description}
-在 \TeX\ 中，尺寸可以用以下\indexterm{度量单位}表示：
+In \TeX\ dimensions can be indicated in the following
+\indexterm{units of measurement}:
 \begin{description} 
-\item [厘米 (centimetre)]
-    表示为 \n{cm} 或 
-\item [毫米 (millimetre)]
-    表示为 \n{mm}；这些是 SI 单位（{\italic Syst\`eme International
-    d'Unit\'es}，国际标准单位制）。
-\item [英寸 (inch)]
-\n{in}；在英美世界更常用。
-一英寸等于 2.54 厘米。
-\item [派卡 (pica)]
-    表示为 \n{pc}；一派卡等于 12 点。
-\item [点 (point)]
-    表示为 \n{pt}；英美印刷业的通用系统。一英寸等于 72.27 点。
-\item [迪多点 (didot point)]
-    表示为 \n{dd}；欧洲大陆印刷业的通用系统。
-    此外，1157 迪多点等于 1238 点。
-\item [西塞罗 (cicero)]
-    表示为 \n{cc}；一西塞罗等于 12 迪多点。
-\item [大点 (big point)]
-    表示为 \n{bp}；一英寸等于 72 大点。
-\item [缩放点 (scaled point)]
-    表示为 \n{sp}；这是 \TeX\ 中最小的单位，所有度量都是一个缩放点的整数倍。
-    一点中有 $65\,536$ 个缩放点。
+\item [centimetre]
+    denoted \n{cm} or 
+\item [millimetre]
+	denoted \n{mm}; these are SI~units ({\italic Syst\`eme International
+	d'Unit\'es}, the
+	international system of standard units of measurements).
+\item [inch]
+\n{in}; more common in the Anglo-American world.
+One inch is 2.54~centimetres.
+\item [pica]
+    denoted \n{pc}; one pica is 12~points.
+\item [point]
+    denoted \n{pt}; the common system
+for Anglo-American printers. One inch is 72.27 points.
+\item [didot point]
+    denoted \n{dd}; the common system for continental European printers.
+    Furthermore, 1157 didot points are 1238~points.
+\item [cicero]
+    denoted \n{cc}; one cicero is 12~didot points.
+\item [big point]
+    denoted \n{bp}; one inch is 72 big points.
+\item [scaled point]
+    denoted \n{sp}; this is the smallest unit in \TeX, and all measurements
+    are integral multiples of one scaled point.
+    There are $65\,536$ scaled points in a~point.
 \end{description}
 
 %Decimal fractions can be written using both the
@@ -717,14 +789,20 @@
 %(for example, \n{1in}=\n{72.27pt})
 %and the continental European system with a decimal
 %comma; \n{1in}=\n{72,27pt}.
-小数既可以用带小数点的英美体系书写（例如，\n{1in}=\n{72.27pt}），也可以用带小数逗号的欧洲大陆体系书写；\n{1in}=\n{72,27pt}。
+Decimal fractions can be written using both the
+Anglo-American system with the decimal point
+(for example, \n{1in}=\n{72.27pt})
+and the continental European system with a decimal
+comma; \n{1in}=\n{72,27pt}.
 
 %Internally \TeX\ works with multiples of a smallest 
 %dimension: the  scaled point.
 %Dimensions larger (in absolute value) than $2^{30}-1$\n{sp},
 %which is about 5.75~metres or 18.9~feet, are illegal.
-\TeX\ 内部以最小尺寸的倍数工作：缩放点。
-绝对值大于 $2^{30}-1$\n{sp} 的尺寸（大约 5.75 米或 18.9 英尺）是非法的。
+Internally \TeX\ works with multiples of a smallest 
+dimension: the  scaled point.
+Dimensions larger (in absolute value) than $2^{30}-1$\n{sp},
+which is about 5.75~metres or 18.9~feet, are illegal.
 
 %Both the pica system and the didot system are of French
 %origin: in 1737 the type founder Pierre Simon Fournier
@@ -736,30 +814,37 @@
 %About 1770 another founder, Fran\c{c}ois Ambroise Didot, introduced
 %points based on the more common, and slightly longer,
 %`pied du roi'.
-派卡系统和迪多系统都源于法国：1737 年，字体创始人 Pierre Simon Fournier 引入了基于法国英尺的印刷点。
-虽然他最初引入了一个基于“行”和“点”的系统，但他后来将“点”作为单位：
-一英寸有 72 点，即十二分之一英尺。
-大约在 1770 年，另一位创始人 Fran\c{c}ois Ambroise Didot 引入了基于更常见且稍长的“国王尺”(pied du roi) 的点。
+Both the pica system and the didot system are of French
+origin: in 1737 the type founder Pierre Simon Fournier
+introduced typographical points based on the French foot.
+Although at first he introduced a system based on lines and
+points, he later took the point as unit:
+there are 72 points in an inch,
+which is one-twelfth of a foot. 
+About 1770 another founder, Fran\c{c}ois Ambroise Didot, introduced
+points based on the more common, and slightly longer,
+`pied du roi'.
 
 %%\spoint Dimension testing
 %\subsection{Dimension testing}
 %\spoint Dimension testing
-\subsection{尺寸测试}
+\subsection{Dimension testing}
 
 %Dimensions and natural sizes of glue can be compared with
 %the \cs{ifdim} test. This takes the form
 %\begin{disp}\cs{ifdim}\gr{dimen$_1$}\gr{relation}\gr{dimen$_2$}\end{disp}
 %where the relation can be an \n>, \n<, or~\n= token, 
 %all of category~12\index{category!12}.
-尺寸和胶水的自然尺寸可以用 \cs{ifdim} 测试进行比较。其形式为
+Dimensions and natural sizes of glue can be compared with
+the \cs{ifdim} test. This takes the form
 \begin{disp}\cs{ifdim}\gr{dimen$_1$}\gr{relation}\gr{dimen$_2$}\end{disp}
-其中关系可以是一个 \n>、\n< 或 \n= 标记，
-所有这些标记的类别码都是 12\index{category!12}。
+where the relation can be an \n>, \n<, or~\n= token, 
+all of category~12\index{category!12}.
 
 %%\spoint Defined dimensions
 %\subsection{Defined dimensions}
 %\spoint Defined dimensions
-\subsection{已定义的尺寸}
+\subsection{Defined dimensions}
 
 %\begin{inventory}
 %\item [\cs{z@}]
@@ -772,7 +857,7 @@
 %      \n{16383.99999pt}; the largest legal dimension.
 %\end{inventory}
 \item [\cs{maxdimen}] 
-      \n{16383.99999pt}；最大的合法尺寸。
+      \n{16383.99999pt}; the largest legal dimension.
 \end{inventory}
 
 %These \gr{dimen}s are predefined in the plain format;
@@ -787,25 +872,34 @@
 %Secondly, it saves time in processing, as \TeX\ does not need
 %to perform conversions to arrive at the correct type of
 %object.
-这些 \gr{尺寸} (dimen) 在 plain 格式中是预定义的；
-例如
+These \gr{dimen}s are predefined in the plain format;
+for instance
 \begin{verbatim}
 \newdimen\z@ \z@=0pt
 \end{verbatim}
-对常用尺寸使用这样的缩写至少有两个优点。首先，如果这样的尺寸出现在宏中，它可以节省主内存：一个控制序列是一个标记，而像 \n{0pt} 这样的字符串需要三个标记。
-其次，它节省了处理时间，因为 \TeX\ 不需要执行转换来得到正确类型的对象。
+Using such abbreviations for commonly used dimensions
+has at least two advantages. First of all it saves main memory
+if such a dimension occurs in a macro: a control sequence
+is one token, whereas a string such as \n{0pt} takes three.
+Secondly, it saves time in processing, as \TeX\ does not need
+to perform conversions to arrive at the correct type of
+object.
 
 %Control sequences such as \cs{z@}
 %are only available to a user who changes the
 %category code of the `at' sign. Ordinarily, these control sequences
 %appear only in the macros defined in packages such as the
 %plain format.
-像 \cs{z@} 这样的控制序列只有在用户更改了“@”符号的类别码后才可用。通常，这些控制序列只出现在像 plain 格式这样的宏包所定义的宏中。
+Control sequences such as \cs{z@}
+are only available to a user who changes the
+category code of the `at' sign. Ordinarily, these control sequences
+appear only in the macros defined in packages such as the
+plain format.
 
 %%\point More about glue
 %\section{More about glue}
 %\point More about glue
-\section{关于胶水的更多信息}
+\section{More about glue}
 
 %Glue items can be added to a vertical list with one of the
 %\alt
@@ -814,14 +908,18 @@
 %glue items can be added to a horizontal list with one of the
 %commands \csidx{hskip}\gr{glue}, \cs{hfil}, \cs{hfill}, \cs{hss} or
 %\cs{hfilneg}. We will now treat the properties of glue.
-胶水项可以通过 \csidx{vskip}\gr{glue}、\cs{vfil}、\cs{vfill}、\cs{vss} 或 \cs{vfilneg} 等命令之一添加到垂直列表中；
-胶水项可以通过 \csidx{hskip}\gr{glue}、\cs{hfil}、\cs{hfill}、\cs{hss} 或 \cs{hfilneg} 等命令之一添加到水平列表中。
-我们现在将讨论胶水的属性。
+Glue items can be added to a vertical list with one of the
+\alt
+commands \csidx{vskip}\gr{glue}, \cs{vfil}, \cs{vfill}, \cs{vss} or
+\cs{vfilneg}; 
+glue items can be added to a horizontal list with one of the
+commands \csidx{hskip}\gr{glue}, \cs{hfil}, \cs{hfill}, \cs{hss} or
+\cs{hfilneg}. We will now treat the properties of glue.
 
 %%\spoint Stretch and shrink
 %\subsection{Stretch and shrink}
 %\spoint Stretch and shrink
-\subsection{拉伸与收缩}
+\subsection{Stretch and shrink}
 
 %In the syntax given above, \gr{glue} was defined as having
 %\begin{itemize}
@@ -831,12 +929,13 @@
 %  \index{glue!stretch component of}\index{glue!shrink
 %    component of} built out of a \gr{fil dimen}.
 %\end{itemize}
-在上面给出的语法中，\gr{胶水} (glue) 被定义为具有
+In the syntax given above, \gr{glue} was defined as having
 \begin{itemize}
-\item 一个“自然尺寸”，它是一个 \gr{尺寸} (dimen)，以及可选的
-\item 一个由 \gr{fil dimen} 构成的\indexterm{拉伸}和\indexterm{收缩}分量\indexterm{stretch}\indexterm{shrink}
+\item a `natural size', which is a \gr{dimen}, and optionally
+\item a \indexterm{stretch} and \indexterm{shrink}
+  component\indexterm{stretch}\indexterm{shrink}
   \index{glue!stretch component of}\index{glue!shrink
-    component of}。
+    component of} built out of a \gr{fil dimen}.
 \end{itemize}
 
 %Each list that \TeX\ builds has amounts of stretch and shrink
@@ -846,9 +945,13 @@
 %Stretch and shrink are used if the context in which the list
 %appears requires it to assume a size that is different from
 %its natural size.
-\TeX\ 构建的每个列表都有拉伸量和收缩量（可能为零），
-它们是列表中各个胶水项的拉伸和收缩分量的总和。
-如果列表出现的上下文要求它呈现出不同于其自然尺寸的大小，则会使用拉伸和收缩。
+Each list that \TeX\ builds has amounts of stretch and shrink
+(possibly zero),
+which are the sum of the
+stretch and shrink components of individual pieces of glue in the list. 
+Stretch and shrink are used if the context in which the list
+appears requires it to assume a size that is different from
+its natural size.
 
 %There is an important difference in behaviour between stretch
 %and shrink components when they are finite \ldash that is,
@@ -865,15 +968,21 @@
 %Such arbitrary stretching
 %has a large `badness', however.
 %Badness calculation is treated below.
-当拉伸和收缩分量是有限的时 \ldash 也就是说，当 \gr{fildimen} 不是 \n{fil}(\n{l}(\n{l})) 时，它们的行为有重要区别。
-一个有限的收缩量确实是 \TeX\ 将采用的最大收缩量：指定为
+There is an important difference in behaviour between stretch
+and shrink components when they are finite \ldash that is,
+when the \gr{fildimen} is not \n{fil}(\n{l}(\n{l})). 
+A~finite amount of shrink is indeed the maximum shrink
+that \TeX\ will take: the amount of glue specified
+as
 \begin{verbatim}
 5pt minus 3pt
 \end{verbatim}
-的胶水量可以收缩到 \n{2pt}，但不能再小。
-与此相反，一个有限的拉伸量可以被任意拉伸得很远。
-然而，这种任意拉伸会产生很大的“劣度”。
-劣度的计算将在下面讨论。
+can shrink to \n{2pt}, but not further.
+In contrast to this, a finite amount of stretch 
+can be stretched arbitrarily far. 
+Such arbitrary stretching
+has a large `badness', however.
+Badness calculation is treated below.
 
 %\begin{example}
 %The sequence with natural size \n{20pt}
@@ -887,16 +996,16 @@
 %there is \n{3pt} of stretch, and \n{2pt} of shrink,
 %so its minimal size is~\n{18pt}. 
 \begin{example}
-自然尺寸为 \n{20pt} 的序列
+The sequence with natural size \n{20pt}
 \begin{verbatim}
 \hskip 10pt plus 2pt \hskip 10pt plus 3pt
 \end{verbatim}
-有 \n{5pt} 的拉伸量，但没有收缩量。在
+has \n{5pt} of stretch, but it has no shrink. In
 \begin{verbatim}
 \hskip 10pt minus 2pt \hskip 10pt plus 3pt
 \end{verbatim}
-中有 \n{3pt} 的拉伸量和 \n{2pt} 的收缩量，
-所以它的最小尺寸是 \n{18pt}。
+there is \n{3pt} of stretch, and \n{2pt} of shrink,
+so its minimal size is~\n{18pt}. 
 
 %Positive shrink is not the same as negative stretch:
 %\begin{verbatim}
@@ -905,11 +1014,13 @@
 %looks a lot like the previous example, but it cannot
 %be shrunk as there are no \hbox{\n{minus}\gr{dimen}}
 %specifications. It does have \n{1pt} of stretch, however.
-正的收缩量与负的拉伸量不同：
+Positive shrink is not the same as negative stretch:
 \begin{verbatim}
 \hskip 10pt plus -2pt \hskip 10pt plus 3pt
 \end{verbatim}
-看起来很像前一个例子，但它不能被收缩，因为没有 \hbox{\n{minus}\gr{dimen}} 规范。然而，它确实有 \n{1pt} 的拉伸量。
+looks a lot like the previous example, but it cannot
+be shrunk as there are no \hbox{\n{minus}\gr{dimen}}
+specifications. It does have \n{1pt} of stretch, however.
 
 %This is another example of negative amounts of shrink and stretch.
 %It is not possible to stretch
@@ -920,12 +1031,15 @@
 %\end{verbatim}
 %is an underfull box, because \TeX\ looks for a \n{plus}~\gr{dimen}
 %specification when it needs to stretch the contents.
-这是负收缩量和拉伸量的另一个例子。
-不可能通过（技术意义上的）收缩来（非正式意义上的）拉伸胶水：
+This is another example of negative amounts of shrink and stretch.
+It is not possible to stretch
+glue (in the informal sense) by shrinking it (in the technical
+sense):
 \begin{verbatim}
 \hbox to 5cm{a\hskip 0cm minus -1fil}
 \end{verbatim}
-是一个未满的盒子，因为当 \TeX\ 需要拉伸内容时，它会寻找一个 \n{plus}~\gr{dimen} 规范。
+is an underfull box, because \TeX\ looks for a \n{plus}~\gr{dimen}
+specification when it needs to stretch the contents.
 
 %Finally,
 %\begin{verbatim}
@@ -939,14 +1053,17 @@
 %is to consider that for each point that the second glue item would
 %stretch, the first one would `stretch back' one point.
 %\end{example}
-最后，
+Finally,
 \begin{verbatim}
 \hskip 10pt plus -3pt \hskip 10pt plus 3pt
 \end{verbatim}
-既不能拉伸也不能收缩。
-事实上只有拉伸量可用意味着该序列不能收缩。
-然而，拉伸分量相互抵消：总拉伸量为零。
-另一种看待这个问题的方式是，对于第二个胶水项拉伸的每一点，第一个胶水项都会“反向拉伸”一点。
+can neither stretch nor shrink.
+The fact that there is only stretch
+available means that the sequence cannot
+shrink. However, the stretch components cancel out: the 
+total stretch is zero. Another way of looking at this
+is to consider that for each point that the second glue item would
+stretch, the first one would `stretch back' one point.
 \end{example}
 
 %Any amount of infinite stretch or shrink overpowers all
@@ -968,30 +1085,32 @@
 %              text\hskip 0cm plus 0.0001filll}
 %\end{verbatim}
 %both have the \n{text} at the left end of the box.
-任何数量的无限拉伸或收缩都会压倒所有可用的有限拉伸或收缩：
+Any amount of infinite stretch or shrink overpowers all
+finite stretch or shrink available:
 \begin{verbatim}
 \hbox to 5cm{\hskip 0cm plus 16384pt 
               text\hskip 0cm plus 0.0001fil}
 \end{verbatim}
-会将 \n{text} 放在盒子的最左边。
-有三个数量级的“无穷大”，每个都比前一个强无穷倍：
+has the \n{text} at the extreme left of the box.
+There are three orders of `infinity', each  one infinitely
+stronger than the previous one:
 \begin{verbatim}
 \hbox to 5cm{\hskip 0cm plus 16384fil
               text\hskip 0cm plus 0.0001fill}
 \end{verbatim}
-和
+and
 \begin{verbatim}
 \hbox to 5cm{\hskip 0cm plus 16384fill
               text\hskip 0cm plus 0.0001filll}
 \end{verbatim}
-都会将 \n{text} 放在盒子的左端。
+both have the \n{text} at the left end of the box.
 
 
 
 %%\spoint Glue setting
 %\subsection{Glue setting}
 %\spoint Glue setting
-\subsection{胶水设定}
+\subsection{Glue setting}
 
 %In the process of \indextermsub{glue}{setting}, the desired width (or height)
 %of a box is compared with the natural dimension of its contents,
@@ -1002,10 +1121,15 @@
 %only the glue of the highest available order is set:
 %each piece of glue of that order is stretched or shrunk by the
 %same ratio.
-在\indextermsub{胶水}{设定}的过程中，盒子的期望宽度（或高度）会与其内容的自然尺寸进行比较，后者是所有盒子和胶水块的自然尺寸的总和。
-如果两者不同，则使用任何可用的拉伸性或收缩性来弥补差距。
-为了达到盒子的期望尺寸，只有最高可用数量级的胶水会被设定：
-该数量级的每一块胶水都会按相同的比例被拉伸或收缩。
+In the process of \indextermsub{glue}{setting}, the desired width (or height)
+of a box is compared with the natural dimension of its contents,
+which is the sum of all natural dimensions of boxes and globs of glue.
+If the two differ, any available stretchability or shrinkability is used
+to bridge the gap.
+To attain the desired dimension of the box
+only the glue of the highest available order is set:
+each piece of glue of that order is stretched or shrunk by the
+same ratio.
 
 %For example, in
 %\begin{verbatim}
@@ -1025,19 +1149,24 @@
 %\end{verbatim}
 %the second glue  will assume its natural size of~\n{0pt},
 %and only the first   glue will be stretched.
-例如，在
+For example, in
 \begin{verbatim}
 \hbox to 6pt{\hskip 0pt plus 3pt \hskip 0pt plus 9pt}
 \end{verbatim}
-中，盒子的自然尺寸是 \n{0pt}，总拉伸量是 \n{12pt}。为了得到一个 \n{6pt} 的盒子，每个胶水项都以 $1/2$ 的拉伸比进行设定。因此，结果等价于
+the natural size of the box is~\n{0pt}, and
+the total stretch is~\n{12pt}. In order to obtain a box
+of~\n{6pt} each glue item is set with a stretch ratio
+of~$1/2$. Thus the result is equivalent to
 \begin{verbatim}
 \hbox {\hskip 1.5pt \hskip 4.5pt}
 \end{verbatim}
-只有最高数量级的拉伸或收缩会被使用：在
+Only the highest order of stretch or shrink is used:
+in
 \begin{verbatim}
 \hbox to 6pt{\hskip 0pt plus 1fil \hskip 0pt plus 9pt}
 \end{verbatim}
-中，第二个胶水将保持其自然尺寸 \n{0pt}，只有第一个胶水会被拉伸。
+the second glue  will assume its natural size of~\n{0pt},
+and only the first   glue will be stretched.
 
 %\TeX\ will never exceed the maximum value of a finite
 %amount of shrink.
@@ -1047,15 +1176,19 @@
 %to give an \verb-Underfull \hbox- message about this
 %(see page~\pageref{over/underfull}).
 %For an example of infinite shrink see page~\pageref{rlap}.
-\TeX\ 永远不会超过有限收缩量的最大值。
-一个不能被充分收缩的盒子被称为“过满”(overfull)。
-有限的拉伸性可以被超过，以便在困难情况下提供一个出路；然而，\TeX\ 很可能会对此给出 \verb-Underfull \hbox- 的消息（见第 \pageref{over/underfull} 页）。
-关于无限收缩的例子，见第 \pageref{rlap} 页。
+\TeX\ will never exceed the maximum value of a finite
+amount of shrink.
+A~box that cannot be shrunk enough is called `overfull'.
+Finite stretchability can be exceeded to provide an
+escape in difficult situations; however, \TeX\ is likely 
+to give an \verb-Underfull \hbox- message about this
+(see page~\pageref{over/underfull}).
+For an example of infinite shrink see page~\pageref{rlap}.
 
 %%\spoint Badness
 %\subsection{Badness}
 %\spoint Badness
-\subsection{劣度 (Badness)}
+\subsection{Badness}
 
 %When stretching or shrinking a list \TeX\ calculates 
 %\indexterm{badness}\index{badness! calculation}
@@ -1063,8 +1196,12 @@
 %ratio between actual stretch and the amount of stretch
 %present in the line. See Chapter~\ref{line:break}
 %for the application  of badness to the paragraph algorithm.
-当拉伸或收缩一个列表时，\TeX\ 会根据实际拉伸量与行中存在的拉伸量之间的比率来计算\indexterm{劣度} (badness)\index{badness! calculation}。
-关于劣度在段落算法中的应用，见第 \ref{line:break} 章。
+When stretching or shrinking a list \TeX\ calculates 
+\indexterm{badness}\index{badness! calculation}
+badness based on the
+ratio between actual stretch and the amount of stretch
+present in the line. See Chapter~\ref{line:break}
+for the application  of badness to the paragraph algorithm.
 
 %The formula for badness of a list that is stretched (shrunk) is
 %\label{bad:form}\message{Check roman min}
@@ -1075,12 +1212,15 @@
 %easier to calculate, but behaves the same. Since glue setting is
 %one of the main activities of \TeX, this must be performed
 %as efficiently as possible.
-一个被拉伸（收缩）的列表的劣度公式是
+The formula for badness of a list that is stretched (shrunk) is
 \label{bad:form}\message{Check roman min}
 \begin{disp} $\displaystyle b=\hbox{min}\left(10\,000,
-100\times \left({\hbox{实际拉伸（收缩）量}
-\over\hbox{可能的拉伸（收缩）量}}\right)^3\right)$\end{disp}
-实际上，\TeX\ 使用一个稍有不同但更易于计算的公式，其行为相同。由于胶水设定是 \TeX\ 的主要活动之一，这必须尽可能高效地执行。
+100\times \left({\hbox{actual amount stretched (shrunk)}
+\over\hbox{possible amount of stretch (shrink)}}\right)^3\right)$\end{disp}
+In reality \TeX\ uses a slightly different formula that is
+easier to calculate, but behaves the same. Since glue setting is
+one of the main activities of \TeX, this must be performed
+as efficiently as possible.
 
 %This formula lets the badness be a reasonably small number
 %if the glue set ratio (the fraction in the above expression)
@@ -1089,27 +1229,34 @@
 %glue would have to shrink more than the allotted amount;
 %stretching glue beyond its maximum is possible, so this
 %provides an  escape for very difficult lines of text or pages.
-如果胶水设定比率（上述表达式中的分数）相当小，这个公式会让劣度成为一个相当小的数，但一旦比率超过 1，劣度就会迅速增长。如果胶水必须收缩超过其分配的量，劣度就是无限的；
-将胶水拉伸超过其最大值是可能的，因此这为非常困难的文本行或页面提供了出路。
+This formula lets the badness be a reasonably small number
+if the glue set ratio (the fraction in the above expression)
+is reasonably small, but will let it grow rapidly once
+the ratio is more than~1. Badness is infinite if the
+glue would have to shrink more than the allotted amount;
+stretching glue beyond its maximum is possible, so this
+provides an  escape for very difficult lines of text or pages.
 
 %In \TeX3, the \cs{badness} parameter records the badness
 %of the most recently formed box.
-在 \TeX3 中，\cs{badness} 参数记录了最近形成的盒子的劣度。
+In \TeX3, the \cs{badness} parameter records the badness
+of the most recently formed box.
 
 %%\spoint Glue and breaking
 %\subsection{Glue and breaking}
 %\spoint Glue and breaking
-\subsection{胶水与断行}
+\subsection{Glue and breaking}
 
 %\TeX\ can break lines and pages in several kinds of places.
 %One of these places is before a glue item. 
 %The glue is then discarded. For line breaks this is treated
 %in Chapter~\ref{line:break}, 
 %for page breaks see Chapter~\ref{page:break}.
-\TeX\ 可以在几种地方断开行和页。
-其中一个地方是在胶水项之前。
-此时胶水会被丢弃。关于断行，这在第 \ref{line:break} 章中讨论，
-关于分页，见第 \ref{page:break} 章。
+\TeX\ can break lines and pages in several kinds of places.
+One of these places is before a glue item. 
+The glue is then discarded. For line breaks this is treated
+in Chapter~\ref{line:break}, 
+for page breaks see Chapter~\ref{page:break}.
 
 %There are two macros in plain \TeX, \csidx{hglue} and \csidx{vglue},
 %that give non-disappearing glue in horizontal and
@@ -1125,14 +1272,20 @@
 %The actual macro definitions are somewhat more complicated,
 %because they take care to preserve the \cs{spacefactor} and the
 %\cs{prevdepth}.
-在 plain \TeX\ 中有两个宏，\csidx{hglue} 和 \csidx{vglue}，
-它们分别在水平和垂直模式下提供不会消失的胶水。对于水平情况，这是通过放置：
+There are two macros in plain \TeX, \csidx{hglue} and \csidx{vglue},
+that give non-disappearing glue in horizontal and
+vertical mode respectively. For the horizontal case this is
+accomplished by
+placing:
 \begin{verbatim}
 \vrule width 0pt \nobreak \hskip ...
 \end{verbatim}
-来实现的。因为 \TeX\ 在胶水的前端断开，
-这个胶水将始终附着在标尺上，因此永远不会消失。
-实际的宏定义要复杂一些，因为它们要负责保留 \cs{spacefactor} 和 \cs{prevdepth}。
+Because \TeX\ breaks at the front end of glue,
+this glue will always stay attached to the rule,
+and will therefore never disappear.
+The actual macro definitions are somewhat more complicated,
+because they take care to preserve the \cs{spacefactor} and the
+\cs{prevdepth}.
 
 %%\spoint \cs{kern}
 %\subsection{\cs{kern}}
@@ -1153,17 +1306,20 @@
 %.. text .. \hbox{a}\hskip0pt\hbox{b}
 %\end{verbatim}
 %a line can be broken in between the boxes.
-\csidx{kern} 命令在 \TeX\ 当前所处的任何模式下指定一个字偶距项。
-字偶距项很像一个没有拉伸或收缩的胶水项。
-它与胶水的不同之处在于，它通常不是一个合法的断点。因此在
+The \csidx{kern} command specifies
+a~kern item in whatever mode \TeX\ is currently
+in. A~kern item is much like a glue item without
+stretch or shrink.
+It differs from glue in that it is
+in general not a legal breakpoint. Thus in
 \begin{verbatim}
 .. text .. \hbox{a}\kern0pt\hbox{b}
 \end{verbatim}
-中，\TeX\ 不会在盒子之间断行；而在
+\TeX\ will not break lines in between the boxes; in
 \begin{verbatim}
 .. text .. \hbox{a}\hskip0pt\hbox{b}
 \end{verbatim}
-中，可以在盒子之间断行。
+a line can be broken in between the boxes.
 
 %However, if a kern is followed by glue, \TeX\ can break at the
 %kern (provided that it is not in math mode). 
@@ -1173,30 +1329,35 @@
 %the (empty) current page after the material before
 %the break has been disposed of by the output routine 
 %(see Chapter~\ref{page:break}).
-然而，如果一个字偶距后面跟着胶水，\TeX\ 可以在字偶距处断开（前提是它不在数学模式中）。
-在水平模式下，字偶距和胶水都会在断点处消失。
-在垂直模式下，当断点前的材料被输出例程处理掉后，它们被移动到（空的）当前页面时会被丢弃（见第 \ref{page:break} 章）。
+However, if a kern is followed by glue, \TeX\ can break at the
+kern (provided that it is not in math mode). 
+In horizontal mode
+both the kern and the glue then disappear in the break.
+In vertical mode they are discarded when they are moved to
+the (empty) current page after the material before
+the break has been disposed of by the output routine 
+(see Chapter~\ref{page:break}).
 
 %%\spoint Glue and modes
 %\subsection{Glue and modes}
 %\spoint Glue and modes
-\subsection{胶水与模式}
+\subsection{Glue and modes}
 
 %All horizontal skip commands are \gr{horizontal command}s and
 %all vertical skip commands are \gr{vertical commands}s.
 %This means that, for instance, an \cs{hskip} command
 %makes \TeX\ start a paragraph if it is given in vertical mode.
 %The \cs{kern} command can be given in both modes.
-所有的水平跳跃命令都是 \gr{水平命令} (horizontal command)，
-所有的垂直跳跃命令都是 \gr{垂直命令} (vertical command)。
-这意味着，例如，如果在垂直模式下给出 \cs{hskip} 命令，
-\TeX\ 会开始一个段落。
-\cs{kern} 命令可以在两种模式下使用。
+All horizontal skip commands are \gr{horizontal command}s and
+all vertical skip commands are \gr{vertical commands}s.
+This means that, for instance, an \cs{hskip} command
+makes \TeX\ start a paragraph if it is given in vertical mode.
+The \cs{kern} command can be given in both modes.
 
 %%\spoint The last  glue item in a list: backspacing
 %\subsection{The last  glue item in a list: backspacing}
 %\spoint The last  glue item in a list: backspacing
-\subsection{列表中的最后一个胶水项：回退}
+\subsection{The last  glue item in a list: backspacing}
 
 %The last glue item in a list can be measured, and
 %it can be removed in all modes but external vertical mode.
@@ -1211,11 +1372,19 @@
 %The \cs{lastskip} and \cs{lastkern}
 %are also \n{0pt} if that was the size of the last glue or
 %kern item on the list.
-列表中的最后一个胶水项可以被测量，并且可以在除外部垂直模式外的所有模式中被移除。
-内部变量 \csidx{lastskip} 和 \csidx{lastkern} 可以用来测量所有模式下最后一个胶水块；
-如果最后一个胶水分别不是跳跃或字偶距，它们的值为 \n{0pt}。
-在数学模式下，\cs{lastskip} 作为 \gr{内部数学胶水} (internal muglue) 起作用，但通常它被归类为 \gr{内部胶水} (internal glue)。
-如果列表上最后一个胶水或字偶距项的大小就是 \n{0pt}，那么 \cs{lastskip} 和 \cs{lastkern} 的值也是 \n{0pt}。
+The last glue item in a list can be measured, and
+it can be removed in all modes but external vertical mode.
+The internal variables
+\csidx{lastskip} and  \csidx{lastkern} can be used
+to measure the last glob of glue in all modes;
+if the last glue was not a skip or kern respectively
+they give~\n{0pt}.
+In math mode the \cs{lastskip}
+functions as \gr{internal muglue}, but in general
+it classifies as \gr{internal glue}.
+The \cs{lastskip} and \cs{lastkern}
+are also \n{0pt} if that was the size of the last glue or
+kern item on the list.
 
 %The operations\label{unskip}
 %\csidx{unskip} and \csidx{unkern} remove the last item of a list,
@@ -1224,31 +1393,36 @@
 %best substitute is 
 %\verb=\vskip-\lastskip= 
 %and~\verb=\kern-\lastkern=.
-操作\label{unskip}
-\csidx{unskip} 和 \csidx{unkern} 会移除列表的最后一项，
-如果该项分别是胶水或字偶距。它们在外部垂直模式下没有效果；
-在这种情况下，最好的替代方法是
+The operations\label{unskip}
+\csidx{unskip} and \csidx{unkern} remove the last item of a list,
+if this is a glue or kern respectively. They have no effect
+in external vertical mode; in that case the
+best substitute is 
 \verb=\vskip-\lastskip= 
-和 \verb=\kern-\lastkern=。
+and~\verb=\kern-\lastkern=.
 
 %In the process of paragraph building \TeX\ itself performs
 %an important \cs{unskip}: a~paragraph ending with a
 %white line will have a space token inserted by \TeX's input processor.
 %This is removed by an \cs{unskip} before the \cs{parfillskip} glue
 %(see Chapter~\ref{par:end}) is inserted.
-在段落构建过程中，\TeX\ 本身会执行一个重要的 \cs{unskip}：以空行结束的段落会由 \TeX\ 的输入处理器插入一个空格标记。
-在插入 \cs{parfillskip} 胶水（见第 \ref{par:end} 章）之前，这个空格标记会被一个 \cs{unskip} 移除。
+In the process of paragraph building \TeX\ itself performs
+an important \cs{unskip}: a~paragraph ending with a
+white line will have a space token inserted by \TeX's input processor.
+This is removed by an \cs{unskip} before the \cs{parfillskip} glue
+(see Chapter~\ref{par:end}) is inserted.
 
 %Glue is treated by \TeX\ as a special case of leaders,
 %which becomes apparent when \cs{unskip} is applied to
 %leaders: they are removed.
-\TeX\ 将胶水视为一种特殊的引导线 (leaders)，
-当 \cs{unskip} 应用于引导线时这一点变得很明显：它们会被移除。
+Glue is treated by \TeX\ as a special case of leaders,
+which becomes apparent when \cs{unskip} is applied to
+leaders: they are removed.
 
 %%\spoint Examples of backspacing
 %\subsection{Examples of backspacing}
 %\spoint Examples of backspacing
-\subsection{回退的例子}
+\subsection{Examples of backspacing}
 
 %The plain \TeX\ macro \csidx{removelastskip} is defined
 %as
@@ -1258,12 +1432,14 @@
 %If the last item on the list was a glue, this macro will
 %backspace by its value, provided its natural size was not zero.
 %In all other cases, nothing is added to the list.
-plain \TeX\ 宏 \csidx{removelastskip} 定义为
+The plain \TeX\ macro \csidx{removelastskip} is defined
+as
 \begin{verbatim}
 \ifdim\lastskip=0pt \else \vskip-\lastskip \fi
 \end{verbatim}
-如果列表中的最后一项是胶水，这个宏将回退其值，前提是其自然尺寸不为零。
-在所有其他情况下，不会向列表中添加任何内容。
+If the last item on the list was a glue, this macro will
+backspace by its value, provided its natural size was not zero.
+In all other cases, nothing is added to the list.
 
 %Sometimes an intelligent version of commands such as \cs{vskip}
 %is necessary, in the sense that two subsequent skip commands
@@ -1282,9 +1458,10 @@ plain \TeX\ 宏 \csidx{removelastskip} 定义为
 %Copying the argument into a skip register is necessary
 %because \cs{v\-space}\verb>{2pt plus 3pt}> would lead to 
 %problems in an \verb>\ifdim#1<\lastskip> test.
-有时需要像 \cs{vskip} 这样的命令的智能版本，
-即两个连续的跳跃命令应该只产生两者中较大的胶水量。
-在第 \pageref{skip:scheme} 页使用了这样一个宏：
+Sometimes an intelligent version of commands such as \cs{vskip}
+is necessary, in the sense that two subsequent skip commands
+should result only in the larger of the two glue amounts.
+On page~\pageref{skip:scheme} such a macro is used:
 \begin{verbatim}
 \newskip\tempskipa
 \def\vspace#1{\tempskipa=#1\relax
@@ -1293,10 +1470,11 @@ plain \TeX\ 宏 \csidx{removelastskip} 定义为
              \fi
     \else \vskip\tempskipa \fi}
 \end{verbatim}
-首先，这会测试模式是否为垂直模式；
-如果不是，参数可以安全地放置。
-将参数复制到跳跃寄存器中是必要的，
-因为 \cs{v\-space}\verb>{2pt plus 3pt}> 会在 \verb>\ifdim#1<\lastskip> 测试中导致问题。
+First of all, this tests whether the mode is vertical; 
+if not, the argument can safely be placed.
+Copying the argument into a skip register is necessary
+because \cs{v\-space}\verb>{2pt plus 3pt}> would lead to 
+problems in an \verb>\ifdim#1<\lastskip> test.
 
 %If the surrounding mode was vertical, the argument
 %should only be placed if it is not less than what is
@@ -1314,24 +1492,27 @@ plain \TeX\ 宏 \csidx{removelastskip} 定义为
 %would not place any glue, because after
 %the \cs{par} we are in vertical mode and
 %\cs{lastskip} has a value of \n{0pt}.
-如果周围是垂直模式，只有当参数不小于已经存在的值时才应该放置它。
-如果测试写成
+If the surrounding mode was vertical, the argument
+should only be placed if it is not less than what is
+already there. The macro would be incorrect
+if the test  read
 \begin{verbatim}
         \ifdim\tempskipa>\lastskip 
             \vskip-\lastskip \vskip\tempskipa
         \fi
 \end{verbatim}
-那么这个宏就是不正确的。在这种情况下，序列
+In this case the sequence
 \begin{verbatim}
 ... last word.\par \vspace{0pt plus 1fil}
 \end{verbatim}
-将不会放置任何胶水，因为在 \cs{par} 之后我们处于垂直模式，
-并且 \cs{lastskip} 的值为 \n{0pt}。
+would not place any glue, because after
+the \cs{par} we are in vertical mode and
+\cs{lastskip} has a value of \n{0pt}.
 
 %%\spoint Glue in trace output
 %\subsection{Glue in trace output}
 %\spoint Glue in trace output
-\subsection{追踪输出中的胶水}
+\subsection{Glue in trace output}
 
 %If the workings of \TeX\ are traced by setting
 %\cs{tracingoutput} positive, or if \TeX\ 
@@ -1341,11 +1522,14 @@ plain \TeX\ 宏 \csidx{removelastskip} 定义为
 %glue  is denoted by the control sequence \cs{glue}.
 %This is not a \TeX\ command; it merely indicates the presence
 %of glue in the current list.
-如果通过将 \cs{tracingoutput} 设置为正数来追踪 \TeX\ 的工作过程，
-或者如果 \TeX\ 将一个盒子写入日志文件
-（因为 \cs{showbox} 命令，或者因为它过满或未满），
-胶水会用控制序列 \cs{glue} 来表示。
-这不是一个 \TeX\ 命令；它仅仅表示当前列表中存在胶水。
+If the workings of \TeX\ are traced by setting
+\cs{tracingoutput} positive, or if \TeX\ 
+writes a box to the log file 
+(because of a \cs{showbox} command, or because it
+is overfull or underfull),
+glue  is denoted by the control sequence \cs{glue}.
+This is not a \TeX\ command; it merely indicates the presence
+of glue in the current list.
 
 %The box representation that \TeX\ generated from,
 %\alt
@@ -1356,11 +1540,15 @@ plain \TeX\ 宏 \csidx{removelastskip} 定义为
 %\n{tfm} file. Thus \hbox{\verb-\kern 2.0pt-} denotes a kern
 %that was inserted by the user or by a macro, and
 %\verb-\kern2.0pt- denotes an implicit kern.
-\TeX\ 从例如 \cs{showbox} 生成的盒子表示中，
-会在每个显式的 \cs{kern} 后面插入一个空格，
-但在由字体 \n{tfm} 文件中的字偶距信息插入的隐式字偶距后面则不插入空格。
-因此 \hbox{\verb-\kern 2.0pt-} 表示由用户或宏插入的字偶距，
-而 \verb-\kern2.0pt- 表示一个隐式字偶距。
+The box representation that \TeX\ generated from,
+\alt
+for instance, \cs{showbox}
+inserts a space after every explicit \cs{kern},
+but no space is inserted after an implicit
+kern that was inserted by the kerning information in the font
+\n{tfm} file. Thus \hbox{\verb-\kern 2.0pt-} denotes a kern
+that was inserted by the user or by a macro, and
+\verb-\kern2.0pt- denotes an implicit kern.
 
 %Glue that is inserted automatically (\cs{topskip}, \cs{baselineskip},
 %et cetera) is denoted by name in \TeX's trace output.
@@ -1380,12 +1568,13 @@ plain \TeX\ 宏 \csidx{removelastskip} 定义为
 %..\tenrm b
 %\end{verbatim}
 %Note the implicit kern inserted between `V' and~`o'.
-自动插入的胶水（\cs{topskip}、\cs{baselineskip} 等）在 \TeX\ 的追踪输出中会以名称表示。
-例如，盒子
+Glue that is inserted automatically (\cs{topskip}, \cs{baselineskip},
+et cetera) is denoted by name in \TeX's trace output.
+For example, the box
 \begin{verbatim}
 \vbox{\hbox{Vo}\hbox{b}}
 \end{verbatim}
-看起来像
+looks like
 \begin{verbatim}
 \vbox(18.83331+0.0)x11.66669
 .\hbox(6.83331+0.0)x11.66669
@@ -1396,7 +1585,7 @@ plain \TeX\ 宏 \csidx{removelastskip} 定义为
 .\hbox(6.94444+0.0)x5.55557
 ..\tenrm b
 \end{verbatim}
-注意在‘V’和‘o’之间插入的隐式字偶距。
+Note the implicit kern inserted between `V' and~`o'.
 
 %\endofchapter
 %%%%% end of input file [glue]

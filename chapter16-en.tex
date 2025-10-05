@@ -8,7 +8,7 @@
 
 %\chapter{Paragraph Start}\label{par:start}
 %\index{paragraph!start|(}
-\chapter{段落开始}\label{par:start}
+\chapter{Paragraph Start}\label{par:start}
 \index{paragraph!start|(}
 
 %At the start of a paragraph \TeX\ inserts a vertical skip
@@ -17,9 +17,12 @@
 %This chapter explains the exact sequence
 %of actions,
 %and it discusses how \TeX's decisions can be altered.
-在段落开始时，\TeX\ 会插入一个竖直间距，作为与前一个段落的分隔，以及一个水平间距，作为当前段落的缩进。
-本章解释了精确的动作序列，
-并讨论了如何改变 \TeX\ 的决策。
+At the start of a paragraph \TeX\ inserts a vertical skip
+as a separation from the preceding paragraph, and a horizontal
+skip as an indentation for the current paragraph.
+This chapter explains the exact sequence
+of actions,
+and it discusses how \TeX's decisions can be altered.
 
 %\label{cschap:indent}\label{cschap:noindent}\label{cschap:parskip}\label{cschap:parindent}\label{cschap:everypar}\label{cschap:leavevmode}
 %\begin{inventory}
@@ -28,37 +31,38 @@
 \label{cschap:indent}\label{cschap:noindent}\label{cschap:parskip}\label{cschap:parindent}\label{cschap:everypar}\label{cschap:leavevmode}
 \begin{inventory}
 \item [\cs{indent}] 
-      切换到水平模式并插入一个宽度为 \cs{parindent} 的盒子。
+      Switch to horizontal mode and insert a box of width \cs{parindent}.
 
 %\item [\cs{noindent}]  
 %      Switch to horizontal mode with an empty horizontal list.
 \item [\cs{noindent}]  
-      切换到水平模式，并使用一个空的水平列表。
+      Switch to horizontal mode with an empty horizontal list.
 
 %\item [\cs{parskip}] 
 %      Amount of glue added to 
 %      the surrounding vertical list when a paragraph starts.
 %      Plain \TeX\ default:~\n{0pt plus 1pt}.
 \item [\cs{parskip}] 
-      段落开始时添加到周围竖直列表的粘连量。
-      Plain \TeX\ 默认值：\n{0pt plus 1pt}。
+      Amount of glue added to 
+      the surrounding vertical list when a paragraph starts.
+      Plain \TeX\ default:~\n{0pt plus 1pt}.
 
 %\item [\cs{parindent}]  
 %      Size of the indentation box added in front of a paragraph.
 %      Plain \TeX\ default:~\n{20pt}.
 \item [\cs{parindent}]  
-      添加到段落前面的缩进盒子的大小。
-      Plain \TeX\ 默认值：\n{20pt}。
+      Size of the indentation box added in front of a paragraph.
+      Plain \TeX\ default:~\n{20pt}.
 
 %\item [\cs{everypar}] 
 %      Token list inserted in front of paragraph text; 
 \item [\cs{everypar}] 
-      插入在段落文本前面的记号列表；
+      Token list inserted in front of paragraph text; 
 
 %\item [\cs{leavevmode}] 
 %      Macro to switch to horizontal mode if necessary.
 \item [\cs{leavevmode}] 
-      必要时切换到水平模式的宏。
+      Macro to switch to horizontal mode if necessary.
 
 %\end{inventory}
 \end{inventory}
@@ -67,7 +71,7 @@
 %%\point When does a paragraph start
 %\section{When does a paragraph start}
 %\point When does a paragraph start
-\section{段落何时开始}
+\section{When does a paragraph start}
 
 %\TeX\ starts a paragraph whenever it switches from 
 %vertical mode to (unrestricted) horizontal mode. This switch can
@@ -99,47 +103,54 @@
 %\end{verbatim}
 %The full list of horizontal commands is given on
 %page~\pageref{h:com:list}.
-\TeX\ 在从竖直模式切换到（无限制）水平模式时开始一个段落。这种切换可以通过 \cs{indent} 和 \cs{noindent} 命令之一实现，例如
+\TeX\ starts a paragraph whenever it switches from 
+vertical mode to (unrestricted) horizontal mode. This switch can
+be effected by one of the commands
+\cs{indent} and 
+\cs{noindent}, for example
 \begin{verbatim}
 {\bf And now~\dots}
 \vskip3pt
 \noindent It's~\dots
 \end{verbatim}
-或者通过任何 \gram{水平命令}。
-水平命令包括字符、行内公式和水平间距，但不包括盒子。
-考虑以下示例。
+or by any \gram{horizontal command}.
+Horizontal commands include characters, in-line formulas,
+and horizontal skips, but not boxes.
+Consider the following examples.
 \alt
-字符 `I' 是一个水平命令：
+The character `I' is a horizontal command:
 \begin{verbatim}
 \vskip3pt
 It's~\dots
 \end{verbatim}
-单个 \n\$ 是一个水平命令：
+A single \n\$ is a horizontal command:
 \begin{verbatim}
 $x$ is supposed~\dots
 \end{verbatim} 
-控制序列 \cs{hskip} 是一个水平命令：
+The control sequence \cs{hskip} is a horizontal command:
 \begin{verbatim}
 \hskip .5\hsize Long indentation~\dots
 \end{verbatim}
-水平命令的完整列表在第 \pageref{h:com:list} 页给出。
+The full list of horizontal commands is given on
+page~\pageref{h:com:list}.
 
 %Upon recognizing a horizontal command in vertical mode,
 %\TeX\ will perform an \cs{indent} command (and all the actions
 %associated with it; see below), 
 %and after that it will reexamine the horizontal command,
 %this time executing it.
-在竖直模式下识别到水平命令后，
-\TeX\ 将执行一个 \cs{indent} 命令（以及所有与之相关的操作；见下文），
-之后它将重新检查该水平命令，
-这次会执行它。
+Upon recognizing a horizontal command in vertical mode,
+\TeX\ will perform an \cs{indent} command (and all the actions
+associated with it; see below), 
+and after that it will reexamine the horizontal command,
+this time executing it.
 
 
 
 %%\point What happens when a paragraph starts
 %\section{What happens when a paragraph starts}
 %\point What happens when a paragraph starts
-\section{段落开始时会发生什么}
+\section{What happens when a paragraph starts}
 
 %The \csidx{indent} and \csidx{noindent}  commands 
 %cause a paragraph to be started.
@@ -147,11 +158,12 @@ $x$ is supposed~\dots
 %the user or a macro, or it can be inserted by \TeX\ when
 %a \gr{horizontal command} occurs in vertical mode;
 %a~\cs{noindent} command can only be placed explicitly.
-\csidx{indent} 和 \csidx{noindent} 命令
-会启动一个段落。
-一个 \cs{indent} 命令可以由用户或宏显式放置，
-或者当 \gr{水平命令} 出现在竖直模式时由 \TeX\ 插入；
-一个 \cs{noindent} 命令只能显式放置。
+The \csidx{indent} and \csidx{noindent}  commands 
+cause a paragraph to be started.
+An~\cs{indent} command can either be placed explicitly by
+the user or a macro, or it can be inserted by \TeX\ when
+a \gr{horizontal command} occurs in vertical mode;
+a~\cs{noindent} command can only be placed explicitly.
 
 %After  either command is encountered,
 %\csidx{parskip} glue is appended to the surrounding vertical
@@ -167,19 +179,20 @@ $x$ is supposed~\dots
 %\cs{parindent} is placed at the start of the horizontal list; 
 %after \cs{noindent} no indentation
 %box is inserted. 
-在遇到任一命令后，
-\csidx{parskip} 粘连会附加到周围的竖直
-列表，
-除非 \TeX\ 处于内部竖直模式
-且该列表为空
-（例如，在 \cs{vbox} 或 \cs{vtop} 的开头）。
-\TeX\ 随后切换到无限制水平模式，
-并带有一个空的水平列表。
-在 \cs{indent} 的情况下（它可能被隐式插入），一个宽度为
+After  either command is encountered,
+\csidx{parskip} glue is appended to the surrounding vertical
+list
+unless \TeX\ is in internal vertical mode 
+and that list is empty
+(for example, at the start of a \cs{vbox} or \cs{vtop}).
+\TeX\ then switches to unrestricted horizontal mode
+with an empty horizontal list.
+In the case of \cs{indent} (which may be inserted
+implicitly) an empty \cs{hbox} of width
 \cstoidx parindent\par
-\cs{parindent} 的空 \cs{hbox} 会放置在水平列表的开头；
-在 \cs{noindent} 之后，不插入缩进
-盒子。
+\cs{parindent} is placed at the start of the horizontal list; 
+after \cs{noindent} no indentation
+box is inserted. 
 
 %The contents of the \csidx{everypar} \gr{token parameter}
 %are then inserted into the input (see some applications below).
@@ -187,29 +200,29 @@ $x$ is supposed~\dots
 %the page builder is exercised (see Chapter~\ref{page:break}).
 %Note that this happens in horizontal mode: this is to 
 %move the \cs{parskip} glue to the current page.
-\csidx{everypar} \gr{记号参数} 的内容
-随后被插入到输入中（参见下面的一些应用）。
-之后，
-页面构建器被执行（参见第 \ref{page:break} 章）。
-请注意，这发生在水平模式下：这是为了
-将 \cs{parskip} 粘连移动到当前页面。
+The contents of the \csidx{everypar} \gr{token parameter}
+are then inserted into the input (see some applications below).
+After that,
+the page builder is exercised (see Chapter~\ref{page:break}).
+Note that this happens in horizontal mode: this is to 
+move the \cs{parskip} glue to the current page.
 
 %If an \cs{indent} command is given while \TeX\ is already in
 %horizontal mode, the indentation box is inserted just the same.
 %This is not very useful.
-如果 \TeX\ 已经在水平模式下时给出 \cs{indent} 命令，
-缩进盒子仍然会被插入。
-这并不是很有用。
+If an \cs{indent} command is given while \TeX\ is already in
+horizontal mode, the indentation box is inserted just the same.
+This is not very useful.
 
 %%\point Assorted remarks
 %\section{Assorted remarks}
 %\point Assorted remarks
-\section{杂项备注}
+\section{Assorted remarks}
 
 %%\spoint Starting a paragraph with a box
 %\subsection{Starting a paragraph with a box}
 %\spoint Starting a paragraph with a box
-\subsection{以盒子开始段落}
+\subsection{Starting a paragraph with a box}
 
 %An \cs{hbox} does not imply horizontal mode, so 
 %an attempt to start a paragraph with a box, for instance
@@ -223,23 +236,23 @@ $x$ is supposed~\dots
 %\cs{leavevmode}. 
 %The latter is defined using \cs{unhbox},
 %which is a horizontal command.
-一个 \cs{hbox} 并不意味着水平模式，所以
-尝试以盒子开始一个段落，例如
+An \cs{hbox} does not imply horizontal mode, so 
+an attempt to start a paragraph with a box, for instance
 \begin{verbatim}
 \hbox to 0cm{\hss$\bullet$\hskip1em}Text ....
 \end{verbatim}
-将使盒子后面的文本
-最终出现在盒子下方一行。
-有必要显式切换到水平模式，
-例如使用 \cs{noindent} 或
-\cs{leavevmode}。
-后者是使用 \cs{unhbox} 定义的，
-它是一个水平命令。
+will make the text following the box
+wind up one line below the box.
+It is necessary to switch to horizontal mode
+explicitly, using for instance \cs{noindent} or
+\cs{leavevmode}. 
+The latter is defined using \cs{unhbox},
+which is a horizontal command.
 
 %%\spoint Starting a paragraph with a group
 %\subsection{Starting a paragraph with a group}
 %\spoint Starting a paragraph with a group
-\subsection{以编组开始段落}
+\subsection{Starting a paragraph with a group}
 
 %If the first \gram{horizontal command} of a paragraph
 %is enclosed in braces, the \cs{everypar} is evaluated
@@ -263,38 +276,38 @@ $x$ is supposed~\dots
 %The effect of this is rather different from what was intended.
 %\alt
 %Also, \TeX\ will probably end the job inside a group.
-如果段落的第一个 \gram{水平命令}
-被花括号包围，则 \cs{everypar} 在
-该编组内部求值。这可能产生意想不到的结果。
-考虑这个例子：
+If the first \gram{horizontal command} of a paragraph
+is enclosed in braces, the \cs{everypar} is evaluated
+inside the group. This may give unexpected results.
+Consider this example:
 \begin{verbatim}
 \everypar={\setbox0=\vbox\bgroup\def\par{\egroup}}
 {\bf Start} a paragraph ... \par
 \end{verbatim}
-开始段落的 \gr{水平命令} 是字符 `S'，
-因此当 \cs{everypar} 被插入时，
-输入本质上是
+The \gr{horizontal command} starting the paragraph is the
+character~`S', so when \cs{everypar} has been inserted
+the input is essentially
 \begin{verbatim}
 {\bf \indent\setbox0=\vbox\bgroup
     \def\par{\egroup}Start} a paragraph ... \par
 \end{verbatim}
-这等价于
+which is equivalent to
 \begin{verbatim}
 {\bf \setbox0=\vbox{Start} a paragraph ... \par
 \end{verbatim}
-其效果与预期大相径庭。
+The effect of this is rather different from what was intended.
 \alt
-此外，\TeX\ 可能会在编组内部结束作业。
+Also, \TeX\ will probably end the job inside a group.
 
 %%\point Examples
 %\section{Examples}
 %\point Examples
-\section{例子}
+\section{Examples}
 
 %%\spoint Stretchable indentation 
 %\subsection{Stretchable indentation }
 %\spoint Stretchable indentation 
-\subsection{可伸缩缩进}
+\subsection{Stretchable indentation }
 
 %Considering that \cs{parindent} is a \gram{dimen}, not a \gram{glue},
 %it is not possible to declare
@@ -309,24 +322,24 @@ $x$ is supposed~\dots
 %\end{verbatim}
 %The \cs{nobreak} serves to prevent (in rare cases) a line break
 %at the stretchable glue.
-考虑到 \cs{parindent} 是一个 \gram{dimen}，而不是一个 \gram{glue}，
-不可能声明
+Considering that \cs{parindent} is a \gram{dimen}, not a \gram{glue},
+it is not possible to declare
 \begin{verbatim}
 \parindent=1cm plus 1fil
 \end{verbatim}
-以在段落开头获得
-可变缩进。
-这个问题可以通过放置
+in order to get
+a variable indentation at the start of a paragraph.
+This problem may be solved by putting
 \begin{verbatim}
 \everypar={\nobreak\hskip 1cm plus 1fil\relax}
 \end{verbatim}
-来解决。
-\cs{nobreak} 用于防止（在极少数情况下）在可伸缩粘连处发生断行。
+The \cs{nobreak} serves to prevent (in rare cases) a line break
+at the stretchable glue.
 
 %%\spoint Suppressing indentation
 %\subsection{Suppressing indentation}
 %\spoint Suppressing indentation
-\subsection{抑制缩进}
+\subsection{Suppressing indentation}
 
 %Inserting 
 %\verb.{\setbox0=\lastbox}. in the horizontal list
@@ -334,12 +347,12 @@ $x$ is supposed~\dots
 %removes the indentation:
 %indentation consists of a box, which is available through
 %\cs{lastbox}. Assigning it effectively removes it from the list.
-在段落开头
-的水平列表中插入
-\verb.{\setbox0=\lastbox}.
-可以移除缩进：
-缩进由一个盒子组成，该盒子通过
-\cs{lastbox} 可用。将其赋值实际上将其从列表中移除。
+Inserting 
+\verb.{\setbox0=\lastbox}. in the horizontal list
+at the beginning of the paragraph
+removes the indentation:
+indentation consists of a box, which is available through
+\cs{lastbox}. Assigning it effectively removes it from the list.
 
 %However, this command sequence
 %has to be inserted at a moment when \TeX\ has
@@ -353,24 +366,25 @@ $x$ is supposed~\dots
 %\end{verbatim}
 %leads to unindented paragraphs, even if \cs{parindent} is 
 %not zero. 
-然而，这个命令序列
-必须在 \TeX\ 已经切换到水平模式时插入，
-因此在段落的第一个 \gram{水平命令}
-前面显式插入这些命令不起作用。
-插入 \cs{everypar} 记号的时机
-是一个更好的选择：指定
+However, this command sequence
+has to be inserted at a moment when \TeX\ has
+already switched to horizontal mode, so explicit insertion
+of these commands in front of the first \gram{horizontal
+command} of the paragraph does not work. 
+The moment of insertion of the \cs{everypar} tokens 
+is a better candidate: specifying
 \begin{verbatim}
 \everypar={{\setbox0=\lastbox}}
 \end{verbatim}
-会导致段落不缩进，即使 \cs{parindent} 不为
-零。
+leads to unindented paragraphs, even if \cs{parindent} is 
+not zero. 
 
 
 %%\spoint[indent:scheme] An indentation scheme
 %\subsection{An indentation scheme}
 %\label{indent:scheme}
 %\spoint[indent:scheme] An indentation scheme
-\subsection{缩进方案}
+\subsection{An indentation scheme}
 \label{indent:scheme}
 
 %The above idea of letting the indentation box be removed
@@ -384,16 +398,17 @@ $x$ is supposed~\dots
 %control whether paragraphs should indent as a rule, and
 %whether in special cases indentation is needed.
 %This section is taken from~\cite{E3}.
-上述通过 \cs{everypar} 移除缩进盒子的想法
-\howto 系统地控制缩进\par
-可以用于系统化的缩进方法，其中两个条件语句
+The above idea of letting the indentation box be removed
+\howto Control indentation systematically\par
+by \cs{everypar} can be put to use in a systematic approach
+to indentation, where two conditionals
 \begin{verbatim}
 \newif\ifNeedIndent %as a rule
 \newif\ifneedindent %special cases
 \end{verbatim}
-控制段落是否应按规则缩进，以及
-在特殊情况下是否需要缩进。
-本节摘自 \cite{E3}。
+control whether paragraphs should indent as a rule, and
+whether in special cases indentation is needed.
+This section is taken from~\cite{E3}.
 
 %We take a fixed \cs{everypar}:
 %\begin{verbatim}
@@ -425,15 +440,15 @@ $x$ is supposed~\dots
 %\def\section#1{ ... \needindentfalse}
 %\end{verbatim}
 %    
-我们采用一个固定的 \cs{everypar}：
+We take a fixed \cs{everypar}:
 \begin{verbatim}
 \everypar={\ControlledIndentation}
 \end{verbatim}
-它在某些情况下执行宏 \cs{RemoveIndentation}
+which executes in some cases the macro \cs{RemoveIndentation}
 \begin{verbatim}
 \def\RemoveIndentation{{\setbox0=\lastbox}}
 \end{verbatim}
-\cs{ControlledIndentation} 的实现是：
+The implementation of \cs{ControlledIndentation} is:
 \begin{verbatim}
 \def\ControlledIndentation
    {\ifNeedIndent \ifneedindent 
@@ -442,15 +457,15 @@ $x$ is supposed~\dots
           \else         \RemoveIndentation
     \fi   \fi}
 \end{verbatim}
-为了规范整个文档的缩进，
-用户现在只需指定一次，例如，
+In order to regulate indentation for a whole document,
+the user now once specifies, for instance,
 \begin{verbatim}
 \NeedIndenttrue
 \end{verbatim}
-以表明，原则上，
-所有段落都应缩进。
-然后，像 \cs{section} 这样的宏可以防止
-在个别情况下缩进：
+to indicate that, in principle,
+all paragraphs should indent.
+Macros such as \cs{section} can then prevent
+indentation in individual cases:
 \begin{verbatim}
 \def\section#1{ ... \needindentfalse}
 \end{verbatim}
@@ -460,16 +475,17 @@ $x$ is supposed~\dots
 %\subsection{A paragraph skip scheme}
 %\label{skip:scheme}
 %\spoint[skip:scheme] A paragraph skip scheme
-\subsection{段落间距方案}
+\subsection{A paragraph skip scheme}
 \label{skip:scheme}
 
 %The use of \cs{everypar} to control indentation,
 %\howto Control vertical white space systematically\par
 %as was sketched above, can be extended to the
 %paragraph skip.
-如上所述，使用 \cs{everypar} 控制缩进的
-\howto 系统地控制竖直空白\par
-方法可以扩展到段落间距。
+The use of \cs{everypar} to control indentation,
+\howto Control vertical white space systematically\par
+as was sketched above, can be extended to the
+paragraph skip.
 
 %A visible white space between paragraphs can be
 %created by the \cs{parskip} parameter, but, once this
@@ -482,14 +498,17 @@ $x$ is supposed~\dots
 %above and below certain constructs, while the \cs{everypar}
 %is used to restore former values. This section is
 %taken from~\cite{E4}.
-段落之间可见的空白可以通过 \cs{parskip} 参数创建，
-但是，一旦这个参数被设置为某个值，
-就很难优雅地在某些地方阻止段落间距。
-通常，环境和章节标题上方和下方的空白
-应该独立于段落间距指定。本节概述了一种
-方法，其中 \cs{parskip} 在某些构造的上方和下方直接设置为零，
-而 \cs{everypar} 用于恢复旧值。本节
-摘自 \cite{E4}。
+A visible white space between paragraphs can be
+created by the \cs{parskip} parameter, but, once this
+parameter has been set to some value, it is difficult
+to prevent paragraph skip in certain places elegantly.
+Usually, white space above and below environments
+and section headings should be specifiable independently
+of the paragraph skip. This section sketches an
+approach where \cs{parskip} is set to zero directly
+above and below certain constructs, while the \cs{everypar}
+is used to restore former values. This section is
+taken from~\cite{E4}.
 
 %First of all, here are two tools. The control sequence
 %\cs{csarg} will be used only inside other macros;
@@ -522,21 +541,20 @@ $x$ is supposed~\dots
 %above the environment), \cs{fooParskip} (the paragraph skip
 %inside the environment), and the \cs{fooEndskip} (glue below
 %the environment).
-首先，这里有两个工具。控制序列
-\cs{csarg} 将仅在其他宏内部使用；
-一个典型的调用将看起来像
+First of all, here are two tools. The control sequence
+\cs{csarg} will be used only inside other macros;
+a typical call will look like
 \begin{verbatim}
 \csarg\vskip{#1Parskip}
 \end{verbatim}
-这是定义：
+Here is the definition:
 \begin{verbatim}
 \def\csarg#1#2{\expandafter#1\csname#2\endcsname}
 \end{verbatim}
-接下来是 \cs{vskip} 的泛化：宏
-\cs{vspace} 如果前一个粘连项
-更大，则不会放置其参数；否则它将消除前面的
-粘连，并放置其参数。
-\begin{verbatim}
+Next follows a generalization of \cs{vskip}: the macro
+\cs{vspace} will not place its argument if the previous glue item
+is larger; otherwise it will eliminate the preceding
+glue, and place its argument.\begin{verbatim}
 \newskip\tempskipa
 \def\vspace#1{\tempskipa=#1\relax
     \ifvmode \ifdim\tempskipa<\lastskip 
@@ -544,14 +562,16 @@ $x$ is supposed~\dots
     \else    \vskip\tempskipa \fi}
 \end{verbatim}
     
-现在假设任何带有周围空白的构造 \n{foo}
-分别以宏调用 \verb>\StartEnvironment{foo}> 和
-\verb>\EndEnvironment{foo}> 开始和结束。
-此外，假设此环境对应
-三个粘连寄存器：
-\cs{fooStartskip}（环境上方的粘连）、
-\cs{fooParskip}（环境内部的段落间距）和
-\cs{fooEndskip}（环境下方的粘连）。
+Now assume that any construct \n{foo} 
+with surrounding white space
+starts and ends with macro calls \verb>\StartEnvironment{foo}> and
+\verb>\EndEnvironment{foo}> respectively.
+Furthermore, assume that to this environment there correspond
+three glue registers:
+the \cs{fooStartskip} (glue
+above the environment), \cs{fooParskip} (the paragraph skip
+inside the environment), and the \cs{fooEndskip} (glue below
+the environment).
 
 %For restoring the value of the paragraph skip
 %a conditional and a glue register are needed:
@@ -564,12 +584,13 @@ $x$ is supposed~\dots
 %\TempParskip=\parskip\parskip=0cm\relax
 %\ParskipNeedsRestoringtrue
 %\end{verbatim}
-为了恢复段落间距的值，
-需要一个条件语句和一个粘连寄存器：
+For restoring the value of the paragraph skip
+a conditional and a glue register are needed:
 \begin{verbatim}
 \newskip\TempParskip \newif\ifParskipNeedsRestoring
 \end{verbatim}
-然后，环境的起始和结束宏的基本序列是
+The basic sequence for the
+starting and ending macros for the environments is then
 \begin{verbatim}
 \TempParskip=\parskip\parskip=0cm\relax
 \ParskipNeedsRestoringtrue
@@ -595,7 +616,7 @@ $x$ is supposed~\dots
 %the value of the paragraph skip for the outer environment
 %has already been saved. Therefore no further actions are
 %required in that case.
-现在可以给出实现：
+The implementations can now be given as:
 \begin{verbatim}
 \def\StartEnvironment#1{\csarg\vspace{#1Startskip}
     
@@ -609,19 +630,19 @@ $x$ is supposed~\dots
           \ParskipNeedsRestoringtrue
     \fi}
 \end{verbatim}
-\cs{EndEnvironment} 宏需要一点说明：
-如果一个环境在另一个环境内部使用，并且
-它出现在该环境的第一个段落之前，
-则外部环境的段落间距值
-已经保存。因此，在这种情况下不需要
-进一步的操作。
+The \cs{EndEnvironment} macro needs a little comment:
+if an environment is used inside another one, and
+it occurs before the first paragraph in that environment,
+the value of the paragraph skip for the outer environment
+has already been saved. Therefore no further actions are
+required in that case.
 
 %Note that both macros start with a vertical skip. This prevents
 %the \cs{begingroup} and \cs{endgroup} statements from
 %occurring in a paragraph. 
-请注意，这两个宏都以垂直间距开始。这可以防止
-\cs{begingroup} 和 \cs{endgroup} 语句
-出现在段落中。
+Note that both macros start with a vertical skip. This prevents
+the \cs{begingroup} and \cs{endgroup} statements from
+occurring in a paragraph. 
 
 %We now come to the main point: if necessary, the
 %\cs{everypar} will restore the value of the paragraph skip.
@@ -632,8 +653,8 @@ $x$ is supposed~\dots
 %       \parskip=\TempParskip \ParskipNeedsRestoringfalse
 %    \fi}
 %\end{verbatim}
-现在我们来到重点：如果需要，
-\cs{everypar} 将恢复段落间距的值。
+We now come to the main point: if necessary, the
+\cs{everypar} will restore the value of the paragraph skip.
 \begin{verbatim}
 \everypar={\ControlledIndentation\ControlledParskip}
 \def\ControlledParskip
@@ -643,8 +664,8 @@ $x$ is supposed~\dots
 \end{verbatim}
 
 %\index{paragraph!start|)}
-\index{paragraph!start|)}
 %\endofchapter
+\index{paragraph!start|)}
 \endofchapter
 
 \end{document}

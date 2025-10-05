@@ -7,18 +7,18 @@
 \begin{document}
 
 %\chapter{Mathematics Typesetting}\label{math}
-\chapter{数学排版}\label{math}
+\chapter{Mathematics Typesetting}\label{math}
 
 %\TeX\ has two math modes, display and non-display, and
 %four styles, display, text, script, and scriptscript style, and
 %\altt
 %every object in math mode belongs to one of eight classes.
 %This chapter treats these concepts.
-\TeX\ 有两种数学模式：显示模式和非显示模式，以及
-四种样式：显示样式、文本样式、角标样式和次角标样式，并且
+\TeX\ has two math modes, display and non-display, and
+four styles, display, text, script, and scriptscript style, and
 \altt
-数学模式中的每个对象都属于八个类别之一。
-本章讨论这些概念。
+every object in math mode belongs to one of eight classes.
+This chapter treats these concepts.
 
 
 %\label{cschap:everymath}\label{cschap:displaystyle}\label{cschap:textstyle}\label{cschap:scriptstyle}\label{cschap:scriptscriptstyle}\label{cschap:mathchoice}\label{cschap:mathord}\label{cschap:mathop}\label{cschap:mathbin}\label{cschap:mathrel}\label{cschap:mathopen}\label{cschap:mathclose}\label{cschap:mathpunct}\label{cschap:mathinner}\label{cschap:mathaccent2}\label{cschap:vcenter}\label{cschap:limits}\label{cschap:nolimits}\label{cschap:displaylimits}\label{cschap:scriptspace}\label{cschap:nonscript}\label{cschap:mkern}\label{cschap:mskip}\label{cschap:muskip}\label{cschap:muskipdef}\label{cschap:newmuskip}\label{cschap:thinmuskip}\label{cschap:medmuskip}\label{cschap:thickmuskip}\label{cschap:mathsurround}\label{cschap:over}\label{cschap:atop}\label{cschap:above}\label{cschap:overwithdelims}\label{cschap:atopwithdelims}\label{cschap:abovewithdelims}\label{cschap:underline}\label{cschap:overline}\label{cschap:relpenalty}\label{cschap:binoppenalty}
@@ -28,214 +28,223 @@
 \label{cschap:everymath}\label{cschap:displaystyle}\label{cschap:textstyle}\label{cschap:scriptstyle}\label{cschap:scriptscriptstyle}\label{cschap:mathchoice}\label{cschap:mathord}\label{cschap:mathop}\label{cschap:mathbin}\label{cschap:mathrel}\label{cschap:mathopen}\label{cschap:mathclose}\label{cschap:mathpunct}\label{cschap:mathinner}\label{cschap:mathaccent2}\label{cschap:vcenter}\label{cschap:limits}\label{cschap:nolimits}\label{cschap:displaylimits}\label{cschap:scriptspace}\label{cschap:nonscript}\label{cschap:mkern}\label{cschap:mskip}\label{cschap:muskip}\label{cschap:muskipdef}\label{cschap:newmuskip}\label{cschap:thinmuskip}\label{cschap:medmuskip}\label{cschap:thickmuskip}\label{cschap:mathsurround}\label{cschap:over}\label{cschap:atop}\label{cschap:above}\label{cschap:overwithdelims}\label{cschap:atopwithdelims}\label{cschap:abovewithdelims}\label{cschap:underline}\label{cschap:overline}\label{cschap:relpenalty}\label{cschap:binoppenalty}
 \begin{inventory}
 \item [\cs{everymath}] 
-      在非显示公式开始时插入的记号列表。
+      Token list inserted at the start of a non-display formula.
 
 %\item [\cs{everydisplay}]
 %      Token list inserted at the start of a display formula.
 \item [\cs{everydisplay}]
-      在显示公式开始时插入的记号列表。
+      Token list inserted at the start of a display formula.
 
 %\item [\cs{displaystyle}] 
 %      Select the display style of mathematics typesetting.
 \item [\cs{displaystyle}] 
-      选择数学排版的显示样式。
+      Select the display style of mathematics typesetting.
 
 %\item [\cs{textstyle}] 
 %      Select the text style of mathematics typesetting.
 \item [\cs{textstyle}] 
-      选择数学排版的文本样式。
+      Select the text style of mathematics typesetting.
 
 %\item [\cs{scriptstyle}] 
 %      Select the script style of mathematics typesetting.
 \item [\cs{scriptstyle}] 
-      选择数学排版的角标样式。
+      Select the script style of mathematics typesetting.
 
 %\item [\cs{scriptscriptstyle}] 
 %      Select the scriptscript style of mathematics typesetting.
 \item [\cs{scriptscriptstyle}] 
-      选择数学排版的次角标样式。
+      Select the scriptscript style of mathematics typesetting.
 
 %\item [\cs{mathchoice}] 
 %      Give four variants of a formula for the four styles
 %      of mathematics typesetting.
 \item [\cs{mathchoice}] 
-      为数学排版的四种样式提供公式的四种变体。
+      Give four variants of a formula for the four styles
+      of mathematics typesetting.
 
 %\item [\cs{mathord}] 
 %      Let the following character or subformula function 
 %      as an ordinary object.
 \item [\cs{mathord}] 
-      使以下字符或子公式作为普通对象。
+      Let the following character or subformula function 
+      as an ordinary object.
 
 %\item [\cs{mathop}] 
 %      Let the following character or subformula function 
 %      as a large operator.
 \item [\cs{mathop}] 
-      使以下字符或子公式作为大型运算符。
+      Let the following character or subformula function 
+      as a large operator.
 
 %\item [\cs{mathbin}] 
 %      Let the following character or subformula function 
 %      as a binary operation.
 \item [\cs{mathbin}] 
-      使以下字符或子公式作为二元运算。
+      Let the following character or subformula function 
+      as a binary operation.
 
 %\item [\cs{mathrel}] 
 %      Let the following character or subformula function as a relation.
 \item [\cs{mathrel}] 
-      使以下字符或子公式作为关系。
+      Let the following character or subformula function as a relation.
 
 %\item [\cs{mathopen}] 
 %      Let the following character or subformula function 
 %      as a opening symbol.
 \item [\cs{mathopen}] 
-      使以下字符或子公式作为开符号。
+      Let the following character or subformula function 
+      as a opening symbol.
 
 %\item [\cs{mathclose}] 
 %      Let the following character or subformula function
 %      as a closing symbol.
 \item [\cs{mathclose}] 
-      使以下字符或子公式作为闭符号。
+      Let the following character or subformula function
+      as a closing symbol.
 
 %\item [\cs{mathpunct}] 
 %      Let the following character or subformula function 
 %      as a punctuation symbol.
 \item [\cs{mathpunct}] 
-      使以下字符或子公式作为标点符号。
+      Let the following character or subformula function 
+      as a punctuation symbol.
 
 %\item [\cs{mathinner}] 
 %      Let the following character or subformula function 
 %      as an inner formula.
 \item [\cs{mathinner}] 
-      使以下字符或子公式作为内部公式。
+      Let the following character or subformula function 
+      as an inner formula.
 
 %\item [\cs{mathaccent}] 
 %      Place an accent in math mode.
 \item [\cs{mathaccent}] 
-      在数学模式中放置重音符号。
+      Place an accent in math mode.
 
 %\item [\cs{vcenter}] 
 %      Construct a vertical box, vertically centred
 %      on the math axis.
 \item [\cs{vcenter}] 
-      构造一个垂直盒子，在数学轴上垂直居中。
+      Construct a vertical box, vertically centred
+      on the math axis.
 
 %\item [\cs{limits}] 
 %      Place limits over and under a large operator.
 \item [\cs{limits}] 
-      将界限放置在大型运算符的上方和下方。
+      Place limits over and under a large operator.
 
 %\item [\cs{nolimits}] 
 %      Place limits of a large operator as subscript and 
 %      superscript expressions.
 \item [\cs{nolimits}] 
-      将大型运算符的界限作为下标和
-      上标表达式放置。
+      Place limits of a large operator as subscript and 
+      superscript expressions.
 
 %\item [\cs{displaylimits}] 
 %      Restore default placement for limits.
 \item [\cs{displaylimits}] 
-      恢复界限的默认放置方式。
+      Restore default placement for limits.
 
 %\item [\cs{scriptspace}] 
 %      Extra space after subscripts and superscripts.
 %      Plain \TeX\ default:~\n{0.5pt}
 \item [\cs{scriptspace}] 
-      下标和上标后的额外间距。
-      Plain \TeX\ 默认值：\n{0.5pt}
+      Extra space after subscripts and superscripts.
+      Plain \TeX\ default:~\n{0.5pt}
 
 %\item [\cs{nonscript}] 
 %      Cancel the next glue item if it occurs in 
 %      scriptstyle or scriptscriptstyle.
 \item [\cs{nonscript}] 
-      如果下一个粘连项出现在
-      角标样式或次角标样式中，则取消它。
+      Cancel the next glue item if it occurs in 
+      scriptstyle or scriptscriptstyle.
 
 %\item [\cs{mkern}] 
 %      Insert a kern measured in mu units.
 \item [\cs{mkern}] 
-      插入以 mu 单位测量的字距调整。
+      Insert a kern measured in mu units.
 
 %\item [\cs{mskip}] 
 %      Insert glue measured in mu units.
 \item [\cs{mskip}] 
-      插入以 mu 单位测量的粘连。
+      Insert glue measured in mu units.
 
 %\item [\cs{muskip}] 
 %      Prefix for skips measured in mu units. 
 \item [\cs{muskip}] 
-      以 mu 单位测量的跳过量的前缀。
+      Prefix for skips measured in mu units. 
 
 %\item [\cs{muskipdef}] 
 %      Define a control sequence to be a synonym for
 %      a~\cs{muskip} register.
 \item [\cs{muskipdef}] 
-      定义一个控制序列作为
-      \cs{muskip} 寄存器的同义词。
+      Define a control sequence to be a synonym for
+      a~\cs{muskip} register.
 
 %\item [\cs{newmuskip}] 
 %      Allocate a new muskip register.
 \item [\cs{newmuskip}] 
-      分配一个新的 muskip 寄存器。
+      Allocate a new muskip register.
 
 %\item [\cs{thinmuskip}] 
 %      Small amount of mu glue.
 \item [\cs{thinmuskip}] 
-      少量 mu 粘连。
+      Small amount of mu glue.
 
 %\item [\cs{medmuskip}] 
 %      Medium amount of mu glue.
 \item [\cs{medmuskip}] 
-      中等量 mu 粘连。
+      Medium amount of mu glue.
 
 %\item [\cs{thickmuskip}] 
 %      Large amount of mu glue. 
 \item [\cs{thickmuskip}] 
-      大量 mu 粘连。
+      Large amount of mu glue. 
 
 %\item [\cs{mathsurround}] 
 %      Kern amount placed before and after in-line formulas.
 \item [\cs{mathsurround}] 
-      行内公式前后放置的字距调整量。
+      Kern amount placed before and after in-line formulas.
 
 %\item [\cs{over}]
 %      Fraction.
 \item [\cs{over}]
-      分数。
+      Fraction.
 
 %\item [\cs{atop}]
 %      Place objects over one another.
 \item [\cs{atop}]
-      将对象相互放置。
+      Place objects over one another.
 
 %\item [\cs{above}]
 %      Fraction with specified bar width. 
 \item [\cs{above}]
-      带有指定横线宽度的分数。
+      Fraction with specified bar width. 
 
 %\item [\cs{overwithdelims}]
 %      Fraction with delimiters.
 \item [\cs{overwithdelims}]
-      带定界符的分数。
+      Fraction with delimiters.
 
 %\item [\cs{atopwithdelims}]
 %      Place objects over one another with delimiters.
 \item [\cs{atopwithdelims}]
-      将对象相互放置并带定界符。
+      Place objects over one another with delimiters.
 
 %\item [\cs{abovewithdelims}]
 %      Generalized fraction with delimiters.
 \item [\cs{abovewithdelims}]
-      带定界符的广义分数。
+      Generalized fraction with delimiters.
 
 %\item [\cs{underline}] 
 %      Underline the following \gr{math symbol} or group.
 \item [\cs{underline}] 
-      给以下 \gr{数学符号} 或编组加下划线。
+      Underline the following \gr{math symbol} or group.
 
 %\item [\cs{overline}] 
 %      Overline the following \gr{math symbol} or group.
 \item [\cs{overline}] 
-      给以下 \gr{数学符号} 或编组加上划线。
+      Overline the following \gr{math symbol} or group.
 
 
 %\item [\cs{relpenalty}] 
@@ -243,21 +252,23 @@
 %      not enclosed in a subformula.
 %      Plain \TeX\ default:~\n{500}
 \item [\cs{relpenalty}] 
-      在未包含在子公式中的二元关系之后断行的罚值。
-      Plain \TeX\ 默认值：\n{500}
+      Penalty for breaking after a binary relation
+      not enclosed in a subformula.
+      Plain \TeX\ default:~\n{500}
 
 %\item [\cs{binoppenalty}] 
 %      Penalty for breaking after a binary operator not enclosed in
 %      a subformula.
 %      Plain \TeX\ default:~\n{700}
 \item [\cs{binoppenalty}] 
-      在未包含在子公式中的二元运算符之后断行的罚值。
-      Plain \TeX\ 默认值：\n{700}
+      Penalty for breaking after a binary operator not enclosed in
+      a subformula.
+      Plain \TeX\ default:~\n{700}
 
 %\item [\cs{allowbreak}] 
 %      Macro for creating a breakpoint.
 \item [\cs{allowbreak}] 
-      用于创建断点的宏。
+      Macro for creating a breakpoint.
 
 %\end{inventory}
 \end{inventory}
@@ -266,7 +277,7 @@
 %\section{Math modes}
 %\label{math:modes}
 %\point[math:modes] Math modes
-\section{数学模式}
+\section{Math modes}
 \label{math:modes}
 
 %\TeX\ changes to \indexterm{math mode} when it encounters a
@@ -281,25 +292,27 @@
 %\indextermbus{non-display}{math mode}:
 %\begin{disp}\verb> .. $ >{\italic in-line formula}\verb> $ ..>\end{disp}
 %The single math shift character is a \gr{horizontal command}.
-当 \TeX\ 在输入中遇到
-\indexterm{数学切换字符}（类别 3\index{category!3}）时，它会切换到 \indexterm{数学模式}。
-在这样的开数学切换字符之后，它会检查（不展开）下一个
-记号，看这是否是另一个数学切换字符。在后一种情况下，
-\TeX\ 开始在 \indextermbus{显示}{数学模式} 中处理，直到遇到
-一个闭双数学切换字符：
-\begin{disp}\verb> .. $$ >{\italic 显示公式}\verb> $$ ..>\end{disp}
-否则，它开始在 \indextermbus{非显示}{数学模式} 中处理一个行内公式：
-\begin{disp}\verb> .. $ >{\italic 行内公式}\verb> $ ..>\end{disp}
-单个数学切换字符是一个 \gr{水平命令}。
+\TeX\ changes to \indexterm{math mode} when it encounters a
+\indexterm{math shift character}, category~3\index{category!3},
+in the input. After such
+an opening math shift it investigates (without expansion) the next
+token to see whether this is another math shift.  In the latter case
+\TeX\ starts processing in \indextermbus{display}{math mode} until a
+closing double math shift is encountered:
+\begin{disp}\verb> .. $$ >{\italic displayed formula}\verb> $$ ..>\end{disp}
+Otherwise it starts processing an in-line formula in
+\indextermbus{non-display}{math mode}:
+\begin{disp}\verb> .. $ >{\italic in-line formula}\verb> $ ..>\end{disp}
+The single math shift character is a \gr{horizontal command}.
 
 %Exception: displays are not possible in restricted horizontal
 %mode, so inside an \cs{hbox} the sequence
 %\verb>$$> is an empty math formula and
 %not the start of a displayed formula.
-例外：在受限水平模式下无法显示公式，
-因此在 \cs{hbox} 内部，序列
-\verb>$$> 是一个空数学公式，而不是
-显示公式的开始。
+Exception: displays are not possible in restricted horizontal
+mode, so inside an \cs{hbox} the sequence
+\verb>$$> is an empty math formula and
+not the start of a displayed formula.
 
 %Associated with the two math modes are two \gr{token parameter}
 %registers (see also Chapter~\ref{token}):
@@ -307,23 +320,25 @@
 %are inserted; at the start of a displayed formula the
 %\cs{everydisplay} tokens are inserted.
 %Display math is treated further in the next chapter.
-与这两种数学模式相关联的是两个 \gr{记号参数}
-寄存器（另请参见第 \ref{token} 章）：
-在行内公式开始时插入 \csidx{everymath} 记号；
-在显示公式开始时插入 \cs{everydisplay} 记号。
-显示数学将在下一章进一步讨论。
+Associated with the two math modes are two \gr{token parameter}
+registers (see also Chapter~\ref{token}):
+at the start of an in-line formula the \csidx{everymath} tokens
+are inserted; at the start of a displayed formula the
+\cs{everydisplay} tokens are inserted.
+Display math is treated further in the next chapter.
 
 %Math modes can be tested for: \cs{ifmmode} is true
 %in display and non-display math mode, and \cs{ifinner}
 %is true in non-display mode, but not in display mode.
-数学模式可以进行测试：\cs{ifmmode} 在显示和非显示数学模式下为真，
-而 \cs{ifinner} 在非显示模式下为真，但在显示模式下为假。
+Math modes can be tested for: \cs{ifmmode} is true
+in display and non-display math mode, and \cs{ifinner}
+is true in non-display mode, but not in display mode.
 
 %%\point[math:styles] Styles in math mode
 %\section{Styles in math mode}
 %\label{math:styles}
 %\point[math:styles] Styles in math mode
-\section{数学模式中的样式}
+\section{Styles in math mode}
 \label{math:styles}
 
 %Math formulas are set in any of eight 
@@ -339,23 +354,25 @@
 %these. The cramped styles differ mainly in the
 %fact that superscripts are not raised as far as in
 %the original styles.
-数学公式以八种 \indexterm{数学样式} 中的任意一种设置：
+Math formulas are set in any of eight 
+\indexterm{math styles}:
 \begin{description} 
-\item [D] 显示样式，
-\item [T] 文本样式，
-\item [S] 角标样式，
-\item [SS] 次角标样式，
+\item [D] display style,
+\item [T] text style,
+\item [S] script style,
+\item [SS] scriptscript style,
 \end{description}
-以及这四种样式的四种 \emph{紧凑}\indexterm{cramped styles}
-变体 $D'$、$T'$、$S'$、$SS'$。
-紧凑样式的主要区别在于
-上标的提升高度不如原始样式。
+and the four \emph{cramped}\indexterm{cramped styles}
+variants $D'$, $T'$, $S'$, $SS'$ of
+these. The cramped styles differ mainly in the
+fact that superscripts are not raised as far as in
+the original styles.
 
 %%\spoint Superscripts and subscripts
 %\subsection{Superscripts and subscripts}
 %\index{superscript|(}\index{subscript|(}
 %\spoint Superscripts and subscripts
-\subsection{上标和下标}
+\subsection{Superscripts and subscripts}
 \index{superscript|(}\index{subscript|(}
 
 %\TeX\ can typeset a symbol or group
@@ -379,23 +396,27 @@
 %\end{verbatim}
 %as implicit superscript
 %and subscript characters.
-如果前面的符号或编组
-尚未有上标（下标），\TeX\ 可以将一个符号或编组
-排版为前面符号或编组的上标（或下标）。
-上标（下标）通过以下语法指定：
-\begin{disp}\gr{上标}\gr{数学域}\end{disp}
-或
-\begin{disp}\gr{下标}\gr{数学域}\end{disp}
-其中 \gr{上标}（\gr{下标}）要么是类别 7\index{category!7}（8\index{category!8}）的字符，
-要么是 \cs{let} 到此类字符的控制序列。
-plain 格式具有控制
+\TeX\ can typeset a symbol or group
+as a superscript (or subscript) to the preceding
+symbol or group, if that preceding item
+does not already have a superscript
+(subscript). Superscripts (subscripts) are specified by
+the syntax
+\begin{disp}\gr{superscript}\gr{math field}\end{disp}
+or 
+\begin{disp}\gr{subscript}\gr{math field}\end{disp}
+where a \gr{superscript} (\gr{subscript}) is either a character
+of category~7\index{category!7} (8\index{category!8}),
+or a control sequence \cs{let} to such
+a character.
+The plain format has the control
 \cstoidx\char94\par\cstoidx\char95\par
-序列
+sequences
 \begin{verbatim}
 \let\sp=^ \let\sb=_
 \end{verbatim}
-作为隐式上标
-和下标字符。
+as implicit superscript
+and subscript characters.
 
 %Specifying a superscript (subscript) expression as the first
 %item in an empty math list is equivalent to specifying
@@ -403,24 +424,25 @@ plain 格式具有控制
 %For instance, 
 %\begin{disp}
 %\verb>$^{...}>\quad is equivalent to\quad \verb>${}^{...}>\end{disp}
-将上标（下标）表达式指定为空数学列表中的第一项，等同于将其指定为
-空表达式的上标（下标）。
-例如，
+Specifying a superscript (subscript) expression as the first
+item in an empty math list is equivalent to specifying
+it as the superscript (subscript) of an empty expression.
+For instance, 
 \begin{disp}
-\verb>$^{...}>\quad 等同于\quad \verb>${}^{...}>\end{disp}
+\verb>$^{...}>\quad is equivalent to\quad \verb>${}^{...}>\end{disp}
 
 %For \TeX's internal calculations, superscript and subscript
 %expressions are made wider by \csidx{scriptspace};
 %the value of this in plain \TeX\ is~\n{0.5pt}.
-对于 \TeX\ 的内部计算，上标和下标
-表达式会因 \csidx{scriptspace} 而变宽；
-plain \TeX\ 中此值为 \n{0.5pt}。
+For \TeX's internal calculations, superscript and subscript
+expressions are made wider by \csidx{scriptspace};
+the value of this in plain \TeX\ is~\n{0.5pt}.
 
 %\index{superscript|)}\index{subscript|)}
 \index{superscript|)}\index{subscript|)}
 
 %\subsection{Choice of styles}
-\subsection{样式选择}
+\subsection{Choice of styles}
 
 %Ordering the four styles $D$, $T$, $S$, and~$SS$, and
 %considering the other four as mere variants, the
@@ -439,21 +461,23 @@ plain \TeX\ 中此值为 \n{0.5pt}。
 %style was cramped.
 %\item Formulas under a \cs{sqrt} or \cs{overline}
 %are in cramped style.\end{itemize}
-对四种样式 $D$、$T$、$S$ 和 $SS$ 进行排序，并
-将其他四种视为仅仅是变体，数学模式的
-样式规则如下：
-\begin{itemize}\item 在任何样式中，上标和下标
-都取自下一个较小的样式。例外：
-在显示样式中，它们取自角标样式。
-\item 下标总是使用该样式的紧凑变体；
-上标只有在原始样式是紧凑样式时才紧凑。
-\item 在任何样式中的 \verb-{..\over..}- 公式中，
-分子和分母都取自下一个
-较小的样式。
-\item 分母总是使用紧凑样式；
-分子只有在原始样式是紧凑样式时才紧凑。
-\item \cs{sqrt} 或 \cs{overline} 下的公式
-使用紧凑样式。\end{itemize}
+Ordering the four styles $D$, $T$, $S$, and~$SS$, and
+considering the other four as mere variants, the
+style rules for math mode are as follows:
+\begin{itemize}\item In any style superscripts and subscripts
+are taken from the next smaller style. Exception:
+in display style they are taken in script style.
+\item Subscripts are always in the cramped variant of
+the style; superscripts are only cramped if the original
+style was cramped.
+\item In an \verb-{..\over..}- formula in any style
+the numerator and denominator are taken from the next
+smaller style.
+\item The denominator is always in cramped style;
+the numerator is only in cramped style if the original
+style was cramped.
+\item Formulas under a \cs{sqrt} or \cs{overline}
+are in cramped style.\end{itemize}
 
 %Styles can be forced by the explicit commands
 %\alt
@@ -461,12 +485,12 @@ plain \TeX\ 中此值为 \n{0.5pt}。
 %\cstoidx scriptstyle\par\cstoidx scriptscriptstyle\par
 %\cs{displaystyle}, \cs{textstyle}, \cs{scriptstyle},
 %and \cs{scriptscriptstyle}.
-样式可以通过显式命令强制执行：
+Styles can be forced by the explicit commands
 \alt
 \cstoidx displaystyle\par\cstoidx textstyle\par
 \cstoidx scriptstyle\par\cstoidx scriptscriptstyle\par
-\cs{displaystyle}、\cs{textstyle}、\cs{scriptstyle}
-和 \cs{scriptscriptstyle}。
+\cs{displaystyle}, \cs{textstyle}, \cs{scriptstyle},
+and \cs{scriptscriptstyle}.
 
 
 %In display style and text style the \cs{textfont} of the
@@ -474,10 +498,11 @@ plain \TeX\ 中此值为 \n{0.5pt}。
 %in scriptstyle the \cs{scriptfont} is used, and in
 %\alt
 %scriptscriptstyle the \cs{scriptscriptfont} is used.
-在显示样式和文本样式中，使用当前字体族的 \cs{textfont}，
-在角标样式中，使用 \cs{scriptfont}，
+In display style and text style the \cs{textfont} of the
+current family is used, 
+in scriptstyle the \cs{scriptfont} is used, and in
 \alt
-在次角标样式中，使用 \cs{scriptscriptfont}。
+scriptscriptstyle the \cs{scriptscriptfont} is used.
 
 %The primitive command
 %\cstoidx mathchoice\par
@@ -486,18 +511,19 @@ plain \TeX\ 中此值为 \n{0.5pt}。
 %lets the user specify four variants of a formula for the
 %four styles. 
 %\TeX\ constructs all four and inserts the appropriate one.
-原始命令
+The primitive command
 \cstoidx mathchoice\par
 \begin{disp}\cs{mathchoice}\lb {\it D\/\rb\lb T\/\rb\lb S\/\rb\lb SS\/}\rb
 \end{disp}
-允许用户为四种样式指定公式的四种变体。
-\TeX\ 会构造所有四种变体并插入适当的一种。
+lets the user specify four variants of a formula for the
+four styles. 
+\TeX\ constructs all four and inserts the appropriate one.
 
 %%\point[math:class] Classes of mathematical objects
 %\section{Classes of mathematical objects}
 %\label{math:class}
 %\point[math:class] Classes of mathematical objects
-\section{数学对象的类别}
+\section{Classes of mathematical objects}
 \label{math:class}
 
 %Objects in math mode belong to one of eight \indexterm{math
@@ -506,11 +532,12 @@ plain \TeX\ 中此值为 \n{0.5pt}。
 %exist to force symbols, or sequences of symbols, to act as belonging
 %to a certain class.  In the hexadecimal representation \verb>"xyzz>
 %the class is the \gr{3-bit number}~\n x.
-数学模式中的对象属于八个 \indexterm{数学类别} 之一。
-根据类别，对象可能会被一定量的空白包围，
-或者以某种特殊方式处理。存在强制符号或符号序列
-归属于某个类别的命令。在十六进制表示 \verb>"xyzz>" 中，
-类别是 \gr{3位数字} \n x。
+Objects in math mode belong to one of eight \indexterm{math
+  classes}. Depending on the class the object may be surrounded by
+some amount of white space, or treated specially in some way. Commands
+exist to force symbols, or sequences of symbols, to act as belonging
+to a certain class.  In the hexadecimal representation \verb>"xyzz>
+the class is the \gr{3-bit number}~\n x.
 
 %This is the list of classes and commands that force those
 %classes. The examples are from the plain format 
@@ -549,38 +576,42 @@ plain \TeX\ 中此值为 \n{0.5pt}。
 %      Greek letters and ordinary letters and digits are
 %      in this class.
 %\end{enumerate}
-以下是类别列表以及强制这些类别的命令。示例来自 plain 格式
-（参见从第 \pageref{math:sym:tables} 页开始的表格）。
+This is the list of classes and commands that force those
+classes. The examples are from the plain format 
+(see the tables starting at page~\pageref{math:sym:tables}).
 \begin{enumerate} \message{set a counter here!}%\SetCounter:item=-1
-\item {\em 普通}：小写希腊字符和那些“只是符号”的符号；
-      命令 \csidx{mathord} 强制此类别。
-\item {\em 大型运算符}：积分号和求和号，
-      以及像 \cs{bigcap} 或\handbreak \cs{bigotimes} 这样的“大”对象；
-      命令 \csidx{mathop} 强制此类别。
-      作为大型运算符的字符
-      垂直居中，并且它们在显示样式中的行为可能与
-      其他样式不同；见下文。
-\item {\em 二元运算}：加号和减号，
-      以及像 \cs{cap} 或 \cs{otimes} 这样的东西；
-      命令 \csidx{mathbin} 强制此类别。
-\item {\em 关系}（也称为 {\em 二元关系}）：
-      等号、小于号和大于号、子集和
-      超集、垂直、平行；
-      命令 \csidx{mathrel} 强制此类别。
-\item {\em 开符号}：开花括号、方括号、圆括号、尖括号、
+\item {\em ordinary\/}: lowercase Greek characters and those symbols
+      that are `just symbols'; 
+      the command \csidx{mathord} forces this class.
+\item {\em large operator\/}: integral and sum signs,
+      and `big' objects such as \cs{bigcap} or\handbreak \cs{bigotimes};
+      the command \csidx{mathop} forces this class.
+      Characters that are
+      large operators are centred vertically, and they
+      may behave differently in display style from in the
+      other styles; see below.
+\item {\em binary operation\/}: plus and minus,
+      and things such as \cs{cap} or \cs{otimes};
+      the command \csidx{mathbin} forces this class.
+\item {\em relation\/} (also called {\em binary relation\/}): 
+      equals, less than, and greater than signs, subset and
+      superset, perpendicular, parallel;
+      the command \csidx{mathrel} forces this class.
+\item {\em opening symbol\/}: opening brace, bracket, parenthesis, angle,
  \altt
-      下取整符号、上取整符号；
-      命令 \csidx{mathopen} 强制此类别。
-\item {\em 闭符号}：闭花括号、方括号、圆括号、尖括号、
+      floor, ceiling;
+      the command \csidx{mathopen} forces this class.
+\item {\em closing symbol\/}: closing brace, bracket, parenthesis, angle,
  \altt
-      下取整符号、上取整符号；
-      命令 \csidx{mathclose} 强制此类别。
-\item {\em 标点符号}：大多数标点符号，但
-      \n:~是一个关系，\cs{colon} 是一个标点冒号；
-      命令 \csidx{mathpunct} 强制此类别。
-\item {\em 可变字体族}：此类别中的符号随 \cs{fam} 参数改变字体；
-      在 plain \TeX\ 中，大写希腊字母和普通字母及数字
-      属于此类别。
+      floor, ceiling;
+      the command \csidx{mathclose} forces this class.
+\item {\em punctuation\/}: most punctuation marks, but
+      \n:~is a relation, the \cs{colon} is a punctuation colon;
+      the command \csidx{mathpunct} forces this class.
+\item {\em variable family\/}: symbols in this class change font
+      with the \cs{fam} parameter; in plain \TeX\ uppercase
+      Greek letters and ordinary letters and digits are
+      in this class.
 \end{enumerate}
 
 %There is one further class: the {\em inner\/} subformulas.
@@ -589,12 +620,12 @@ plain \TeX\ 中此值为 \n{0.5pt}。
 %The \gr{generalized fraction}s and \verb-\left...\right- groups
 %are inner formulas. Inner formulas are surrounded
 %by some white space; see the table below.
-还有一个类别：{\em 内部} 子公式。
-没有字符可以被分配到这个类别，但字符和
-子公式可以通过 \csidx{mathinner} 强制进入这个类别。
-\gr{广义分数} 和 \verb-\left...\right- 编组
-是内部公式。内部公式周围
-有一些空白；参见下表。
+There is one further class: the {\em inner\/} subformulas.
+No characters can be assigned to this class, but characters and
+subformulas can be forced into it by \csidx{mathinner}.
+The \gr{generalized fraction}s and \verb-\left...\right- groups
+are inner formulas. Inner formulas are surrounded
+by some white space; see the table below.
 
 %Other subformulas than those that are inner are treated as
 %ordinary symbols. In particular, subformulas enclosed in
@@ -604,19 +635,19 @@ plain \TeX\ 中此值为 \n{0.5pt}。
 %in \verb-${a+b}$- the whole subformula is treated as an
 %ordinary symbol, not its components; 
 %therefore the result is~`${a+b}$'.
-除了内部子公式之外的其他子公式都被视为
-普通符号。特别是，用花括号括起来的子公式是普通的：
-\verb-$a+b$- 看起来像 `$a\mathop+b$'，但是
+Other subformulas than those that are inner are treated as
+ordinary symbols. In particular, subformulas enclosed in
+braces are ordinary: \verb-$a+b$- looks like `$a\mathop+b$', but
 \message{Check a+b look}%
-\verb-$a{+}b$- 看起来像 ` $a{+}b$'。然而请注意，
-在 \verb-${a+b}$- 中，整个子公式被视为一个
-普通符号，而不是其组成部分；
-因此结果是 `${a+b}$'。
+\verb-$a{+}b$- looks like~`$a{+}b$'. Note, however, that
+in \verb-${a+b}$- the whole subformula is treated as an
+ordinary symbol, not its components; 
+therefore the result is~`${a+b}$'.
 
 %%\point Large operators and their limits
 %\section{Large operators and their limits}
 %\point Large operators and their limits
-\section{大型运算符及其界限}
+\section{Large operators and their limits}
 
 %The large operators in the Computer Modern fonts come in
 %two sizes: one for text style and one for display style.
@@ -628,16 +659,16 @@ plain \TeX\ 中此值为 \n{0.5pt}。
 %but if the
 %current style is display style, \TeX\ looks to see whether
 %that character has a successor in the font.
-Computer Modern 字体中的大型运算符有两种尺寸：
-一种用于文本样式，一种用于显示样式。
-像 \cs{sum} 这样的控制序列简单地通过
-\cs{mathchardef} 定义，以对应字体中的一个位置：
+The large operators in the Computer Modern fonts come in
+two sizes: one for text style and one for display style.
+Control sequences such as \cs{sum} are simply defined by
+\cs{mathchardef} to correspond to a position in a font:
 \begin{verbatim}
 \mathchardef\sum="1350
 \end{verbatim}
-但是如果
-当前样式是显示样式，\TeX\ 会查看
-该字符在字体中是否有后继。
+but if the
+current style is display style, \TeX\ looks to see whether
+that character has a successor in the font.
 
 %Large operators in text style behave as if they are followed
 %\cstoidx limits\par\cstoidx nolimits\par
@@ -653,17 +684,20 @@ Computer Modern 字体中的大型运算符有两种尺寸：
 %\alt
 %lets \TeX\ take a larger variant
 %of the delimiter here.
-文本样式中的大型运算符表现得好像它们后面跟着
+Large operators in text style behave as if they are followed
 \cstoidx limits\par\cstoidx nolimits\par
-\cs{nolimits}，它将界限作为下标/上标
-表达式放置在运算符之后：
+by \cs{nolimits}, which places the limits as sub/superscript
+expressions after the
+operator:
 \begin{disp}$\sum_{k=1}^\infty$\end{disp}
-在显示样式中，它们表现得好像后面跟着
-\cs{limits}，它将界限放置在运算符的上方和下方：
+In display style they behave as if they are followed by
+\cs{limits}, which places the limits over and under
+the operator:
 \begin{disp}$\displaystyle\sum_{k=1}^\infty$\end{disp}
-后继机制（参见第 \pageref{successor} 页）
+The successor mechanism (see page~\pageref{successor})
 \alt
-让 \TeX\ 在这里采用定界符的更大变体。
+lets \TeX\ take a larger variant
+of the delimiter here.
 
 %The integral sign has been defined in plain \TeX\ as
 %\begin{verbatim}
@@ -672,11 +706,11 @@ Computer Modern 字体中的大型运算符有两种尺寸：
 %which places the limits after the operator, even in display style:
 %\begin{disp}$\displaystyle\int_0^\infty e^{-x^2}\,dx=\sqrt{\pi}/2$
 %\end{disp}
-plain \TeX\ 中积分号的定义为
+The integral sign has been defined in plain \TeX\ as
 \begin{verbatim}
 \mathchardef\intop="1352 \def\int{\intop\nolimits}
 \end{verbatim}
-这会将界限放置在运算符之后，即使在显示样式中也是如此：
+which places the limits after the operator, even in display style:
 \begin{disp}$\displaystyle\int_0^\infty e^{-x^2}\,dx=\sqrt{\pi}/2$
 \end{disp}
 
@@ -698,21 +732,21 @@ plain \TeX\ 中积分号的定义为
 %\begin{verbatim}
 %$$ ... \sum ... $$
 %\end{verbatim}
-使用 \verb-\limits\nolimits- 或 \verb-\nolimits\limits- 时，
-最后一次指定具有优先权；默认放置方式
-可以通过 \csidx{displaylimits} 恢复。例如，
+With \verb-\limits\nolimits- or \verb-\nolimits\limits- the
+last specification has precedence; the default placement
+can be restored by \csidx{displaylimits}. For instance,
 \begin{verbatim}
 $ ... \sum\limits\displaylimits ... $
 \end{verbatim}
-等同于
+is equivalent to
 \begin{verbatim}
 $ ... \sum ... $
 \end{verbatim}
-并且
+and 
 \begin{verbatim}
 $$ ... \sum\nolimits\displaylimits ... $$
 \end{verbatim}
-等同于
+is equivalent to
 \begin{verbatim}
 $$ ... \sum ... $$
 \end{verbatim}
@@ -720,48 +754,52 @@ $$ ... \sum ... $$
 %%\point Vertical centering: \cs{vcenter}
 %\section{Vertical centring: \protect\cs{vcenter}}
 %\point Vertical centering: \cs{vcenter}
-\section{垂直居中：\protect\cs{vcenter}}
+\section{Vertical centring: \protect\cs{vcenter}}
 
 %Each formula has an \emph{axis}\index{formula!axis
 %  of}\index{formula!centring of}, which is for an in-line formula
 %about half the x-height of the surrounding text; the exact value is
 %the \cs{fontdimen22} of the font in family~2, the symbol font, in the
 %current style.
-每个公式都有一个 \emph{轴}\index{formula!axis
-  of}\index{formula!centring of}，对于行内公式，它大约是周围文本 x-高度的一半；确切值是
-当前样式下字体族 2（符号字体）中字体的 \cs{fontdimen22}。
+Each formula has an \emph{axis}\index{formula!axis
+  of}\index{formula!centring of}, which is for an in-line formula
+about half the x-height of the surrounding text; the exact value is
+the \cs{fontdimen22} of the font in family~2, the symbol font, in the
+current style.
 
 %The bar line in fractions is placed on the axis; large
 %operators, delimiters and \cs{vcenter} boxes are centred on it.
-分数中的横线放置在轴上；大型
-运算符、定界符和 \cs{vcenter} 盒子都以其为中心。
+The bar line in fractions is placed on the axis; large
+operators, delimiters and \cs{vcenter} boxes are centred on it.
 
 %A \csidx{vcenter}\label{vcenter}
 %box is a vertical box that is arranged
 %so that it is centred on the math axis.
 %It is possible to give a \n{spread} or \n{to}
 %specification with a \cs{vcenter} box.
-一个 \csidx{vcenter}\label{vcenter}
-盒子是一个垂直盒子，其排列方式
-使其在数学轴上居中。
-可以为 \cs{vcenter} 盒子指定 \n{spread} 或 \n{to}。
+A \csidx{vcenter}\label{vcenter}
+box is a vertical box that is arranged
+so that it is centred on the math axis.
+It is possible to give a \n{spread} or \n{to}
+specification with a \cs{vcenter} box.
 
 %The \cs{vcenter} box is allowed only in math mode, and
 %it does not behave like other boxes; for instance, it can
 %not be stored in a box register. It does not qualify as
 %a~\gr{box}. See page~\pageref{tvcenter} for a macro that
 %repairs this.
-\cs{vcenter} 盒子只允许在数学模式下使用，并且
-它的行为不像其他盒子；例如，它不能
-存储在盒子寄存器中。它不符合
-\gr{盒子} 的条件。有关修复此问题的宏，请参见第 \pageref{tvcenter} 页。
+The \cs{vcenter} box is allowed only in math mode, and
+it does not behave like other boxes; for instance, it can
+not be stored in a box register. It does not qualify as
+a~\gr{box}. See page~\pageref{tvcenter} for a macro that
+repairs this.
 
 %%\point[muglue] Mathematical spacing: \n{mu} glue
 %\section{Mathematical spacing: \n{mu} glue}
 %\label{muglue}
 %\index{math spacing|(}
 %\point[muglue] Mathematical spacing: \n{mu} glue
-\section{数学间距：\n{mu} 粘连}
+\section{Mathematical spacing: \n{mu} glue}
 \label{muglue}
 \index{math spacing|(}
 
@@ -769,14 +807,15 @@ $$ ... \sum ... $$
 %multiples of a~\n{mu}. A~\n{mu} is $1/18$th part of \cs{fontdimen6} of
 %the font in family~2 in the current style, the \indexterm{quad} value of the
 %symbol font.
-数学对象周围的间距以 \indexterm{数学单位} 衡量：
-\n{mu} 的倍数。一个 \n{mu} 是当前样式下字体族 2 中字体 \cs{fontdimen6} 的 $1/18$，即
-符号字体的 \indexterm{quad} 值。
+Spacing around mathematical objects is measured in \indexterm{math units}:
+multiples of a~\n{mu}. A~\n{mu} is $1/18$th part of \cs{fontdimen6} of
+the font in family~2 in the current style, the \indexterm{quad} value of the
+symbol font.
 
 %%\spoint Classification of \n{mu} glue
 %\subsection{Classification of \n{mu} glue}
 %\spoint Classification of \n{mu} glue
-\subsection{\n{mu} 粘连的分类}
+\subsection{Classification of \n{mu} glue}
 
 %The user can specify \n{mu} spacing by \cs{mkern} or~\cs{mskip},
 %\cstoidx mkern\par\cstoidx mskip\par
@@ -784,11 +823,12 @@ $$ ... \sum ... $$
 %based on the classes to which objects belong (see above).
 %First, here are some rules of thumb describing the global 
 %behaviour.
-用户可以通过 \cs{mkern} 或 \cs{mskip} 指定 \n{mu} 间距，
+The user can specify \n{mu} spacing by \cs{mkern} or~\cs{mskip},
 \cstoidx mkern\par\cstoidx mskip\par
-但大多数 \indexterm{mu 粘连} 是由 \TeX\ 自动插入的，
-基于对象所属的类别（见上文）。
-首先，这里有一些描述全局行为的经验法则。
+but most \indexterm{mu glue} is inserted automatically by \TeX,
+based on the classes to which objects belong (see above).
+First, here are some rules of thumb describing the global 
+behaviour.
 
 %\begin{itemize} \item A \cs{thickmuskip} (default value in plain
 %\TeX: \n{5mu plus 5mu})
@@ -810,20 +850,25 @@ $$ ... \sum ... $$
 %no \n{mu} glue is inserted also before punctuation, except where
 %the preceding object is punctuation or an inner object.
 %\end{itemize} 
-\begin{itemize} \item 一个 \cs{thickmuskip}（plain \TeX\ 中的默认值：\n{5mu plus 5mu}）
+\begin{itemize} \item A \cs{thickmuskip} (default value in plain
+\TeX: \n{5mu plus 5mu})
 \cstoidx thickmuskip\par
-插入在（二元）关系周围，除非这些关系前面或后面是其他关系或标点符号，并且
-除非它们跟在开符号之后，或在闭符号之前。
-\item 一个 \csidx{medmuskip}（plain \TeX\ 中的默认值：\n{4mu plus 2mu minus 4mu}）
-放置在二元运算符周围。
-\item 一个 \csidx{thinmuskip}
-（plain \TeX\ 中的默认值：\n{3mu}）跟在
-标点符号之后，并放置在内部对象周围，除非这些内部对象
-后面是闭符号或前面是开符号，并且
-除非另一个对象是大型运算符或
-二元关系。
-\item 在开符号之后或闭符号之前不插入 \n{mu} 粘连，除非后者前面是标点符号；
-在标点符号之前也不插入 \n{mu} 粘连，除非前面的对象是标点符号或内部对象。
+is inserted around (binary) relations, except where these are
+preceded or followed by other relations or punctuation, and
+except if they follow an open, or precede a close symbol.
+\item A \csidx{medmuskip} (default value in plain
+\TeX: \n{4mu plus 2mu minus 4mu}) 
+is put around binary operators.
+\item A \csidx{thinmuskip} 
+(default value in plain \TeX: \n{3mu}) follows after
+punctuation, and is put around inner objects, except where these
+are followed by a close or preceded by an open symbol, and
+except if the other object is a large operator or a
+binary relation.
+\item No \n{mu} glue is inserted after an open or before a close
+symbol except where the latter is preceded by punctuation;
+no \n{mu} glue is inserted also before punctuation, except where
+the preceding object is punctuation or an inner object.
 \end{itemize} 
 
 %The following table gives the complete definition of mu glue
@@ -847,7 +892,8 @@ $$ ... \sum ... $$
 %%    \omit\hfil&\omit\hfil&\multispan8\hrulefil\cr
 %}}
 %\end{disp}
-下表给出了数学对象之间 mu 粘连的完整定义。
+The following table gives the complete definition of mu glue
+between math objects.
 \begin{disp}\leavevmode
 \vbox{\offinterlineskip
     \halign{#\enspace\hfil&#\enspace\hfil\vrule
@@ -880,30 +926,32 @@ $$ ... \sum ... $$
 %    \alt
 %    it is followed by Close or Punct.
 %\end{itemize}
-其中符号具有以下含义：
-\begin{itemize}\item 0，无间距；1，细间距；2，中等间距；
-     3，粗间距；
-\item $(\cdot)$，仅在文本和显示
-     模式下插入，不在角标或次角标模式下插入；
-\item    * 情况不会发生，因为如果 Bin 对象是列表中的第一个，前面是
-    Bin、Op、Open、Punct、Rel，或者后面是 Close、
-    Punct、Rel，则 Bin 对象会转换为 Ord；此外，当
+where the symbols have the following meanings:
+\begin{itemize}\item 0, no space; 1, thin space; 2, medium space;
+     3, thick space;
+\item $(\cdot)$, insert only in text and display
+     mode, not in script or scriptscript mode;
+\item    cases * cannot occur, because a Bin object is converted
+    to Ord if it is the first in the list, preceded by
+    Bin, Op, Open, Punct, Rel, or followed by Close,
+    Punct, and Rel; also, a Rel is converted to Ord when
     \alt
-    Rel 后面是 Close 或 Punct 时，Rel 会转换为 Ord。
+    it is followed by Close or Punct.
 \end{itemize}
 
 %Stretchable \n{mu} glue is set according to the same rules that
 %govern ordinary glue. However, only \n{mu} glue on the outer
 %level can be stretched or shrunk; any \n{mu} glue enclosed
 %in  a~group is set at natural width.
-可伸展的 \n{mu} 粘连按照与普通粘连相同的规则设置。
-然而，只有外部的 \n{mu} 粘连可以伸展或收缩；
-任何包含在编组中的 \n{mu} 粘连都以自然宽度设置。
+Stretchable \n{mu} glue is set according to the same rules that
+govern ordinary glue. However, only \n{mu} glue on the outer
+level can be stretched or shrunk; any \n{mu} glue enclosed
+in  a~group is set at natural width.
 
 %%\spoint Muskip registers
 %\subsection{Muskip registers}
 %\spoint Muskip registers
-\subsection{Muskip 寄存器}
+\subsection{Muskip registers}
 
 %Like ordinary glue, \n{mu} glue can be stored in registers,
 %\cstoidx muskip\par\cstoidx muskipdef\par\cstoidx newmuskip\par
@@ -918,25 +966,24 @@ $$ ... \sum ... $$
 %\begin{disp}\cs{newmuskip}\gr{control sequence}\end{disp}
 %Arithmetic for mu glue exists as for glue; see
 %Chapter~\ref{glue}.
-像普通粘连一样，\n{mu} 粘连可以存储在寄存器中，
+Like ordinary glue, \n{mu} glue can be stored in registers,
 \cstoidx muskip\par\cstoidx muskipdef\par\cstoidx newmuskip\par
-即 \cs{muskip} 寄存器，
-\TeX\ 中有 256 个。
-这些寄存器通过
-\begin{disp}\cs{muskip}\gr{8位数字}\end{disp}
-表示，
-并且可以通过以下方式将其赋值给控制序列：
-\begin{disp}\cs{muskipdef}\gr{控制序列}\gr{等于}\gr{8位数字}
+the \cs{muskip} registers,
+of which there are 256 in \TeX. 
+The registers are denoted by
+\begin{disp}\cs{muskip}\gr{8-bit number}\end{disp}
+and they can be assigned to a control sequence by
+\begin{disp}\cs{muskipdef}\gr{control sequence}\gr{equals}\gr{8-bit number}
 \end{disp}
-还有一个宏可以分配未使用的寄存器：
-\begin{disp}\cs{newmuskip}\gr{控制序列}\end{disp}
-mu 粘连的算术运算与普通粘连相同；参见
-第 \ref{glue} 章。
+and there is a macro that allocates unused registers:
+\begin{disp}\cs{newmuskip}\gr{control sequence}\end{disp}
+Arithmetic for mu glue exists as for glue; see
+Chapter~\ref{glue}.
 
 %%\spoint Other spaces in math mode
 %\subsection{Other spaces in math mode}
 %\spoint Other spaces in math mode
-\subsection{数学模式中的其他间距}
+\subsection{Other spaces in math mode}
 
 %In math mode space tokens are ignored; however,
 %the math code of the space character is \verb-"8000-
@@ -944,47 +991,48 @@ mu 粘连的算术运算与普通粘连相同；参见
 %so if its category is made `letter' or `other character', it
 %will behave like an active character in math mode.
 %See also page~\pageref{mcode:8000}.
-在数学模式中，空格记号被忽略；然而，
-在 plain \TeX\ 中，空格字符的数学代码是 \verb-"8000-"，
-因此如果其类别被设置为“字母”或“其他字符”，它
-在数学模式下将表现得像一个活动字符。
-另请参见第 \pageref{mcode:8000} 页。
+In math mode space tokens are ignored; however,
+the math code of the space character is \verb-"8000-
+in plain \TeX,
+so if its category is made `letter' or `other character', it
+will behave like an active character in math mode.
+See also page~\pageref{mcode:8000}.
 
 %Admissible glue in math mode is of type~\gr{mathematical skip},
 %which is either a \gr{horizontal skip} (see Chapter~\ref{hvmode}) 
 %or~\cs{mskip}\gr{muglue}. Leaders in math mode can be specified
 %with a \gr{mathematical skip}.
-数学模式中允许的粘连类型是 \gr{数学跳过量}，
-它要么是 \gr{水平跳过量}（参见第 \ref{hvmode} 章），
-要么是 \cs{mskip}\gr{muglue}。数学模式中的引导符可以与
-\gr{数学跳过量} 一起指定。
+Admissible glue in math mode is of type~\gr{mathematical skip},
+which is either a \gr{horizontal skip} (see Chapter~\ref{hvmode}) 
+or~\cs{mskip}\gr{muglue}. Leaders in math mode can be specified
+with a \gr{mathematical skip}.
 
 %A glue item preceded by \csidx{nonscript}
 %is cancelled if it occurs in scriptstyle or scriptscriptstyle.
-前面带有 \csidx{nonscript} 的粘连项，
-如果出现在角标样式或次角标样式中，则会被取消。
+A glue item preceded by \csidx{nonscript}
+is cancelled if it occurs in scriptstyle or scriptscriptstyle.
 
 %Control space functions in math mode
 %\alt
 %as it does in horizontal mode.
-控制空格在数学模式中的功能
+Control space functions in math mode
 \alt
-与在水平模式中相同。
+as it does in horizontal mode.
 
 %In-line formulas are surrounded by kerns of size
 %\csidx{mathsurround}, the so-called `math-on' and
 %`math-off' items. Line breaking can occur at the front of
 %the math-off kern if it is followed by glue.
-行内公式被大小为 \csidx{mathsurround} 的字距调整包围，
-即所谓的“数学模式开启”和“数学模式关闭”项。
-如果数学模式关闭字距调整后面跟着粘连，
-则可以在其前面发生断行。
+In-line formulas are surrounded by kerns of size
+\csidx{mathsurround}, the so-called `math-on' and
+`math-off' items. Line breaking can occur at the front of
+the math-off kern if it is followed by glue.
 
 %\index{math spacing|)}
 \index{math spacing|)}
 
 %\section{Generalized fractions}
-\section{广义分数}
+\section{Generalized fractions}
 
 %Fraction-like objects can be set with six primitive commands
 %of type \gr{generalized fraction}.
@@ -1007,22 +1055,26 @@ mu 粘连的算术运算与普通粘连相同；参见
 %   
 %\begin{disp}\verb>$\pi\above 1pt 2$>\quad gives\quad `$\pi\above 1pt 2$'\end{disp}
 %\end{description} 
-分数类对象可以使用六个 \gr{广义分数} 类型的原始命令设置。
-这些 \indexterm{广义分数} 中的每一个
-都接收前面和后面的子公式，
-并将它们相互放置，如果需要，带有分数线和定界符。
+Fraction-like objects can be set with six primitive commands
+of type \gr{generalized fraction}.
+Each of these \indexterm{generalized fractions}
+takes the preceding and the following subformulas
+and puts them over one another, if necessary with a fraction
+bar and with delimiters.
 \begin{description} \item [\csidx{over}]
-   是普通分数；分数线粗细是扩展字体的 \cs{fontdimen8}：
+   is the ordinary fraction; the bar thickness is \cs{fontdimen8}
+   of the extension font: 
    
-\begin{disp}\verb>$\pi\over2$>\quad 给出\quad `$\pi\over2$'\message{pi over 2}\end{disp}
+\begin{disp}\verb>$\pi\over2$>\quad gives\quad `$\pi\over2$'\message{pi over 2}\end{disp}
 \item [\csidx{atop}]
-   等同于零分数线粗细的分数：
+   is equivalent to a fraction with zero bar thickness:
    
-\begin{disp}\verb>$\pi\atop2$>\quad 给出\quad `$\pi\atop2$'\end{disp}
+\begin{disp}\verb>$\pi\atop2$>\quad gives\quad `$\pi\atop2$'\end{disp}
 \item [\csidx{above}\gr{dimen}]
-   显式指定分数线的粗细：
+   specifies the thickness
+   of the bar line explicitly:
    
-\begin{disp}\verb>$\pi\above 1pt 2$>\quad 给出\quad `$\pi\above 1pt 2$'\end{disp}
+\begin{disp}\verb>$\pi\above 1pt 2$>\quad gives\quad `$\pi\above 1pt 2$'\end{disp}
 \end{description} 
 
 %To each of these three there corresponds a \cs{...withdelims} variant
@@ -1041,21 +1093,22 @@ mu 粘连的算术运算与普通粘连相同；参见
 %at least \cs{fontdimen21} high.
 %These dimensions are taken
 %from the font in family~2, the symbol font, in the current style.
-这三个命令中的每一个都对应一个 \cs{...withdelims} 变体，
+To each of these three there corresponds a \cs{...withdelims} variant
 \cstoidx overwithdelims\par\cstoidx atopwithdelims\par
 \cstoidx abovewithdelims\par
-允许用户为表达式指定定界符。
-例如，最通用的命令，所有其他五个命令都可以用它来定义，是
-\begin{disp}\cs{abovewithdelims}\gr{定界符$_1$}\gr{定界符$_2$}\gr{尺寸}.
+that lets the user specify delimiters for the expression.
+For example, the most general command, in terms of which
+all five others could have been defined, is
+\begin{disp}\cs{abovewithdelims}\gr{delim$_1$}\gr{delim$_2$}\gr{dimen}.
 \end{disp}
-这些广义分数中的定界符不会随
-封闭表达式的增大而增大：在显示模式下，定界符的
-高度至少为 \cs{fontdimen20}，否则
+Delimiters in these generalized fractions do not grow with the
+enclosed expression: in display mode a delimiter is taken
+which is at least \cs{fontdimen20} high, otherwise
 \alt
-其高度必须
-至少为 \cs{fontdimen21}。
-这些尺寸取自
-当前样式下字体族 2（符号字体）中的字体。
+it has to be
+at least \cs{fontdimen21} high.
+These dimensions are taken
+from the font in family~2, the symbol font, in the current style.
 
 %The control sequences \cs{over}, \cs{atop}, and \cs{above}
 %are primitives, although they could have been defined
@@ -1063,16 +1116,17 @@ mu 粘连的算术运算与普通粘连相同；参见
 %Because of these implied surrounding null delimiters,
 %there is a kern of size \cs{nulldelimiterspace} before and after
 %these simple generalized fractions. 
-控制序列 \cs{over}、\cs{atop} 和 \cs{above}
-是原始命令，尽管它们可以定义为
-\cs{...withdelims..}，即带有两个空定界符。
-由于这些隐含的周围空定界符，
-这些简单广义分数的前后都有一个大小为 \cs{nulldelimiterspace} 的字距调整。
+The control sequences \cs{over}, \cs{atop}, and \cs{above}
+are primitives, although they could have been defined
+as \cs{...withdelims..}, that is, with two null delimiters.
+Because of these implied surrounding null delimiters,
+there is a kern of size \cs{nulldelimiterspace} before and after
+these simple generalized fractions. 
 
 %%\point Underlining, overlining
 %\section{Underlining, overlining}
 %\point Underlining, overlining
-\section{下划线、上划线}
+\section{Underlining, overlining}
 
 %The primitive commands \csidx{underline} and \csidx{overline} take a 
 %\gr{math field} argument, that is, a \gr{math symbol} or
@@ -1082,26 +1136,28 @@ mu 粘连的算术运算与普通粘连相同；参见
 %The line thickness is font dimension~8 of the extension font,
 %which also determines the clearance between the line and
 %the \gr{math field}.
-原始命令 \csidx{underline} 和 \csidx{overline} 接受一个
-\gr{数学域} 参数，即一个 \gr{数学符号} 或
-一个编组，并在其下方或上方绘制一条线。
-结果是一个“下划线”或“上划线”原子，它
-被附加到当前数学列表。
-线条粗细是扩展字体的字体尺寸 8，
-它也决定了线条与
-\gr{数学域} 之间的间隙。
+The primitive commands \csidx{underline} and \csidx{overline} take a 
+\gr{math field} argument, that is, a \gr{math symbol} or
+a group, and draw a line under or over it.
+The result is an `Under' or `Over' atom, which
+is appended to the current math list.
+The line thickness is font dimension~8 of the extension font,
+which also determines the clearance between the line and
+the \gr{math field}.
 
 %Various other \cs{over...} and \cs{under...} commands exist
 %in plain \TeX;
 %these are all macros
 %that use the \TeX\ \cs{halign} command.
-plain \TeX\ 中存在各种其他 \cs{over...} 和 \cs{under...} 命令；
-这些都是使用 \TeX\ \cs{halign} 命令的宏。
+Various other \cs{over...} and \cs{under...} commands exist
+in plain \TeX;
+these are all macros
+that use the \TeX\ \cs{halign} command.
 
 %%\point Line breaking in math formulas
 %\section{Line breaking in math formulas}
 %\point Line breaking in math formulas
-\section{数学公式中的断行}
+\section{Line breaking in math formulas}
 
 %In-line formulas can be broken after relations and binary operators.
 %\cstoidx relpenalty\par\cstoidx binoppenaly\par
@@ -1113,32 +1169,33 @@ plain \TeX\ 中存在各种其他 \cs{over...} 和 \cs{under...} 命令；
 %can be created with~\cs{allowbreak},
 %\cstoidx allowbreak\par
 %which is an abbreviation for~\cs{penalty0}.
-行内公式可以在关系和二元运算符之后断开。
+In-line formulas can be broken after relations and binary operators.
 \cstoidx relpenalty\par\cstoidx binoppenaly\par
-相应的 \emph{罚值}\index{penalties in math mode}
-是 \cs{relpenalty}
-和 \cs{binoppenalty}。然而，\TeX\ 只会在
-这些符号未被花括号包围时才断开。
-其他 \emph{断点}\index{breakpoints in math lists}
-可以通过 \cs{allowbreak} 创建，
+The respective \emph{penalties}\index{penalties in math mode}
+are the \cs{relpenalty} 
+and the~\cs{binoppenalty}. However, \TeX\ will only break
+after such symbols if they are not enclosed in braces.
+Other \emph{breakpoints}\index{breakpoints in math lists}
+can be created with~\cs{allowbreak},
 \cstoidx allowbreak\par
-它是 \cs{penalty0} 的缩写。
+which is an abbreviation for~\cs{penalty0}.
 
 %Unlike in horizontal or vertical mode where putting two penalties
 %in a row is equivalent to just placing the smallest one,
 %in math mode a penalty placed at a break point \ldash that is,
 %after a relation or binary operator \rdash  will effectively
 %replace the old penalty by the new one.
-与水平或垂直模式中连续放置两个罚值等同于只放置最小的一个不同，
-在数学模式中，放置在断点处的罚值 \ldash 即，
-在关系或二元运算符之后 \rdash 将有效地
-用新的罚值替换旧的罚值。
+Unlike in horizontal or vertical mode where putting two penalties
+in a row is equivalent to just placing the smallest one,
+in math mode a penalty placed at a break point \ldash that is,
+after a relation or binary operator \rdash  will effectively
+replace the old penalty by the new one.
 
 %%\point[fam23:fontdims] Font dimensions of families 2 and 3
 %\section{Font dimensions of families 2 and 3}
 %\label{fam23:fontdims}
 %\point[fam23:fontdims] Font dimensions of families 2 and 3
-\section{字体族 2 和 3 的字体尺寸}
+\section{Font dimensions of families 2 and 3}
 \label{fam23:fontdims}
 
 %If a font is used in text mode, \TeX\ will look at its
@@ -1151,21 +1208,22 @@ plain \TeX\ 中存在各种其他 \cs{over...} 和 \cs{under...} 命令；
 %family~3, to control various
 %aspects of math typesetting. The next two subsections
 %have been quoted loosely from~\cite{BB:ISO}.
-如果字体在文本模式下使用，\TeX\ 会查看其
-前 7 个 \cs{fontdimen} 参数
-（参见第 \pageref{font:dims} 页），例如用于
-控制间距。
-然而，在数学模式中，需要更多的字体尺寸。
-\TeX\ 会查看字体族 2 中字体的前 22 个参数，
-以及字体族 3 中字体的前 13 个参数，以控制
-数学排版的各个方面。接下来的两小节
-松散地引用自 \cite{BB:ISO}。
+If a font is used in text mode, \TeX\ will look at its
+first 7 \cs{fontdimen} parameters
+(see page~\pageref{font:dims}), for instance to
+control spacing.
+In math, however, more font dimensions are needed.
+\TeX\ will look at the first 22 parameters of the
+fonts in family~2, and the first 13 of the fonts in
+family~3, to control various
+aspects of math typesetting. The next two subsections
+have been quoted loosely from~\cite{BB:ISO}.
 
 %%\spoint Symbol font attributes
 %\subsection{Symbol font attributes}
 %\index{symbol font|(}
 %\spoint Symbol font attributes
-\subsection{符号字体属性}
+\subsection{Symbol font attributes}
 \index{symbol font|(}
 
 %Attributes of the font in family~2, the \emph{symbol font},
@@ -1175,18 +1233,20 @@ plain \TeX\ 中存在各种其他 \cs{over...} 和 \cs{under...} 命令；
 %The position determined by applying these
 %attributes may be further modified because of other
 %conditions, for example the presence of a fraction bar.
-字体族 2 中的字体（即 \emph{符号字体}）的属性，
-主要指定分数、下标、上标等部分的
-初始垂直定位。
-应用这些属性确定的位置可能会因其他
-条件（例如分数线的存在）而进一步修改。
+Attributes of the font in family~2, the \emph{symbol font},
+mainly specify the
+initial vertical positioning
+of parts of fractions, subscripts, superscripts, et cetera.
+The position determined by applying these
+attributes may be further modified because of other
+conditions, for example the presence of a fraction bar.
 
 %One text font dimension, number~6,
 %the quad, determines the size of mu glue;
 %see above.
-一个文本字体尺寸，编号 6，
-即 quad，决定了 mu 粘连的大小；
-见上文。
+One text font dimension, number~6,
+the quad, determines the size of mu glue;
+see above.
 
 %Fraction numerator attributes: minimum shift up, from
 %the main baseline, of the baseline of the numerator
@@ -1199,14 +1259,16 @@ plain \TeX\ 中存在各种其他 \cs{over...} 和 \cs{under...} 命令；
 %\item num3:
 % for text style or smaller if no fraction bar is present.
 %\end{enumerate}
-分数分子属性：广义分数分子基线相对于主基线最小上移量，
+Fraction numerator attributes: minimum shift up, from
+the main baseline, of the baseline of the numerator
+of a generalized fraction,
 \begin{enumerate} \setcounter{enumi}{7} %\message{set a counter here!}%\SetCounter:item=7
 \item num1:
- 用于显示样式，
+ for display style,
 \item num2:
- 用于文本样式或更小（如果存在分数线），
+ for text style or smaller if a fraction bar is present,
 \item num3:
- 用于文本样式或更小（如果不存在分数线）。
+ for text style or smaller if no fraction bar is present.
 \end{enumerate}
 
 %Fraction denominator attributes: minimum shift down, from
@@ -1218,12 +1280,14 @@ plain \TeX\ 中存在各种其他 \cs{over...} 和 \cs{under...} 命令；
 %\item denom2:
 %for text style or smaller.
 %\end{enumerate}
-分数分母属性：广义分数分母基线相对于主基线最小下移量，
+Fraction denominator attributes: minimum shift down, from
+the main baseline, of the baseline of the denominator
+of a generalized fraction,
 \begin{enumerate} \setcounter{enumi}{10} %\message{set a counter here!}%\SetCounter:item=10
 \item denom1:
- 用于显示样式，
+for display style,
 \item denom2:
- 用于文本样式或更小。
+for text style or smaller.
 \end{enumerate}
 
 %Superscript attributes: minimum shift up, from the main baseline,
@@ -1236,14 +1300,15 @@ plain \TeX\ 中存在各种其他 \cs{over...} 和 \cs{under...} 命令；
 %\item sup3:
 %for text style or smaller, cramped.
 %\end{enumerate}
-上标属性：上标基线相对于主基线最小上移量，
+Superscript attributes: minimum shift up, from the main baseline,
+of the baseline of a superscript,
 \begin{enumerate} \setcounter{enumi}{12} %\message{set a counter here!}%\SetCounter:item=12
 \item sup1:
- 用于显示样式，
+for display style,
 \item sup2:
- 用于文本样式或更小，非紧凑，
+for text style or smaller, non-cramped,
 \item sup3:
- 用于文本样式或更小，紧凑。
+for text style or smaller, cramped.
 \end{enumerate}
 
 %Subscript attributes: minimum shift down, from the main baseline,
@@ -1254,12 +1319,13 @@ plain \TeX\ 中存在各种其他 \cs{over...} 和 \cs{under...} 命令；
 %\item sub2:
 %when a superscript is present.
 %\end{enumerate}
-下标属性：下标基线相对于主基线最小下移量，
+Subscript attributes: minimum shift down, from the main baseline,
+of the baseline of a subscript,
 \begin{enumerate} \setcounter{enumi}{15} %\message{set a counter here!}%\SetCounter:item=15
 \item sub1:
- 当没有上标时，
+when no superscript is present,
 \item sub2:
- 当存在上标时。
+when a superscript is present.
 \end{enumerate}
 
 %Script adjustment attributes: for use only with non-glyph,
@@ -1270,12 +1336,13 @@ plain \TeX\ 中存在各种其他 \cs{over...} 和 \cs{under...} 命令；
 %\item sub\_drop:
 %minimum distance of subscript baseline below bottom of nucleus.
 %\end{enumerate}
-角标调整属性：仅用于非字形，即复合对象。
+Script adjustment attributes: for use only with non-glyph,
+that is, composite, objects.
 \begin{enumerate} \setcounter{enumi}{17} %\message{set a counter here!}%\SetCounter:item=17
 \item sup\_drop:
- 上标基线低于核心顶部的最大距离
+maximum distance of superscript baseline below top of nucleus
 \item sub\_drop:
- 下标基线低于核心底部的最小距离。
+minimum distance of subscript baseline below bottom of nucleus.
 \end{enumerate}
 
 %Delimiter span attributes: height plus depth of delimiter enclosing
@@ -1286,12 +1353,13 @@ plain \TeX\ 中存在各种其他 \cs{over...} 和 \cs{under...} 命令；
 %\item delim2:
 %in text style or smaller.
 %\end{enumerate}
-定界符跨度属性：包围广义分数的定界符的高度加深度，
+Delimiter span attributes: height plus depth of delimiter enclosing
+a generalized fraction,
 \begin{enumerate} \setcounter{enumi}{19} %\message{set a counter here!}%\SetCounter:item=19
 \item delim1:
- 在显示样式中，
+in display style,
 \item delim2:
- 在文本样式或更小样式中。
+in text style or smaller.
 \end{enumerate}
 
 %A parameter with many uses, the height of the math axis,
@@ -1302,19 +1370,20 @@ plain \TeX\ 中存在各种其他 \cs{over...} 和 \cs{under...} 命令；
 %and most operators and relations. This position is
 %used in vertical centring operations.
 %\end{enumerate}
-一个用途广泛的参数，数学轴的高度，
+A parameter with many uses, the height of the math axis,
 \begin{enumerate} \setcounter{enumi}{21} %\message{set a counter here!}%\SetCounter:item=21
 \item axis\_height:
- 分数线基线上方的高度，以及大型定界符
- 和大多数运算符和关系的中心。此位置
- 用于垂直居中操作。
+the height above the baseline
+of the fraction bar, and the centre of large delimiters
+and most operators and relations. This position is
+used in vertical centring operations.
 \end{enumerate}
 
 %\index{symbol font|)}
 \index{symbol font|)}
 
 %\subsection{Extension font attributes}
-\subsection{扩展字体属性}
+\subsection{Extension font attributes}
 
 %\index{extension font|(}
 \index{extension font|(}
@@ -1322,9 +1391,9 @@ plain \TeX\ 中存在各种其他 \cs{over...} 和 \cs{under...} 命令；
 %Attributes of the font in family~3, the \emph{extension font},
 %mostly specify
 %the way the limits of large operators are set.
-字体族 3 中字体（即 \emph{扩展字体}）的属性，
-主要指定
-大型运算符界限的设置方式。
+Attributes of the font in family~3, the \emph{extension font},
+mostly specify
+the way the limits of large operators are set.
 
 %The first parameter, number 8, default\_rule\_thickness,
 %serves many purposes. It
@@ -1335,14 +1404,15 @@ plain \TeX\ 中存在各种其他 \cs{over...} 和 \cs{under...} 命令；
 %the numerator and denominator, between an object and
 %the rule drawn by an underline, overline, or radical,
 %and between the bottom of superscripts and top of subscripts.
-第一个参数，编号 8，default\_rule\_thickness，
-具有多种用途。它
-是用于上划线、
-下划线、根号扩展符（平方根）
-和分数线的粗细。各种间隙也以该尺寸指定：
-分数线与分子和分母之间，对象与
-下划线、上划线或根号绘制的线条之间，
-以及上标底部和下标顶部之间。
+The first parameter, number 8, default\_rule\_thickness,
+serves many purposes. It
+is the thickness of the rule used for overlines,
+underlines, radical extenders (square root), 
+and fraction bars. Various clearances are  also specified
+in terms of this dimension: between the fraction bar and
+the numerator and denominator, between an object and
+the rule drawn by an underline, overline, or radical,
+and between the bottom of superscripts and top of subscripts.
 
 %Minimum clearances around large operators are as follows:
 %\begin{enumerate} \setcounter{enumi}{8} %\message{set a counter here!}%\SetCounter:item=8
@@ -1368,28 +1438,36 @@ plain \TeX\ 中存在各种其他 \cs{over...} 和 \cs{under...} 命令；
 %The resulting clearance below an operator is the maximum
 %of parameter~10, and parameter~12 minus the height of the
 %lower limit.
-大型运算符周围的最小间隙如下：
+Minimum clearances around large operators are as follows:
 \begin{enumerate} \setcounter{enumi}{8} %\message{set a counter here!}%\SetCounter:item=8
 \item big\_op\_spacing1:
- 上界基线与大型运算符顶部之间的最小间隙；见下文。
+minimum clearance between baseline of upper limit and top
+of large operator; see below.
 \item big\_op\_spacing2:
- 大型运算符底部与下界顶部之间的最小间隙。
+minimum clearance between bottom of large operator and top of 
+lower limit.
 \item big\_op\_spacing3:
- 上界基线与大型运算符顶部之间的最小间隙，
- 考虑上界的深度；见下文。
+minimum clearance between baseline of
+upper limit and top of large operator,
+taking into account depth of upper limit; see below.
 \item big\_op\_spacing4:
- 大型运算符底部与下界顶部之间的最小间隙，考虑下界的高度；见下文。
+minimum clearance between bottom of large operator and top of lower
+limit, taking into account height of lower limit; see below.
 \item big\_op\_spacing5:
- 大型运算符上界上方或下界下方的间隙。
+clearance above upper limit or below lower limit of a large operator.
 \end{enumerate}
-运算符上方产生的间隙是参数 7 和参数 11 减去上界深度的最大值。
-运算符下方产生的间隙是参数 10 和参数 12 减去下界高度的最大值。
+The resulting clearance above an operator is the maximum
+of parameter~7, and parameter~11 minus the depth of the
+upper limit.
+The resulting clearance below an operator is the maximum
+of parameter~10, and parameter~12 minus the height of the
+lower limit.
 
 %\index{extension font|)}
 \index{extension font|)}
 
 %\subsection{Example: subscript lowering}
-\subsection{示例：下标降低}
+\subsection{Example: subscript lowering}
 
 %The location of a subscript depends on whether there
 %\alt
@@ -1411,12 +1489,12 @@ plain \TeX\ 中存在各种其他 \cs{over...} 和 \cs{under...} 命令；
 %which makes the subscript drop equal in both cases.
 %Since font dimension assignments are global, you 
 %have to specify this only once in your document.
-下标的位置取决于是否存在
+The location of a subscript depends on whether there
 \alt
-\howto 调整下标降低\par
-上标；例如
+\howto Adjust subscript lowering\par
+is a superscript; for instance
 \begin{disp} $X_1+Y^2_1=1$\end{disp}
-如果您希望它看起来像
+If you would rather have that look like
 \begin{disp} $\global\tempdima=\fontdimen16\textfont2\relax
        \global\tempdimb=\fontdimen17\textfont2\relax
        \fontdimen16\textfont2=3pt \fontdimen17\textfont2=3pt
@@ -1424,13 +1502,13 @@ plain \TeX\ 中存在各种其他 \cs{over...} 和 \cs{under...} 命令；
                      \fontdimen17\textfont2=\tempdimb\relax$
 \end{disp}
 \message{check lowering}
-只需指定
+it suffices to specify
 \begin{verbatim}
 \fontdimen16\textfont2=3pt \fontdimen17\textfont2=3pt
 \end{verbatim}
-这使得两种情况下的下标下降量相等。
-由于字体尺寸赋值是全局的，您
-只需在文档中指定一次即可。
+which makes the subscript drop equal in both cases.
+Since font dimension assignments are global, you 
+have to specify this only once in your document.
 
 
 %\endofchapter

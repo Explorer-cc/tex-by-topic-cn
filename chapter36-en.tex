@@ -7,28 +7,30 @@
 \begin{document}
 
 %\chapter{The Grammar of \TeX}\label{gramm}
-\chapter{\TeX\ 语法}\label{gramm}
+\chapter{The Grammar of \TeX}\label{gramm}
 
 %Many  chapters in this book contain pieces of the
 %grammar that defines the formal syntax of \TeX.
 %In this chapter the structure of the rewriting rules of the
 %grammar is explained, and some key notions are presented.
-本书的许多章节包含了定义 \TeX\ 形式语法的
-语法片段。
-本章解释了语法重写规则的结构，并介绍了一些关键概念。
+Many  chapters in this book contain pieces of the
+grammar that defines the formal syntax of \TeX.
+In this chapter the structure of the rewriting rules of the
+grammar is explained, and some key notions are presented.
 
 %In \TeXbook\ a grammar appears in Chapters~24--27.
 %An even more rigorous grammar of \TeX\ can be found in~\cite{Appelt}.
 %The grammar presented in this book is virtually identical 
 %to that of \TeXbook.
-在 \TeXbook\ 中，语法出现在第 24--27 章。
-更严格的 \TeX\ 语法可以在 \cite{Appelt} 中找到。
-本书中呈现的语法与 \TeXbook\ 中的语法几乎相同。
+In \TeXbook\ a grammar appears in Chapters~24--27.
+An even more rigorous grammar of \TeX\ can be found in~\cite{Appelt}.
+The grammar presented in this book is virtually identical 
+to that of \TeXbook.
 
 %%\point Notations
 %\section{Notations}
 %\point Notations
-\section{符号约定}
+\section{Notations}
 
 %Basic to the grammar are 
 %\begin{description}\item [grammatical terms]
@@ -45,20 +47,21 @@
 %\begin{disp}\n{keyword}\end{disp}
 %This is a limited collection of words that have a special
 %meaning for \TeX\ in certain contexts; see below.\end{description}
-语法的基本要素是
-\begin{description}\item [语法术语]
-这些用尖括号括起来：
-\begin{disp}\gr{术语}\end{disp}
-\item [控制序列]
-这些以打字机字体给出，并带有反斜杠作为
-转义字符：
-\begin{disp}\cs{命令}\end{disp}
+Basic to the grammar are 
+\begin{description}\item [grammatical terms]
+These are enclosed in angle brackets:
+\begin{disp}\gr{term}\end{disp}
+\item [control sequences]
+These are given in typewriter type with a backslash for
+the escape character:
+\begin{disp}\cs{command}\end{disp}
 \end{description}
-最后还有
-\begin{description}\item [关键字]
-也以打字机字体给出
-\begin{disp}\n{关键字}\end{disp}
-这是一组有限的词，在特定上下文中对 \TeX\ 具有特殊含义；详见下文。\end{description}
+Lastly there are 
+\begin{description}\item [keywords]
+Also given in typewriter type
+\begin{disp}\n{keyword}\end{disp}
+This is a limited collection of words that have a special
+meaning for \TeX\ in certain contexts; see below.\end{description}
 
 %The three elements of the grammar are used in syntax rules:
 %\begin{disp}\gr{snark} $\longrightarrow$ \n{boojum} $|$ \gr{empty}
@@ -66,12 +69,12 @@
 %This rule says that the grammatical entity \gr{snark}
 %is either the keyword \n{boojum}, or the grammatical
 %entity \gr{empty}.
-语法的三个元素用于语法规则：
+The three elements of the grammar are used in syntax rules:
 \begin{disp}\gr{snark} $\longrightarrow$ \n{boojum} $|$ \gr{empty}
 \end{disp}
-这条规则表示语法实体 \gr{snark}
-要么是关键字 \n{boojum}，要么是语法
-实体 \gr{empty}。
+This rule says that the grammatical entity \gr{snark}
+is either the keyword \n{boojum}, or the grammatical
+entity \gr{empty}.
 
 %There are two other notational conventions.
 %The first is that the double quote
@@ -80,22 +83,22 @@
 %+5\times16^1+6\times16^0$. The second convention
 %is that subscripts are used to denote category codes.
 %Thus \n{a}$_{12}$ denotes an `a' of category~12.
-还有另外两种符号约定。
-第一种是双引号
-用于表示十六进制（基数 16）表示法。
-例如 \verb>"ab56> 代表 $10\times16^3+11\times16^2
-+5\times16^1+6\times16^0$。第二种约定
-是下标用于表示类别代码。
-因此 \n{a}$_{12}$ 表示类别为 12 的“a”。
+There are two other notational conventions.
+The first is that the double quote
+is used to indicate hexadecimal (base~16) notation.
+For instance \verb>"ab56> stands for $10\times16^3+11\times16^2
++5\times16^1+6\times16^0$. The second convention
+is that subscripts are used to denote category codes.
+Thus \n{a}$_{12}$ denotes an `a' of category~12.
 
 %%\point[keywords] Keywords
 %\section{Keywords}
 %\label{keywords}
 %\index{keywords|(}
 %\point[keywords] Keywords
-\section{关键字}
+\section{Keywords}
 \label{keywords}
-\index{关键字|(}
+\index{keywords|(}
 
 %A keyword is sequence of characters (or character tokens)
 %of any category code but~13\index{category!13} (active).
@@ -105,11 +108,14 @@
 %lowercase by adding 32 to them; the \cs{lccode} and \cs{uccode}
 %are not used here. Furthermore, any keyword can be preceded by
 %optional spaces.
-关键字是除 13\index{category!13}（活动）以外的任何类别代码的字符（或字符记号）序列。
-与控制序列的情况不同，\TeX\ 不
-区分关键字中的小写和大写字符。关键字中的大写字符通过
-加 32 转换为小写；此处不使用 \cs{lccode} 和 \cs{uccode}。
-此外，任何关键字前面都可以有可选的空格。
+A keyword is sequence of characters (or character tokens)
+of any category code but~13\index{category!13} (active).
+Unlike the situation in control sequences, \TeX\ does not 
+distinguish between lowercase and uppercase characters
+in keywords. Uppercase characters in keywords are converted to
+lowercase by adding 32 to them; the \cs{lccode} and \cs{uccode}
+are not used here. Furthermore, any keyword can be preceded by
+optional spaces.
 
 %Thus both \n{true cm} and \n{truecm} are legal.
 %By far the strangest example, however, is provided
@@ -118,30 +124,30 @@
 %\end{disp} which implies that \hbox{\n{fil L l}} is also
 %a legal \gr{fil dimen}. Strange errors can ensue from this;
 %see page~\pageref{fil:l:l} for an example.
-因此 \n{true cm} 和 \n{truecm} 都是合法的。
-然而，最奇怪的例子是由
-语法规则提供的
+Thus both \n{true cm} and \n{truecm} are legal.
+By far the strangest example, however, is provided
+by the grammar rule
 \begin{disp}\gr{fil unit} $\longrightarrow$ \n{fil} $|$ \gr{fil unit}\n l
-\end{disp} 这意味着 \hbox{\n{fil L l}} 也是
-一个合法的 \gr{fil dimen}。由此可能产生奇怪的错误；
-例如参见第 \pageref{fil:l:l} 页。
+\end{disp} which implies that \hbox{\n{fil L l}} is also
+a legal \gr{fil dimen}. Strange errors can ensue from this;
+see page~\pageref{fil:l:l} for an example.
 
 %Here is the full list of all keywords: \n{at}, \n{bp},
 %\n{by}, \n{cc}, \n{cm}, \n{dd}, \n{depth}, \n{em}, \n{ex},
 %\n{fil}, \n{height}, \n{in}, \n l, \n{minus}, \n{mm}, \n{mu},
 %\n{pc}, \n{plus}, \n{pt}, \n{scaled}, \n{sp}, \n{spread},
 %\n{to}, \n{true}, \n{width}.
-以下是所有关键字的完整列表：\n{at}、\n{bp}、
-\n{by}、\n{cc}、\n{cm}、\n{dd}、\n{depth}、\n{em}、\n{ex}、
-\n{fil}、\n{height}、\n{in}、\n l、\n{minus}、\n{mm}、\n{mu}、
-\n{pc}、\n{plus}、\n{pt}、\n{scaled}、\n{sp}、\n{spread}、
-\n{to}、\n{true}、\n{width}。
+Here is the full list of all keywords: \n{at}, \n{bp},
+\n{by}, \n{cc}, \n{cm}, \n{dd}, \n{depth}, \n{em}, \n{ex},
+\n{fil}, \n{height}, \n{in}, \n l, \n{minus}, \n{mm}, \n{mu},
+\n{pc}, \n{plus}, \n{pt}, \n{scaled}, \n{sp}, \n{spread},
+\n{to}, \n{true}, \n{width}.
 
 %\index{keywords|)}
-\index{关键字|)}
+\index{keywords|)}
 
 %\section{Specific grammatical terms}
-\section{特定语法术语}
+\section{Specific grammatical terms}
 
 %Some grammatical terms appear in a lot of rules.
 %One such term is \gr{optional spaces}.
@@ -152,25 +158,25 @@
 %     \end{disp}
 %which amounts to saying that \gr{optional spaces}
 %is zero or more space tokens.
-一些语法术语出现在许多规则中。
-其中一个术语是 \gr{可选空格}。
-术语 \indextermbus{可选}{空格} 可能足够清楚，
-但这里是正式定义：
-\begin{disp}\gr{可选空格} $\longrightarrow$
-     \gr{空} $|$ \gr{空格记号}\gr{可选空格}
+Some grammatical terms appear in a lot of rules.
+One such term is \gr{optional spaces}.
+The term \indextermbus{optional}{space} is probably clear enough,
+but here is the formal definition:
+\begin{disp}\gr{optional spaces} $\longrightarrow$
+     \gr{empty} $|$ \gr{space token}\gr{optional spaces}
      \end{disp}
-这相当于说 \gr{可选空格}
-是零个或多个空格记号。
+which amounts to saying that \gr{optional spaces}
+is zero or more space tokens.
 
 %Other terms may not be so immediately obvious.
 %Below are some of them.
-其他术语可能不那么一目了然。
-下面是一些。
+Other terms may not be so immediately obvious.
+Below are some of them.
 
 %%\spoint \gr{equals}
 %\subsection{\gr{equals}}
 %\spoint \gr{equals}
-\subsection{\gr{等于号}}
+\subsection{\gr{equals}}
 
 %In assignments the equals sign is optional; therefore there
 %is a term
@@ -188,24 +194,27 @@
 %%% Here the space would have been skipped in \TeX's input processor
 %%% if the equals sign had been left out.
 %\end{comment}
-在赋值中，等号是可选的；因此在
-\TeX\ 语法中有一个术语
-\begin{disp}\gr{等于号} $\longrightarrow$ \gr{可选空格}
-     $|$ \gr{可选空格}$=_{12}$\end{disp}
+In assignments the equals sign is optional; therefore there
+is a term
+\begin{disp}\gr{equals} $\longrightarrow$ \gr{optional spaces}
+     $|$ \gr{optional spaces}$=_{12}$\end{disp}
+in \TeX's grammar.
 %% 
 \begin{comment}
-%% 存在一个不能省略等号的赋值：
+%% One assignment exists where the equals sign cannot
+%% be left out:
 %%
 \begin{verbatim}
 %% \let\spacetoken= %assign a space
 \end{verbatim}
-%% 如果省略了等号，这里的空格将在 \TeX\ 的输入处理器中被跳过。
+%% Here the space would have been skipped in \TeX's input processor
+%% if the equals sign had been left out.
 \end{comment}
 
 %%\spoint \gr{filler}, \gr{general text}
 %\subsection{\gr{filler}, \gr{general text}}
 %\spoint \gr{filler}, \gr{general text}
-\subsection{\gr{填充符}、\gr{通用文本}}
+\subsection{\gr{filler}, \gr{general text}}
 
 %More obscure than the \gr{optional spaces} is the combination
 %of spaces and \cs{relax} tokens that is allowed
@@ -223,25 +232,27 @@
 %A \gr{general text} follows such control sequences as
 %\cs{message}, \cs{uppercase}, or \cs{mark}. The braces around
 %the \gr{balanced text} are explained in the next point.
-比 \gr{可选空格} 更模糊的是在某些地方允许的
-空格和 \cs{relax} 记号的组合，例如
+More obscure than the \gr{optional spaces} is the combination
+of spaces and \cs{relax} tokens that is allowed
+in some places, for instance
 \begin{verbatim}
 \setbox0= \relax\box1
 \end{verbatim}
-涉及的量是
-\begin{disp}\gr{填充符} $\longrightarrow$ \gr{可选空格}
-     $|$ \gr{填充符}\cs{relax}\gr{可选空格}\end{disp}
-\gr{填充符} 的一个重要出现是在
-\begin{disp}\gr{通用文本} $\longrightarrow$
-     \gr{填充符}\lb\gr{平衡文本}\gr{右花括号}
+The quantity involved is 
+\begin{disp}\gr{filler} $\longrightarrow$ \gr{optional spaces}
+     $|$ \gr{filler}\cs{relax}\gr{optional spaces}\end{disp}
+One important occurrence of \gr{filler} is in
+\begin{disp}\gr{general text} $\longrightarrow$
+     \gr{filler}\lb\gr{balanced text}\gr{right brace}
      \end{disp}
-\gr{通用文本} 跟随 \cs{message}、\cs{uppercase} 或 \cs{mark} 等控制序列。
-围绕 \gr{平衡文本} 的花括号在下一点中解释。
+A \gr{general text} follows such control sequences as
+\cs{message}, \cs{uppercase}, or \cs{mark}. The braces around
+the \gr{balanced text} are explained in the next point.
 
 %%\spoint \lb\rb\ and \gr{left brace}\gr{right brace}
 %\subsection{\lb\rb\ and \gr{left brace}\gr{right brace}}
 %\spoint \lb\rb\ and \gr{left brace}\gr{right brace}
-\subsection{\lb\rb\ 和 \gr{左花括号}\gr{右花括号}}
+\subsection{\lb\rb\ and \gr{left brace}\gr{right brace}}
 
 %The \TeX\ grammar uses a perhaps somewhat unfortunate
 %convention for braces. First of all 
@@ -256,19 +267,19 @@
 %\begin{disp}\gr{left brace} and \gr{right brace}
 %\end{disp} stand for explicit open/close group characters,
 %that is, characters of categories 1 and~2 respectively.
-\TeX\ 语法对花括号的使用约定可能有些不幸。
-首先
-\begin{disp}\lb\ 和 \rb\end{disp}
-代表显式的开/关组字符，
-或者由 \cs{let} 定义的控制序列，
-例如
+The \TeX\ grammar uses a perhaps somewhat unfortunate
+convention for braces. First of all 
+\begin{disp}\lb\ and \rb\end{disp}
+stand for braces that are either explicit open/close group
+characters, or control sequences defined by \cs{let},
+such as
 \begin{verbatim}
 \let\bgroup={ \let\egroup=}
 \end{verbatim}
-语法术语
-\begin{disp}\gr{左花括号} 和 \gr{右花括号}
-\end{disp} 代表显式的开/关组字符，
-即类别 1 和 2 的字符。
+The grammatical terms 
+\begin{disp}\gr{left brace} and \gr{right brace}
+\end{disp} stand for explicit open/close group characters,
+that is, characters of categories 1 and~2 respectively.
 
 %Various combinations of these two kinds of braces exist.
 %Braces around boxes can be implicit:
@@ -288,28 +299,29 @@
 %contain \cs{egroup} tokens.
 %\TeX\ performs expansion to find the opening 
 %brace of a \gr{general text}.
-这两种花括号存在各种组合。
-盒子周围的花括号可以是隐式的：
-\begin{disp}\cs{hbox}\gr{盒子规范}\lb
-     \gr{水平模式材料}\rb\end{disp}
-宏定义周围必须是显式花括号：
-\begin{disp}\gr{定义文本} $\longrightarrow$
-     \gr{参数文本}\gr{左花括号}\gr{平衡文本}\gr{右花括号}
+Various combinations of these two kinds of braces exist.
+Braces around boxes can be implicit:
+\begin{disp}\cs{hbox}\gr{box specification}\lb
+     \gr{horizontal mode material}\rb\end{disp}
+Around a macro definition there must be explicit braces:
+\begin{disp}\gr{definition text} $\longrightarrow$
+     \gr{parameter text}\gr{left brace}\gr{balanced text}\gr{right brace}
      \end{disp}
-最后，上面提到的 \gr{通用文本}
-必须显式关闭，但可以隐式打开：
-\begin{disp}\gr{通用文本} $\longrightarrow$
-     \gr{填充符}\lb\gr{平衡文本}\gr{右花括号}
+Finally, the \gr{general text} that was mentioned above
+has to be explicitly closed, but it can be implicitly opened:
+\begin{disp}\gr{general text} $\longrightarrow$
+     \gr{filler}\lb\gr{balanced text}\gr{right brace}
      \end{disp}
-\gr{通用文本} 的右花括号必须是显式的，
-因为通用文本是一个记号列表，其中可能
-包含 \cs{egroup} 记号。
-\TeX\ 执行展开以查找 \gr{通用文本} 的左花括号。
+The closing brace of a \gr{general text} has to be explicit,
+since a general text is a token list, which may
+contain \cs{egroup} tokens.
+\TeX\ performs expansion to find the opening 
+brace of a \gr{general text}.
 
 %%\spoint \gr{math field}
 %\subsection{\gr{math field}}
 %\spoint \gr{math field}
-\subsection{\gr{数学域}}
+\subsection{\gr{math field}}
 
 %In math mode various operations such as subscripting
 %or applying \cs{underline} take an argument that
@@ -323,24 +335,24 @@
 %See page~\pageref{character} for \gr{character},
 %\alt
 %and page~\pageref{math:character} for \gr{math character}.
-在数学模式下，各种操作，例如下标
-或应用 \cs{underline}，都接受一个参数，该参数
-是一个 \gr{数学域}：可以是单个符号，也可以是
-一个组。这是确切的定义。
-\begin{disp}\gr{数学域} $\longrightarrow$
-    \gr{数学符号} $|$ \gr{填充符}\lb\gr{数学模式材料}\rb\nl
- \gr{数学符号}  $\longrightarrow$ \gr{字符} $|$
-    \gr{数学字符}
+In math mode various operations such as subscripting
+or applying \cs{underline} take an argument that
+is a \gr{math field}: either a single symbol, or
+a group. Here is the exact definition.
+\begin{disp}\gr{math field} $\longrightarrow$
+    \gr{math symbol} $|$ \gr{filler}\lb\gr{math mode material}\rb\nl
+ \gr{math symbol}  $\longrightarrow$ \gr{character} $|$
+    \gr{math character}
 \end{disp}
-\gr{字符} 请参见第 \pageref{character} 页，
+See page~\pageref{character} for \gr{character},
 \alt
-\gr{数学字符} 请参见第 \pageref{math:character} 页。
+and page~\pageref{math:character} for \gr{math character}.
 
 %%\point[2vs3] Differences between \TeX\ versions 2 and 3
 %\section{Differences between \TeX\ versions 2 and 3}
 %\label{2vs3}
 %\point[2vs3] Differences between \TeX\ versions 2 and 3
-\section{\TeX\ 版本 2 和 3 之间的差异}
+\section{Differences between \TeX\ versions 2 and 3}
 \label{2vs3}
 
 %In 1989 Knuth released \TeX\ version~3.0, which is 
@@ -351,12 +363,14 @@
 %released in 1982; see~\cite{Knuth:TeXerrors} for more about
 %the history of \TeX).
 %All intermediate versions were merely bug fixes.
-1989 年，Knuth 发布了 \TeX\ 版本 3.0，这是
+In 1989 Knuth released \TeX\ version~3.0, which is 
 \thecstoidxsub{TeX}{version 2}
 \thecstoidxsub{TeX}{version 3}
-自 1986 年发布的 \TeX\ 版本 2.0 以来，\TeX\ 的第一个真正变化
-（\TeX\ 的版本 0 于 1982 年发布；有关 \TeX\ 历史的更多信息，请参见 \cite{Knuth:TeXerrors}）。
-所有中间版本都只是错误修复。
+the first real change in \TeX\ since version~2.0,
+which was released in~1986 (version~0 of \TeX\ was
+released in 1982; see~\cite{Knuth:TeXerrors} for more about
+the history of \TeX).
+All intermediate versions were merely bug fixes.
 
 %The main difference between versions 2~and~3 lies
 %in the fact that 8-bit input has become possible.
@@ -364,11 +378,12 @@
 %used to be 127 or~128 have been raised to 255
 %or~256 respectively. Here is a short list.
 %The full description is in~\cite{K:TeX23}.
-版本 2 和 3 之间的主要区别在于
-8 位输入已成为可能。
-与此相关，以前是 127 或 128 的各种量已分别提高到 255
-或 256。以下是一个简短列表。
-完整描述请参见 \cite{K:TeX23}。
+The main difference between versions 2~and~3 lies
+in the fact that 8-bit input has become possible.
+Associated with this, various quantities that
+used to be 127 or~128 have been raised to 255
+or~256 respectively. Here is a short list.
+The full description is in~\cite{K:TeX23}.
 
 %\begin{inventory}\message{Remove other TeX3 refernces!}
 %\item All `codes' (\cs{catcode}, \cs{sfcode}, et cetera;
@@ -392,30 +407,33 @@
 %    instead it is~$10\,000$ (see page~\pageref{break:penalty}).
 %\end{inventory}
 \begin{inventory}\message{Remove other TeX3 refernces!}
-\item 所有“代码”（\cs{catcode}、\cs{sfcode} 等；
-    参见第 \pageref{codename} 页）
-    现在适用于 256 个字符代码，而不是 128 个。
-\item 除非此参数为负或大于 255（以前是 127），否则
-    代码为 \cs{endlinechar} 的字符将附加到行末（参见第 \pageref{append:elc} 页）。
-\item 如果 \cs{escapechar} 为负或大于 255（以前是 127），则 \cs{write} 和
-    其他命令不会输出转义字符（参见第 \pageref{use:escape} 页）。
-\item \verb>^^> 替换机制已扩展
-    （参见第 \pageref{hathat} 页）。
-\item 参数 \cs{language}、\cs{inputlineno}、
-    \cs{errorcontextlines}、\cs{lefthyphenmin}、\cs{righthyphenmin}、
-\cs{badness}、\cs{holdinginserts}、\cs{emergencystretch}，
-以及命令 \cs{noboundary}、\cs{setlanguage}
-已添加。
-\item 如果分页不是在惩罚项处，则 \cs{outputpenalty} 的值不再为零；
-    而是 $10\,000$（参见第 \pageref{break:penalty} 页）。
+\item All `codes' (\cs{catcode}, \cs{sfcode}, et cetera;
+    see page~\pageref{codename})
+    now apply to 256 character codes instead of~128.
+\item A character with code \cs{endlinechar}
+    is appended to the line unless this parameter is negative
+or more than~255 (this was~127) (see page~\pageref{append:elc}).
+\item No escape character is output by \cs{write} and
+    other commands if \cs{escapechar} is negative or more than~255
+(this was~127) (see page~\pageref{use:escape}).
+\item The \verb>^^> replacement mechanism has been extended
+    (see page~\pageref{hathat}).
+\item Parameters \cs{language}, \cs{inputlineno},
+    \cs{errorcontextlines}, \cs{lefthyphenmin}, \cs{righthyphenmin},
+\cs{badness}, \cs{holdinginserts}, \cs{emergencystretch},
+and commands \cs{noboundary}, \cs{setlanguage}
+have been added.
+\item The value of \cs{outputpenalty} is no longer zero
+    if the page break was not at a penalty item;
+    instead it is~$10\,000$ (see page~\pageref{break:penalty}).
 \end{inventory}
 
 %The plain format has also been updated, mostly
 %with default settings for parameters such as
 %\cs{lefthyphenmin}, but also a few macros have been added.
-plain 格式也已更新，主要
-是增加了 \cs{lefthyphenmin} 等参数的默认设置，
-但也添加了一些宏。
+The plain format has also been updated, mostly
+with default settings for parameters such as
+\cs{lefthyphenmin}, but also a few macros have been added.
 
 %\endofchapter
 %%%%% end of input file [syntax]

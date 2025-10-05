@@ -7,16 +7,16 @@
 \begin{document}
 
 %\chapter{Token Lists}\label{token}
-\chapter{记号列表}\label{token}
+\chapter{Token Lists}\label{token}
 
 %\TeX\ has only one type of data structure: the \indextermsub{token}{list}
 %There are token list registers that are available to the user,
 %and \TeX\ has some special token lists: the \cs{every...}
 %variables, \cs{errhelp}, and \cs{output}.
-\TeX\ 只有一种数据结构：\indextermsub{记号}{列表}。
-有一些记号列表寄存器可供用户使用，
-并且 \TeX\ 还有一些特殊的记号列表：\cs{every...}
-变量、\cs{errhelp} 和 \cs{output}。
+\TeX\ has only one type of data structure: the \indextermsub{token}{list}
+There are token list registers that are available to the user,
+and \TeX\ has some special token lists: the \cs{every...}
+variables, \cs{errhelp}, and \cs{output}.
 
 %\label{cschap:toks}\label{cschap:toksdef}\label{cschap:newtoks}
 %\begin{inventory}
@@ -25,19 +25,19 @@
 \label{cschap:toks}\label{cschap:toksdef}\label{cschap:newtoks}
 \begin{inventory}
 \item [\cs{toks}] 
-      记号列表寄存器的前缀。
+      Prefix for a token list register.
 
 %\item [\cs{toksdef}] 
 %      Define a control sequence to be a synonym for
 %      a~\cs{toks} register.
 \item [\cs{toksdef}] 
-      定义一个控制序列作为
-      \cs{toks} 寄存器的同义词。
+      Define a control sequence to be a synonym for
+      a~\cs{toks} register.
 
 %\item [\cs{newtoks}] 
 %      Macro that allocates a token list register.
 \item [\cs{newtoks}] 
-      分配一个记号列表寄存器的宏。
+      Macro that allocates a token list register.
 
 %\end{inventory}
 \end{inventory}
@@ -45,30 +45,30 @@
 %%\point Token lists
 %\section{Token lists}
 %\point Token lists
-\section{记号列表}
+\section{Token lists}
 
 %Token lists are the only type of data structure that \TeX\ knows.
 %They can contain character tokens and control sequence tokens.
 %Spaces in a token list are significant.
 %The only operations on token lists are assignment and
 %unpacking.
-记号列表是 \TeX\ 唯一知道的数据结构类型。
-它们可以包含字符记号和控制序列记号。
-记号列表中的空格是重要的。
-对记号列表的唯一操作是赋值和
-解包。
+Token lists are the only type of data structure that \TeX\ knows.
+They can contain character tokens and control sequence tokens.
+Spaces in a token list are significant.
+The only operations on token lists are assignment and
+unpacking.
 
 %\TeX\ has 256 token list registers \verb|\toks|$nnn$ that can be
 %allocated using the macro \verb|\newtoks|, or explicitly
 %assigned by \cs{toksdef}; see below.
-\TeX\ 有 256 个记号列表寄存器 \verb|\toks|$nnn$，可以通过
-宏 \verb|\newtoks| 分配，或通过 \cs{toksdef} 显式
-赋值；见下文。
+\TeX\ has 256 token list registers \verb|\toks|$nnn$ that can be
+allocated using the macro \verb|\newtoks|, or explicitly
+assigned by \cs{toksdef}; see below.
 
 %%\point Use of token lists
 %\section{Use of token lists}
 %\point Use of token lists
-\section{记号列表的使用}
+\section{Use of token lists}
 
 %Token lists are  assigned by a \gr{variable assignment},
 %which is in this case takes one of the forms
@@ -81,17 +81,17 @@
 %lists below.
 %A~\gr{general text} has an explicit closing brace, but the
 %open brace can be implicit.
-记号列表通过 \gr{变量赋值} 来赋值，
-在这种情况下，它采用以下形式之一：
-\begin{disp}\gr{记号变量}\gr{等于}\gr{通用文本}\nl
-     \gr{记号变量}\gr{等于}\gr{填充符}\gr{记号变量}\end{disp}
-这里的 \gr{记号变量} 是一个显式的 \cs{toks}$nnn$
-寄存器，一个通过 \cs{toksdef}（可能隐藏在 \cs{newtoks} 中）
-定义为此类寄存器的东西，
-或者是下面列出的特殊 \gr{记号参数}
-列表之一。
-一个 \gr{通用文本} 有一个显式的右花括号，但
-左花括号可以是隐式的。
+Token lists are  assigned by a \gr{variable assignment},
+which is in this case takes one of the forms
+\begin{disp}\gr{token variable}\gr{equals}\gr{general text}\nl
+     \gr{token variable}\gr{equals}\gr{filler}\gr{token variable}\end{disp}
+Here a \gr{token variable} is an explicit \cs{toks}$nnn$
+register, something that has been defined to such a register
+by \cs{toksdef} (probably hidden in \cs{newtoks}),
+or one of the special \gr{token parameter}
+lists below.
+A~\gr{general text} has an explicit closing brace, but the
+open brace can be implicit.
 
 %Examples of token lists are (the first two lines are equivalent):
 %\begin{verbatim}
@@ -99,7 +99,7 @@
 %\toks0={\a \b cd}
 %\toks1=\toks2
 %\end{verbatim}
-记号列表的例子有（前两行等价）：
+Examples of token lists are (the first two lines are equivalent):
 \begin{verbatim}
 \toks0=\bgroup \a \b cd}
 \toks0={\a \b cd}
@@ -109,9 +109,9 @@
 %Unpacking a token list is done by the command \cs{the}:
 %the expansion of \cs{the}\gr{token variable} is the 
 %sequence of tokens that was in the token list.
-解包记号列表是通过命令 \cs{the} 完成的：
-\cs{the}\gr{记号变量} 的展开结果是
-记号列表中包含的记号序列。
+Unpacking a token list is done by the command \cs{the}:
+the expansion of \cs{the}\gr{token variable} is the 
+sequence of tokens that was in the token list.
 
 %Token lists have a special behaviour in \cs{edef}:
 %when prefixed by \verb|\the| they are unpacked, 
@@ -126,25 +126,25 @@
 %\end{verbatim}
 %This is in contrast to what happens ordinarily in an~\cs{edef};
 %see page~\pageref{expand:edef}.
-记号列表在 \cs{edef} 中有特殊的行为：
-当以 \verb|\the| 为前缀时，它们会被解包，
-但生成的记号
-不会被进一步求值。因此
+Token lists have a special behaviour in \cs{edef}:
+when prefixed by \verb|\the| they are unpacked, 
+but the resulting tokens
+are not evaluated further. Thus
 \begin{verbatim}
 \toks0={\a \b} \edef\SomeCs{\the\toks0}
 \end{verbatim}
-给出
+gives
 \begin{verbatim}
 \SomeCs: macro:-> \a \b
 \end{verbatim}
-这与通常在 \cs{edef} 中发生的情况形成对比；
-参见第 \pageref{expand:edef} 页。
+This is in contrast to what happens ordinarily in an~\cs{edef};
+see page~\pageref{expand:edef}.
 
 
 %%\point \gr{token parameter}
 %\section{\gr{token parameter}}
 %\point \gr{token parameter}
-\section{\gr{记号参数}}
+\section{\gr{token parameter}}
 
 %There are in \TeX\ a number of token lists that are automatically
 %inserted at certain points. These \gr{token parameter}s are
@@ -178,51 +178,48 @@
 %   contains tokens to supplement an \cs{errmessage}
 %    (see Chapter~\ref{error}).
 %\end{description}
-\TeX\ 中有一些记号列表会在特定点自动
-插入。这些 \gr{记号参数} 是
-以下这些：
+There are in \TeX\ a number of token lists that are automatically
+inserted at certain points. These \gr{token parameter}s are
+the following:
 \begin{description} \item [\cs{output}]
-   当 \TeX\ 决定一页有足够的材料时，
-   或者当用户在垂直模式下通过罚值 $\leq-10\,000$ 强制激活时，
-   此记号列表会被插入
-   （见第 \ref{output} 章）；
+   this token list is inserted
+   whenever \TeX\ decides it has sufficient material for a page,
+   or when the user forces activation by a penalty~$\leq-10\,000$
+   in vertical mode
+   (see Chapter~\ref{output});
 \item [\cs{everypar}]
-   当 \TeX\ 从外部或内部垂直模式切换到无限制水平模式时，
-   此记号列表会被插入
-   （见第 \ref{par:start} 章）；
+   is inserted when \TeX\ switches from external or internal
+   vertical mode to unrestricted horizontal mode 
+   (see Chapter~\ref{par:start});
 \item [\cs{everymath}]
-   在开始公式的单个数学切换字符之后，
-   此记号列表会被插入；
+   is inserted after a single math-shift character that starts
+   a formula;
 \item [\cs{everydisplay}]
-   在开始显示公式的双数学切换字符之后，
-   此记号列表会被插入；
+   is inserted after a double math-shift character that starts
+   a display formula;
 \item [\cs{everyhbox}]
-   当 \cs{hbox} 开始时，
-   此记号列表会被插入（见第 \ref{boxes} 章）；
+   is inserted when an \cs{hbox} begins (see Chapter~\ref{boxes});
 \item [\cs{everyvbox}]
-   当垂直盒子开始时，
-   此记号列表会被插入（见第 \ref{boxes} 章）；
+   is inserted when a vertical box begins (see Chapter~\ref{boxes});
 \item [\cs{everyjob}]
-   当作业开始时，
-   此记号列表会被插入（见第 \ref{run} 章）；
+   is inserted when a job begins (see Chapter~\ref{run});
 \item [\cs{everycr}]
-   在对齐中，在 \cs{cr} 或非冗余的
-   \cs{crcr} 之后，
-   此记号列表会被插入（见第 \ref{align} 章）；
+   is inserted in alignments after \cs{cr} or a non-redundant
+   \cs{crcr} (see Chapter~\ref{align});
 \item [\cs{errhelp}]
-   包含用于补充 \cs{errmessage} 的记号
-   （见第 \ref{error} 章）。
+   contains tokens to supplement an \cs{errmessage}
+    (see Chapter~\ref{error}).
 \end{description}
 
 %A \gr{token parameter} behaves the same as an explicit \cs{toks}$nnn$
 %list, or a quantity defined by \cs{toksdef}.
-一个 \gr{记号参数} 的行为与一个显式的 \cs{toks}$nnn$
-列表，或一个通过 \cs{toksdef} 定义的量相同。
+A \gr{token parameter} behaves the same as an explicit \cs{toks}$nnn$
+list, or a quantity defined by \cs{toksdef}.
 
 %%\point Token list registers
 %\section{Token list registers}
 %\point Token list registers
-\section{记号列表寄存器}
+\section{Token list registers}
 
 %Token lists can be stored in \csidx{toks} registers:
 %\begin{Disp}\cs{toks}\gr{8-bit number}\end{Disp}
@@ -234,24 +231,24 @@
 %a \gr{toksdef token}, and this is also a token variable
 %(the remaining third kind of token variable is
 %the \gr{token parameter}).
-记号列表可以存储在 \csidx{toks} 寄存器中：
-\begin{Disp}\cs{toks}\gr{8位数字}\end{Disp}
-它是一个 \gr{记号变量}。
-记号列表寄存器的同义词可以通过 \gr{寄存器定义}
-命令 \csidx{toksdef} 在 \gr{简写定义} 中创建：
-\begin{Disp}\cs{toksdef}\gr{控制序列}\gr{等于}\gr{8位数字}
-\end{Disp} 这样定义的控制序列被称为
-\gr{toksdef 记号}，它也是一个记号变量
-（剩下的第三种记号变量是
-\gr{记号参数}）。
+Token lists can be stored in \csidx{toks} registers:
+\begin{Disp}\cs{toks}\gr{8-bit number}\end{Disp}
+which is a \gr{token variable}.
+Synonyms for token list registers can be made by the \gr{registerdef}
+command \csidx{toksdef} in a \gr{shorthand definition}:
+\begin{Disp}\cs{toksdef}\gr{control sequence}\gr{equals}\gr{8-bit number}
+\end{Disp} A control sequence defined this way is called
+a \gr{toksdef token}, and this is also a token variable
+(the remaining third kind of token variable is
+the \gr{token parameter}).
 
 %The plain \TeX\ macro \csidx{newtoks} uses \cs{toksdef} to 
 %allocate unused token list registers. This macro is \cs{outer}.
-plain \TeX\ 宏 \csidx{newtoks} 使用 \cs{toksdef} 来
-分配未使用的记号列表寄存器。这个宏是 \cs{outer} 的。
+The plain \TeX\ macro \csidx{newtoks} uses \cs{toksdef} to 
+allocate unused token list registers. This macro is \cs{outer}.
 
 %\section{Examples}
-\section{例子}
+\section{Examples}
 
 %Token lists are probably among the least obvious components
 %of \TeX: most \TeX\ users will never find occasion  for their use,
@@ -259,21 +256,26 @@ plain \TeX\ 宏 \csidx{newtoks} 使用 \cs{toksdef} 来
 %can find interesting applications.
 %Following are some examples of the sorts of things that can be
 %done with token lists.
-记号列表可能是 \TeX\ 最不明显的组件之一：大多数 \TeX\ 用户可能永远不会发现使用它们的场合，但格式设计者和其他宏编写者可以找到有趣的应用。
-下面是一些可以用记号列表完成的事情的例子。
+Token lists are probably among the least obvious components
+of \TeX: most \TeX\ users will never find occasion  for their use,
+but format designers and other macro writers
+can find interesting applications.
+Following are some examples of the sorts of things that can be
+done with token lists.
 
 %%\spoint Operations on token lists: stack macros
 %\subsection{Operations on token lists: stack macros}
 %\spoint Operations on token lists: stack macros
-\subsection{记号列表上的操作：栈宏}
+\subsection{Operations on token lists: stack macros}
 
 %The number of primitive operations available for token lists is
 %\howto Stack macros\par
 %rather limited: assignment and unpacking. However, these are
 %sufficient to implement other operations such as appending.
-记号列表可用的原始操作数量
-\howto 栈宏\par
-相当有限：赋值和解包。然而，这些足以实现其他操作，例如追加。
+The number of primitive operations available for token lists is
+\howto Stack macros\par
+rather limited: assignment and unpacking. However, these are
+sufficient to implement other operations such as appending.
 
 %Let us say we have allocated a token register
 %\begin{verbatim}
@@ -308,37 +310,39 @@ plain \TeX\ 宏 \csidx{newtoks} 使用 \cs{toksdef} 来
 %into a temporary token list, which is then again unpacked
 %inside the \cs{edef}. Including them directly would have
 %led to their expansion.
-假设我们已经分配了一个记号寄存器
+Let us say we have allocated a token register
 \begin{verbatim}
 \newtoks\list \list={\c} 
 \end{verbatim}
-并且我们想要向其中添加记号，
+and we want to add tokens to it,
 \alt
-使用以下语法：
+using the syntax
 \begin{verbatim}
 \Prepend \a \b (to:)\list
 \end{verbatim}
-使得
+such that
 \begin{verbatim}
 \showthe\list
 \end{verbatim}
-给出
+gives
 \begin{verbatim}
 > \a \b \c .
 \end{verbatim}
-为此，原始列表必须被解包，并且
+For this the original list has to be unpacked, and 
 \alt
-新记号后跟旧内容必须再次赋值给寄存器。解包可以通过 \cs{the}
-在 \cs{edef} 内部完成，所以我们得到以下宏：
+the new tokens followed by the old contents have to assigned
+again to the register. Unpacking can be done with \cs{the}
+inside an \cs{edef}, so we arrive at the following macro:
 \begin{verbatim}
 \def\Prepend#1(to:)#2{\toks0={#1}%
     \edef\act{\noexpand#2={\the\toks0 \the#2}}%
     \act}
 \end{verbatim}
-注意，要添加的记号首先被打包
+Note that the tokens that are to be added are first packed
 \alt
-到一个临时记号列表，然后再次在 \cs{edef} 内部解包。如果直接包含它们，
-会导致它们的展开。
+into a temporary token list, which is then again unpacked
+inside the \cs{edef}. Including them directly would have
+led to their expansion.
 
 %Next we want to use token lists as a sort of stack:
 %we want a `pop' operation that removes the first element
@@ -357,18 +361,19 @@ plain \TeX\ 宏 \csidx{newtoks} 使用 \cs{toksdef} 来
 % 
 %> \b \c .
 %\end{verbatim}
-接下来我们想把记号列表用作一种栈：
-我们想要一个“弹出”操作，从列表中移除第一个元素。具体来说，
+Next we want to use token lists as a sort of stack:
+we want a `pop' operation that removes the first element
+from the list. Specifically,
 \begin{verbatim}
 \Pop\list(into:)\first
 \show\first \showthe\list
 \end{verbatim}
-应该给出
+should give
 \begin{verbatim}
 > \first=macro:
 ->\a .
 \end{verbatim}
-对于剩余的列表
+and for the remaining list
 \begin{verbatim}
  
 > \b \c .
@@ -386,11 +391,11 @@ plain \TeX\ 宏 \csidx{newtoks} 使用 \cs{toksdef} 来
 %    \act}
 %\def\SplitOff#1#2(head:)#3(tail:)#4{\def#3{#1}#4={#2}}
 %\end{verbatim}
-在这里，我们创造性地利用了定界和非定界
-参数。通过 \cs{edef}，我们解包列表，
-辅助宏 \cs{SplitOff} 将元素抓取为
-一个非定界参数（第一个元素）和一个
-定界参数（其余元素）。
+Here we make creative use of delimited and undelimited
+parameters. With an \cs{edef} we unpack the list,
+and the auxiliary macro \cs{SplitOff} scoops up the elements
+as one undelimited argument, the first element, and one
+delimited argument, the rest of the elements.
 \begin{verbatim}
 \def\Pop#1(into:)#2{%
     \edef\act{\noexpand\SplitOff\the#1%
@@ -400,14 +405,18 @@ plain \TeX\ 宏 \csidx{newtoks} 使用 \cs{toksdef} 来
 \end{verbatim}
 
 %\subsection{Executing token lists}
-\subsection{执行记号列表}
+\subsection{Executing token lists}
 
 %The \cs{the} operation for unpacking token lists was used above
 %only inside an \cs{edef}. Used on its own it has the effect
 %of feeding the tokens of the list to \TeX's expansion mechanism.
 %If the tokens have been added to the list in a uniform syntax,
 %this gives rise to some interesting possibilities.
-上面解包记号列表的 \cs{the} 操作仅在 \cs{edef} 内部使用。单独使用时，它的效果是将列表中的记号馈送给 \TeX\ 的展开机制。如果记号以统一的语法添加到列表中，这会产生一些有趣的可能性。
+The \cs{the} operation for unpacking token lists was used above
+only inside an \cs{edef}. Used on its own it has the effect
+of feeding the tokens of the list to \TeX's expansion mechanism.
+If the tokens have been added to the list in a uniform syntax,
+this gives rise to some interesting possibilities.
 
 %Imagine that we are implementing the bookkeeping of external
 %files for a format. Such external files can be used for
@@ -416,7 +425,13 @@ plain \TeX\ 宏 \csidx{newtoks} 使用 \cs{toksdef} 来
 %of such objects is under the control of the user, we need some
 %general routines for opening and closing files, and keeping
 %track of what files we have opened at the user's request.
-想象一下，我们正在为一个格式实现外部文件的簿记。这些外部文件可以用于目录、图表列表等等。如果这些对象的存在受用户控制，我们需要一些通用的例程来打开和关闭文件，并跟踪我们根据用户请求打开了哪些文件。
+Imagine that we are implementing the bookkeeping of external
+files for a format. Such external files can be used for
+table of contents, list of figures, et cetera.
+If the presence
+of such objects is under the control of the user, we need some
+general routines for opening and closing files, and keeping
+track of what files we have opened at the user's request.
 
 %Here only  some routines for bookkeeping will be described.
 %Let us say there is a list of auxiliary files, and an auxiliary
@@ -440,12 +455,13 @@ plain \TeX\ 宏 \csidx{newtoks} 使用 \cs{toksdef} 来
 %> \\{toc}\\{lof}.
 %\end{verbatim}
 %using the control sequence \verb>\\> which is left undefined.
-这里只描述一些簿记例程。
-假设有一个辅助文件列表和一个辅助计数器：
+Here only  some routines for bookkeeping will be described.
+Let us say there is a list of auxiliary files, and an auxiliary
+counter:
 \begin{verbatim}
 \newtoks\auxlist \newcount\auxcount
 \end{verbatim}
-首先必须有一个添加辅助文件的操作：
+First of all there must be an operation to add auxiliary files:
 \begin{verbatim}
 \def\NewAuxFile#1{\AddToAuxList{#1}%
     % plus other actions
@@ -454,13 +470,13 @@ plain \TeX\ 宏 \csidx{newtoks} 使用 \cs{toksdef} 来
     \edef\act{\noexpand\auxlist={\the\auxlist \\{#1}}}%
     \act}
 \end{verbatim}
-这以统一的格式将名称添加到列表中：
+This adds the name to the list in a uniform format:
 \begin{verbatim}
 \NewAuxFile{toc} \NewAuxFile{lof}
 \showthe\auxlist
 > \\{toc}\\{lof}.
 \end{verbatim}
-使用控制序列 \verb>\\>，它被保留为未定义。
+using the control sequence \verb>\\> which is left undefined.
 
 %Now this control sequence can be used for instance to
 %count the number of elements in the list:
@@ -486,8 +502,8 @@ plain \TeX\ 宏 \csidx{newtoks} 使用 \cs{toksdef} 来
 %\begin{verbatim}
 %closing file: toc.  closing file: lof. 
 %\end{verbatim}
-现在这个控制序列可以用来，例如，
-计算列表中元素的数量：
+Now this control sequence can be used for instance to
+count the number of elements in the list:
 \begin{verbatim}
 \def\ComputeLengthOfAuxList{\auxcount=0 
     \def\\##1{\advance\auxcount1\relax}%
@@ -495,9 +511,9 @@ plain \TeX\ 宏 \csidx{newtoks} 使用 \cs{toksdef} 来
 \ComputeLengthOfAuxList \showthe\auxcount
 > 2.
 \end{verbatim}
-这种结构的另一个用途如下：
-在作业结束时，我们现在可以一次性关闭所有辅助
-文件，通过
+Another use of this structure is the following:
+at the end of the job we can now close all auxiliary
+files at once, by
 \begin{verbatim}
 \def\CloseAuxFiles{\def\\##1{\CloseAuxFile{##1}}%
     \the\auxlist}
@@ -506,7 +522,7 @@ plain \TeX\ 宏 \csidx{newtoks} 使用 \cs{toksdef} 来
     }
 \CloseAuxFiles
 \end{verbatim}
-这将给出输出
+which gives the output
 \begin{verbatim}
 closing file: toc.  closing file: lof. 
 \end{verbatim}

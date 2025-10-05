@@ -7,15 +7,16 @@
 \begin{document}
 
 %\chapter{Errors, Catastrophes, and Help}\label{error}
-\chapter{错误、灾难与帮助}\label{error}
+\chapter{Errors, Catastrophes, and Help}\label{error}
 
 %When \TeX\ is running, various errors can occur.
 %This chapter treats how errors in the input are displayed,
 %and what sort of overflow of internal data structures
 %of \TeX\ can occur.
-当 \TeX\ 运行时，可能会发生各种错误。
-本章讨论输入中的错误如何显示，
-以及 \TeX\ 内部数据结构可能发生何种溢出。
+When \TeX\ is running, various errors can occur.
+This chapter treats how errors in the input are displayed,
+and what sort of overflow of internal data structures
+of \TeX\ can occur.
 
 %\label{cschap:errorcontextlines}\label{cschap:errmessage}\label{cschap:errhelp}
 %\begin{inventory}
@@ -25,19 +26,20 @@
 \label{cschap:errorcontextlines}\label{cschap:errmessage}\label{cschap:errhelp}
 \begin{inventory}
 \item [\cs{errorcontextlines}] 
-      （仅限 \TeX3）
-      错误消息中显示的额外上下文行数。
+      (\TeX3 only)
+      Number of additional context lines shown in error messages.
 
 %\item [\cs{errmessage}] 
 %      Report an error, giving the parameter of this command as message.
 \item [\cs{errmessage}] 
-      报告错误，将此命令的参数作为消息给出。
+      Report an error, giving the parameter of this command as message.
 
 %\item [\cs{errhelp}] 
 %      Tokens that will be displayed if the user 
 %      asks further help after an \cs{errmessage}.
 \item [\cs{errhelp}] 
-      如果用户在 \cs{errmessage} 后请求进一步帮助，将显示的记号。
+      Tokens that will be displayed if the user 
+      asks further help after an \cs{errmessage}.
 
 %\end{inventory}
 \end{inventory}
@@ -45,7 +47,7 @@
 %%\point Error messages
 %\section{Error messages}
 %\point Error messages
-\section{错误消息}
+\section{Error messages}
 
 %When \TeX\ is running in \cs{errorstopmode} (which it usually is;
 %see Chapter~\ref{run} for the other running modes),
@@ -54,12 +56,13 @@
 %Errors can occur either because of some internal condition
 %of \TeX, or because a macro has issued an \csidx{errmessage}
 %command.
-当 \TeX\ 在 \cs{errorstopmode} 模式下运行时（通常如此；
-其他运行模式请参见第 \ref{run} 章），
-发生的错误会在用户终端上报告，并且 \TeX\
-会请求用户进一步指示。
-错误可能由于 \TeX\ 的某些内部条件而发生，
-也可能因为宏发出了 \csidx{errmessage} 命令。
+When \TeX\ is running in \cs{errorstopmode} (which it usually is;
+see Chapter~\ref{run} for the other running modes),
+errors occurring are reported on the user terminal, and \TeX\
+asks the user for further instructions.
+Errors can occur either because of some internal condition
+of \TeX, or because a macro has issued an \csidx{errmessage}
+command.
 
 %If an error occurs \TeX\ shows the input 
 %line 
@@ -70,18 +73,22 @@
 %If the offending command was indirectly called,
 %an additional \csidx{errorcontextlines} number of lines
 %is shown with the preceding macro calls.
-如果发生错误，\TeX\ 会显示发生错误的输入行。
-如果导致错误的命令不在该行，而是在从该行调用（可能间接调用）的宏中，
-则也会显示该命令所在的行。
-如果导致错误的命令是间接调用的，
-则会显示额外 \csidx{errorcontextlines} 行的先前宏调用。
+If an error occurs \TeX\ shows the input 
+line 
+on which the error occurred. If the offending command was
+not on that line but, for instance, in a macro that was
+called \ldash possibly indirectly \rdash  from that line,
+the line of that command is also shown.
+If the offending command was indirectly called,
+an additional \csidx{errorcontextlines} number of lines
+is shown with the preceding macro calls.
 
 %A~value of \cs{errorcontextlines}${}=0$ causes \n{...}
 %to be printed as the sole indication that there is a context.
 %Negative values inhibit even this.
-\cs{errorcontextlines}${}=0$ 的值会导致打印 \n{...}
-作为存在上下文的唯一指示。
-负值甚至会抑制这一点。
+A~value of \cs{errorcontextlines}${}=0$ causes \n{...}
+to be printed as the sole indication that there is a context.
+Negative values inhibit even this.
 
 %For each macro in the sequence that leads to the offending
 %command,
@@ -90,11 +97,13 @@
 %First one line is displayed ending with
 %the \ldash indirectly \rdash  offending command; then, one line lower
 %some following tokens are given. 
-对于导致错误命令的序列中的每个宏，
-\TeX\ 尝试显示一些
-前面的记号和一些后面的记号。
-首先显示一行，以 \ldash 间接 \rdash 错误命令结尾；
-然后，下一行给出一些后面的记号。
+For each macro in the sequence that leads to the offending
+command,
+\TeX\ attempts to display some
+preceding and some following tokens.
+First one line is displayed ending with
+the \ldash indirectly \rdash  offending command; then, one line lower
+some following tokens are given. 
 
 %\begin{example}
 %\begin{verbatim}
@@ -111,7 +120,7 @@
 \begin{verbatim}
 This paragraph ends \vship1cm with a skip.
 \end{verbatim}
-给出
+gives
 \begin{verbatim}
 ! Undefined control sequence.
 l.1 This paragraph ends \vship
@@ -168,54 +177,54 @@ l.1 This paragraph ends \vship
 %started, opening with the input file, maybe even 
 %on the offending line.
 %\end{description}
-如果 \TeX\ 没有在某种不停止模式下运行\label{interaction}，
-用户有机会进行一些
-\indexterm{错误修补}，或者
-请求进一步信息。通常，以下
-选项可用：
-\begin{description}\item [\gr{回车}]
-\TeX\ 将继续处理。如果错误是 \TeX\ 可以忽略或自行修补的
-无害错误，
-这是简单的解决方法。
+If \TeX\ is not running in some non-stop mode\label{interaction},
+the user is given the chance to do some
+\indexterm{error patching}, or to
+ask for further information. In general the following
+options are available:
+\begin{description}\item [\gr{return}]
+\TeX\ will continue processing. If the error was something
+innocent that \TeX\ could either ignore or patch itself,
+this is the easy way out.
 \item [\n h]
-提供有关错误的更多详细信息。
-如果错误是由 \cs{err\-message} 命令引起的，
-则此处将显示 \csidx{errhelp} 记号。
+Give further details about the error.
+If the error was caused by an \cs{err\-message} command,
+the \csidx{errhelp} tokens will be displayed here.
 \item [\n i]
-插入。用户可以插入一些材料。例如，
-如果控制序列拼写错误，有时可以插入正确的命令，
-如
+Insert. The user can insert some material. For example,
+if a control sequence is misspelled, the correct command can
+sometimes be inserted, as
 \begin{verbatim}
 i\vskip
 \end{verbatim}
-对于上述
-示例。此外，这也是插入
-\cs{show} 命令以检查 \TeX\ 内部状态的机会。
-然而，如果 \TeX\ 正在
-扫描复杂内容的过程中，
-此类命令将不会执行，甚至会
-增加混乱。
+for the above
+example. Also, this is an opportunity for inserting
+\cs{show} commands to inspect \TeX's internal state.
+However, if \TeX\ is in the middle of
+scanning something complicated,
+such commands will not be executed, or will even
+add to the confusion.
 \item [\n s]
-    （\cs{scrollmode}）
-滚动显示更多错误，但显示消息。
-\TeX\ 将修补任何后续错误。
-这是一个方便的选项，例如如果错误发生在
-对齐中，因为后续错误的数量往往
-相当大。
+    (\cs{scrollmode})
+Scroll further errors, but display the messages. 
+\TeX\ will patch any further errors.
+This is a handy option, for instance if the error occurs
+in an alignment, because the number of subsequent errors tends
+to be rather large.
 \item [\n r]
-    （\cs{nonstopmode}）
-不停止运行。\TeX\ 永远不会停止等待用户交互。
+    (\cs{nonstopmode})
+Run without stopping. \TeX\ will never stop for user interaction.
 \item [\n q]
-    （\cs{batchmode}）
-安静运行。\TeX\ 永远不会停止等待用户交互，
-并且不再给出任何终端输出。
+    (\cs{batchmode})
+Quiet running. \TeX\ will never stop for user interaction,
+and does not give any more terminal output.
 \item [\n x]
-退出。中止本次 \TeX\ 运行。
+Exit. Abort this run of \TeX.
 \item [\n e]
-编辑。此选项并非在所有 \TeX\ 系统上都可用。
-如果可用，\TeX\ 运行将被中止，并且会启动一个编辑器，
-打开输入文件，甚至可能定位到
-出错的行。
+Edit. This option is not available on all \TeX\ system.
+If it is, the run of \TeX\ is aborted, and an editor is
+started, opening with the input file, maybe even 
+on the offending line.
 \end{description}
 
 
@@ -223,16 +232,17 @@ i\vskip
 %\section{Overflow errors}
 %\index{overflow errors|(}
 %\point Overflow errors
-\section{溢出错误}
-\index{溢出错误|(}
+\section{Overflow errors}
+\index{overflow errors|(}
 
 %Harsh reality imposes some restrictions on how elaborate
 %\TeX's workings can get. Some restrictions are imposed by
 %compile-time constants, and are therefore fairly loose, but
 %some depend strongly on the actual computer implementation.
-严酷的现实对 \TeX\ 的工作复杂程度施加了一些限制。
-有些限制由编译时常量施加，因此相当宽松，但
-有些则强烈依赖于实际的计算机实现。
+Harsh reality imposes some restrictions on how elaborate
+\TeX's workings can get. Some restrictions are imposed by
+compile-time constants, and are therefore fairly loose, but
+some depend strongly on the actual computer implementation.
 
 %Here follows the list of all categories of overflow that
 %prompt \TeX\ to report `Capacity exceeded'.
@@ -242,97 +252,103 @@ i\vskip
 %Actual values may differ, and probably will. Remember
 %that \TeX\ was developed in the good old days when even
 %big computers were fairly small.
-以下是所有导致 \TeX\ 报告“Capacity exceeded”（容量超出）的溢出类别列表。
-大多数涉及的边界是（由）编译时常量决定；此处括号中给出的值是
-\cite{Knuth:TeXbook} 中 \TeX\ 源代码列表使用的值。
-实际值可能不同，并且很可能会不同。请记住，
-\TeX\ 是在旧时代开发的，那时即使是大型计算机也相当小。
+Here follows the list of all categories of overflow that
+prompt \TeX\ to report `Capacity exceeded'.
+Most bounds involved are (determined by) compile-time
+constants; their values given here in parentheses are those
+used in the source listing of \TeX\ in~\cite{Knuth:TeXbook}.
+Actual values may differ, and probably will. Remember
+that \TeX\ was developed in the good old days when even
+big computers were fairly small.
 
 %%\spoint Buffer size {\rm(500)}
 %\subsection{Buffer size (500)}
 %\spoint Buffer size {\rm(500)}
-\subsection{缓冲区大小 (500)}
+\subsection{Buffer size (500)}
 
 %Current lines of all files that are open are kept in
 %\TeX's input buffer, as are control sequence names
 %that are being built with \verb-\csname...\endcsname-.
-所有打开文件的当前行都保存在
-\TeX\ 的输入缓冲区中，
-正在使用 \verb-\csname...\endcsname- 构建的控制序列名称也是如此。
+Current lines of all files that are open are kept in
+\TeX's input buffer, as are control sequence names
+that are being built with \verb-\csname...\endcsname-.
 
 %%\spoint Exception dictionary {\rm(307)}
 %\subsection{Exception dictionary (307)}
 %\spoint Exception dictionary {\rm(307)}
-\subsection{例外字典 (307)}
+\subsection{Exception dictionary (307)}
 
 %The maximum number of hyphenation exceptions specified
 %by \cs{hyphenation} must be a prime number.
 %Two arrays with this many halfwords are allocated.
-由 \cs{hyphenation} 指定的最大连字符例外数
-必须是一个素数。
-分配了两个具有这么多半字长的数组。
+The maximum number of hyphenation exceptions specified
+by \cs{hyphenation} must be a prime number.
+Two arrays with this many halfwords are allocated.
 
 %Changing this  number makes formats incompatible;
 %that is, \TeX\ can only use a format that was made by
 %an \IniTeX\ with the same value for this constant.
-更改此数字会使格式不兼容；
-也就是说，\TeX\ 只能使用由
-具有相同此常量值的 \IniTeX\ 制作的格式。
+Changing this  number makes formats incompatible;
+that is, \TeX\ can only use a format that was made by
+an \IniTeX\ with the same value for this constant.
 
 %%\spoint Font memory (20$\,$000)
 %\subsection{Font memory (20,000)}
 %\spoint Font memory (20$\,$000)
-\subsection{字体内存 (20,000)}
+\subsection{Font memory (20,000)}
 
 %Information about fonts is stored in an array of
 %memory words. This is easily overflowed by preloading too
 %many fonts in \IniTeX.
-字体信息存储在一个内存字数组中。
-在 \IniTeX\ 中预加载过多的字体很容易导致此数组溢出。
+Information about fonts is stored in an array of
+memory words. This is easily overflowed by preloading too
+many fonts in \IniTeX.
 
 %%\spoint Grouping levels
 %\subsection{Grouping levels}
 %\spoint Grouping levels
-\subsection{分组级别}
+\subsection{Grouping levels}
 
 %The number of open groups  should be recordable 
 %in a quarter word. There is no compile-time constant corresponding
 %to this.
-打开组的数量应能记录在
-一个四分之一字中。没有对应的编译时常量。
+The number of open groups  should be recordable 
+in a quarter word. There is no compile-time constant corresponding
+to this.
 
 %%\spoint Hash size {\rm(2100)}
 %\subsection{Hash size (2100)}
 %\spoint Hash size {\rm(2100)}
-\subsection{哈希大小 (2100)}
+\subsection{Hash size (2100)}
 
-%最大控制序列数量。建议此数量不应超过主内存大小的 10%。
+%Maximum number of control sequences. It is suggested that
+%this number should not exceed 10\% of the main memory size.
 %The values in \TeX\ and \IniTeX\ should agree; also the
 %\n{hash\_prime} values should agree.
-最大控制序列数量。建议
-此数字不应超过主内存大小的 10%。
-\TeX\ 和 \IniTeX\ 中的值应一致；
-\n{hash\_prime} 值也应一致。
+Maximum number of control sequences. It is suggested that
+this number should not exceed 10\% of the main memory size.
+The values in \TeX\ and \IniTeX\ should agree; also the
+\n{hash\_prime} values should agree.
 
 %This value is rather low; for macro packages that are more
 %elaborate than plain \TeX\ a value of about 3000 is more
 %realistic.
-这个值相当低；对于比 plain \TeX\ 更
-复杂的宏包，大约 3000 的值更
-现实。
+This value is rather low; for macro packages that are more
+elaborate than plain \TeX\ a value of about 3000 is more
+realistic.
 
 %%\spoint Number of strings {\rm(3000)}
 %\subsection{Number of strings (3000)}
 %\spoint Number of strings {\rm(3000)}
-\subsection{字符串数量 (3000)}
+\subsection{Number of strings (3000)}
 
 %The maximum number of strings must be recordable in a half word.
-最大字符串数量必须能记录在一个半字中。
+The maximum number of strings must be recordable in a half word.
 
 %%\spoint Input stack size {\rm(200)}
 %\subsection{Input stack size (200)}
 %\spoint Input stack size {\rm(200)}
-\subsection{输入栈大小 (200)}
+\subsection{Input stack size (200)}
 
 %For each input source an item is allocated on the input stack.
 %Typical input sources are input files (but their simultaneous
@@ -341,39 +357,42 @@ i\vskip
 %alignment templates. A~macro with `runaway recursion'
 %(for example, \verb>\def\mac{{\mac}}>)
 %will overflow this stack.
-每个输入源都在输入栈上分配一个项。
-典型的输入源是输入文件（但它们的并发
-数量更有限；见下文），以及记号列表，
-例如记号变量、宏替换文本和
-对齐模板。具有“失控递归”的宏
-（例如，\verb>\def\mac{{\mac}}>)
-将使此栈溢出。
+For each input source an item is allocated on the input stack.
+Typical input sources are input files (but their simultaneous
+number is more limited; see below), and token lists
+such as token variables, macro replacement texts, and
+alignment templates. A~macro with `runaway recursion'
+(for example, \verb>\def\mac{{\mac}}>)
+will overflow this stack.
 
 %\TeX\ performs some optimization here: before the last call 
 %in a token list all token lists ending with this call are
 %cleared. This process is 
 %similar to `resolving tail recursion' (see Chapter~\ref{macro}).
-\TeX\ 在此处进行了一些优化：在记号列表中的最后一次调用之前，
-所有以该调用结尾的记号列表都会被清除。
-这个过程类似于“解决尾递归”（参见第 \ref{macro} 章）。
+\TeX\ performs some optimization here: before the last call 
+in a token list all token lists ending with this call are
+cleared. This process is 
+similar to `resolving tail recursion' (see Chapter~\ref{macro}).
 
 %%\spoint Main memory size (30$\,$000)
 %\subsection{Main memory size (30,000)}
 %\spoint Main memory size (30$\,$000)
-\subsection{主内存大小 (30,000)}
+\subsection{Main memory size (30,000)}
 
-%\TeX\ 的几乎所有“动态”对象，例如宏定义
-%文本和当前页面上的所有材料，
-%都存储在主内存数组中。
-%格式可能已经占用 $20\,000$ 字的
-%主内存用于宏定义，而包含例如 \LaTeX\ 图片环境的复杂页面可能很容易
-%使此数组溢出。
-\TeX\ 的几乎所有“动态”对象，例如宏定义
-文本和当前页面上的所有材料，
-都存储在主内存数组中。
-格式可能已经占用 $20\,000$ 字的
-主内存用于宏定义，而包含例如 \LaTeX\ 图片环境的复杂页面可能很容易
-使此数组溢出。
+%Almost all `dynamic' objects of \TeX, such as macro definition
+%texts and all material on the current page, 
+%are stored in the main memory array. 
+%Formats may already take $20\,000$ words of
+%main memory for macro definitions, and complicated pages containing
+%for instance the \LaTeX\ picture environment may easily
+%overflow this array. 
+Almost all `dynamic' objects of \TeX, such as macro definition
+texts and all material on the current page, 
+are stored in the main memory array. 
+Formats may already take $20\,000$ words of
+main memory for macro definitions, and complicated pages containing
+for instance the \LaTeX\ picture environment may easily
+overflow this array. 
 
 %\TeX's main memory is divided in words, and a half word
 %is supposed to be able to address the whole of the memory.
@@ -381,12 +400,12 @@ i\vskip
 %is to let the main memory size be at most 64K bytes.
 %A~half word address can then be stored in 16 bits,
 %half a machine word.
-\TeX\ 的主内存以字为单位划分，一个半字
-应该能够寻址整个内存。
-因此，在当前的 32 位计算机上，最常见的选择
-是让主内存大小最大为 64K 字节。
-然后，一个半字地址可以存储在 16 位中，
-即半个机器字。
+\TeX's main memory is divided in words, and a half word
+is supposed to be able to address the whole of the memory.
+Thus on current 32-bit computers the most common choice
+is to let the main memory size be at most 64K bytes.
+A~half word address can then be stored in 16 bits,
+half a machine word.
 
 %However, so-called `Big \TeX' implementations exist
 %\thecstoidxsub{TeX}{big}
@@ -398,51 +417,52 @@ i\vskip
 %Thus they are usually not found on microcomputers,
 %although virtual memory schemes for these are possible;
 %see for instance~\cite{Thull}.
-然而，存在所谓的“Big \TeX”实现
+However, so-called `Big \TeX' implementations exist
 \thecstoidxsub{TeX}{big}
-它们的主内存大于 64K 字。
-大多数编译器会为
-寻址此内存分配 32 位字，即使（例如）18 位就
-足够了。因此，Big \TeX\ 在跨越 64K 阈值时会立即
-变得大得多。
-因此，它们通常不会出现在微型计算机上，
-尽管这些计算机的虚拟内存方案是可能的；
-例如参见 \cite{Thull}。
+that have a main memory larger than 64K words.
+Most compilers will then allocate  32-bit words for
+addressing this memory, even if (say) 18 bits would
+suffice. Big \TeX s therefore become immediately
+a lot bigger when they cross the 64K threshold.
+Thus they are usually not found on microcomputers,
+although virtual memory schemes for these are possible;
+see for instance~\cite{Thull}.
 
 %\TeX\ can have a bigger main memory than \IniTeX;
 %see Chapter~\ref{TeXcomm} for further details.
-\TeX\ 可以拥有比 \IniTeX\ 更大的主内存；
-更多详细信息请参见第 \ref{TeXcomm} 章。
+\TeX\ can have a bigger main memory than \IniTeX;
+see Chapter~\ref{TeXcomm} for further details.
 
 %%\spoint Parameter stack size {\rm(60)}
 %\subsection{Parameter stack size (60)}
 %\spoint Parameter stack size {\rm(60)}
-\subsection{参数栈大小 (60)}
+\subsection{Parameter stack size (60)}
 
 %Macro parameters may contain macro calls with
 %further parameters. The number of parameters that may occur
 %nested is bounded by the parameter stack size.
-宏参数可能包含带有
-更多参数的宏调用。可能嵌套出现的参数数量
-受参数栈大小限制。
+Macro parameters may contain macro calls with
+further parameters. The number of parameters that may occur
+nested is bounded by the parameter stack size.
 
 %%\spoint Pattern memory {\rm(8000)}
 %\subsection{Pattern memory (8000)}
 %\spoint Pattern memory {\rm(8000)}
-\subsection{模式内存 (8000)}
+\subsection{Pattern memory (8000)}
 
 %Hyphenation patterns are stored in a trie array.
 %The default size of 8000 hyphenation patterns seems sufficient
 %for English or Italian,  for example, but it is not for
 %Dutch or German.
-连字符模式存储在一个 trie 数组中。
-默认的 8000 个连字符模式大小对于英语或意大利语等似乎足够，
-但对于荷兰语或德语则不然。
+Hyphenation patterns are stored in a trie array.
+The default size of 8000 hyphenation patterns seems sufficient
+for English or Italian,  for example, but it is not for
+Dutch or German.
 
 %%\spoint Pattern memory ops per language
 %\subsection{Pattern memory ops per language}
 %\spoint Pattern memory ops per language
-\subsection{每种语言的模式内存操作}
+\subsection{Pattern memory ops per language}
 
 %The number of hyphenation ops (see the literature about
 %hyphenation: \cite{Liang} and appendix~H of~\cite{Knuth:TeXbook})
@@ -452,26 +472,28 @@ i\vskip
 %error message in case of overflow. Again, for languages such
 %as Dutch and German this bound is too low.
 %There are versions of \TeX\ that have a higher bound here.
-连字符操作的数量（参见有关连字符的文献：\cite{Liang} 和 \cite{Knuth:TeXbook} 的附录 H）
-应该能够记录在
-一个四分之一字中。没有对应的编译时常量。
-\TeX\ 版本 2 具有相同的上限，但在溢出时没有给出
-错误消息。同样，对于荷兰语和德语等语言，此上限太低。
-存在此处具有更高上限的 \TeX\ 版本。
+The number of hyphenation ops (see the literature about
+hyphenation: \cite{Liang} and appendix~H of~\cite{Knuth:TeXbook})
+should be recordable 
+in a quarter word. There is no compile-time constant corresponding
+to this. \TeX\ version~2 had the same upper bound, but gave no
+error message in case of overflow. Again, for languages such
+as Dutch and German this bound is too low.
+There are versions of \TeX\ that have a higher bound here.
 
 %%\spoint Pool size (32$\,$000)
 %\subsection{Pool size (32,000)}
 %\spoint Pool size (32$\,$000)
-\subsection{池大小 (32,000)}
+\subsection{Pool size (32,000)}
 
 %Strings are error messages and control sequence names.
 %They are stored using one byte per character.
 %\TeX\ has initially about $23\,000$ characters worth of
 %strings.
-字符串是错误消息和控制序列名称。
-它们以每个字符一个字节的方式存储。
-\TeX\ 最初大约有 $23\,000$ 个字符的
-字符串。
+Strings are error messages and control sequence names.
+They are stored using one byte per character.
+\TeX\ has initially about $23\,000$ characters worth of
+strings.
 
 %The pool will overflow if a user defines a large number of
 %control sequences on top of a substantial macro package.
@@ -481,29 +503,30 @@ i\vskip
 %\mdqoff
 %work by defining control sequences. For large documents
 %a pool size of $40\,000$ or $60\,000$ is probably sufficient.
-如果用户在大量宏包的基础上定义了大量
-控制序列，池将溢出。
-然而，即使用户没有定义任何新命令，
+The pool will overflow if a user defines a large number of
+control sequences on top of a substantial macro package.
+However, even if the user does not define any new commands
 \mdqon
-也可能发生溢出：交叉引用方案也
+overflow may occur: cross"-referencing schemes also
 \mdqoff
-通过定义控制序列来工作。对于大型文档，
-40,000 或 60,000 的池大小可能足够。
+work by defining control sequences. For large documents
+a pool size of $40\,000$ or $60\,000$ is probably sufficient.
 
 %%\spoint Save size {\rm(600)}
 %\subsection{Save size {\rm(600)}}
 %\spoint Save size {\rm(600)}
-\subsection{保存大小 (600)}
+\subsection{Save size {\rm(600)}}
 
 %Quantities that are assigned to inside a group must be
 %restored after the end of that group.
 %The save stack is where the values to be restored are kept;
 %the size of the
 %save stack limits the number of values that can be restored.
-在组内赋值的量必须在该组结束后
-恢复。
-保存栈是存储要恢复的值的地方；
-保存栈的大小限制了可以恢复的值的数量。
+Quantities that are assigned to inside a group must be
+restored after the end of that group.
+The save stack is where the values to be restored are kept;
+the size of the
+save stack limits the number of values that can be restored.
 
 %Alternating global and local assignments to a value
 %will lead to `save stack build-up': for each local
@@ -511,41 +534,43 @@ i\vskip
 %previous value of the variable is saved. Thus an
 %alternation of such assignments will lead to
 %an unnecessary proliferation of items on the save stack.
-对一个值交替进行全局和局部赋值
-将导致“保存栈堆积”：对于全局赋值之后的每个局部
-赋值，都会保存变量的
-前一个值。因此，此类赋值的交替将导致
-保存栈上不必要的项目激增。
+Alternating global and local assignments to a value
+will lead to `save stack build-up': for each local
+assignment following a global assignment the
+previous value of the variable is saved. Thus an
+alternation of such assignments will lead to
+an unnecessary proliferation of items on the save stack.
 
 %%\spoint Semantic nest size {\rm(40)}
 %\subsection{Semantic nest size {\rm(40)}}
-%\spoint Semantic nest size {\rm(40)}}
-\subsection{语义嵌套大小 (40)}
+%\spoint Semantic nest size {\rm(40)}
+\subsection{Semantic nest size {\rm(40)}}
 
 %Each time \TeX\ switches to a mode nested inside another
 %mode (for instance when processing an \verb-\hbox- inside
 %a \verb-\vbox-) the current state is pushed on the
 %semantic nest stack. The semantic nest size is the maximum
 %number of levels that can be pushed.
-每当 \TeX\ 切换到嵌套在另一个模式中的模式时
-（例如，在 \verb-\vbox- 中处理 \verb-\hbox- 时），
-当前状态就会被推入语义嵌套栈。
-语义嵌套大小是可推入的最大层级数。
+Each time \TeX\ switches to a mode nested inside another
+mode (for instance when processing an \verb-\hbox- inside
+a \verb-\vbox-) the current state is pushed on the
+semantic nest stack. The semantic nest size is the maximum
+number of levels that can be pushed.
 
 %%\spoint Text input levels {\rm(6)}
 %\subsection{Text input levels {\rm(6)}}
 %\spoint Text input levels {\rm(6)}
-\subsection{文本输入级别 (6)}
+\subsection{Text input levels {\rm(6)}}
 
 %The number of nested \verb-\input- files 
 %has to be very limited,
 %as the current lines are all kept in the input buffer.
-嵌套的 \verb-\input- 文件数量
-必须非常有限，
-因为当前行都保存在输入缓冲区中。
+The number of nested \verb-\input- files 
+has to be very limited,
+as the current lines are all kept in the input buffer.
 
 %\index{overflow errors|)}
-\index{溢出错误|)}
+\index{overflow errors|)}
 
 %\endofchapter
 \endofchapter

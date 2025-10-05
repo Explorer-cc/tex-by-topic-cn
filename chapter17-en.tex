@@ -8,15 +8,15 @@
 
 %\chapter{Paragraph End}\label{par:end}
 %\index{paragraph!end|(}
-\chapter{段落结束}\label{par:end}
+\chapter{Paragraph End}\label{par:end}
 \index{paragraph!end|(}
 
 %\TeX's mechanism for ending a paragraph is ingenious and effective.
 %This chapter explains the mechanism, the role of \cs{par} in it,
 %and it gives a number of practical remarks.
-\TeX\ 结束段落的机制巧妙而有效。
-本章解释了该机制、\cs{par} 在其中的作用，
-并给出了一些实用注意事项。
+\TeX's mechanism for ending a paragraph is ingenious and effective.
+This chapter explains the mechanism, the role of \cs{par} in it,
+and it gives a number of practical remarks.
 
 %\label{cschap:par}\label{cschap:endgraf}\label{cschap:parfillskip}
 %\begin{inventory}
@@ -25,12 +25,12 @@
 \label{cschap:par}\label{cschap:endgraf}\label{cschap:parfillskip}
 \begin{inventory}
 \item [\cs{par}] 
-      结束一个段落并进入垂直模式。
+      Finish off a paragraph and go into vertical mode.
 
 %\item [\cs{endgraf}]
 %      Synonym for \cs{par}: \verb>\let\endgraf=\par>
 \item [\cs{endgraf}]
-      \cs{par} 的同义词：\verb>\let\endgraf=\par>
+      Synonym for \cs{par}: \verb>\let\endgraf=\par>
 
 %\item [\cs{parfillskip}] 
 %      Glue that is placed between the last          
@@ -38,12 +38,13 @@
 %      Plain \TeX\ default:~\n{0pt plus 1fil}.
 %\end{inventory}
 \item [\cs{parfillskip}] 
-      放置在段落最后一个元素和行尾之间的粘连。
-      Plain \TeX\ 默认值：\n{0pt plus 1fil}。
+      Glue that is placed between the last          
+      element of the paragraph and the line end.
+      Plain \TeX\ default:~\n{0pt plus 1fil}.
 \end{inventory}
 
 %\section{The way paragraphs end}
-\section{段落的结束方式}
+\section{The way paragraphs end}
 
 %A paragraph is terminated by the primitive \cs{par} command, 
 %which can
@@ -60,15 +61,16 @@
 
 %A new paragraph ...
 %\end{verbatim}
-段落由原始命令 \cs{par} 终止，
-它可以由用户显式输入（或通过
-宏展开插入）：
+A paragraph is terminated by the primitive \cs{par} command, 
+which can
+be explicitly typed by the user (or inserted by
+a macro expansion):
 \begin{verbatim}
 ... last words.\par
 A new paragraph ...
 \end{verbatim}
-它可以通过空行在 \TeX\ 的输入处理器中隐式生成
-（参见第 \ref{mouth} 章）：
+It can be implicitly generated in the input processor of \TeX\
+by an empty line (see Chapter~\ref{mouth}):
 \begin{verbatim}
 ... last words.
 
@@ -82,13 +84,14 @@ A new paragraph ...
 %\end{verbatim}
 %Also, a paragraph ends if a closing brace is found
 %in horizontal mode inside \cs{vbox}, \cs{insert}, or \cs{output}.
-\cs{par} 可以被插入，因为在无限制水平模式下出现了
-\gr{垂直命令}：
+The \cs{par} can be inserted because a \gr{vertical command}
+occurred in unrestricted horizontal mode:
 \begin{verbatim}
 ... last words.\vskip6pt
 A new paragraph ...
 \end{verbatim}
-此外，如果在 \cs{vbox}、\cs{insert} 或 \cs{output} 内部的水平模式中找到右花括号，段落也会结束。
+Also, a paragraph ends if a closing brace is found
+in horizontal mode inside \cs{vbox}, \cs{insert}, or \cs{output}.
 
 %After the \cs{par} command \TeX\ goes into vertical mode
 %and exercises the page builder (see page~\pageref{par:page:build}).
@@ -97,18 +100,18 @@ A new paragraph ...
 %The \cs{par} does not insert any vertical
 %glue or penalties itself. A~\cs{par} command also clears
 %the paragraph shape parameters (see Chapter~\ref{par:shape}).
-在 \cs{par} 命令之后，\TeX\ 进入垂直模式
-并执行页面构建器（参见第 \pageref{par:page:build} 页）。
-如果 \cs{par} 是因为在水平模式下出现垂直命令而被插入的，
-那么该垂直命令会再次被检查。
-\cs{par} 本身不插入任何垂直
-粘连或罚值。一个 \cs{par} 命令还会清除
-段落形状参数（参见第 \ref{par:shape} 章）。
+After the \cs{par} command \TeX\ goes into vertical mode
+and exercises the page builder (see page~\pageref{par:page:build}).
+If the \cs{par} was inserted because a vertical command occurred in
+horizontal mode, the vertical command is then examined anew.
+The \cs{par} does not insert any vertical
+glue or penalties itself. A~\cs{par} command also clears
+the paragraph shape parameters (see Chapter~\ref{par:shape}).
 
 %%\spoint The \cs{par} command and the \cs{par} token
 %\subsection{The \cs{par} command and the \cs{par} token}
 %\spoint The \cs{par} command and the \cs{par} token
-\subsection{\cs{par} 命令与 \cs{par} 记号}
+\subsection{The \cs{par} command and the \cs{par} token}
 
 %It is important to distinguish between the \cs{par} token
 %and the primitive \cs{par} command that is the initial meaning of
@@ -120,20 +123,22 @@ A new paragraph ...
 %Decoupling the token and the command is an important tool
 %for special effects in paragraphs (see some examples in
 %Chapters \ref{boxes} and~\ref{rules}).
-区分 \cs{par} 记号
-与作为该记号初始含义的原始 \cs{par} 命令非常重要。
-当输入处理器看到空行，
-或者当执行处理器在水平模式下发现 \gram{垂直命令} 时，
-\cs{par} 记号会被插入；
-\cs{par} 命令是实际结束段落的命令。
-将记号和命令解耦是实现段落特殊效果的重要工具
-（参见第 \ref{boxes} 章和 \ref{rules} 章中的一些例子）。
+It is important to distinguish between the \cs{par} token
+and the primitive \cs{par} command that is the initial meaning of
+that token. The \cs{par} token is inserted when the input
+processor sees an empty
+line, or when the execution processor finds a \gram{vertical command}
+in horizontal mode;
+the \cs{par} command is what actually closes off a paragraph.
+Decoupling the token and the command is an important tool
+for special effects in paragraphs (see some examples in
+Chapters \ref{boxes} and~\ref{rules}).
 
 
 %%\spoint Paragraph filling: \cs{parfillskip}
 %\subsection{Paragraph filling: \cs{parfillskip}}
 %\spoint Paragraph filling: \cs{parfillskip}
-\subsection{段落填充：\cs{parfillskip}}
+\subsection{Paragraph filling: \cs{parfillskip}}
 
 %After the last element of the paragraph \TeX\ implicitly inserts
 %the equivalent of
@@ -150,16 +155,16 @@ A new paragraph ...
 
 %\noindent Begin
 %\end{verbatim}
-在段落的最后一个元素之后，\TeX\ 隐式插入
-等同于
+After the last element of the paragraph \TeX\ implicitly inserts
+the equivalent of
 \cstoidx parfillskip\par
 \begin{verbatim}
 \unskip \penalty10000 \hskip\parfillskip
 \end{verbatim}
-\cs{unskip} 用于移除段落末尾任何多余的粘连，
-例如如果 \cs{par} 是由输入处理器插入的，则由
-行尾生成的空格。
-例如：\message{check unsplit paragraph example}
+The \cs{unskip} serves to remove any spurious glue at the
+paragraph end, such as the space generated by the
+line end if the \cs{par} was inserted by the input processor.
+For example:\message{check unsplit paragraph example}
 \begin{verbatim}
 end.
 
@@ -171,11 +176,11 @@ end.
 %\begin{disp}\n{end.\char32}\verb>\unskip\penalty10000\hskip ...>\end{disp}
 %which in turn gives
 %\begin{disp}\verb>end.\penalty ...>\end{disp}
-产生记号
+results in the tokens
 \begin{disp}\n{end.\char32}\cs{par} \n{Begin}\end{disp}
-随着 \cs{par} 插入的序列，这变为
+With the sequence inserted by the \cs{par} this becomes
 \begin{disp}\n{end.\char32}\verb>\unskip\penalty10000\hskip ...>\end{disp}
-这又给出
+which in turn gives
 \begin{disp}\verb>end.\penalty ...>\end{disp}
 
 %The \cs{parfillskip} is in plain \TeX\ first-order infinite
@@ -184,23 +189,23 @@ end.
 %will give a bullet halfway between the last word and the
 %line end; with \verb.\hfill$\bullet$\par. it will be
 %flush right.
-\cs{parfillskip} 在 plain \TeX\ 中是第一阶无限的
-（\n{0pt plus 1fil}），
-因此以 \verb.\hfil$\bullet$\par. 结束一个段落
-会在最后一个单词和
-行尾之间给出居中的点；而使用 \verb.\hfill$\bullet$\par. 则会
-右对齐。
+The \cs{parfillskip} is in plain \TeX\ first-order infinite
+(\n{0pt plus 1fil}),
+so ending a paragraph with \verb.\hfil$\bullet$\par.
+will give a bullet halfway between the last word and the
+line end; with \verb.\hfill$\bullet$\par. it will be
+flush right.
 
 
 %%\point Assorted remarks
 %\section{Assorted remarks}
 %\point Assorted remarks
-\section{杂项备注}
+\section{Assorted remarks}
 
 %%\spoint Ending a paragraph and a group at the same time
 %\subsection{Ending a paragraph and a group at the same time}
 %\spoint Ending a paragraph and a group at the same time
-\subsection{同时结束段落和编组}
+\subsection{Ending a paragraph and a group at the same time}
 
 %If a paragraph is set in a group, 
 %it may be necessary to ensure that the \cs{par} ending
@@ -214,19 +219,18 @@ end.
 %\end{verbatim}
 %causes the values to be used
 %that prevail outside the group, instead of those inside.
-如果段落设置在一个编组中，
-可能需要确保结束段落的 \cs{par}
-发生在编组内部。
-影响段落排版的参数，
-例如 \cs{leftskip} 和 \cs{baselineskip}，
-只有在段落完成时才会被查看。
-因此，以
+If a paragraph is set in a group, 
+it may be necessary to ensure that the \cs{par} ending
+the paragraph occurs inside the group.
+The parameters influencing the typesetting of the paragraph,
+such as the \cs{leftskip} and the \cs{baselineskip},
+are only looked at when the paragraph is finished.
+Thus finishing off a paragraph with 
 \begin{verbatim}
 ... last words.}\par
 \end{verbatim}
-结束一个段落
-会导致使用
-编组外部的值，而不是编组内部的值。
+causes the values to be used
+that prevail outside the group, instead of those inside.
 
 %Better ways to end the paragraph are
 %\begin{verbatim}
@@ -238,21 +242,21 @@ end.
 %\end{verbatim}
 %In the second example the vertical command \cs{medskip}
 %causes the \cs{par} token to be inserted.
-结束段落的更好方法是
+Better ways to end the paragraph are
 \begin{verbatim}
 ... last words.\par}
 \end{verbatim}
-或者
+or
 \begin{verbatim}
 ... last words.\medskip}
 \end{verbatim}
-在第二个例子中，垂直命令 \cs{medskip}
-导致 \cs{par} 记号被插入。
+In the second example the vertical command \cs{medskip}
+causes the \cs{par} token to be inserted.
 
 %%\spoint Ending a paragraph with \cs{hfill}\cs{break}
 %\subsection{Ending a paragraph with \cs{hfill}\cs{break}}
 %\spoint Ending a paragraph with \cs{hfill}\cs{break}
-\subsection{以 \cs{hfill}\cs{break} 结束段落}
+\subsection{Ending a paragraph with \cs{hfill}\cs{break}}
 
 %The sequence \verb.\hfill\break. is a way to force
 %a `newline' inside a paragraph. If you end a paragraph
@@ -262,14 +266,14 @@ end.
 %\ldash after all, that one was filled \rdash 
 %but a completely empty box following it (actually, it
 %does contain the \cs{leftskip} and \cs{rightskip}). 
-序列 \verb.\hfill\break. 是在段落内部强制
-“换行”的一种方式。然而，如果你用它结束一个段落，
-你可能会
-得到一个 \verb-Underfull \hbox- 错误。
-令人惊讶的是，这个欠满的盒子不是断行
-\ldash 毕竟，那一行被填满了 \rdash 
-而是一个紧随其后的完全空的盒子（实际上，它
-确实包含 \cs{leftskip} 和 \cs{rightskip}）。
+The sequence \verb.\hfill\break. is a way to force
+a `newline' inside a paragraph. If you end a paragraph
+with this, however, you will probably
+get an \verb-Underfull \hbox- error.
+Surprisingly, the underfull box is not the broken line
+\ldash after all, that one was filled \rdash 
+but a completely empty box following it (actually, it
+does contain the \cs{leftskip} and \cs{rightskip}). 
 
 %What happens?
 %The paragraph ends with
@@ -288,38 +292,40 @@ end.
 %line, that is, an \verb.\hbox to \hsize.. And there is nothing
 %\alt
 %to fill it with, so an underfull box results.
-发生了什么？
-段落以
+What happens?
+The paragraph ends with
 \begin{verbatim}
 \hfill\break\par
 \end{verbatim}
-结束，这变成了
+which turns into 
 \begin{verbatim}
 \hfill\break\unskip\nobreak\hskip\parfillskip
 \end{verbatim}
-\cs{unskip} 没有找到前面的粘连，所以 \cs{break}
-后面跟着一个罚值项和一个粘连项，两者都
-在 \cs{break} 处选择断行后消失。
-然而，\TeX\ 已经决定应该有一个额外的
-行，即一个 \verb.\hbox to \hsize.. 并且没有
+The \cs{unskip} finds no preceding glue, so the \cs{break}
+is followed by a penalty item and a glue item, both of
+which disappear after the line break has been chosen at the
+\cs{break}.
+However, \TeX\ has already decided that there should be an extra
+line, that is, an \verb.\hbox to \hsize.. And there is nothing
 \alt
-任何东西可以填充它，因此导致了一个欠满的盒子。
+to fill it with, so an underfull box results.
 
 %%\spoint Ending a paragraph with a rule
 %\subsection{Ending a paragraph with a rule}
 %\spoint Ending a paragraph with a rule
-\subsection{以标尺结束段落}
+\subsection{Ending a paragraph with a rule}
 
 %See page~\pageref{par:leaders:end} for paragraphs ending with 
 %rule leaders instead of the default \cs{parfillskip}
 %white space.
-关于以标尺引导符而不是默认的 \cs{parfillskip}
-空白结束的段落，请参见第 \pageref{par:leaders:end} 页。
+See page~\pageref{par:leaders:end} for paragraphs ending with 
+rule leaders instead of the default \cs{parfillskip}
+white space.
 
 %%\spoint No page breaks in between paragraphs
 %\subsection{No page breaks in between paragraphs}
 %\spoint No page breaks in between paragraphs
-\subsection{段落之间不分页}
+\subsection{No page breaks in between paragraphs}
 
 %The \cs{par} command does not insert any glue in the
 %\howto Prevent page breaks in between paragraphs\par
@@ -343,16 +349,16 @@ end.
 %because the penalty value prohibits it; it will not break
 %at any other place, because it can only break at glue if
 %that glue is preceded by a  non-discardable item.
-\cs{par} 命令不在
-\howto 阻止段落之间分页\par
-垂直列表中插入任何粘连，因此
-在序列
+The \cs{par} command does not insert any glue in the
+\howto Prevent page breaks in between paragraphs\par
+vertical list, so
+in the sequence
 \begin{verbatim}
  ... last words.\par \nobreak \medskip 
 \noindent First words ...
 \end{verbatim}
-中，段落之间不会发生分页。
-生成的垂直列表是
+no page breaks will occur  between the paragraphs.
+The vertical list generated is
 \begin{verbatim}
 \hbox(6.94444+0.0)x ...       % last line of paragraph
 \penalty 10000                % \nobreak
@@ -361,15 +367,15 @@ end.
 \glue(\baselineskip) 5.05556  % interline glue
 \hbox(6.94444+0.0)x ...       % first line of paragraph
 \end{verbatim}
-\TeX\ 不会在 \cs{medskip} 上方断开此垂直列表，
-因为罚值禁止它；它不会在
-任何其他地方断开，因为它只能在粘连前面有
-一个不可丢弃项时才能在粘连处断开。
+\TeX\ will not break this vertical list above the \cs{medskip},
+because the penalty value prohibits it; it will not break
+at any other place, because it can only break at glue if
+that glue is preceded by a  non-discardable item.
 
 %%\spoint Finite \cs{parfillskip}
 %\subsection{Finite \cs{parfillskip}}
 %\spoint Finite \cs{parfillskip}
-\subsection{有限的 \cs{parfillskip}}
+\subsection{Finite \cs{parfillskip}}
 
 %In plain \TeX, \cs{parfillskip} has a (first-order) infinite
 %stretch component. All other glue in the last line of a 
@@ -379,26 +385,26 @@ end.
 %A display formula in a paragraph with such a last line
 %will be surrounded by \cs{abovedisplayskip} and \cs{belowdisplayskip},
 %even if \cs{abovedisplayshortskip} glue would be in order.
-在 plain \TeX\ 中，\cs{parfillskip} 具有（一阶）无限
-伸展分量。段落最后一行的所有其他粘连
-将以自然宽度设置。
-如果 \cs{parfillskip} 只有有限的（或可能为零的）
-伸展，则其他粘连将被伸展或收缩。
-一个段落中带有这样最后一行的显示公式
-将由 \cs{abovedisplayskip} 和 \cs{belowdisplayskip} 环绕，
-即使 \cs{abovedisplayshortskip} 粘连是合适的。
+In plain \TeX, \cs{parfillskip} has a (first-order) infinite
+stretch component. All other glue in the last line of a 
+paragraph will then be set at natural width.
+If the \cs{parfillskip} has only finite (or possibly zero)
+stretch, other glue will be stretched or shrunk.
+A display formula in a paragraph with such a last line
+will be surrounded by \cs{abovedisplayskip} and \cs{belowdisplayskip},
+even if \cs{abovedisplayshortskip} glue would be in order.
 
 %The reason for this is that glue setting is slightly
 %machine-dependent, and any such processes should be kept
 %out of \TeX's global decisions.
-原因在于粘连设置略微
-依赖于机器，任何此类过程都应避免
-影响 \TeX\ 的全局决策。
+The reason for this is that glue setting is slightly
+machine-dependent, and any such processes should be kept
+out of \TeX's global decisions.
 
 %%\spoint A precaution for paragraphs that do not indent
 %\subsection{A precaution for paragraphs that do not indent}
 %\spoint A precaution for paragraphs that do not indent
-\subsection{不缩进段落的预防措施}
+\subsection{A precaution for paragraphs that do not indent}
 
 %If you are setting a text with both the paragraph indentation
 %and the white space between paragraphs zero, you run the risk
@@ -411,25 +417,27 @@ end.
 % \parfillskip=1cm plus 1fil
 %\end{verbatim}
 %instead of the usual \n{0cm~plus~1fil}.
-如果你在排版文本时，段落缩进
-和段落之间的空白都为零，你可能会面临
-当上一段的最后一行几乎
-或完全右对齐时，新段落的开始可能难以辨认的风险。
-对此的一个明智的预防措施是将 \cs{parfillskip}
-设置为，例如
+If you are setting a text with both the paragraph indentation
+and the white space between paragraphs zero, you run the risk
+that the start of a new paragraph may be indiscernible when
+the last line of the previous paragraph ends almost
+or completely flush right.
+A~sensible precaution for this is to set the \cs{parfillskip}
+to, for instance
 \begin{verbatim}
  \parfillskip=1cm plus 1fil
 \end{verbatim}
-而不是通常的 \n{0cm~plus~1fil}。
+instead of the usual \n{0cm~plus~1fil}.
 
 %On the other hand, you may let yourself be convinced by
 %\cite{Tsch} that paragraphs should always indent.
-另一方面，你可能会被 \cite{Tsch} 说服，认为段落应该始终缩进。
+On the other hand, you may let yourself be convinced by
+\cite{Tsch} that paragraphs should always indent.
 
 
 %\index{paragraph!end|)}
-\index{paragraph!end|)}
 %\endofchapter
+\index{paragraph!end|)}
 \endofchapter
 
 \end{document}

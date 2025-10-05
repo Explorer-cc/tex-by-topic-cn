@@ -7,7 +7,7 @@
 \begin{document}
 
 %\chapter{Conditionals}\label{if}
-\chapter{条件语句}\label{if}
+\chapter{Conditionals}\label{if}
 
 %\emph{Conditionals}\index{conditionals}
 %are an indispensible tool for powerful macros.
@@ -16,12 +16,13 @@
 %This chapter gives an inventory of the various conditionals,
 %and it treats the evaluation of
 %conditionals in detail.
-\emph{条件语句}\index{conditionals}
-是强大宏的不可或缺的工具。
-\TeX\ 拥有大量的条件语句，用于查询
-类别码或处理模式等信息。
-本章列出了各种条件语句，
-并详细讨论了条件语句的求值。
+\emph{Conditionals}\index{conditionals}
+are an indispensible tool for powerful macros.
+\TeX\ has a large repertoire of conditionals for querying
+such things as category codes or processing modes.
+This chapter gives an inventory of the various conditionals,
+and it treats the evaluation of
+conditionals in detail.
 
 %\label{cschap:if}\label{cschap:ifcat}\label{cschap:ifx}\label{cschap:ifcase}\label{cschap:ifnum}\label{cschap:ifodd}\label{cschap:ifhmode}\label{cschap:ifvmode}\label{cschap:ifmmode}\label{cschap:ifinner}\label{cschap:ifdim}\label{cschap:ifvoid}\label{cschap:ifhbox2}\label{cschap:ifvbox2}\label{cschap:iftrue}\label{cschap:iffalse}\label{cschap:fi}\label{cschap:else}\label{cschap:or}\label{cschap:newif}
 %\begin{inventory}
@@ -30,78 +31,79 @@
 \label{cschap:if}\label{cschap:ifcat}\label{cschap:ifx}\label{cschap:ifcase}\label{cschap:ifnum}\label{cschap:ifodd}\label{cschap:ifhmode}\label{cschap:ifvmode}\label{cschap:ifmmode}\label{cschap:ifinner}\label{cschap:ifdim}\label{cschap:ifvoid}\label{cschap:ifhbox2}\label{cschap:ifvbox2}\label{cschap:iftrue}\label{cschap:iffalse}\label{cschap:fi}\label{cschap:else}\label{cschap:or}\label{cschap:newif}
 \begin{inventory}
 \item [\cs{if}] 
-      测试字符码的相等性。
+      Test equality of character codes. 
 
 %\item [\cs{ifcat}] 
 %      Test equality of category codes. 
 \item [\cs{ifcat}] 
-      测试类别码的相等性。
+      Test equality of category codes. 
 
 %\item [\cs{ifx}] 
 %      Test equality of macro expansion, or equality of character code and
 %      category code.
 \item [\cs{ifx}] 
-      测试宏展开的相等性，或字符码和类别码的相等性。
+      Test equality of macro expansion, or equality of character code and
+      category code.
 
 %\item [\cs{ifcase}] 
 %      Enumerated case statement.
 \item [\cs{ifcase}] 
-      枚举式分支语句。
+      Enumerated case statement.
 
 %\item [\cs{ifnum}] 
 %      Test relations between numbers.
 \item [\cs{ifnum}] 
-      测试数字之间的关系。
+      Test relations between numbers.
 
 %\item [\cs{ifodd}] 
 %      Test whether a number is odd.
 \item [\cs{ifodd}] 
-      测试一个数字是否为奇数。
+      Test whether a number is odd.
 
 %\item [\cs{ifhmode}] 
 %      Test whether the current mode is (possibly restricted) horizontal mode.
 \item [\cs{ifhmode}] 
-      测试当前模式是否为（可能是受限的）水平模式。
+      Test whether the current mode is (possibly restricted) horizontal mode.
 
 %\item [\cs{ifvmode}] 
 %      Test whether the current mode is (possibly internal) vertical mode.
 \item [\cs{ifvmode}] 
-      测试当前模式是否为（可能是内部的）垂直模式。
+      Test whether the current mode is (possibly internal) vertical mode.
 
 %\item [\cs{ifmmode}] 
 %     Test whether the current mode is (possibly display) math mode.
 \item [\cs{ifmmode}] 
-     测试当前模式是否为（可能是显示式的）数学模式。
+     Test whether the current mode is (possibly display) math mode.
 
 %\item [\cs{ifinner}] 
 %      Test whether the current mode is an internal mode.
 \item [\cs{ifinner}] 
-      测试当前模式是否为内部模式。
+      Test whether the current mode is an internal mode.
 
 %\item [\cs{ifdim}] 
 %      Compare two dimensions. 
 \item [\cs{ifdim}] 
-      比较两个尺寸。
+      Compare two dimensions. 
 
 %\item [\cs{ifvoid}] 
 %      Test whether a box register is empty.
 \item [\cs{ifvoid}] 
-      测试盒子寄存器是否为空。
+      Test whether a box register is empty.
 
 %\item [\cs{ifhbox}] 
 %      Test whether a box register contains a horizontal box.
 \item [\cs{ifhbox}] 
-      测试盒子寄存器是否包含一个水平盒子。
+      Test whether a box register contains a horizontal box.
 
 %\item [\cs{ifvbox}] 
 %      Test whether a box register contains a vertical box. 
 \item [\cs{ifvbox}] 
-      测试盒子寄存器是否包含一个垂直盒子。
+      Test whether a box register contains a vertical box. 
 
 %\item [\cs{ifeof}] 
 %      Test for end of input stream or non-existence of file.
 \item [\cs{ifeof}] 
-      测试输入流是否结束或文件是否存在。
+      Test for end of input stream or non-existence of file.
 
 %\item [\cs{iftrue}] 
 %      A test that is always true.
@@ -110,28 +112,28 @@
 %\item [\cs{fi}] 
 %      Closing delimiter for all conditionals.
 \item [\cs{iftrue}] 
-      一个始终为真的测试。
+      A test that is always true.
 \item [\cs{iffalse}] 
-      一个始终为假的测试。
+      A test that is always false.
 \item [\cs{fi}] 
-      所有条件语句的结束定界符。
+      Closing delimiter for all conditionals.
 
 %\item [\cs{else}] 
 %      Select \gr{false text} of a conditional 
 %      or default case of \cs{ifcase}.
 \item [\cs{else}] 
-      选择条件语句的 \gr{false text}
-      或 \cs{ifcase} 的默认情况。
+      Select \gr{false text} of a conditional 
+      or default case of \cs{ifcase}.
 
 %\item [\cs{or}] 
 %      Separator for entries of an \cs{ifcase}.
 \item [\cs{or}] 
-      \cs{ifcase} 条目之间的分隔符。
+      Separator for entries of an \cs{ifcase}.
 
 %\item [\cs{newif}] 
 %     Create a new test.
 \item [\cs{newif}] 
-     创建一个新测试。
+     Create a new test.
 
 %\end{inventory}
 \end{inventory}
@@ -139,7 +141,7 @@
 %%\point The shape of conditionals
 %\section{The shape of conditionals}
 %\point The shape of conditionals
-\section{条件语句的结构}
+\section{The shape of conditionals}
 
 %Conditionals in \TeX\ have one of the following two forms
 %\cstoidx else\par\cstoidx fi\par
@@ -151,27 +153,32 @@
 %to be processed if the test turns out true, and the \gr{false text}
 %is a series of tokens to be processed if the test turns out false.
 %Both the \gr{true text} and the \gr{false text} can be empty.
-\TeX\ 中的条件语句有以下两种形式之一：
+Conditionals in \TeX\ have one of the following two forms
 \cstoidx else\par\cstoidx fi\par
-\begin{disp}\cs{if...}\gr{测试记号}\gr{真文本}\cs{fi}\nl
-     \cs{if...}\gr{测试记号}\gr{真文本}\cs{else}%
-     \gr{假文本}\cs{fi}\end{disp}
-其中 \gr{测试记号}是零个或多个记号，取决于特定的条件语句；\gr{真文本}是一系列记号，如果测试结果为真则被处理；\gr{假文本}是一系列记号，如果测试结果为假则被处理。
-\gr{真文本}和 \gr{假文本}都可以为空。
+\begin{disp}\cs{if...}\gr{test tokens}\gr{true text}\cs{fi}\nl
+     \cs{if...}\gr{test tokens}\gr{true text}\cs{else}%
+     \gr{false text}\cs{fi}\end{disp}
+where the \gr{test tokens} are zero or more tokens, depending on
+the particular conditional; the \gr{true text} is a series of tokens
+to be processed if the test turns out true, and the \gr{false text}
+is a series of tokens to be processed if the test turns out false.
+Both the \gr{true text} and the \gr{false text} can be empty.
 
 %The exact process of how \TeX\ expands conditionals is treated
 %below.
-\TeX\ 展开条件语句的确切过程将在下面讨论。
+The exact process of how \TeX\ expands conditionals is treated
+below.
 
 
 %\section{Character and control sequence tests}
 %\label{sec:charactertests}
-\section{字符与控制序列测试}
+\section{Character and control sequence tests}
 \label{sec:charactertests}
 
 %Three tests exist for testing character tokens and
 %control sequence tokens.
-存在三种测试用于测试字符记号和控制序列记号。
+Three tests exist for testing character tokens and
+control sequence tokens.
 
 
 %\subsection{\cs{if}}
@@ -185,12 +192,14 @@
 %the lowest positive number that is not the character code of a
 %character token (remember that the legal character codes
 %are~0--255).
-字符码的相等性可以通过
+Equality of character codes can be tested by
 \cstoidx if\par
-\begin{Disp}\cs{if}\gr{记号$_1$}\gr{记号$_2$}\end{Disp}
-来测试。为了允许记号是控制序列，
-\TeX\ 将字符码 256 赋给控制序列，
-这是不是字符记号的字符码的最低正数（请记住合法的字符码是 0--255）。
+\begin{Disp}\cs{if}\gr{token$_1$}\gr{token$_2$}\end{Disp}
+In order to allow the tokens to be control sequences,
+\TeX\ assigns character code~256 to control sequences,
+the lowest positive number that is not the character code of a
+character token (remember that the legal character codes
+are~0--255).
 
 %Thus all control sequences are equal as far as \cs{if} is
 %concerned, and they are unequal to all character tokens.
@@ -202,19 +211,25 @@
 %which tests whether a token is a control sequence token
 %instead of a character token (its result is unpredictable
 %if the argument is a \verb>{...}> group).
-因此，就 \cs{if} 而言，所有控制序列都是相等的，并且它们与所有字符记号都不相等。
-例如，这个事实可以用来定义
-\howto 测试记号是否为控制序列\par
+Thus all control sequences are equal as far as \cs{if} is
+concerned, and they are unequal to all character tokens.
+As an example, this fact can be used to define
+\howto Test whether a token is a control sequence\par
 \begin{verbatim}
 \def\ifIsControlSequence#1{\if\noexpand#1\relax}
 \end{verbatim}
-它测试一个记号是控制序列记号而不是字符记号（如果参量是 \verb>{...}> 编组，其结果不可预测）。
+which tests whether a token is a control sequence token
+instead of a character token (its result is unpredictable
+if the argument is a \verb>{...}> group).
 
 %After \cs{if} \TeX\ will expand until two unexpandable
 %tokens are obtained, so it is necessary to prefix
 %expandable control sequences and active characters
 %with \cs{noexpand} when testing them with~\cs{if}.
-在 \cs{if} 之后，\TeX\ 会展开直到获得两个不可展开的记号，因此在用 \cs{if} 测试可展开的控制序列和活动字符时，需要用 \cs{noexpand} 作为前缀。
+After \cs{if} \TeX\ will expand until two unexpandable
+tokens are obtained, so it is necessary to prefix
+expandable control sequences and active characters
+with \cs{noexpand} when testing them with~\cs{if}.
 
 %\begin{example} After
 %\begin{verbatim}
@@ -228,16 +243,16 @@
 %   and \cs{d} is an implicit character token~\n{a}.
 %\end{tdisp}
 %\end{example}
-\begin{example} 在
+\begin{example} After
 \begin{verbatim}
 \catcode`\b=13 \catcode`\c=13 \def b{a} \def c{a} \let\d=a
 \end{verbatim}
-之后，我们发现
+we find that
 \begin{tdisp}
-\verb-\if bc- 为真，因为 \n b 和 \n c 都展开为 \n a，\nl
-\verb-\if\noexpand b\noexpand c- 为假，并且\nl
-\verb-\if b\d- 为真，因为 \n{b} 展开为字符 \n{a}，
-   并且 \cs{d} 是一个隐式字符记号 \n{a}。
+\verb-\if bc- is true, because both \n b and \n c expand to \n a,\nl
+\verb-\if\noexpand b\noexpand c- is false, and\nl
+\verb-\if b\d- is true because \n{b} expands to the character~\n{a},
+   and \cs{d} is an implicit character token~\n{a}.
 \end{tdisp}
 \end{example}
 
@@ -250,10 +265,10 @@
 %\cstoidx ifcat\par
 %by 
 %\begin{Disp}\cs{ifcat}\gr{token$_1$}\gr{token$_2$}\end{Disp}
-\cs{if} 测试忽略类别码；类别码可以通过
+The \cs{if} test ignores category codes; these can be tested
 \cstoidx ifcat\par
-\begin{Disp}\cs{ifcat}\gr{记号$_1$}\gr{记号$_2$}\end{Disp}
-来测试。
+by 
+\begin{Disp}\cs{ifcat}\gr{token$_1$}\gr{token$_2$}\end{Disp}
 
 %This test is a lot like \cs{if}: \TeX\ expands after it
 %until unexpandable tokens remain. For this test
@@ -262,7 +277,13 @@
 %(ordinarily, category codes are in the range~0--15), which makes them
 %all equal to each other, and different from all character
 %tokens.
-这个测试很像 \cs{if}：\TeX\ 在它之后会展开，直到只剩下不可展开的记号。对于这个测试，控制序列被认为具有类别码 16\index{category!16}（通常，类别码在 0--15 范围内），这使得它们彼此相等，并与所有字符记号不同。
+This test is a lot like \cs{if}: \TeX\ expands after it
+until unexpandable tokens remain. For this test
+control sequences
+are considered to have category code~16\index{category!16}
+(ordinarily, category codes are in the range~0--15), which makes them
+all equal to each other, and different from all character
+tokens.
 
 %%\spoint \cs{ifx}
 %\subsection{\protect\cs{ifx}}
@@ -273,10 +294,10 @@
 %\cstoidx ifx\par
 %the above by 
 %\begin{Disp}\cs{ifx}\gr{token$_1$}\gr{token$_2$}\end{Disp}
-记号的相等性通过
+Equality of tokens is tested in a stronger sense than
 \cstoidx ifx\par
-\begin{Disp}\cs{ifx}\gr{记号$_1$}\gr{记号$_2$}\end{Disp}
-以比上述更严格的方式进行测试。
+the above by 
+\begin{Disp}\cs{ifx}\gr{token$_1$}\gr{token$_2$}\end{Disp}
 
 %\begin{itemize}\item Character tokens are equal for \cs{ifx} if
 %they have the same character code and category code.
@@ -298,13 +319,19 @@
 %\ifx\a\d %is false
 %\end{verbatim}
 %\end{itemize}
-\begin{itemize}\item 字符记号对于 \cs{ifx} 而言是相等的，如果它们具有相同的字符码和类别码。
-    \item 控制序列记号是相等的，如果它们代表相同的 \TeX\ 原始命令，或者通过 \cs{font}、\cs{countdef} 或类似方式定义。例如，
+\begin{itemize}\item Character tokens are equal for \cs{ifx} if
+they have the same character code and category code.
+    \item Control sequence tokens are equal if they represent the
+same \TeX\ primitive, or have been similarly defined by
+\cs{font}, \cs{countdef}, or some such. For example,
 \begin{verbatim}
 \let\boxhor=\hbox \ifx\boxhor\hbox %is true
 \font\a=cmr10 \font\b=cmr10 \ifx\a\b %is true
 \end{verbatim}
-\item 控制序列也是相等的，如果它们是具有相同参数文本和替换文本的宏，并且在 \cs{outer} 和 \cs{long} 方面具有相同的状态。例如，
+\item Control sequences are also equal if they are
+macros with the same parameter text and replacement text,
+and the same status with respect to \cs{outer} and~\cs{long}.
+For example,
 \begin{verbatim}
 \def\a{z} \def\b{z} \def\c1{z} \def\d{\a}
 \ifx\a\b %is true
@@ -314,7 +341,7 @@
 \end{itemize}
 
 %Tokens following this test are not expanded.
-此测试后面的记号不展开。
+Tokens following this test are not expanded.
 
 %By way of example of the use of \cs{ifx} consider string testing.
 %A simple implementation of string testing in \TeX\ is as follows:
@@ -328,15 +355,18 @@
 %\TeX\ will traverse the definition texts of the
 %macros \cs{testa} and \cs{testb}, which has precisely the
 %right effect.
-作为 \cs{ifx} 用法的一个例子，考虑字符串测试。
-\TeX\ 中字符串测试的一个简单实现如下：
+By way of example of the use of \cs{ifx} consider string testing.
+A simple implementation of string testing in \TeX\ is as follows:
 \begin{verbatim}
 \def\ifEqString#1#2{\def\testa{#1}\def\testb{#2}%
     \ifx\testa\testb}
 \end{verbatim}
-这两个字符串被用作两个宏的替换文本，并测试这些宏的相等性。
-这是字符串测试所能达到的最高效率：
-\TeX\ 将遍历宏 \cs{testa} 和 \cs{testb} 的定义文本，这正是所需的效果。
+The two strings are used as the replacement text of two macros,
+and equality of these macros is tested.
+This is about as efficient as string testing can get:
+\TeX\ will traverse the definition texts of the
+macros \cs{testa} and \cs{testb}, which has precisely the
+right effect.
 
 %As another example, one can test whether a control sequence is defined
 %by\howto Test whether a control sequence is (un)defined\par
@@ -351,28 +381,34 @@
 %has not been defined before. Unfortunately, this test also
 %turns out true if a control sequence has been \cs{let} to
 %\cs{relax}.
-作为另一个例子，可以通过以下方式测试控制序列是否已定义：
-\howto 测试控制序列是否已（未）定义\par
+As another example, one can test whether a control sequence is defined
+by\howto Test whether a control sequence is (un)defined\par
 \begin{verbatim}
 \def\ifUnDefinedCs#1{\expandafter
     \ifx\csname#1\endcsname\relax}
 \ifUnDefinedCs{parindent} %is not true
 \ifUnDefinedCs{undefined} %is (one hopes) true
 \end{verbatim}
-这利用了 \verb>\csname...\endcsname> 命令在控制序列之前未定义时等价于 \cs{relax} 的事实。不幸的是，如果一个控制序列被 \cs{let} 赋给 \cs{relax}，这个测试也会返回真。
+This uses the fact that a \verb>\csname...\endcsname> command
+is equivalent to \cs{relax} if the control sequence
+has not been defined before. Unfortunately, this test also
+turns out true if a control sequence has been \cs{let} to
+\cs{relax}.
 
 
 %\section{Mode tests}
-\section{模式测试}
+\section{Mode tests}
 
 %In order to determine in which of the six modes 
 %(see Chapter~\ref{hvmode}) \TeX\ 
 %is currently operating, the tests \csidx{ifhmode},
 %\csidx{ifvmode}, \csidx{ifmmode}, and~\csidx{ifinner}
 %are available.
-为了确定 \TeX\ 当前处于六种模式中的哪一种
-（见第 \ref{hvmode} 章），可以使用 \csidx{ifhmode}、
-\csidx{ifvmode}、\csidx{ifmmode} 和 \csidx{ifinner} 测试。
+In order to determine in which of the six modes 
+(see Chapter~\ref{hvmode}) \TeX\ 
+is currently operating, the tests \csidx{ifhmode},
+\csidx{ifvmode}, \csidx{ifmmode}, and~\csidx{ifinner}
+are available.
 
 %\begin{itemize}\item\cs{ifhmode} is true if \TeX\ is in horizontal mode
 %or restricted horizontal mode.
@@ -380,20 +416,25 @@
 %internal vertical mode.
 %\item\cs{ifmmode} is true if \TeX\ is in math mode or display
 %math mode.\end{itemize}
-\begin{itemize}\item \cs{ifhmode} 为真，如果 \TeX\ 处于水平模式或受限水平模式。
-\item \cs{ifvmode} 为真，如果 \TeX\ 处于垂直模式或内部垂直模式。
-\item \cs{ifmmode} 为真，如果 \TeX\ 处于数学模式或显示数学模式。\end{itemize}
+\begin{itemize}\item\cs{ifhmode} is true if \TeX\ is in horizontal mode
+or restricted horizontal mode.
+\item\cs{ifvmode} is true if \TeX\ is in vertical mode or
+internal vertical mode.
+\item\cs{ifmmode} is true if \TeX\ is in math mode or display
+math mode.\end{itemize}
 
 %The \cs{ifinner} test is true if \TeX\ is in any of the three
 %internal modes: restricted horizontal mode, internal vertical
 %mode, and non-display math mode.
-\cs{ifinner} 测试为真，如果 \TeX\ 处于以下三种内部模式中的任何一种：受限水平模式、内部垂直模式和非显示数学模式。
+The \cs{ifinner} test is true if \TeX\ is in any of the three
+internal modes: restricted horizontal mode, internal vertical
+mode, and non-display math mode.
 
 %See also chapter~\ref{chap:hvmode}.
-另见第 \ref{chap:hvmode} 章。
+See also chapter~\ref{chap:hvmode}.
 
 %\section{Numerical tests}
-\section{数值测试}
+\section{Numerical tests}
 
 %Numerical relations between \gr{number}s can be tested
 %\cstoidx ifnum\par
@@ -402,121 +443,132 @@
 %\gr{number$_2$}\end{disp}
 %where the relation is a character \n{<}, \n{=}, or~\n{>},
 %of category~12\index{category!12}.
-\gr{数字}之间的数值关系可以通过
+Numerical relations between \gr{number}s can be tested
 \cstoidx ifnum\par
-\begin{disp}\cs{ifnum}\gr{数字$_1$}\gr{关系}%
-\gr{数字$_2$}\end{disp}
-来测试，其中关系是字符 \n{<}、\n{=} 或 \n{>}，
-类别码为 12\index{category!12}。
+with 
+\begin{disp}\cs{ifnum}\gr{number$_1$}\gr{relation}%
+\gr{number$_2$}\end{disp}
+where the relation is a character \n{<}, \n{=}, or~\n{>},
+of category~12\index{category!12}.
 
 %Quantities such as glue can be used as a number here
 %through the conversion to scaled points, and \TeX\
 %will expand in order to arrive at the two \gr{number}s.
-像胶水这样的量可以通过转换为缩放点在这里用作数字，并且 \TeX\ 会展开以得到这两个 \gr{数字}。
+Quantities such as glue can be used as a number here
+through the conversion to scaled points, and \TeX\
+will expand in order to arrive at the two \gr{number}s.
 
 %Testing for odd or even numbers can be done with \csidx{ifodd}:
 %the test
 %\begin{disp}\cs{ifodd}\gr{number}\end{disp}
 %is true if the \gr{number} is odd.
-奇偶数测试可以通过 \csidx{ifodd} 完成：
-测试
-\begin{disp}\cs{ifodd}\gr{数字}\end{disp}
-如果 \gr{数字}为奇数则为真。
+Testing for odd or even numbers can be done with \csidx{ifodd}:
+the test
+\begin{disp}\cs{ifodd}\gr{number}\end{disp}
+is true if the \gr{number} is odd.
 
 %%\point Other tests
 %\section{Other tests}
 %\point Other tests
-\section{其他测试}
+\section{Other tests}
 
 %%\spoint Dimension testing
 %\subsection{Dimension testing}
 %\spoint Dimension testing
-\subsection{尺寸测试}
+\subsection{Dimension testing}
 
-%\gr{尺寸}值（第 \ref{glue} 章）之间的关系可以通过
-%\csidx{ifdim} 测试，使用与 \cs{ifnum} 相同的三种关系。
-\gr{尺寸}值（第 \ref{glue} 章）之间的关系可以通过
-\csidx{ifdim} 测试，使用与 \cs{ifnum} 相同的三种关系。
+%Relations between \gr{dimen} values (Chapter~\ref{glue})
+%can be tested with
+%\csidx{ifdim} using the same three relations as in \cs{ifnum}.
+Relations between \gr{dimen} values (Chapter~\ref{glue})
+can be tested with
+\csidx{ifdim} using the same three relations as in \cs{ifnum}.
 
 %%\spoint Box tests
 %\subsection{Box tests}
 %\spoint Box tests
-\subsection{盒子测试}
+\subsection{Box tests}
 
-%盒子寄存器（第 \ref{boxes} 章）的内容可以通过
+%Contents of box registers (Chapter~\ref{boxes}) can be tested with
 %\cstoidx ifhbox\par\cstoidx ifvbox\par\cstoidx ifvoid\par
 %\begin{disp}\cs{ifvoid}\gr{8-bit number}\end{disp}
-%来测试，如果寄存器不包含盒子则为真；
+%which is true if the register contains no box,
 %\begin{disp}\cs{ifhbox}\gr{8-bit number}\end{disp}
-%如果寄存器包含水平盒子则为真；以及
+%which is true if the register contains a horizontal box, and
 %\begin{disp}\cs{ifvbox}\gr{8-bit number}\end{disp}
-%如果寄存器包含垂直盒子则为真。
-盒子寄存器（第 \ref{boxes} 章）的内容可以通过
+%which is true if the register contains a vertical box.
+Contents of box registers (Chapter~\ref{boxes}) can be tested with
 \cstoidx ifhbox\par\cstoidx ifvbox\par\cstoidx ifvoid\par
 \begin{disp}\cs{ifvoid}\gr{8-bit number}\end{disp}
-来测试，如果寄存器不包含盒子则为真；
+which is true if the register contains no box,
 \begin{disp}\cs{ifhbox}\gr{8-bit number}\end{disp}
-如果寄存器包含水平盒子则为真；以及
+which is true if the register contains a horizontal box, and
 \begin{disp}\cs{ifvbox}\gr{8-bit number}\end{disp}
-如果寄存器包含垂直盒子则为真。
+which is true if the register contains a vertical box.
 
 %%\spoint I{/}O tests
 %\subsection{I{/}O tests}
 %\spoint I{/}O tests
-\subsection{输入/输出测试}
+\subsection{I{/}O tests}
 
-%输入流（第 \ref{io} 章）的状态可以通过
+%The status of input streams (Chapter~\ref{io}) can be tested with
 %\cstoidx ifeof\par
-%文件结束测试 \cs{ifeof}\gr{数字} 来测试，只有当数字在 0--15 范围内，且相应的
-%流已打开且未完全读取时才为假。特别是，如果连接到此流的
-%文件名（通过 \cs{openin}）
-%不对应于现有文件，则此测试为真。
-%参见第 \pageref{ex:eof} 页的示例。
-输入流（第 \ref{io} 章）的状态可以通过
+%the end-of-file test
+%\cs{ifeof}\gr{number}, which is only false
+%if the number is in the range 0--15, and the corresponding
+%stream is open and not fully read. In particular, this test
+%is true if the file name connected
+%to this stream (through \cs{openin})
+%does not correspond to an existing file.
+%See the example on page~\pageref{ex:eof}.
+The status of input streams (Chapter~\ref{io}) can be tested with
 \cstoidx ifeof\par
-文件结束测试 \cs{ifeof}\gr{数字} 来测试，只有当数字在 0--15 范围内，且相应的
-流已打开且未完全读取时才为假。特别是，如果连接到此流的
-文件名（通过 \cs{openin}）
-不对应于现有文件，则此测试为真。
-参见第 \pageref{ex:eof} 页的示例。
+the end-of-file test
+\cs{ifeof}\gr{number}, which is only false
+if the number is in the range 0--15, and the corresponding
+stream is open and not fully read. In particular, this test
+is true if the file name connected
+to this stream (through \cs{openin})
+does not correspond to an existing file.
+See the example on page~\pageref{ex:eof}.
 
 %%\spoint Case statement
 %\subsection{Case statement}
 %\spoint Case statement
-\subsection{分支语句}
+\subsection{Case statement}
 
-%\TeX\ 分支语句被称为 \cs{ifcase}；
+%The \TeX\ case statement is called \cs{ifcase};
 %\cstoidx ifcase\par\cstoidx or\par
-%其语法是
+%its syntax is
 %\begin{disp}\cs{ifcase}\gr{number}\gr{case$_0$}\cs{or}%
 %\n{...}\cs{or}\gr{case$_n$}\cs{else}\gr{other cases}\cs{fi}
-%\end{disp} 其中对于 $n$ 种情况有 $n-1$ 个 \cs{or}
-%控制序列。每个 \gr{case$_i$}
-%部分可以为空，
-%并且 \cs{else}\gr{other cases} 部分是可选的。
-\TeX\ 分支语句被称为 \cs{ifcase}；
+%\end{disp} where for $n$ cases there are $n-1$ \cs{or}
+%control sequences. Each of the \gr{case$_i$}
+%parts can be empty,
+%and the \cs{else}\gr{other cases} part is optional.
+The \TeX\ case statement is called \cs{ifcase};
 \cstoidx ifcase\par\cstoidx or\par
-其语法是
-\begin{disp}\cs{ifcase}\gr{数字}\gr{情况$_0$}\cs{or}%
-\n{...}\cs{or}\gr{情况$_n$}\cs{else}\gr{其他情况}\cs{fi}
-\end{disp} 其中对于 $n$ 种情况有 $n-1$ 个 \cs{or}
-控制序列。每个 \gr{情况$_i$}
-部分可以为空，
-并且 \cs{else}\gr{其他情况} 部分是可选的。
+its syntax is
+\begin{disp}\cs{ifcase}\gr{number}\gr{case$_0$}\cs{or}%
+\n{...}\cs{or}\gr{case$_n$}\cs{else}\gr{other cases}\cs{fi}
+\end{disp} where for $n$ cases there are $n-1$ \cs{or}
+control sequences. Each of the \gr{case$_i$}
+parts can be empty,
+and the \cs{else}\gr{other cases} part is optional.
 
 %%\spoint Special tests
 %\subsection{Special tests}
 %\spoint Special tests
-\subsection{特殊测试}
+\subsection{Special tests}
 
-%测试 \cs{iftrue} 和 \cs{iffalse} 总是
+%The tests \cs{iftrue} and \cs{iffalse} are always
 %\cstoidx iftrue\par\cstoidx iffalse\par
-%分别为真和假。
-%它们主要用作宏中的工具。
-测试 \cs{iftrue} 和 \cs{iffalse} 总是
+%true and false respectively.
+%They are mainly useful as tools in macros.
+The tests \cs{iftrue} and \cs{iffalse} are always
 \cstoidx iftrue\par\cstoidx iffalse\par
-分别为真和假。
-它们主要用作宏中的工具。
+true and false respectively.
+They are mainly useful as tools in macros.
 
 %For instance, the sequences
 %\begin{verbatim}
@@ -529,46 +581,32 @@
 %yield a left and right
 %brace respectively, but they have balanced braces, so they
 %can be used inside a macro replacement text.
-%例如，序列
-%\begin{verbatim}
-%\iftrue{\else}\fi
-%\end{verbatim}
-%和
-%\begin{verbatim}
-%\iffalse{\else}\fi
-%\end{verbatim}
-%分别产生一个左花括号和一个右花括号，但它们的花括号是平衡的，因此它们
-%可以在宏替换文本内部使用。
-例如，序列
+For instance, the sequences
 \begin{verbatim}
 \iftrue{\else}\fi
 \end{verbatim}
-和
+and
 \begin{verbatim}
 \iffalse{\else}\fi
 \end{verbatim}
-分别产生一个左花括号和一个右花括号，
-但它们的花括号是平衡的，因此它们
-可以在宏替换文本内部使用。
+yield a left and right
+brace respectively, but they have balanced braces, so they
+can be used inside a macro replacement text.
 
 %The \cs{newif} macro, treated below,
 %provides another use of \cs{iftrue} and \cs{iffalse}.
 %On page 260 of \TeXbook\ these control sequences
 %are also used in an interesting manner.
-%下面讨论的 \cs{newif} 宏，
-%提供了 \cs{iftrue} 和 \cs{iffalse} 的另一种用法。
-%在 \TeXbook\ 的第 260 页，这些控制序列
-%也以一种有趣的方式使用。
-下面讨论的 \cs{newif} 宏，
-提供了 \cs{iftrue} 和 \cs{iffalse} 的另一种用法。
-在 \TeXbook\ 的第 260 页，这些控制序列
-也以一种有趣的方式使用。
+The \cs{newif} macro, treated below,
+provides another use of \cs{iftrue} and \cs{iffalse}.
+On page 260 of \TeXbook\ these control sequences
+are also used in an interesting manner.
 
 %%\point[newif:def] The \cs{newif} macro
 %\section{The \protect\cs{newif} macro}
 %\label{newif:def}
 %\point[newif:def] The \cs{newif} macro
-\section{\protect\cs{newif} 宏}
+\section{The \protect\cs{newif} macro}
 \label{newif:def}
 
 %The plain format defines an (outer) macro \csidx{newif} by
@@ -580,24 +618,15 @@
 %\TeX\ defines three new control sequences,
 %\cs{footrue} and \cs{foofalse} with which the user can set
 %the condition, and \cs{iffoo} which tests the `foo' condition.
-%plain 格式定义了一个（外部）宏 \csidx{newif}，
-%用户可以通过它定义新的条件语句。
-%如果用户定义
-%\begin{verbatim}
-%\newif\iffoo
-%\end{verbatim}
-%\TeX\ 定义了三个新的控制序列，
-%\cs{footrue} 和 \cs{foofalse}，用户可以用它们设置
-%条件，以及 \cs{iffoo}，它测试“foo”条件。
-plain 格式定义了一个（外部）宏 \csidx{newif}，
-用户可以通过它定义新的条件语句。
-如果用户定义
+The plain format defines an (outer) macro \csidx{newif} by
+which the user can define new conditionals.
+If the user defines
 \begin{verbatim}
 \newif\iffoo
 \end{verbatim}
-\TeX\ 定义了三个新的控制序列，
-\cs{footrue} 和 \cs{foofalse}，用户可以用它们设置
-条件，以及 \cs{iffoo}，它测试“foo”条件。
+\TeX\ defines three new control sequences,
+\cs{footrue} and \cs{foofalse} with which the user can set
+the condition, and \cs{iffoo} which tests the `foo' condition.
 
 %The macro call \verb-\newif\iffoo- expands to
 %\begin{verbatim}
@@ -609,24 +638,16 @@ plain 格式定义了一个（外部）宏 \csidx{newif}，
 %An explanation follows here.
 %This uses concepts from Chapters~\ref{macro}
 %and~\ref{expand}.
-%宏调用 \verb-\newif\iffoo- 展开为
-%\begin{verbatim}
-%\def\footrue{\let\iffoo=\iftrue} \def\foofalse{\let\iffoo=\iffalse}
-%\foofalse
-%\end{verbatim}
-%实际的定义，特别是确保 \cs{iffoo} 确实以 \cs{if} 开头的部分，是一个相当巧妙的技巧。
-%解释如下。
-%这使用了第 \ref{macro} 章和 \ref{expand} 章的概念。
-宏调用 \verb-\newif\iffoo- 展开为
+The macro call \verb-\newif\iffoo- expands to
 \begin{verbatim}
 \def\footrue{\let\iffoo=\iftrue} \def\foofalse{\let\iffoo=\iffalse}
 \foofalse
 \end{verbatim}
-实际的定义，特别是确保
-\cs{iffoo} 确实以 \cs{if} 开头的部分，是一个相当巧妙的技巧。
-解释如下。
-这使用了第 \ref{macro} 章
-和 \ref{expand} 章的概念。
+The actual definition, especially the part that ensures that
+the \cs{iffoo} indeed starts with \cs{if}, is a pretty hack.
+An explanation follows here.
+This uses concepts from Chapters~\ref{macro}
+and~\ref{expand}.
 
 %The macro \cs{newif} starts as follows:
 %\begin{verbatim}
@@ -637,20 +658,15 @@ plain 格式定义了一个（外部）宏 \csidx{newif}，
 %The latter action has the
 %effect that no escape character is used in the output
 %of \cs{string}\gr{control sequence}.
-%\cs{newif} 宏的开头如下：
-%\begin{verbatim}
-%\outer\def\newif#1{\count@\escapechar \escapechar\m@ne
-%\end{verbatim}
-%这会将当前转义字符保存到 \cs{count@} 中，并将 \cs{escapechar} 的值设置为 \n{-1}。
-%后一个操作的效果是，在 \cs{string}\gr{control sequence} 的输出中不使用转义字符。
-\cs{newif} 宏的开头如下：
+The macro \cs{newif} starts as follows:
 \begin{verbatim}
 \outer\def\newif#1{\count@\escapechar \escapechar\m@ne
 \end{verbatim}
-这会将当前转义字符保存到 \cs{count@} 中，并且
-将 \cs{escapechar} 的值设置为 \n{-1}。
-后一个操作的效果是，
-在 \cs{string}\gr{控制序列}的输出中不使用转义字符。
+This saves the current escape character in \cs{count@}, and
+sets the value of \cs{escapechar} to~\n{-1}.
+The latter action has the
+effect that no escape character is used in the output
+of \cs{string}\gr{control sequence}.
 
 %An auxiliary macro \verb>\if@> is defined by
 %\begin{verbatim}
@@ -663,24 +679,17 @@ plain 格式定义了一个（外部）宏 \csidx{newif}，
 %In effect this
 %macro then eats these two characters, and \TeX\ complains if
 %they are not present.
-%辅助宏 \verb>\if@> 定义如下：
-%\begin{verbatim}
-%{\uccode`1=`i \uccode`2=`f \uppercase{\gdef\if@12{}}}
-%\end{verbatim}
-%由于大写命令只改变字符码，而不改变类别码，因此宏 \cs{if@} 现在必须
-%后跟类别码为 12\index{category!12} 的字符 \n{if}。
-%通常，这些字符的类别码为 11\index{category!11}。
-%实际上，这个宏会吃掉这两个字符，如果它们不存在，\TeX\ 会报错。
-辅助宏 \verb>\if@> 定义如下：
+An auxiliary macro \verb>\if@> is defined by
 \begin{verbatim}
 {\uccode`1=`i \uccode`2=`f \uppercase{\gdef\if@12{}}}
 \end{verbatim}
-由于大写命令只改变字符码，而
-不改变类别码，因此宏 \cs{if@} 现在必须
-后跟类别码为 12\index{category!12} 的字符 \n{if}。
-通常，这些字符的类别码为 11\index{category!11}。
-实际上，这个
-宏会吃掉这两个字符，如果它们不存在，\TeX\ 会报错。
+Since the uppercase command changes only character codes, and
+not category codes, the macro \cs{if@} now has
+to be followed by the characters \n{if} of category~12\index{category!12}.
+Ordinarily, these characters have category code~11\index{category!11}.
+In effect this
+macro then eats these two characters, and \TeX\ complains if
+they are not present.
 
 %Next there is a macro \verb>\@if> defined by
 %\begin{verbatim}
@@ -688,17 +697,12 @@ plain 格式定义了一个（外部）宏 \csidx{newif}，
 %\end{verbatim}
 %which will be called like \verb>\@if\iffoo{true}> and
 %\verb>\@if\iffoo{false}>. 
-%接下来有一个宏 \verb>\@if> 定义如下：
-%\begin{verbatim}
-%\def\@if#1#2{\csname\expandafter\if@\string#1#2\endcsname}
-%\end{verbatim}
-%它将像 \verb>\@if\iffoo{true}> 和 \verb>\@if\iffoo{false}> 这样被调用。
-接下来有一个宏 \verb>\@if> 定义如下：
+Next there is a macro \verb>\@if> defined by
 \begin{verbatim}
 \def\@if#1#2{\csname\expandafter\if@\string#1#2\endcsname}
 \end{verbatim}
-它将像 \verb>\@if\iffoo{true}> 和
-\verb>\@if\iffoo{false}> 这样被调用。
+which will be called like \verb>\@if\iffoo{true}> and
+\verb>\@if\iffoo{false}>. 
 
 %Let us examine the call \verb>\@if\iffoo{true}>.
 %\begin{itemize}\item The \cs{expandafter} reaches over the \verb>\if@>
@@ -715,32 +719,17 @@ plain 格式定义了一个（外部）宏 \csidx{newif}，
 %\csname footrue\endcsname
 %\end{verbatim}
 %\end{itemize}
-%让我们检查调用 \verb>\@if\iffoo{true}>。
-%\begin{itemize}\item \cs{expandafter} 越过 \verb>\if@>
-%\mdqon
-%首先展开 \cs{string}。部分 \cs{string}""\cs{iffoo}
-%\mdqoff
-%展开为 \n{iffoo}，因为转义字符未打印，
-%并且所有字符的类别码都是 12。
-%\item \verb>\if@> 吃掉它的前两个字符
-%\n i$_{12}$\n f$_{12}$。
-%\item 结果，\verb>\@if\iffoo{true}> 的最终展开
-%是
-%\begin{verbatim}
-%\csname footrue\endcsname
-%\end{verbatim}
-%\end{itemize}
-让我们检查调用 \verb>\@if\iffoo{true}>。
-\begin{itemize}\item \cs{expandafter} 越过 \verb>\if@>
+Let us examine the call \verb>\@if\iffoo{true}>.
+\begin{itemize}\item The \cs{expandafter} reaches over the \verb>\if@>
 \mdqon
-首先展开 \cs{string}。部分 \cs{string}""\cs{iffoo}
+to expand \cs{string} first. The part \cs{string}""\cs{iffoo}
 \mdqoff
-展开为 \n{iffoo}，因为转义字符未打印，
-并且所有字符的类别码都是 12。
-\item \verb>\if@> 吃掉它的前两个字符
-\n i$_{12}$\n f$_{12}$。
-\item 结果，\verb>\@if\iffoo{true}> 的最终展开
-是
+expands to \n{iffoo} because the escape character is not printed,
+and all characters have category~12.
+\item The \verb>\if@> eats the first two characters
+\n i$_{12}$\n f$_{12}$ of this.
+\item As a result, the final expansion of \verb>\@if\iffoo{true}>
+is then
 \begin{verbatim}
 \csname footrue\endcsname
 \end{verbatim}
@@ -751,12 +740,7 @@ plain 格式定义了一个（外部）宏 \csidx{newif}，
 %\expandafter\expandafter\expandafter
 %   \edef\@if#1{true}{\let\noexpand#1=\noexpand\iftrue}%
 %\end{verbatim}
-%现在我们可以处理 \cs{newif} 本身的相关部分：
-%\begin{verbatim}
-%\expandafter\expandafter\expandafter
-%   \edef\@if#1{true}{\let\noexpand#1=\noexpand\iftrue}%
-%\end{verbatim}
-现在我们可以处理 \cs{newif} 本身的相关部分：
+Now we can treat the relevant parts of \cs{newif} itself:
 \begin{verbatim}
 \expandafter\expandafter\expandafter
    \edef\@if#1{true}{\let\noexpand#1=\noexpand\iftrue}%
@@ -785,47 +769,25 @@ plain 格式定义了一个（外部）宏 \csidx{newif}，
 %\edef\footrue{\let\noexpand\iffoo=\noexpand\iftrue}
 %\end{verbatim}
 %\end{itemize}
-%这三个 \cs{expandafter} 命令可能看起来很吓人，所以我们一步一步来。
-%\begin{itemize}\item 需要一个 \cs{expandafter} 来越过 \cs{edef}，
-%以便 \verb>\@if> 能够展开：
-%\begin{verbatim}
-%\expandafter\edef\@if\iffoo{true}
-%\end{verbatim}
-%得到
-%\begin{verbatim}
-%\edef\csname footrue\endcsname
-%\end{verbatim}
-%\item 然后需要另一个 \cs{expandafter} 来激活
-%\altt
-%\cs{csname}：
-%\begin{verbatim}
-%\expandafter \expandafter \expandafter \edef \@if ...
-%%   new          old          new
-%\end{verbatim}
-%\item 这使得最终展开为
-%\begin{verbatim}
-%\edef\footrue{\let\noexpand\iffoo=\noexpand\iftrue}
-%\end{verbatim}
-%\end{itemize}
-这三个 \cs{expandafter} 命令可能看起来很吓人，所以我们
-一步一步来。
-\begin{itemize}\item 需要一个 \cs{expandafter} 来越过 \cs{edef}，
-以便 \verb>\@if> 能够展开：
+The three \cs{expandafter} commands may look intimidating, so let us
+take one step at a time.
+\begin{itemize}\item One \cs{expandafter} is necessary to reach over the \cs{edef},
+such that \verb>\@if> will expand:
 \begin{verbatim}
 \expandafter\edef\@if\iffoo{true}
 \end{verbatim}
-得到
+gives
 \begin{verbatim}
 \edef\csname footrue\endcsname
 \end{verbatim}
-\item 然后需要另一个 \cs{expandafter} 来激活
+\item Then another \cs{expandafter} is necessary to activate
 \altt
-\cs{csname}：
+the \cs{csname}:
 \begin{verbatim}
 \expandafter \expandafter \expandafter \edef \@if ...
 %   new          old          new
 \end{verbatim}
-\item 这使得最终展开为
+\item This makes the final expansion 
 \begin{verbatim}
 \edef\footrue{\let\noexpand\iffoo=\noexpand\iftrue}
 \end{verbatim}
@@ -841,40 +803,29 @@ plain 格式定义了一个（外部）宏 \csidx{newif}，
 %\begin{verbatim}
 %  \@if#1{false}\escapechar\count@} 
 %\end{verbatim}
-%在此之后是针对 \n{false} 情况的类似语句：
-%\begin{verbatim}
-%   \expandafter\expandafter\expandafter
-%   \edef\@if#1{false}{\let\noexpand#1=\noexpand\iffalse}%
-%\end{verbatim}
-%条件语句最初为假，并且转义字符必须重置：
-%\begin{verbatim}
-%  \@if#1{false}\escapechar\count@} 
-%\end{verbatim}
-在此之后是针对 \n{false} 情况的类似语句：
+After this follows a similar statement for the \n{false} case:
 \begin{verbatim}
    \expandafter\expandafter\expandafter
    \edef\@if#1{false}{\let\noexpand#1=\noexpand\iffalse}%
 \end{verbatim}
-条件语句最初为假，并且转义字符
-必须重置：
+The conditional starts out false, and the escape character
+has to be reset:
 \begin{verbatim}
   \@if#1{false}\escapechar\count@} 
 \end{verbatim}
 
 
 %\section{Evaluation of conditionals}
-\section{条件语句的求值}
+\section{Evaluation of conditionals}
 
 %\TeX's conditionals behave differently from those
 %in ordinary programming languages. In many instances
 %one may not notice the difference, but in certain contexts
 %it is important to know precisely the \indextermbus{evaluation of}{conditionals} proceeds.
-%\TeX\ 的条件语句行为与普通编程语言中的不同。在许多情况下，
-%人们可能不会注意到这种差异，但在某些上下文中，
-%准确了解 \indextermbus{条件语句的}{求值}过程非常重要。
-\TeX\ 的条件语句行为与普通编程语言中的不同。在许多情况下，
-人们可能不会注意到这种差异，但在某些上下文中，
-准确了解 \indextermbus{条件语句的}{求值}过程非常重要。
+\TeX's conditionals behave differently from those
+in ordinary programming languages. In many instances
+one may not notice the difference, but in certain contexts
+it is important to know precisely the \indextermbus{evaluation of}{conditionals} proceeds.
 
 %When \TeX\ evaluates a conditional, it first determines
 %what is to be tested. This in itself may involve some
@@ -885,23 +836,15 @@ plain 格式定义了一个（外部）宏 \csidx{newif}，
 %to be tested have been determined. On the basis of the outcome
 %of this test the \gr{true text} and the \gr{false text}
 %are either expanded or skipped.
-%当 \TeX\ 求值一个条件语句时，它首先确定要测试的内容。这本身可能涉及一些
-%展开；正如我们在前一章中看到的，
-%只有在 \cs{ifx} 测试之后，
-%\TeX\ 才不会展开。在所有其他测试之后，\TeX\ 将
-%展开记号，直到测试的范围和要测试的记号
-%已被确定。根据此测试的结果，
-%\gr{真文本}和 \gr{假文本}
-%要么被展开，要么被跳过。
-当 \TeX\ 求值一个条件语句时，它首先确定
-要测试的内容。这本身可能涉及一些
-展开；正如我们在前一章中看到的，
-只有在 \cs{ifx} 测试之后，
-\TeX\ 才不会展开。在所有其他测试之后，\TeX\ 将
-展开记号，直到测试的范围和要测试的记号
-已被确定。根据此测试的结果，
-\gr{真文本}和 \gr{假文本}
-要么被展开，要么被跳过。
+When \TeX\ evaluates a conditional, it first determines
+what is to be tested. This in itself may involve some
+expansion; as we saw in the previous chapter, 
+only after an \cs{ifx} test
+does \TeX\  not expand. After all other tests \TeX\ will
+expand tokens until the extent of the test and the tokens
+to be tested have been determined. On the basis of the outcome
+of this test the \gr{true text} and the \gr{false text}
+are either expanded or skipped.
 
 %For the processing of the parts of the conditional
 %let us consider some cases separately.
@@ -917,39 +860,29 @@ plain 格式定义了一个（外部）宏 \csidx{newif}，
 % \end{disp} where the line number indicated is that of the line
 % where \TeX\ started skipping, that is, where the conditional
 % occurred.
-%对于条件语句各部分的处​​理，
-%让我们分别考虑一些情况。
-%\begin{itemize}
-%\item \verb>\if... ... \fi> 且测试结果为假。
-% 在测试之后，\TeX\ 将开始跳过材料，
-% 不展开，不计算花括号，但平衡
-% 嵌套的条件语句，直到遇到 \cs{fi} 记号。
-% 如果未找到 \cs{fi}，则在文件末尾会产生错误消息：
-% 
-%\begin{disp}\tt Incomplete \cs{if...}; all text was ignored after line \n{...}
-% \end{disp} 其中指示的行号是 \TeX\ 开始跳过的行，即条件语句
-% 出现的行。
-对于条件语句各部分的处​​理，
-让我们分别考虑一些情况。
+For the processing of the parts of the conditional
+let us consider some cases separately.
 \begin{itemize}
-\item \verb>\if... ... \fi> 且测试结果为假。
- 在测试之后，\TeX\ 将开始跳过材料，
- 不展开，不计算花括号，但平衡
- 嵌套的条件语句，直到遇到 \cs{fi} 记号。
- 如果未找到 \cs{fi}，则在文件末尾会产生错误消息：
+\item \verb>\if... ... \fi> and the result of the test is false.
+ After the test \TeX\ will start skipping material
+ without expansion, without counting braces, but balancing
+ nested conditionals, until a \cs{fi} token is encountered.
+ If the \cs{fi} is not found an error message results
+ at the end of the file:
  
 \begin{disp}\tt Incomplete \cs{if...}; all text was ignored after line \n{...}
- \end{disp} 其中指示的行号是 \TeX\ 开始跳过的行，即条件语句
- 出现的行。
+ \end{disp} where the line number indicated is that of the line
+ where \TeX\ started skipping, that is, where the conditional
+ occurred.
 
 %\item \verb>\if... \else ... \fi> and the result of the test is false.
 % Any material in between the condition and the \cs{else} is skipped
 % without expansion, without counting braces, but balancing nested
 % conditionals.
-\item \verb>\if... \else ... \fi> 且测试结果为假。
- 条件语句与 \cs{else} 之间的任何材料都会被跳过，
- 不展开，不计算花括号，但平衡嵌套的
- 条件语句。
+\item \verb>\if... \else ... \fi> and the result of the test is false.
+ Any material in between the condition and the \cs{else} is skipped
+ without expansion, without counting braces, but balancing nested
+ conditionals.
 
 % The \cs{fi} token can be the result of expansion; if it never
 % turns up \TeX\ will give a diagnostic message
@@ -957,18 +890,12 @@ plain 格式定义了一个（外部）宏 \csidx{newif}，
 %\begin{disp}\tt \cs{end} occurred when \cs{if...} on line \n{...}
 %      was incomplete\end{disp}
 % This sort of error is not visible in the output.
-% \cs{fi} 记号可以是展开的结果；如果它从未
-% 出现，\TeX\ 将给出诊断消息
-% 
-%\begin{disp}\tt \cs{end} occurred when \cs{if...} on line \n{...}
-%      was incomplete\end{disp}
-% 这种错误在输出中不可见。
- \cs{fi} 记号可以是展开的结果；如果它从未
- 出现，\TeX\ 将给出诊断消息
+ The \cs{fi} token can be the result of expansion; if it never
+ turns up \TeX\ will give a diagnostic message
  
 \begin{disp}\tt \cs{end} occurred when \cs{if...} on line \n{...}
       was incomplete\end{disp}
- 这种错误在输出中不可见。
+ This sort of error is not visible in the output.
 
 % This point plus the previous may jointly be described as follows:
 % after a false condition \TeX\ skips until an \cs{else} or \cs{fi}
@@ -989,50 +916,36 @@ plain 格式定义了一个（外部）宏 \csidx{newif}，
 % an \cs{else} or \cs{fi} is found; if an \cs{else} is found
 % \TeX\ skips until it finds the matching \cs{fi}.
 %\end{itemize}
-% 这一点加上前一点可以共同描述如下：
-% 在假条件之后，\TeX\ 跳过直到找到 \cs{else} 或 \cs{fi}；
-% \cs{else} 和 \cs{fi} 之间的任何材料都会被处理。
-% 
-%\item \verb>\if... ... \fi> 且测试结果为真。
-% \TeX\ 将开始处理条件语句后面的材料。
-% 如上所述，\cs{fi} 记号可以通过宏的展开插入。
-% 
-%\item \verb>\if... \else ... \fi> 且测试结果为真。
-% 条件语句后面的任何材料都会被处理，直到找到 \cs{else}；
-% 然后 \TeX\ 跳过所有内容，直到找到匹配的 \cs{fi}。
-% 
-% 这一点加上前一点可以描述如下：
-% 在真测试之后，\TeX\ 开始处理材料，直到
-% 找到 \cs{else} 或 \cs{fi}；如果找到 \cs{else}，
-% \TeX\ 会跳过直到找到匹配的 \cs{fi}。
  This point plus the previous may jointly be described as follows:
  after a false condition \TeX\ skips until an \cs{else} or \cs{fi}
  is found; any material in between \cs{else} and \cs{fi} is processed.
  
-\item \verb>\if... ... \fi> 且测试结果为真。
- \TeX\ 将开始处理条件语句后面的材料。
- 如上所述，\cs{fi} 记号可以通过宏的展开插入。
+\item \verb>\if... ... \fi> and the result of the test is true.
+ \TeX\ will start processing the material following the condition.
+ As above, the \cs{fi} token may be inserted by expansion of
+ a macro.
  
-\item \verb>\if... \else ... \fi> 且测试结果为真。
- 条件语句后面的任何材料都会被处理，直到找到 \cs{else}；
- 然后 \TeX\ 跳过所有内容，直到找到匹配的 \cs{fi}。
+\item \verb>\if... \else ... \fi> and the result of the test is true.
+ Any material following the condition is processed until the \cs{else}
+ is found; then \TeX\ skips everything until the matching \cs{fi}
+ is found.
  
- 这一点加上前一点可以描述如下：
- 在真测试之后，\TeX\ 开始处理材料，直到
- 找到 \cs{else} 或 \cs{fi}；如果找到 \cs{else}，
- \TeX\ 会跳过直到找到匹配的 \cs{fi}。
+ This point plus the previous may be described as follows:
+ after a true test \TeX\ starts processing material until
+ an \cs{else} or \cs{fi} is found; if an \cs{else} is found
+ \TeX\ skips until it finds the matching \cs{fi}.
 \end{itemize}
 
 
 %%\point Assorted remarks
 %\section{Assorted remarks}
 %\point Assorted remarks
-\section{杂项备注}
+\section{Assorted remarks}
 
 %%\spoint The test gobbles up tokens
 %\subsection{The test gobbles up tokens}
 %\spoint The test gobbles up tokens
-\subsection{测试吞噬记号}
+\subsection{The test gobbles up tokens}
 
 %A common mistake is to write the following:
 %\begin{verbatim}
@@ -1047,30 +960,33 @@ plain 格式定义了一个（外部）宏 \csidx{newif}，
 %\altt
 %a space or a \cs{relax} control sequence
 %after the last digit of the number to be tested.
-常见的错误是写成这样：
+A common mistake is to write the following:
 \begin{verbatim}
 \ifnum\x>0\someaction \else\anotheraction \fi
 \end{verbatim}
-这会导致 \verb.\someaction. 被展开，
-无论测试是否成功。
-原因在于 \TeX\ 会评估输入流，直到
-它确定已找到要测试的参量。
-在这种情况下，\verb.\someaction.
-完全有可能产生一个数字，因此它被展开。补救措施是在
+which has the effect that the \verb.\someaction. is expanded,
+regardless of whether the test succeeds or not. 
+The reason for this is that \TeX\ evaluates the input stream until
+it is certain that it has found the arguments to be tested.
+In this case it is perfectly possible for the \verb.\someaction.
+to yield a digit, so it is expanded. The remedy is to insert
 \altt
-要测试的数字的最后一个数字之后插入一个空格或一个 \cs{relax} 控制序列。
+a space or a \cs{relax} control sequence
+after the last digit of the number to be tested.
 
 %%\spoint The test wants to gobble up the \cs{else} or \cs{fi}
 %\subsection{The test wants to gobble up the \cs{else} or \cs{fi}}
 %\spoint The test wants to gobble up the \cs{else} or \cs{fi}
-\subsection{测试想要吞噬 \cs{else} 或 \cs{fi}}
+\subsection{The test wants to gobble up the \cs{else} or \cs{fi}}
 
 %The same mechanism that underlies the phenomenon in the previous
 %point can lead to even more surprising effects if \TeX\
 %bumps into an \verb.\else., \verb.\or., or \verb.\fi. 
 %while still busy determining the extent of the test itself.
-与前一点现象相同的机制可能导致更令人惊讶的效果，如果 \TeX\ 在仍在确定测试本身的范围时
-遇到 \verb.\else.、\verb.\or. 或 \verb.\fi.。
+The same mechanism that underlies the phenomenon in the previous
+point can lead to even more surprising effects if \TeX\
+bumps into an \verb.\else., \verb.\or., or \verb.\fi. 
+while still busy determining the extent of the test itself.
 
 %Recall that \verb.\pageno. is a synomym for \verb.\count0., and
 %consider the following examples:
@@ -1094,34 +1010,35 @@ plain 格式定义了一个（外部）宏 \csidx{newif}，
 %\nct=1\relax2
 %\end{verbatim}
 %which will assign~1 to \cs{nct}, and print~2.
-回想一下，\verb.\pageno. 是 \verb.\count0. 的同义词，
-考虑以下例子：
+Recall that \verb.\pageno. is a synomym for \verb.\count0., and
+consider the following examples:
 \begin{verbatim}
 \newcount\nct \nct=1\ifodd\pageno\else 2\fi 1
 \end{verbatim}
-和
+and
 \begin{verbatim}
 \newcount\nct \nct=1\ifodd\count0\else 2\fi 1
 \end{verbatim}
-第一个例子会给 \cs{nct} 赋值 11 或 121，
-但第二个例子会赋值 1 或 121。
-解释是，
-在像第二个这样的情况下，
+The first example will assign either 11 or~121 to \cs{nct}, 
+but the second one will assign 1 or~121. 
+The explanation is that
+in cases like the second, where
 \altt
-当测试尚未定界时遇到 \verb.\else.，会插入一个 \verb.\relax.。
-在 \verb.\count0. 为奇数的情况下，结果将是 \verb.\relax.，
-并且该例子将产生
+an \verb.\else. is encountered while the
+test still has not been delimited, a \verb.\relax. is inserted.
+In the case that \verb.\count0. is odd the result will thus be \verb.\relax.,
+and the example will yield
 \begin{verbatim}
 \nct=1\relax2
 \end{verbatim}
-这会给 \cs{nct} 赋值 1，并打印 2。
+which will assign~1 to \cs{nct}, and print~2.
 
 
 %%\spoint[after:cond] Macros and conditionals; the use of \cs{expandafter}
 %\subsection{Macros and conditionals; the use of \cs{expandafter}}
 %\label{after:cond}
 %\spoint[after:cond] Macros and conditionals; the use of \cs{expandafter}
-\subsection{宏与条件语句；\cs{expandafter} 的使用}
+\subsection{Macros and conditionals; the use of \cs{expandafter}}
 \label{after:cond}
 
 %Consider the following example:
@@ -1146,28 +1063,28 @@ plain 格式定义了一个（外部）宏 \csidx{newif}，
 %{\bf {some text} rest of the text
 %\end{verbatim}
 %which is unbalanced.
-考虑以下示例：
+Consider the following example:
 \begin{verbatim}
 \def\bold#1{{\bf #1}} \def\slant#1{{\sl #1}}
 \ifnum1>0 \bold \else \slant \fi {some text} ...
 \end{verbatim}
-这不仅会使“some text”变为粗体，
-而且会使{\sl 所有}后续文本变为粗体。
-此外，在作业结束时会有一个通知，指出
-“end occurred inside a group at level~1”。
-打开 \cs{tracingmacros} 后显示，\verb.\bold. 的参量
-是 \verb.\else.。
-这意味着，在 \verb.\bold. 展开之后，
-输入流看起来像
+This will make not only `some text', 
+but {\sl all\/} subsequent text bold.
+Also, at the end of the job there will be a notice that
+`end occurred inside a group at level~1'.
+Switching on \cs{tracingmacros} reveals that the argument
+of \verb.\bold. was \verb.\else..
+This means that, after expansion of \verb.\bold., 
+the input stream looked like
 \begin{verbatim}
 \ifnum1>0 {\bf \else }\fi {some text} rest of the text 
 \end{verbatim}
-因此右花括号作为 \gram{假文本}的一部分被跳过。
-实际上，结果流是
+so the closing brace was skipped as part of the \gram{false text}.
+Effectively, then, the resulting stream is
 \begin{verbatim}
 {\bf {some text} rest of the text
 \end{verbatim}
-这是不平衡的。
+which is unbalanced.
 
 %One solution to this sort of problem would be to write
 %\begin{verbatim}
@@ -1179,16 +1096,16 @@ plain 格式定义了一个（外部）宏 \csidx{newif}，
 %\end{verbatim}
 %This works, because the \cs{expandafter} commands let \TeX\ determine
 %the boundaries of the \gram{true text} and the \gram{false text}.
-解决这类问题的一种方法是这样写：
+One solution to this sort of problem would be to write
 \begin{verbatim}
 \ifnum1>0 \let\next=\bold \else \let\next=\slant \fi \next
 \end{verbatim}
-但使用 \cs{expandafter} 的解决方案也是可能的：
+but  a solution using \cs{expandafter} is also possible:
 \begin{verbatim}
 \ifnum1>0 \expandafter \bold \else \expandafter \slant \fi
 \end{verbatim}
-这之所以有效，是因为 \cs{expandafter} 命令让 \TeX\ 确定
-\gram{真文本}和 \gram{假文本}的边界。
+This works, because the \cs{expandafter} commands let \TeX\ determine
+the boundaries of the \gram{true text} and the \gram{false text}.
 
 %In fact, the second solution may be preferred over the first,
 %since conditionals are handled by the expansion processor,
@@ -1197,13 +1114,13 @@ plain 格式定义了一个（外部）宏 \csidx{newif}，
 %Thus the second solution will (and the first will not)
 %work, for instance,
 %inside an~\cs{edef}.
-事实上，第二种解决方案可能比第一种更受青睐，
-因为条件语句由展开处理器处理，
-而 \cs{let} 语句仅由执行处理器处理；
-也就是说，它们不可展开。
-因此，第二种解决方案（而第一种不会）
-将起作用，例如，
-在 \cs{edef} 内部。
+In fact, the second solution may be preferred over the first,
+since conditionals are handled by the expansion processor,
+and the \cs{let} statements are tackled only by the execution
+processor; that is, they are not expandable.
+Thus the second solution will (and the first will not)
+work, for instance,
+inside an~\cs{edef}.
 
 %Another example with \cs{expandafter} is the sequence
 %\begin{verbatim}
@@ -1226,26 +1143,27 @@ plain 格式定义了一个（外部）宏 \csidx{newif}，
 %conditional is not the final expansion, but the start
 %of the expansion of the \gr{true text} or \gr{false text},
 %depending on the outcome of the test.
-另一个使用 \cs{expandafter} 的例子是序列
+Another example with \cs{expandafter} is the sequence
 \begin{verbatim}
 \def\get#1\get{ ... }
 \expandafter \get \ifodd1 \ifodd3 5\fi \fi \get
 \end{verbatim}
-这会得到
+This gives
 \begin{verbatim}
 #1<- \ifodd3 5\fi \fi
 \end{verbatim}
-而
+and
 \begin{verbatim}
 \expandafter \get \ifodd2 \ifodd3 5\fi\fi \get
 \end{verbatim}
-会得到
+gives
 \begin{verbatim}
 #1<-
 \end{verbatim}
-这再次说明，求值条件语句的结果不是最终展开，而是
-\gr{真文本}或 \gr{假文本}展开的开始，
-具体取决于测试结果。
+This illustrates again that the result of evaluating a 
+conditional is not the final expansion, but the start
+of the expansion of the \gr{true text} or \gr{false text},
+depending on the outcome of the test.
 
 %A detail should be noted: with \cs{expandafter}
 %it is possible that the \verb.\else. is encountered
@@ -1262,41 +1180,45 @@ plain 格式定义了一个（外部）宏 \csidx{newif}，
 %The conclusion must be that the \gram{false text} is
 %skipped as soon as it has been located, even if this is at a time
 %when the \gram{true text} has not been expanded completely.
-需要注意一个细节：使用 \cs{expandafter}，
-有可能在 \gram{真文本}完全展开之前
-就遇到 \verb.\else.。
-这引发了关于展开和跳过精确时机的问题。
-在示例
+A detail should be noted: with \cs{expandafter}
+it is possible that the \verb.\else. is encountered
+before the \gram{true text} has been expanded completely.
+This raises the question as to the exact timing of expansion
+and skipping.
+In the example
 \begin{verbatim}
 \def\hello{\message{Hello!}}
 \ifnum1>0 \expandafter \hello \else \message{goodbye} \bye
 \end{verbatim}
-中，由于缺少 \verb.\fi. 引起的错误消息被给出，
-而 \verb.\hello. 从未被展开。
-结论必须是，\gram{假文本}一旦被定位就立即被跳过，
-即使这发生在 \gram{真文本}尚未完全展开的时候。
+the error message caused by the missing \verb.\fi. is given
+without \verb.\hello. ever having been expanded.
+The conclusion must be that the \gram{false text} is
+skipped as soon as it has been located, even if this is at a time
+when the \gram{true text} has not been expanded completely.
 
 %%\spoint Incorrect matching
 %\subsection{Incorrect matching}
 %\spoint Incorrect matching
-\subsection{不正确的匹配}
+\subsection{Incorrect matching}
 
-%\TeX\ 的 \verb.\if.、\verb.\else. 和 \verb.\fi. 匹配
-%很容易出错。例如，\TeXbook\ 警告你不要在
-%条件语句内部写
+%\TeX's matching of \verb.\if., \verb.\else., and \verb.\fi.
+%is easily upset. For instance, \TeXbook\ warns you that
+%you should not say
 %\begin{verbatim}
 % \let\ifabc=\iftrue
 %\end{verbatim}
-%因为如果这段文本被跳过，\TeX\ 会看到
-%至少一个 \verb.\if. 需要匹配。
-\TeX\ 的 \verb.\if.、\verb.\else. 和 \verb.\fi. 匹配
-很容易出错。例如，\TeXbook\ 警告你不要在
-条件语句内部写
+%inside a 
+%conditional, because if this text is skipped \TeX\ sees
+%at least one \verb.\if. to be matched. 
+\TeX's matching of \verb.\if., \verb.\else., and \verb.\fi.
+is easily upset. For instance, \TeXbook\ warns you that
+you should not say
 \begin{verbatim}
  \let\ifabc=\iftrue
 \end{verbatim}
-因为如果这段文本被跳过，\TeX\ 会看到
-至少一个 \verb.\if. 需要匹配。
+inside a 
+conditional, because if this text is skipped \TeX\ sees
+at least one \verb.\if. to be matched. 
 
 %The reason for this is that when \TeX\ is skipping
 %it recognizes all \cs{if...}, \cs{or}, \cs{else}, and \cs{fi}
@@ -1306,23 +1228,14 @@ plain 格式定义了一个（外部）宏 \csidx{newif}，
 %the opening of a conditional, and, if the current meaning
 %of \cs{ifabc} was for instance \cs{iffalse}, it will also
 %be considered as the opening of a conditional statement.
-%原因在于，当 \TeX\ 跳过时，
-%它会识别所有 \cs{if...}、\cs{or}、\cs{else} 和 \cs{fi}
-%记号，以及所有通过 \cs{let} 声明为这些记号同义词的内容。
-%在 \verb>\let\ifabc=\iftrue> 中，
-%\TeX\ 因此至少会将 \cs{iftrue} 视为
-%条件语句的开头，并且，如果 \cs{ifabc} 的当前含义
-%例如是 \cs{iffalse}，它也将
-%被视为条件语句的开头。
-原因在于，当 \TeX\ 跳过时，
-它会识别所有 \cs{if...}、\cs{or}、\cs{else} 和 \cs{fi}
-记号，以及所有通过 \cs{let} 声明为
-此类记号同义词的内容。
-在 \verb>\let\ifabc=\iftrue> 中，
-\TeX\ 因此至少会将 \cs{iftrue} 视为
-条件语句的开头，并且，如果 \cs{ifabc} 的当前含义
-例如是 \cs{iffalse}，它也将
-被视为条件语句的开头。
+The reason for this is that when \TeX\ is skipping
+it recognizes all \cs{if...}, \cs{or}, \cs{else}, and \cs{fi}
+tokens, and everything that has been declared a synonym of
+such a token by \cs{let}. In \verb>\let\ifabc=\iftrue>
+\TeX\ will therefore at least see the \cs{iftrue} as
+the opening of a conditional, and, if the current meaning
+of \cs{ifabc} was for instance \cs{iffalse}, it will also
+be considered as the opening of a conditional statement.
 
 %As another example, if
 %\begin{verbatim}
@@ -1331,32 +1244,22 @@ plain 格式定义了一个（外部）宏 \csidx{newif}，
 %is skipped as part of conditional text,
 %the \verb.\fi. will unintentionally close the
 %outer conditional.
-%作为另一个例子，如果
-%\begin{verbatim}
-% \csname if\sometest\endcsname \someaction \fi
-%\end{verbatim}
-%作为条件文本的一部分被跳过，
-%\verb.\fi. 将无意中关闭
-%外部条件语句。
-作为另一个例子，如果
+As another example, if
 \begin{verbatim}
  \csname if\sometest\endcsname \someaction \fi
 \end{verbatim}
-作为条件文本的一部分被跳过，
-\verb.\fi. 将无意中关闭
-外部条件语句。
+is skipped as part of conditional text,
+the \verb.\fi. will unintentionally close the
+outer conditional.
 
 %It does not help to enclose such potentially dangerous
 %constructs inside a group, because grouping is independent of
 %conditional structure. Burying such commands inside macros is
 %the safest approach.
-%将这种潜在危险的结构封闭在一个编组中没有帮助，因为编组独立于
-%条件结构。将此类命令隐藏在宏内部是
-%最安全的方法。
-将这种潜在危险的结构封闭在一个编组中没有帮助，
-因为编组独立于条件结构。
-将此类命令隐藏在宏内部是
-最安全的方法。
+It does not help to enclose such potentially dangerous
+constructs inside a group, because grouping is independent of
+conditional structure. Burying such commands inside macros is
+the safest approach.
 
 %Sometimes another solution is possible, however.
 %The \cs{loop} macro of plain \TeX\ (see page~\pageref{loop:ex})
@@ -1377,46 +1280,30 @@ plain 格式定义了一个（外部）宏 \csidx{newif}，
 %the \cs{repeat} balances the \cs{if...} that terminates
 %the loop, and it becomes possible to have loops in
 %skipped conditional text.
-%然而，有时另一种解决方案是可能的。
-%plain \TeX\ 的 \cs{loop} 宏（见第 \pageref{loop:ex} 页）
-%使用方式如下：
-%\begin{verbatim}
-%\loop ... \if ... \repeat
-%\end{verbatim}
-%其中 \cs{repeat} 并非实际可执行的命令，
-%而仅仅是一个定界符：
-%\begin{verbatim}
-%\def\loop#1\repeat{ ... }
-%\end{verbatim}
-%因此，通过声明
-%\begin{verbatim}
-%\let\repeat\fi
-%\end{verbatim}
-%\cs{repeat} 平衡了终止循环的 \cs{if...}，
-%并且可以在跳过的条件文本中包含循环。
-然而，有时另一种解决方案是可能的。
-plain \TeX\ 的 \cs{loop} 宏（见第 \pageref{loop:ex} 页）
-使用方式如下：
+Sometimes another solution is possible, however.
+The \cs{loop} macro of plain \TeX\ (see page~\pageref{loop:ex})
+is used as
 \begin{verbatim}
 \loop ... \if ... \repeat
 \end{verbatim}
-其中 \cs{repeat} 并非实际可执行的
-命令，而仅仅是一个定界符：
+where the \cs{repeat} is not an actually executable
+command, but is merely a delimiter:
 \begin{verbatim}
 \def\loop#1\repeat{ ... }
 \end{verbatim}
-因此，
-通过声明
+Therefore,
+by declaring
 \begin{verbatim}
 \let\repeat\fi
 \end{verbatim}
-\cs{repeat} 平衡了终止循环的 \cs{if...}，
-并且可以在跳过的条件文本中包含循环。
+the \cs{repeat} balances the \cs{if...} that terminates
+the loop, and it becomes possible to have loops in
+skipped conditional text.
 
 %%\spoint Conditionals and grouping
 %\subsection{Conditionals and grouping}
 %\spoint Conditionals and grouping
-\subsection{条件语句与编组}
+\subsection{Conditionals and grouping}
 
 %It has already been mentioned above that group nesting in \TeX\
 %is independent of conditional nesting.
@@ -1425,18 +1312,13 @@ plain \TeX\ 的 \cs{loop} 宏（见第 \pageref{loop:ex} 页）
 %unexpandable tokens that require no special treatment.
 %Grouping is only performed in the later stage of execution
 %processing.
-%上面已经提到，\TeX\ 中的编组嵌套
-%独立于条件语句嵌套。
-%原因在于条件语句由 \TeX\ 的
-%展开部分处理；在该阶段，花括号只是
-%不需要特殊处理的不可展开记号。
-%编组仅在执行处理的后期阶段执行。
-上面已经提到，\TeX\ 中的编组嵌套
-独立于条件语句嵌套。
-原因在于条件语句由 \TeX\ 的
-展开部分处理；在该阶段，花括号只是
-不需要特殊处理的不可展开记号。
-编组仅在执行处理的后期阶段执行。
+It has already been mentioned above that group nesting in \TeX\
+is independent of conditional nesting.
+The reason for this is that conditionals are handled by the
+expansion part of \TeX; in that stage braces are just
+unexpandable tokens that require no special treatment.
+Grouping is only performed in the later stage of execution
+processing.
 
 %An example of this independence is now given.
 %One may write a macro that yields part of
@@ -1451,35 +1333,24 @@ plain \TeX\ 的 \cs{loop} 宏（见第 \pageref{loop:ex} 页）
 %\def\rightbrace{\iffalse{\else}\fi}
 %\end{verbatim}
 %Note that braces in these definitions are properly nested.
-%现在给出这种独立性的一个例子。
-%可以编写一个宏，生成条件语句的一部分：
-%\begin{verbatim}
-%\def\elsepart{\else \dosomething \fi}
-%\end{verbatim}
-%反过来，以下宏
-%分别生成一个左花括号和一个右花括号：
-%\begin{verbatim}
-%\def\leftbrace{\iftrue{\else}\fi}
-%\def\rightbrace{\iffalse{\else}\fi}
-%\end{verbatim}
-%请注意，这些定义中的花括号是正确嵌套的。
-现在给出这种独立性的一个例子。
-可以编写一个宏，生成条件语句的一部分：
+An example of this independence is now given.
+One may write a macro that yields part of
+a conditional:
 \begin{verbatim}
 \def\elsepart{\else \dosomething \fi}
 \end{verbatim}
-反过来，以下宏
-分别生成一个左花括号和一个右花括号：
+The other way around, the following macros
+yield a left brace and a right brace respectively:
 \begin{verbatim}
 \def\leftbrace{\iftrue{\else}\fi}
 \def\rightbrace{\iffalse{\else}\fi}
 \end{verbatim}
-请注意，这些定义中的花括号是正确嵌套的。
+Note that braces in these definitions are properly nested.
 
 %%\spoint A trick
 %\subsection{A trick}
 %\spoint A trick
-\subsection{一个技巧}
+\subsection{A trick}
 
 %In some contexts it may be hard to get rid of
 %\cs{else} or \cs{fi} tokens in a proper
@@ -1493,30 +1364,18 @@ plain \TeX\ 的 \cs{loop} 宏（见第 \pageref{loop:ex} 页）
 %\begin{disp}\verb>\if... \hop >\gr{lots of tokens}\verb>\fi>\end{disp}
 %will place the tokens outside the conditional.
 %This is for instance used in~\cite{E2}.
-%在某些上下文中，可能很难以适当的方式摆脱
-%\cs{else} 或 \cs{fi} 记号。
-%上面使用 \cs{expandafter} 的方法
-%仅在涉及有限数量的记号时才有效。
-%在其他情况下，以下技巧可能提供一种解决方案：
-%\begin{verbatim}
-%\def\hop#1\fi{\fi #1}
-%\end{verbatim}
-%将其用作
-%\begin{disp}\verb>\if... \hop >\gr{大量记号}\verb>\fi>\end{disp}
-%将把记号放在条件语句之外。
-%例如，这在 \cite{E2} 中有使用。
-在某些上下文中，可能很难以适当的
-方式摆脱 \cs{else} 或 \cs{fi} 记号。
-上面使用 \cs{expandafter} 的方法
-仅在涉及有限数量的记号时才有效。
-在其他情况下，以下技巧可能提供一种解决方案：
+In some contexts it may be hard to get rid of
+\cs{else} or \cs{fi} tokens in a proper
+manner. The above approach with \cs{expandafter}
+works only if there is a limited number of tokens involved.
+In other cases the following trick may provide a way out:
 \begin{verbatim}
 \def\hop#1\fi{\fi #1}
 \end{verbatim}
-将其用作
-\begin{disp}\verb>\if... \hop >\gr{大量记号}\verb>\fi>\end{disp}
-将把记号放在条件语句之外。
-例如，这在 \cite{E2} 中有使用。
+Using this as
+\begin{disp}\verb>\if... \hop >\gr{lots of tokens}\verb>\fi>\end{disp}
+will place the tokens outside the conditional.
+This is for instance used in~\cite{E2}.
 
 %As a further example of this sort of trick,
 %consider the problem (suggested to me and solved by
@@ -1525,19 +1384,13 @@ plain \TeX\ 的 \cs{loop} 宏（见第 \pageref{loop:ex} 页）
 %such that the arguments corresponding to \verb-#3- or
 %\verb-#4- result, depending on whether \verb-#1- is
 %less than \verb-#2- or not. 
-%作为这种技巧的另一个例子，
-%考虑实现一个条件语句 \verb-\ifLessThan#1#2#3#4- 的问题
-%（由 Alan Jeffrey 提出并解决），
-%使得结果是对应于 \verb-#3- 或
-%\verb-#4- 的参量，取决于 \verb-#1- 是否
-%小于 \verb-#2-。
-作为这种技巧的另一个例子，
-考虑实现一个条件语句
-\verb-\ifLessThan#1#2#3#4- 的问题
-（由 Alan Jeffrey 提出并解决），
-使得结果是对应于 \verb-#3- 或
-\verb-#4- 的参量，取决于 \verb-#1- 是否
-小于 \verb-#2-。
+As a further example of this sort of trick,
+consider the problem (suggested to me and solved by
+Alan Jeffrey) of implementing a conditional 
+\verb-\ifLessThan#1#2#3#4-
+such that the arguments corresponding to \verb-#3- or
+\verb-#4- result, depending on whether \verb-#1- is
+less than \verb-#2- or not. 
 
 %The problem here is how to get rid of the \cs{else} and the~\cs{fi}.
 %The \ldash or at least, one \rdash solution is to scoop them up
@@ -1551,33 +1404,23 @@ plain \TeX\ 的 \cs{loop} 宏（见第 \pageref{loop:ex} 页）
 %(the things to be tested); however, its
 %result is a macro that
 %chooses between the next two arguments.
-%这里的问题是如何摆脱 \cs{else} 和 \cs{fi}。
-%一个 \ldash 或至少一个 \rdash 解决方案是
-%将它们作为宏的定界符：
-%\begin{verbatim}
-%\def\ifLessThan#1#2{\ifnum#1<#2\relax\taketrue \else \takefalse \fi}
-%\def\takefalse\fi#1#2{\fi#2}
-%\def\taketrue\else\takefalse\fi#1#2{\fi#1}
-%\end{verbatim}
-%请注意，\cs{ifLessThan} 只有两个参数
-%（要测试的内容）；然而，它的
-%结果是一个宏，它在接下来的两个参量之间进行选择。
-这里的问题是如何摆脱 \cs{else} 和 \cs{fi}。
-一个 \ldash 或至少一个 \rdash 解决方案是
-将它们作为宏的定界符：
+The problem here is how to get rid of the \cs{else} and the~\cs{fi}.
+The \ldash or at least, one \rdash solution is to scoop them up
+as delimiters for macros:
 \begin{verbatim}
 \def\ifLessThan#1#2{\ifnum#1<#2\relax\taketrue \else \takefalse \fi}
 \def\takefalse\fi#1#2{\fi#2}
 \def\taketrue\else\takefalse\fi#1#2{\fi#1}
 \end{verbatim}
-请注意，\cs{ifLessThan} 只有两个参数
-（要测试的内容）；然而，它的
-结果是一个宏，它在接下来的两个参量之间进行选择。
+Note that \cs{ifLessThan} has only two parameters
+(the things to be tested); however, its
+result is a macro that
+chooses between the next two arguments.
 
 %%\spoint More examples of expansion in conditionals
 %\subsection{More examples of expansion in conditionals}
 %\spoint More examples of expansion in conditionals
-\subsection{条件语句中展开的更多例子}
+\subsection{More examples of expansion in conditionals}
 
 %Above, the macro \cs{ifEqString} was given
 %\alt
@@ -1594,36 +1437,21 @@ plain \TeX\ 的 \cs{loop} 宏（见第 \pageref{loop:ex} 页）
 %The basic principle of this solution is to compare the strings
 %one character at a time. Macro delimiting by \cs{fi} is used;
 %this was explained above.
-%上面给出了宏 \cs{ifEqString}
-%\alt
-%它比较两个字符串：
-%\howto 比较两个字符串\par
-%\begin{verbatim}
-%\def\ifEqString#1#2%
-%   {\def\csa{#1}\def\csb{#2}\ifx\csa\csb }
-%\end{verbatim}
-%然而，这个宏依赖于 \cs{def}，它不是一个
-%可展开的命令。如果我们需要一个字符串测试器，它能够
-%在例如 \cs{edef} 内部工作，我们需要一些
-%更多的巧妙之处（这个解决方案取自 \cite{E2}）。
-%这个解决方案的基本原理是逐个字符地比较字符串。
-%使用了由 \cs{fi} 进行的宏定界；
-%这在上面已经解释过。
-上面给出了宏 \cs{ifEqString}
+Above, the macro \cs{ifEqString} was given
 \alt
-它比较两个字符串：
-\howto 比较两个字符串\par
+that compares two strings:
+\howto Compare two strings\par
 \begin{verbatim}
 \def\ifEqString#1#2%
    {\def\csa{#1}\def\csb{#2}\ifx\csa\csb }
 \end{verbatim}
-然而，这个宏依赖于 \cs{def}，它不是一个
-可展开的命令。如果我们需要一个字符串测试器，它能够
-在例如 \cs{edef} 内部工作，我们需要一些
-更多的巧妙之处（这个解决方案取自 \cite{E2}）。
-这个解决方案的基本原理是逐个字符地比较字符串。
-使用了由 \cs{fi} 进行的宏定界；
-这在上面已经解释过。
+However, this macro relies on \cs{def},  which is not an
+expandable command. If we need a string tester that will
+work, for instance, inside an  \cs{edef}, we need some
+more ingenuity (this solution was taken from~\cite{E2}).
+The basic principle of this solution is to compare the strings
+one character at a time. Macro delimiting by \cs{fi} is used;
+this was explained above.
 
 %First of all, the \cs{ifEqString} call is replaced by a
 %sequence \verb>\ifAllChars ...\Are ...\TheSame>, and both
@@ -1656,20 +1484,20 @@ plain \TeX\ 的 \cs{loop} 宏（见第 \pageref{loop:ex} 页）
 %\def\say#1#2\fi\fi
 %   {\fi\fi\csname if#1\endcsname}
 %\end{verbatim}
-首先，\cs{ifEqString} 调用被替换为
-序列 \verb>\ifAllChars ...\Are ...\TheSame>，并且两个
-字符串都由美元符号定界，该符号不应
-出现在字符串本身中。
+First of all, the \cs{ifEqString} call is replaced by a
+sequence \verb>\ifAllChars ...\Are ...\TheSame>, and both
+strings are delimited by a dollar sign, which is not supposed
+to appear in the strings themselves.
 \begin{verbatim}
 \def\ifEqString
     #1#2{\ifAllChars#1$\Are#2$\TheSame}
 \end{verbatim}
-字符相等性测试首先确定
-任一字符串是否已结束。如果两者都已结束，则原始
-字符串相等；如果只有一个结束，则它们的长度不相等，
-因此不相等。如果两个字符串都未结束，我们测试
-第一个字符是否相等，如果相等，我们进行递归
-调用以测试字符串的其余部分。
+The test for equality of characters first determines
+whether either string has ended. If both have ended, the original
+strings were equal; if only one has ended, they were of unequal
+length, hence unequal. If neither string has ended, we test
+whether the first characters are equal, and if so, we make a recursive
+call to test the remainder of the string.
 \begin{verbatim}
 \def\ifAllChars#1#2\Are#3#4\TheSame
    {\if#1$\if#3$\say{true}%
@@ -1679,10 +1507,10 @@ plain \TeX\ 的 \cs{loop} 宏（见第 \pageref{loop:ex} 页）
 \def\ifRest#1\TheSame#2\else#3\fi\fi
    {\fi\fi \ifAllChars#1\Are#2\TheSame}
 \end{verbatim}
-\cs{say} 宏应该为
-\verb>\say{true}> 提供 \cs{iftrue}，为 \verb>\say{false}> 提供 \cs{iffalse}。
-注意到对该宏的所有调用都发生在两层条件语句深处，
-我们使用上面解释的“跳跃”技巧如下。
+The \cs{say} macro is supposed to  give \cs{iftrue} for
+\verb>\say{true}> and \cs{iffalse} for \verb>\say{false}>.
+Observing that all  calls to this macro occur two conditionals deep,
+we use the `hop' trick explained above as follows.
 \begin{verbatim}
 \def\say#1#2\fi\fi
    {\fi\fi\csname if#1\endcsname}
@@ -1712,9 +1540,10 @@ plain \TeX\ 的 \cs{loop} 宏（见第 \pageref{loop:ex} 页）
 %\end{verbatim}
 %In this macro a slightly
 %different implementation of \cs{say} is used.
-类似于上面的例子，让我们编写一个宏
-来测试两个字符串的词典（“字典”）顺序：
-\howto 词典式比较两个字符串\par
+Similar to the above example, let us write a macro
+that will test lexicographic (`dictionary') precedence
+of two strings:
+\howto Compare two strings lexicographically\par
 \begin{verbatim}
 \let\ex=\expandafter
 \def\ifbefore
@@ -1733,8 +1562,8 @@ plain \TeX\ 的 \cs{loop} 宏（见第 \pageref{loop:ex} 页）
     \ifallchars#1\are#2\before}
 \def\say#1{\csname if#1\endcsname}
 \end{verbatim}
-在这个宏中，使用了略有
-不同的 \cs{say} 实现。
+In this macro a slightly
+different implementation of \cs{say} is used.
 
 %Simplified, a call to \cs{ifbefore} will eventually lead to a situation
 %that looks (in the `true' case) like
@@ -1761,8 +1590,8 @@ plain \TeX\ 的 \cs{loop} 宏（见第 \pageref{loop:ex} 页）
 %\end{verbatim}
 %as the \cs{else} is seen while \TeX\ is still processing
 %\verb>\csname...\endcsname>.
-简化来说，对 \cs{ifbefore} 的调用最终会导致一种情况，
-在“真”的情况下看起来像：
+Simplified, a call to \cs{ifbefore} will eventually lead to a situation
+that looks (in the `true' case) like
 \begin{verbatim}
 \ifbefore{...}{...}
        \if... %% some comparison that turns out true
@@ -1773,18 +1602,19 @@ plain \TeX\ 的 \cs{loop} 宏（见第 \pageref{loop:ex} 页）
    ... %% commands for the `not-before' case
 \fi
 \end{verbatim}
-当比较结果为真时，\TeX\ 将开始处理
-\gr{真文本}，并记住一旦看到 \cs{else} 记号，就移除任何
-\verb>\else ... \fi> 部分。
-因此，序列
+When the comparison has turned out true, \TeX\ will start processing
+the \gr{true text}, and make a mental note to remove any
+\verb>\else ... \fi> part once an \cs{else} token is seen.
+Thus, the sequence
 \begin{verbatim}
 \csname iftrue\expandafter\endcsname \else ... \fi
 \end{verbatim}
-被替换为
+is replaced by
 \begin{verbatim}
  \csname iftrue\endcsname
 \end{verbatim}
-因为在 \TeX\ 仍在处理 \verb>\csname...\endcsname> 时，\cs{else} 被看到了。
+as the \cs{else} is seen while \TeX\ is still processing
+\verb>\csname...\endcsname>.
 
 %Calls to \cs{say} occur inside nested conditionals, so
 %the number of \cs{expandafter} commands necessary may be 
@@ -1792,17 +1622,12 @@ plain \TeX\ 的 \cs{loop} 宏（见第 \pageref{loop:ex} 页）
 %larger than~1: for level two it is~3, for level three
 %it is~7, and for level~4 it is 15. Slightly more compact
 %implementations of this macro do exist.
-%对 \cs{say} 的调用发生在嵌套条件语句内部，因此
-%所需的 \cs{expandafter} 命令数量可能
-%\alt
-%大于 1：对于第二层是 3，对于第三层是 7，对于第四层是 15。
-%这个宏存在稍微更紧凑的实现。
-对 \cs{say} 的调用发生在嵌套条件语句内部，因此
-所需的 \cs{expandafter} 命令数量可能
+Calls to \cs{say} occur inside nested conditionals, so
+the number of \cs{expandafter} commands necessary may be 
 \alt
-大于 1：对于第二层是 3，对于第三层
-是 7，对于第四层是 15。这个宏存在稍微更紧凑的
-实现。
+larger than~1: for level two it is~3, for level three
+it is~7, and for level~4 it is 15. Slightly more compact
+implementations of this macro do exist.
 
 %\endofchapter
 %%%%% end of input file [ifelsefi]

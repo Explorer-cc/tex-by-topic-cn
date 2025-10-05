@@ -7,16 +7,18 @@
 \begin{document}
 
 %\chapter{\TeX\ and the Outside World}\label{TeXcomm}
-\chapter{\TeX\ 与外部世界}\label{TeXcomm}
-\index{TeX!与外部世界|(}
+\chapter{\TeX\ and the Outside World}\label{TeXcomm}
 
 %This
 %chapter treats those commands that bear relevance to
 %\n{dvi} files and formats. It gives some global information
-%about \IniTeX, font and format files, Computer Modern typefaces, and \web.
-本章处理与
-\n{dvi} 文件和格式相关的命令。它提供了一些关于
-\IniTeX、字体和格式文件、Computer Modern 字体以及 \web\ 的全局信息。
+%about \IniTeX, font and format files,
+%Computer Modern typefaces, and \web.
+This
+chapter treats those commands that bear relevance to
+\n{dvi} files and formats. It gives some global information
+about \IniTeX, font and format files,
+Computer Modern typefaces, and \web.
 
 %\label{cschap:dump}\label{cschap:special}\label{cschap:mag}\label{cschap:year}\label{cschap:month}\label{cschap:day}\label{cschap:time}\label{cschap:fmtname}\label{cschap:fmtversion}
 %\begin{inventory}
@@ -26,48 +28,48 @@
 \label{cschap:dump}\label{cschap:special}\label{cschap:mag}\label{cschap:year}\label{cschap:month}\label{cschap:day}\label{cschap:time}\label{cschap:fmtname}\label{cschap:fmtversion}
 \begin{inventory}
 \item [\cs{dump}] 
-      转储格式文件；仅在 \IniTeX\ 中可能，
-      不允许在组内。
+      Dump a format file; possible only in \IniTeX, 
+      not allowed inside a group.
 
 %\item [\cs{special}] 
 %      Write a \gr{balanced text} to the \n{dvi} file.
 \item [\cs{special}] 
-      将 \gr{平衡文本} 写入 \n{dvi} 文件。
+      Write a \gr{balanced text} to the \n{dvi} file.
 
 %\item [\cs{mag}] 
 %      1000 times the magnification of the document.
 \item [\cs{mag}] 
-      文档放大倍数的 1000 倍。
+      1000 times the magnification of the document.
 
 %\item [\cs{year}] 
 %      The year of the current job.
 \item [\cs{year}] 
-      当前作业的年份。
+      The year of the current job.
 
 %\item [\cs{month}] 
 %      The month of the current job.
 \item [\cs{month}] 
-      当前作业的月份。
+      The month of the current job.
 
 %\item [\cs{day}] 
 %      The day of the current job.
 \item [\cs{day}] 
-      当前作业的日期。
+      The day of the current job.
 
 %\item [\cs{time}]
 %      Number of minutes after midnight that the current job started.
 \item [\cs{time}]
-      当前作业开始后，从午夜算起的分钟数。
+      Number of minutes after midnight that the current job started.
 
 %\item [\cs{fmtname}] 
 %      Macro containing the name of the format dumped.
 \item [\cs{fmtname}] 
-      包含转储格式名称的宏。
+      Macro containing the name of the format dumped.
 
 %\item [\cs{fmtversion}] 
 %      Macro containing the version of the format dumped.
 \item [\cs{fmtversion}] 
-      包含转储格式版本的宏。
+      Macro containing the version of the format dumped.
 
 %\end{inventory}
 \end{inventory}
@@ -76,7 +78,7 @@
 %%\point \TeX, \IniTeX, \VirTeX
 %\section{\TeX, \IniTeX, \VirTeX}
 %\point \TeX, \IniTeX, \VirTeX
-\section{\TeX、\IniTeX、\VirTeX}
+\section{\TeX, \IniTeX, \VirTeX}
 
 %In the terminology established in {\italic \TeX: the Program},
 %\cite{Knuth:TeXprogram},
@@ -91,21 +93,24 @@
 %some operating systems),
 %and call the `virgin \TeX' simply \TeX.
 %This manual also follows that convention.
-在 {\italic \TeX: the Program} 中建立的术语中，
-\cite{Knuth:TeXprogram}，
+In the terminology established in {\italic \TeX: the Program},
+\cite{Knuth:TeXprogram},
 \thecstoidx TeX\par\thecstoidx IniTeX\par\thecstoidx VirTeX\par
-\TeX\ 程序有三种类型。
-\IniTeX\ 是一个可以生成格式的 \TeX\ 版本；
-\VirTeX\ 是一个没有预加载格式的生产版本，
-而 \TeX\ 是一个预加载了（plain）格式的生产版本。不幸的是，这个术语通常不被遵守。许多系统不使用预加载
-格式（在某些操作系统上制作它们的过程可能不可能），
-并简单地将“原始 \TeX”称为 \TeX。
-本手册也遵循该约定。
+\TeX\ programs come in three flavours.
+\IniTeX\ is a version of \TeX\ that can generate formats;
+\VirTeX\ is a production version without preloaded format,
+and \TeX\ is a production version with 
+preloaded (plain) format. Unfortunately, this terminology is
+not adhered to in general. A~lot of systems do not use preloaded
+formats (the procedure for making them may be impossible on
+some operating systems),
+and call the `virgin \TeX' simply \TeX.
+This manual also follows that convention.
 
 %%\spoint Formats: loading
 %\subsection{Formats: loading}
 %\spoint Formats: loading
-\subsection{格式：加载}
+\subsection{Formats: loading}
 
 %A \indexterm{format file}
 %(usually with extension~\n{.fmt})
@@ -114,12 +119,13 @@
 %would be needed for
 %loading the font information and the macros that
 %constitute the format.
-一个 \indexterm{格式文件}
-（通常带有扩展名 \n{.fmt}）
-是 \TeX\ 内部结构的紧凑转储。
-加载格式文件所需的时间比
-加载构成格式的字体信息和宏所需的
-时间要短得多。
+A \indexterm{format file}
+(usually with extension~\n{.fmt})
+is a compact dump of \TeX's internal structures.
+Loading a format file takes a considerably shorter time than
+would be needed for
+loading the font information and the macros that
+constitute the format.
 
 %Both \TeX\ and \IniTeX\ can load a format; the user specifies
 %this by putting the name on the command line 
@@ -135,30 +141,32 @@
 %preceded by an ampersand (for UNIX, this should be \verb>\&> on
 %the command line). An input file name can follow the
 %format name in both places.
-\TeX\ 和 \IniTeX\ 都可以加载格式；用户通过将名称放在命令行上指定此操作
+Both \TeX\ and \IniTeX\ can load a format; the user specifies
+this by putting the name on the command line 
 \begin{verbatim}
 % tex &plain 
 \end{verbatim}
-或在 \n{**} 提示符下
+or at the \n{**} prompt
 \begin{verbatim}
 % tex
 This is TeX. Version ....
 ** &plain 
 \end{verbatim}
-前面加上一个“\&”号(ampersand)（对于 UNIX，这在命令行上应该是 \verb>\&>）。输入文件名可以在这两个位置跟在
-格式名称后面。
+preceded by an ampersand (for UNIX, this should be \verb>\&> on
+the command line). An input file name can follow the
+format name in both places.
 
 %\IniTeX\ does not need a format,
 %but if no format is specified for (Vir)\TeX, it will try to
 %load the plain format, and halt if that cannot be found.
-\IniTeX\ 不需要格式，
-但如果未为 (Vir)\TeX\ 指定格式，它将尝试
-加载 plain 格式，如果找不到则停止。
+\IniTeX\ does not need a format,
+but if no format is specified for (Vir)\TeX, it will try to
+load the plain format, and halt if that cannot be found.
 
 %%\spoint Formats: dumping
 %\subsection{Formats: dumping}
 %\spoint Formats: dumping
-\subsection{格式：转储}
+\subsection{Formats: dumping}
 
 %\IniTeX\ is the only version of \TeX\ 
 %that can dump a format, since it is
@@ -170,13 +178,16 @@ This is TeX. Version ....
 %\cs{patterns}, which
 %is needed to specify a list of hyphenation
 %patterns.
-\IniTeX\ 是唯一可以转储格式的 \TeX\ 版本，因为它
-是唯一具有命令 \csidx{dump} 的 \TeX\ 版本，
-该命令导致内部结构
-以格式形式转储。
-它也是唯一具有命令 \cs{patterns} 的 \TeX\ 版本，
-该命令用于指定连字符
-模式列表。
+\IniTeX\ is the only version of \TeX\ 
+that can dump a format, since it is
+the only version of \TeX\ that has
+the command~\csidx{dump},
+which causes the internal structures
+to be dumped as a format.
+It is also the only version of \TeX\ that has the command
+\cs{patterns}, which
+is needed to specify a list of hyphenation
+patterns.
 
 %Dumping is not allowed inside a group, that is
 %\begin{verbatim}
@@ -187,14 +198,15 @@ This is TeX. Version ....
 %After the \cs{dump} command \TeX\ gives an elaborate listing of
 %its internal state, and of the font names associated with
 %fonts that have been loaded and ends the job.
-不允许在组内转储，即
+Dumping is not allowed inside a group, that is
 \begin{verbatim}
 { ... \dump }
 \end{verbatim}
-是不允许的。此限制
-可防止 \TeX\ 的保存栈出现问题。
-在 \cs{dump} 命令之后，\TeX\ 会详细列出
-其内部状态以及与已加载字体关联的字体名称，然后结束作业。
+is not allowed. This restriction
+prevents difficulties with \TeX's save stack.
+After the \cs{dump} command \TeX\ gives an elaborate listing of
+its internal state, and of the font names associated with
+fonts that have been loaded and ends the job.
 
 %An interesting possibility arises from the fact that
 %\IniTeX\ can both load and dump a format.
@@ -207,20 +219,22 @@ This is TeX. Version ....
 %\end{verbatim}
 %and get a format file \n{superplain.fmt} that
 %has all of plain, and all of your macros.
-一个有趣的可能性源于 \IniTeX\ 既能加载也能转储格式的事实。
-假设您编写了一组基于 plain \TeX\ 构建的宏，命名为 \n{superplain.tex}。
-那么您可以调用
+An interesting possibility arises from the fact that
+\IniTeX\ can both load and dump a format.
+Suppose you have written a set of macros that build
+on top of plain \TeX, \n{superplain.tex}.
+You could then call
 \begin{verbatim}
 % initex &plain superplain
 *\dump
 \end{verbatim}
-并获得一个格式文件 \n{superplain.fmt}，其中
-包含所有 plain \TeX\ 和您的所有宏。
+and get a format file \n{superplain.fmt} that
+has all of plain, and all of your macros.
 
 %%\spoint Formats: preloading
 %\subsection{Formats: preloading}
 %\spoint Formats: preloading
-\subsection{格式：预加载}
+\subsection{Formats: preloading}
 
 %On some systems it is possible to interrupt a running program,
 %and save its `core image' such that this can be started as
@@ -236,33 +250,34 @@ This is TeX. Version ....
 %this procedure made sense.
 %Nowadays, it does not seem so necessary.
 %Besides, dumping a core image may not always be possible.
-在某些系统上，可以中断正在运行的程序，
-并保存其“核心映像”，以便可以将其作为
-独立程序启动。
-由加载格式后中断的 \TeX\ 程序的
-核心映像制作的可执行文件称为预加载格式的 \TeX\ 程序。
-预加载格式背后的思想是，
-在 \TeX\ 加载格式后中断它，并使
-该程序可供用户使用，
-可以在每次运行中节省加载格式的时间。
-在计算机速度相当慢的旧时代，
-这种做法很有意义。
-如今，它似乎不再那么必要。
-此外，转储核心映像可能并非总是可行。
+On some systems it is possible to interrupt a running program,
+and save its `core image' such that this can be started as
+an independent program. 
+The executable made from the
+core image of a \TeX\ program interrupted after it has loaded 
+a format is called a \TeX\ program with preloaded format.
+The idea behind preloaded formats is
+that interrupting \TeX\ after it has loaded a format, and making
+this program available to the user, 
+saves in each run the time for loading the format.
+In the good old days when computers were quite a bit slower
+this procedure made sense.
+Nowadays, it does not seem so necessary.
+Besides, dumping a core image may not always be possible.
 
 %%\spoint The knowledge of \IniTeX
 %\subsection{The knowledge of \IniTeX}
 %\spoint The knowledge of \IniTeX
-\subsection{\IniTeX\ 的知识}
+\subsection{The knowledge of \IniTeX}
 
 %If no format has been loaded, \IniTeX\ knows very little.
 %For instance, it has no open/close group characters.
 %However, it can not be completely devoid of knowledge
 %lest there be no way to define anything.
-如果没有加载格式，\IniTeX\ 知道的很少。
-例如，它没有开/关组字符。
-然而，它不能完全缺乏知识，
-否则将无法定义任何东西。
+If no format has been loaded, \IniTeX\ knows very little.
+For instance, it has no open/close group characters.
+However, it can not be completely devoid of knowledge
+lest there be no way to define anything.
 
 %Here is the extent of its knowledge.
 %\begin{itemize} \mathsurround=1.5pt
@@ -296,43 +311,43 @@ This is TeX. Version ....
 %\item \cs{tolerance=10000}, \cs{mag=1000},
 %      \cs{maxdeadcycles=25}.
 %\end{itemize}
-以下是它所知的范围。
+Here is the extent of its knowledge.
 \begin{itemize} \mathsurround=1.5pt
 %\flushright:no
-\item \verb>\catcode`\\=0>，\verb>\escapechar=`\\>
-      （参见第 \pageref{ini:esc} 页）。
-\item \verb>\catcode`\^^M=5>，\verb>\endlinechar=`\^^M>
-      （参见第 \pageref{ini:eol} 页）。
+\item \verb>\catcode`\\=0>, \verb>\escapechar=`\\>
+      (see page~\pageref{ini:esc}).
+\item \verb>\catcode`\^^M=5>, \verb>\endlinechar=`\^^M>
+      (see page~\pageref{ini:eol}).
 \item \verb>\catcode`\ =10>
-      （参见第 \pageref{ini:sp} 页）。
+      (see page~\pageref{ini:sp}).
 \item \verb>\catcode`\%=14>
-      （参见第 \pageref{ini:comm} 页）。
+      (see page~\pageref{ini:comm}).
 \item \verb>\catcode`\^^?=15>
-      （参见第 \pageref{ini:invalid} 页）。
-\item \cs{catcode}$x$\n{=11} 对于 $x={}$\n{`a..`z,`A..`Z}
-      （参见第 \pageref{ini:let} 页）。
-\item \cs{catcode}$x$\n{=12} 对于所有其他字符代码\nl
-      （参见第 \pageref{ini:other} 页）。
-\item \cs{sfcode}$x$=\n{999} 对于 $x={}$\n{`A..`Z}，
-      \cs{sfcode}$x$\n{=1000} 对于所有其他字符
-      （参见第 \pageref{ini:sf} 页）。
-\item \verb>\lccode`a..`z,`A..`Z=`a..`z>，\verb>\uccode`a..`z,`A..`Z=`A..`Z>，
-      \cs{lccode}$x$\n{=0}，\cs{uccode}$x$\n{=0} 对于所有其他字符
-      （参见第 \pageref{ini:uclc} 页）。
-\item \verb>\delcode`.=0>，\cs{delcode}$x$\n{=-1} 对于所有其他字符
-      （参见第 \pageref{ini:del} 页）。
-\item \cs{mathcode}$x$\n{="!7100}${}+x$ 对于所有小写和大写
-      字母，\cs{mathcode}$x$\n{="!7000}${}+x$ 对于所有数字，
-      \cs{mathcode}$x$\n=$x$ 对于所有其他字符
-      （参见第 \pageref{ini:fam} 页）。
-\item \cs{tolerance=10000}，\cs{mag=1000}，
-      \cs{maxdeadcycles=25}。
+      (see page~\pageref{ini:invalid}).
+\item \cs{catcode}$x$\n{=11} for $x={}$\n{`a..`z,`A..`Z}
+      (see page~\pageref{ini:let}).
+\item \cs{catcode}$x$\n{=12} for all other character codes\nl
+      (see page~\pageref{ini:other}).
+\item \cs{sfcode}$x$=\n{999} for $x={}$\n{`A..`Z},
+      \cs{sfcode}$x$\n{=1000} for all other characters
+      (see page~\pageref{ini:sf}).
+\item \verb>\lccode`a..`z,`A..`Z=`a..`z>, \verb>\uccode`a..`z,`A..`Z=`A..`Z>,
+      \cs{lccode}$x$\n{=0}, \cs{uccode}$x$\n{=0} for all other characters
+      (see page~\pageref{ini:uclc}).
+\item \verb>\delcode`.=0>, \cs{delcode}$x$\n{=-1} for all other characters
+      (see page~\pageref{ini:del}).
+\item \cs{mathcode}$x$\n{="!7100}${}+x$ for all lowercase and uppercase
+      letters, \cs{mathcode}$x$\n{="!7000}${}+x$ for all digits,
+      \cs{mathcode}$x$\n=$x$ for all other characters
+      (see page~\pageref{ini:fam}).
+\item \cs{tolerance=10000}, \cs{mag=1000},
+      \cs{maxdeadcycles=25}.
 \end{itemize}
 
 %%\spoint Memory sizes of \TeX\ and \IniTeX
 %\subsection{Memory sizes of \TeX\ and \IniTeX}
 %\spoint Memory sizes of \TeX\ and \IniTeX
-\subsection{\TeX\ 和 \IniTeX\ 的内存大小}
+\subsection{Memory sizes of \TeX\ and \IniTeX}
 
 %The main memory size of \TeX\ and \IniTeX\ is controlled by
 %four constants in the source code:
@@ -343,21 +358,22 @@ This is TeX. Version ....
 %size of the Ini\TeX\ used to dump the format.
 %Thus versions of \TeX\ and \IniTeX\ have to be adapted
 %to each other in this    respect.
-\TeX\ 和 \IniTeX\ 的主内存大小由
-源代码中的四个常量控制：
-\n{mem\_bot}、\n{mem\_top}、\n{mem\_min} 和 \n{mem\_max}。
-对于 Ini\TeX\ 的内存，\n{mem\_bot${}={}$mem\_min}
-和 \n{mem\_top${}={}$mem\_max}；
-对于 \TeX\ ，\n{mem\_bot} 和 \n{mem\_top} 记录用于转储格式的 Ini\TeX\ 的主内存
-大小。
-因此，\TeX\ 和 \IniTeX\ 的版本必须在这方面相互适应。
+The main memory size of \TeX\ and \IniTeX\ is controlled by
+four constants in the source code:
+\n{mem\_bot}, \n{mem\_top}, \n{mem\_min}, and~\n{mem\_max}.
+For Ini\TeX's memory \n{mem\_bot${}={}$mem\_min} 
+and \n{mem\_top${}={}$mem\_max};
+for \TeX\ \n{mem\_bot} and \n{mem\_top} record the main memory
+size of the Ini\TeX\ used to dump the format.
+Thus versions of \TeX\ and \IniTeX\ have to be adapted
+to each other in this    respect.
 
 %\TeX's own main memory can be bigger than that of the
 %corresponding \IniTeX: in general
 %\n{mem\_min${}\leq{}$mem\_bot} and \n{mem\_top${}\leq{}$mem\_max}.
-\TeX\ 自己的主内存可以大于
-相应的 \IniTeX\ 的内存：通常
-\n{mem\_min${}\leq{}$mem\_bot} 和 \n{mem\_top${}\leq{}$mem\_max}。
+\TeX's own main memory can be bigger than that of the
+corresponding \IniTeX: in general
+\n{mem\_min${}\leq{}$mem\_bot} and \n{mem\_top${}\leq{}$mem\_max}.
 
 %For \IniTeX\ a smaller main memory can suffice, 
 %as this program is typically
@@ -366,24 +382,24 @@ This is TeX. Version ....
 %to be smaller, because \IniTeX\ needs a lot of auxiliary
 %storage for initialization and for building the
 %hyphenation table.
-对于 \IniTeX\ 来说，较小的主内存就足够了，
-因为这个程序通常
-不用于实际排版。
-甚至可能确实需要较小的主内存，
-因为 \IniTeX\ 需要大量的辅助
-存储空间用于初始化和构建
-连字符表。
+For \IniTeX\ a smaller main memory can suffice, 
+as this program is typically
+not meant to do real typesetting. 
+There may even be a real need for the main memory
+to be smaller, because \IniTeX\ needs a lot of auxiliary
+storage for initialization and for building the
+hyphenation table.
 
 
 %%\point More about formats
 %\section{More about formats}
 %\point More about formats
-\section{更多关于格式}
+\section{More about formats}
 
 %%\spoint Compatibility
 %\subsection{Compatibility}
 %\spoint Compatibility
-\subsection{兼容性}
+\subsection{Compatibility}
 
 %\TeX\ has a curious error message: `Fatal format error: I'm stymied',
 %which is given if \TeX\ tries to load a format that was made
@@ -391,45 +407,46 @@ This is TeX. Version ....
 %above about memory sizes, and Chapter~\ref{error} for
 %the hash size (parameters \n{hash\_size} and \n{hash\_prime})
 %and the hyphenation exception dictionary (parameter \n{hyph\_size}).
-\TeX\ 有一个奇怪的错误消息：“Fatal format error: I'm stymied”，
-如果 \TeX\ 尝试加载一个与不兼容的 \IniTeX\ 版本制作的格式，就会给出此消息。
-请参阅上面关于内存大小的要点，以及第 \ref{error} 章中关于
-哈希大小（参数 \n{hash\_size} 和 \n{hash\_prime}）
-和连字符例外字典（参数 \n{hyph\_size}）的内容。
+\TeX\ has a curious error message: `Fatal format error: I'm stymied',
+which is given if \TeX\ tries to load a format that was made
+with an incompatible version of \IniTeX. See the point
+above about memory sizes, and Chapter~\ref{error} for
+the hash size (parameters \n{hash\_size} and \n{hash\_prime})
+and the hyphenation exception dictionary (parameter \n{hyph\_size}).
 
 %%\spoint Preloaded fonts
 %\subsection{Preloaded fonts}
 %\spoint Preloaded fonts
-\subsection{预加载字体}
+\subsection{Preloaded fonts}
 
 %During a run of \TeX\ the only information needed about fonts
 %is the data that is found in the \n{tfm} files (see below).
-%Since a run of \TeX\, especially if the input contains math material,
+%Since a run of \TeX, especially if the input contains math material,
 %can easily access 30--40 fonts, the disk access for
 %all the \n{tfm} files can become significant.
 %Therefore the plain format and \LaTeX\ load these 
 %metrics files in \IniTeX. A~\TeX\ version using such a format
 %does not need to load any \n{tfm} files.
-在 \TeX\ 运行期间，唯一需要的字体信息
-是 \n{tfm} 文件中找到的数据（见下文）。
-由于一次 \TeX\ 运行，特别是如果输入包含数学材料，
-可以轻易访问 30-40 种字体，因此
-所有 \n{tfm} 文件的磁盘访问可能会变得很显著。
-因此，plain 格式和 \LaTeX\ 在 \IniTeX\ 中加载这些
-度量文件。使用此类格式的 \TeX\ 版本
-不需要加载任何 \n{tfm} 文件。
+During a run of \TeX\ the only information needed about fonts
+is the data that is found in the \n{tfm} files (see below).
+Since a run of \TeX, especially if the input contains math material,
+can easily access 30--40 fonts, the disk access for
+all the \n{tfm} files can become significant.
+Therefore the plain format and \LaTeX\ load these 
+metrics files in \IniTeX. A~\TeX\ version using such a format
+does not need to load any \n{tfm} files.
 
 %On the other hand, if a format has the possibility of accessing
 %a range of typefaces, it may be advantageous to have metrics
 %files loaded on demand during the actual run of \TeX.
-另一方面，如果一种格式能够访问
-一系列字体，那么在 \TeX\ 实际运行期间按需加载度量
-文件可能是有利的。
+On the other hand, if a format has the possibility of accessing
+a range of typefaces, it may be advantageous to have metrics
+files loaded on demand during the actual run of \TeX.
 
 %%\spoint The plain format
 %\subsection{The plain format}
 %\spoint The plain format
-\subsection{plain 格式}
+\subsection{The plain format}
 
 %The first format written for \TeX, and the basis for all
 %later ones,
@@ -447,20 +464,21 @@ This is TeX. Version ....
 %simplest applications: \cs{item} and \cs{beginsection}
 %are in this category.
 %\end{itemize}
-为 \TeX\ 编写的第一个格式，也是所有
-后续格式的基础，
-是 plain 格式，在 \TeXbook\ 中有描述。
-它混合了
+The first format written for \TeX, and the basis for all
+later ones,
+is the plain format, described in \TeXbook.
+It is a mixture of 
 \begin{itemize}
-\item 无法或缺的定义和宏，
-例如初始的 \cs{catcode} 赋值、
-所有的数学定界符定义，
-以及 \cs{new...} 宏；
-\item 有用的构造，但 \LaTeX\
-和其他包使用
-不同的实现，例如 tabbing 环境；以及
-\item 对于除最简单应用之外的任何情况都不足的宏：\cs{item} 和 \cs{beginsection}
-属于此类别。
+\item definitions and macros one simply cannot live without
+such as the initial \cs{catcode} assignments, 
+all of the math delimiter definitions,
+and the \cs{new...} macros;
+\item constructs that are useful, but for which \LaTeX\ 
+and other packages use
+a different implementation, such as the tabbing environment; and
+\item some macros that are insufficient for any but the
+simplest applications: \cs{item} and \cs{beginsection}
+are in this category.
 \end{itemize}
 
 %It is the first category which Knuth meant to serve as a
@@ -468,16 +486,16 @@ This is TeX. Version ....
 %can live peacefully together (see  Chapter~\ref{alloc}).
 %This idea is reflected in the fact that the name `plain'
 %is not capitalized: it is the basic set of macros.
-正是第一个类别，Knuth 意图将其作为未来宏包的
-基础，以便它们
-能够和平共存（参见第 \ref{alloc} 章）。
-这个想法体现在“plain”这个名称
-没有大写的事实中：它是基本的宏集。
+It is the first category which Knuth meant to serve as a
+foundation for future macro packages, so that they
+can live peacefully together (see  Chapter~\ref{alloc}).
+This idea is reflected in the fact that the name `plain'
+is not capitalized: it is the basic set of macros.
 
 %%\spoint The \LaTeX\ format
 %\subsection{The \LaTeX\ format}
 %\spoint The \LaTeX\ format
-\subsection{\LaTeX\ 格式}
+\subsection{The \LaTeX\ format}
 
 %The \LaTeX\ format\thecstoidx LaTeX\par,
 %written by  Leslie Lamport of Digital Equipment Corporation
@@ -489,15 +507,16 @@ This is TeX. Version ....
 %a~number of plain macros are not available. Still, it contains
 %large parts of the plain format (even when they overlap with
 %its own constructs).
-\LaTeX\ 格式\thecstoidx LaTeX\par，
-由 Digital Equipment Corporation 的 Leslie Lamport 编写，
-并描述于 \cite{Lamport:LaTeX} 中，
-于 1985 年左右发布。
-\LaTeX\ 格式使用其自己的 \n{plain.tex} 版本
-（称为 \n{lplain.tex}），
-与 plain \TeX\ 不兼容；
-许多 plain 宏不可用。尽管如此，它仍然包含
-plain 格式的大部分内容（即使它们与其自身的构造重叠）。
+The \LaTeX\ format\thecstoidx LaTeX\par,
+written by  Leslie Lamport of Digital Equipment Corporation
+and described in~\cite{Lamport:LaTeX},
+was released around 1985.
+The \LaTeX\ format, using its own version
+of \n{plain.tex} (called \n{lplain.tex}),
+is not compatible with plain \TeX;
+a~number of plain macros are not available. Still, it contains
+large parts of the plain format (even when they overlap with
+its own constructs).
 
 %\LaTeX\ is a powerful format with facilities such as
 %marginal notes, floating objects, cross referencing,
@@ -512,23 +531,24 @@ plain 格式的大部分内容（即使它们与其自身的构造重叠）。
 %written by Leslie Lamport, the layout of which is
 %rather idiosyncratic. See~\cite{BEP} for a successful
 %attempt to replace these styles.
-\LaTeX\ 是一种功能强大的格式，具有诸如
-旁注、浮动对象、交叉引用
-和自动目录生成等功能。
-它的主要缺点是定义实际布局的“样式文件”
-很难编写
-（尽管 \LaTeX\ 正在进行一次重大修订，
-其中将解决这个问题；
-参见 \cite{Frank} 和 \cite{Frank2}）。
-结果是，
-人们主要使用 Leslie Lamport 编写的样式，其布局
-相当独特。参见 \cite{BEP} 以了解成功
-替换这些样式的尝试。
+\LaTeX\ is a powerful format with facilities such as
+marginal notes, floating objects, cross referencing,
+and automatic table of contents generation.
+Its main drawback is that the `style files' which
+define the actual layout are quite hard to write
+(although \LaTeX\ is in the process of a major revision,
+in which this problem will be tackled;
+see \cite{Frank} and~\cite{Frank2}).
+As a result,
+people have had at their disposal mostly the styles
+written by Leslie Lamport, the layout of which is
+rather idiosyncratic. See~\cite{BEP} for a successful
+attempt to replace these styles.
 
 %%\spoint Mathematical formats
 %\subsection{Mathematical formats}
 %\spoint Mathematical formats
-\subsection{数学格式}
+\subsection{Mathematical formats}
 
 %There are two formats with extensive facilities for
 %mathematics typesetting:
@@ -542,22 +562,23 @@ plain 格式的大部分内容（即使它们与其自身的构造重叠）。
 %synthesis of \AmsTeX\ and \LaTeX. Also it includes
 %still more features for mathematics, such as complicated
 %tables and commutative diagrams.
-有两种具有广泛数学排版功能的格式：
+There are two formats with extensive facilities for
+mathematics typesetting:
 \AmsTeX~\cite{Ams}
-（起源于美国数学学会）
-和 \LamsTeX~\cite{Lams}。
-其中第一个包含比 plain \TeX\
-或 \LaTeX\ 更多的数学排版功能，但它缺乏
-诸如自动编号和交叉引用等功能，
-例如在 \LaTeX\ 中可用。那么，\LamsTeX\ 是
-\AmsTeX\ 和 \LaTeX\ 的综合。它还包含
-更多数学功能，例如复杂的
-表格和交换图。
+(which originated at the American Mathematical Society)
+and \LamsTeX~\cite{Lams}.
+The first of these includes more facilities than plain \TeX\
+or \LaTeX\ for typesetting mathematics, but it lacks
+features such as automatic numbering and cross-referencing,
+available in \LaTeX, for instance. \LamsTeX, then, is the
+synthesis of \AmsTeX\ and \LaTeX. Also it includes
+still more features for mathematics, such as complicated
+tables and commutative diagrams.
 
 %%\spoint Other formats
 %\subsection{Other formats}
 %\spoint Other formats
-\subsection{其他格式}
+\subsection{Other formats}
 
 %Other formats than the above exist:
 %for instance, \n{Phyzzx}~\cite{Phyzzx}, \n{TeXsis}~\cite{TeXsis}, 
@@ -568,15 +589,15 @@ plain 格式的大部分内容（即使它们与其自身的构造重叠）。
 %Also, in general they
 %have been written with the intention of being an
 %add-on product to the plain format.
-除上述之外，还存在其他格式：
-例如，\n{Phyzzx}~\cite{Phyzzx}、\n{TeXsis}~\cite{TeXsis}、
-Macro \TeX~\cite{Amy}、\n{eplain}~\cite{Berry}，
-以及 \n{\TeX T1}~\cite{TeXT1}。
-通常，此类格式提供 \LaTeX\ 的功能，但
-力求更容易被用户适配。
-此外，它们通常
-都是以作为 plain 格式的
-附加产品为目的而编写的。
+Other formats than the above exist:
+for instance, \n{Phyzzx}~\cite{Phyzzx}, \n{TeXsis}~\cite{TeXsis}, 
+Macro \TeX~\cite{Amy}, \n{eplain}~\cite{Berry},
+and \n{\TeX T1}~\cite{TeXT1}.
+Typically, such formats provide the facilities of \LaTeX, but
+try to be more easily adaptable by the user.
+Also, in general they
+have been written with the intention of being an
+add-on product to the plain format.
 
 %This book was, in its incarnation published by Addison-Wesley,
 %also written in an `other format':
@@ -584,17 +605,17 @@ Macro \TeX~\cite{Amy}、\n{eplain}~\cite{Berry}，
 %This format does not contain user macros, but the
 %tools with which a style designer can program them; see~\cite{EL}.
 %The current version of this book is written in \LaTeX.
-这本书，在由 Addison-Wesley 出版时，
-也是用一种“其他格式”编写的：
-\indexterm{Lollipop} 格式。
-这种格式不包含用户宏，而是包含
-样式设计者可以用来编程这些宏的工具；参见 \cite{EL}。
-本书的当前版本是用 \LaTeX\ 编写的。
+This book was, in its incarnation published by Addison-Wesley,
+also written in an `other format':
+the \indexterm{Lollipop}  format.
+This format does not contain user macros, but the
+tools with which a style designer can program them; see~\cite{EL}.
+The current version of this book is written in \LaTeX.
 
 %%\point The \n{dvi} file
 %\section{The \n{dvi} file}
 %\point The \n{dvi} file
-\section{\n{dvi} 文件}
+\section{The \n{dvi} file}
 
 %The \n{dvi} file (this term stands for `device independent')
 %\term \n{dvi} file\par
@@ -605,27 +626,27 @@ Macro \TeX~\cite{Amy}、\n{eplain}~\cite{Berry}，
 %\mdqoff
 %of shipping out usually occurs inside the output routine,
 %but this is not necessarily so.
-\n{dvi} 文件（此术语代表“设备无关”）
-\term \n{dvi} 文件\par
-包含 \TeX\ 运行的输出：它
-包含紧凑转储的盒子表示，这些盒子
+The \n{dvi} file (this term stands for `device independent')
+\term \n{dvi} file\par
+contains the output of a \TeX\ run: it
+contains compactly dumped representations of boxes that
 \mdqon
-已通过 \cs{shipout}""\gr{盒子} 发送至此。
+have been sent there by \cs{shipout}""\gr{box}. The act
 \mdqoff
-输出操作通常发生在输出例程内部，
-但并非总是如此。
+of shipping out usually occurs inside the output routine,
+but this is not necessarily so.
 
 %%\spoint The \n{dvi} file format
 %\subsection{The \n{dvi} file format}
 %\spoint The \n{dvi} file format
-\subsection{\n{dvi} 文件格式}
+\subsection{The \n{dvi} file format}
 
 %A \n{dvi} file is a byte-oriented file,
 %consisting of a preamble, a postamble,
 %and a list of pages.
-一个 \n{dvi} 文件是面向字节的文件，
-由一个前导区、一个后导区
-和页面列表组成。
+A \n{dvi} file is a byte-oriented file,
+consisting of a preamble, a postamble,
+and a list of pages.
 
 %Access for subsequent software to a completed \n{dvi} file
 %is strictly sequential in nature:
@@ -636,13 +657,15 @@ Macro \TeX~\cite{Amy}、\n{eplain}~\cite{Berry}，
 %\item starting at the end of the file pages can be read
 %backwards at higher speed, as each beginning-of-page code
 %contains the byte position of the previous one.\end{itemize}
-后续软件访问已完成的 \n{dvi} 文件
-本质上是严格顺序的：
-页面以反向链表的形式存储。这意味着
-只有两种访问方式：
-\begin{itemize} \item 给定页面的起始位置，可以通过读取直到遇到页面结束代码来找到下一页，以及
-\item 从文件末尾开始，可以以更高的速度反向读取页面，因为每个页面起始代码
-包含前一页的字节位置。\end{itemize}
+Access for subsequent software to a completed \n{dvi} file
+is strictly sequential in nature:
+the pages are stored as a backwards linked list. This
+means that only two ways of accessing are possible:
+\begin{itemize} \item given the start of a page, the next can be
+found by reading until an end-of-page code is encountered, and
+\item starting at the end of the file pages can be read
+backwards at higher speed, as each beginning-of-page code
+contains the byte position of the previous one.\end{itemize}
 
 %The preamble and postamble contain
 %\begin{itemize}\item the magnification of the document (see below),
@@ -650,27 +673,28 @@ Macro \TeX~\cite{Amy}、\n{eplain}~\cite{Berry}，
 %\item possibly a comment string.\end{itemize}
 %The postamble contains in addition a list of the font definitions
 %that appear on the pages of the file.
-前导区和后导区包含
-\begin{itemize}\item 文档的放大倍数（见下文），
-\item 文档使用的度量单位，以及
-\item 可能的注释字符串。\end{itemize}
-后导区还包含文件中页面上出现的字体定义列表。
+The preamble and postamble contain
+\begin{itemize}\item the magnification of the document (see below),
+\item the unit of measurement used for the document, and
+\item possibly a comment string.\end{itemize}
+The postamble contains in addition a list of the font definitions
+that appear on the pages of the file.
 
 %Neither the preamble nor the postamble 
 %of the file contains a
 %table of byte positions of pages.
 %The full definition of the \n{dvi} file format can be found
 %in~\cite{Knuth:TeXprogram}.
-文件的前导区和后导区
-都不包含
-页面的字节位置表。
-\n{dvi} 文件格式的完整定义可以在
-\cite{Knuth:TeXprogram} 中找到。
+Neither the preamble nor the postamble 
+of the file contains a
+table of byte positions of pages.
+The full definition of the \n{dvi} file format can be found
+in~\cite{Knuth:TeXprogram}.
 
 %%\spoint Page identification
 %\subsection{Page identification}
 %\spoint Page identification
-\subsection{页面标识}
+\subsection{Page identification}
 
 %Whenever a \cs{shipout} occurs, \TeX\ also writes the
 %values of counters  0--9 to the \n{dvi} file and the terminal.
@@ -679,19 +703,19 @@ Macro \TeX~\cite{Amy}、\n{eplain}~\cite{Berry}，
 %terminal. The other counters can be used to indicate further
 %structure in the document. Log output shows the non-zero
 %counters and the zero counters in between.
-每当发生 \cs{shipout} 时，\TeX\ 也会将
-计数器 0--9 的值写入 \n{dvi} 文件和终端。
-通常，只使用计数器 0，即页码，而
-其他计数器为零。这些零不会输出到
-终端。其他计数器可用于指示文档中的进一步
-结构。日志输出显示非零
-计数器和它们之间的零计数器。
+Whenever a \cs{shipout} occurs, \TeX\ also writes the
+values of counters  0--9 to the \n{dvi} file and the terminal.
+Ordinarily, only counter~0, the page number, is used, and the
+other counters are zero. Those zeros are not output to the
+terminal. The other counters can be used to indicate further
+structure in the document. Log output shows the non-zero
+counters and the zero counters in between.
 
 
 %%\spoint Magnification 
 %\subsection{Magnification }
 %\spoint Magnification 
-\subsection{放大}
+\subsection{Magnification }
 
 %The \indexterm{magnification}
 %of a document can be indicated by the \gr{integer
@@ -699,11 +723,12 @@ Macro \TeX~\cite{Amy}、\n{eplain}~\cite{Berry}，
 %\cstoidx mag\par
 %\cs{mag}, which specifies 1000 times the magnification
 %ratio.
-文档的 \indexterm{放大倍数}
-可以通过 \gr{整数参数}
+The \indexterm{magnification}
+of a document can be indicated by the \gr{integer
+parameter} 
 \cstoidx mag\par
-\cs{mag} 来指示，它指定了放大
-比例的 1000 倍。
+\cs{mag}, which specifies 1000 times the magnification
+ratio.
 
 %The \n{dvi} file contains the value of \cs{mag} for the
 %document in its preamble and postamble. 
@@ -711,10 +736,12 @@ Macro \TeX~\cite{Amy}、\n{eplain}~\cite{Berry}，
 %the \n{dvi} file will look the same as when no magnification
 %would have been used, except for the \cs{mag} value in the
 %preamble and the postamble.
-\n{dvi} 文件在其前导区和后导区中包含文档的 \cs{mag} 值。
-如果未使用 {\tt true} 尺寸，
-则 \n{dvi} 文件看起来与未进行放大时相同，
-除了前导区和后导区中的 \cs{mag} 值。
+The \n{dvi} file contains the value of \cs{mag} for the
+document in its preamble and postamble. 
+If no {\tt true} dimensions are used
+the \n{dvi} file will look the same as when no magnification
+would have been used, except for the \cs{mag} value in the
+preamble and the postamble.
 
 %Whenever a {\tt true} dimension is used it is divided
 %by the value of \cs{mag}, so that the final output will have
@@ -722,11 +749,12 @@ Macro \TeX~\cite{Amy}、\n{eplain}~\cite{Berry}，
 %The \cs{mag} parameter cannot be changed after a
 %\n{true} dimension has been used, or after the first
 %page has been shipped to the \n{dvi} file.
-每当使用 {\tt true} 尺寸时，它都会除以
-\cs{mag} 的值，以便最终输出将具有
-用户规定的尺寸。
-在使用了 \n{true} 尺寸之后，或者在第一页已输出到 \n{dvi} 文件之后，
-\cs{mag} 参数不能更改。
+Whenever a {\tt true} dimension is used it is divided
+by the value of \cs{mag}, so that the final output will have
+the dimension as prescribed by the user.
+The \cs{mag} parameter cannot be changed after a
+\n{true} dimension has been used, or after the first
+page has been shipped to the \n{dvi} file.
 
 %Plain \TeX\ has the \csidx{magnification} macro for
 %globally sizing the document, without changing
@@ -745,28 +773,29 @@ Macro \TeX~\cite{Amy}、\n{eplain}~\cite{Berry}，
 %and vertical size are reset to 
 %their original values {\tt 6.5truein} and {\tt 8.9truein}.
 %The \cs{footins} is also reset.
-Plain \TeX\ 具有 \csidx{magnification} 宏，用于
-全局调整文档大小，而不改变
-页面的物理大小：
+Plain \TeX\ has the \csidx{magnification} macro for
+globally sizing the document, without changing
+ the physical size of the page:
 \begin{verbatim}
 \def\magnification{\afterassignment\m@g\count@}
 \def\m@g{\mag\count@
   \hsize6.5truein\vsize8.9truein\dimen\footins8truein}
 \end{verbatim}
-对此的解释
-如下：命令 \cs{m@g} 用 \cs{afterassignment}
-命令保存，放大值（实际放大因子的 1000 倍）被赋值给 \cs{count@}。
-此赋值后，宏 \cs{m@g} 将
-放大值赋值给 \cs{mag}，并且水平
-和垂直尺寸被重置为
-其原始值 {\tt 6.5truein} 和 {\tt 8.9truein}。
-\cs{footins} 也被重置。
+The explanation for this is
+as follows: the command \cs{m@g} is saved with an \cs{afterassignment}
+command, and the magnification value (which is 1000 times the
+actual magnification factor) is assigned to \cs{count@}.
+After this assignment, the macro \cs{m@g} assigns
+the magnification value to \cs{mag}, and the horizontal
+and vertical size are reset to 
+their original values {\tt 6.5truein} and {\tt 8.9truein}.
+The \cs{footins} is also reset.
 
 %%\point[special] Specials
 %\section{Specials}
 %\label{special}
 %\point[special] Specials
-\section{特殊指令}
+\section{Specials}
 \label{special}
 
 %\mdqon
@@ -783,15 +812,18 @@ Plain \TeX\ 具有 \csidx{magnification} 宏，用于
 %\indexterm{device driver}
 %that handles the \cs{special}.
 \mdqon
-\TeX\ 在很大程度上是机器无关的，但它仍然需要
+\TeX\ is to a large degree machine"-independent, but it still needs
 \mdqoff
-一个用于机器相关扩展的钩子。这通过
-\indexterm{特殊指令} 完成。\csidx{special} 命令将 \gr{平衡文本}
-写入 \n{dvi} 文件，\TeX\ 不像处理其他记号列表那样解释它：
-它假定打印机驱动程序知道如何处理它。
-\cs{special} 命令不应改变页面上的 $x$ 和 $y$ 位置，
-以便 \TeX\ 的实现保持独立于实际处理 \cs{special} 的
-\indexterm{设备驱动程序}。
+a hook for machine-dependent extensions. This is 
+done through \indexterm{specials}. The
+\csidx{special} command writes a \gr{balanced text}
+to the \n{dvi} file which \TeX\ does not interpret like other token lists:
+it assumes that the printer driver knows what to do with it.
+The \cs{special} command is not supposed to change the
+$x$ and $y$ position on the page, so that the implementation
+of \TeX\ remains independent of the actual 
+\indexterm{device driver}
+that handles the \cs{special}.
 
 %The most popular application of specials is probably the
 %inclusion of graphic material, written in some
@@ -801,18 +833,19 @@ Plain \TeX\ 具有 \csidx{magnification} 宏，用于
 %PostScript through
 %the `bounding box' data), so \TeX\ can leave space for
 %such material.
-特殊指令最流行的应用可能是
-包含用某种页面描述语言编写的图形材料，例如 \indexterm{PostScript}。
-图形的大小通常可以从
-包含它的文件中确定（在封装的
-PostScript 的情况下通过
-“包围盒”数据），因此 \TeX\ 可以为
-此类材料留出空间。
+The most popular application of specials is probably the
+inclusion of graphic material, written in some
+page description language, such as \indexterm{PostScript}.
+The size of the graphics can usually be determined from
+the file containing it (in the case of encapsulated
+PostScript through
+the `bounding box' data), so \TeX\ can leave space for
+such material.
 
 %%\point Time
 %\section{Time}
 %\point Time
-\section{时间}
+\section{Time}
 
 %\TeX\ has four parameters, \csidx{year}, \csidx{month}, \csidx{day}, and
 %\csidx{time}, that tell
@@ -820,22 +853,24 @@ PostScript 的情况下通过
 %when the current job started.
 %After this, the parameters are not updated.
 %The user can change them without this having any effect.
-\TeX\ 有四个参数：\csidx{year}、\csidx{month}、\csidx{day} 和
-\csidx{time}，它们指示
-当前作业开始的 \indexterm{时间} 和 \indexterm{日期}。
-此后，这些参数不会更新。
-用户可以更改它们，但这不会产生任何影响。
+\TeX\ has four parameters, \csidx{year}, \csidx{month}, \csidx{day}, and
+\csidx{time}, that tell
+the \indexterm{time} and \indexterm{date}
+when the current job started.
+After this, the parameters are not updated.
+The user can change them without this having any effect.
 
 %All four parameters are integers; the \cs{time} parameter
 %gives the number of minutes since midnight that the current
 %job started.
-所有四个参数都是整数；\cs{time} 参数
-给出当前作业开始后，从午夜算起的分钟数。
+All four parameters are integers; the \cs{time} parameter
+gives the number of minutes since midnight that the current
+job started.
 
 %%\point Fonts
 %\section{Fonts}
 %\point Fonts
-\section{字体}
+\section{Fonts}
 
 %Font information is split in the \TeX\ system into
 %the metric information (how high, wide, and deep is a character),
@@ -845,18 +880,19 @@ PostScript 的情况下通过
 %descriptions. With this approach it is for instance possible
 %for \TeX\ to use with relative ease the resident fonts of
 %a printer.
-字体信息在 \TeX\ 系统中分为
-度量信息（字符的高度、宽度和深度），
-以及字体中字符的实际描述。
-\TeX\ ，作为格式化程序，只需要度量信息；
-打印机驱动程序和屏幕预览器需要字符
-描述。通过这种方法，例如，\TeX\ 可以
-相对轻松地使用打印机的驻留字体。
+Font information is split in the \TeX\ system into
+the metric information (how high, wide, and deep is a character),
+and the actual description of the characters in a font.
+\TeX, the formatter, needs only the metric information;
+printer drivers and screen previewers need the character
+descriptions. With this approach it is for instance possible
+for \TeX\ to use with relative ease the resident fonts of
+a printer.
 
 %%\spoint Font metrics
 %\subsection{Font metrics}
 %\spoint Font metrics
-\subsection{字体度量}
+\subsection{Font metrics}
 
 %The metric information of \TeX's fonts is stored in \n{tfm}
 %files, which stands for `\TeX\ \indexterm{font metrics}' files.
@@ -880,31 +916,34 @@ PostScript 的情况下通过
 %Files in \n{pl} format are just text, so they can easily be edited;
 %after conversion
 %they can then again be used as \n{tfm} files.
-\TeX\ 字体的度量信息存储在 \n{tfm}
-文件中，它代表“\TeX\ \indexterm{字体度量}”文件。
-度量文件包含以下信息
-（完整定义请参见 \cite{Knuth:TeXprogram}）：
-\begin{itemize}\item 字体的设计尺寸；
-\item \cs{fontdimen} 参数的值
-（参见第 \ref{font} 章）；
-\item 单个字符的高度、深度、宽度和斜体修正；
-\item 字偶距表；
-\item 连字表；
-\item 关于数学字符的后继和扩展的信息
-（参见第 \ref{mathchar} 章）。
+The metric information of \TeX's fonts is stored in \n{tfm}
+files, which stands for `\TeX\ \indexterm{font metrics}' files.
+Metrics files contain the following information
+(see \cite{Knuth:TeXprogram} for the full definition):
+\begin{itemize}\item the design size of a font;
+\item the values for the \cs{fontdimen} parameters
+(see Chapter~\ref{font});
+\item the height, depth, width, and italic correction
+     of individual characters;
+\item kerning tables;
+\item ligature tables;
+\item information regarding successors and extensions
+of math characters (see Chapter~\ref{mathchar}).
 \end{itemize}
-度量文件使用打包格式，但可以通过辅助程序
-\n{tftopl} 和 \n{pltotf} 转换为可读格式，或从可读格式转换回来（参见 \cite{K:Fuchs}）。
-这里的 \n{pl} 代表“属性列表”，
-这个术语源自编程语言 Lisp。
-\n{pl} 格式的文件只是文本，因此可以轻松编辑；
-转换后，它们可以再次用作 \n{tfm} 文件。
+Metrics files use a packed format, but they can be converted
+to and from a readable format by the auxiliary programs
+\n{tftopl} and \n{pltotf} (see~\cite{K:Fuchs}). 
+Here \n{pl} stands for `property list',
+a term deriving from the programming language Lisp.
+Files in \n{pl} format are just text, so they can easily be edited;
+after conversion
+they can then again be used as \n{tfm} files.
 
 %%\spoint[virtual:fonts] Virtual fonts
 %\subsection{Virtual fonts}
 %\label{virtual:fonts}
 %\spoint[virtual:fonts] Virtual fonts
-\subsection{虚拟字体}
+\subsection{Virtual fonts}
 \label{virtual:fonts}
 
 %With 
@@ -913,11 +952,12 @@ PostScript 的情况下通过
 %what looks like one font to \TeX\ resides in more than
 %one physical font file. Also, virtual fonts can be used
 %to change in effect the internal organization of font files.
-通过
-\indexterm{虚拟字体}
-（参见 \cite{K:virt}），\TeX\ 看起来像一种字体，但实际上可能存在于多个
-物理字体文件中。此外，虚拟字体还可以用于
-有效地改变字体文件的内部组织。
+With 
+\indexterm{virtual fonts}
+(see~\cite{K:virt}) it is possible that
+what looks like one font to \TeX\ resides in more than
+one physical font file. Also, virtual fonts can be used
+to change in effect the internal organization of font files.
 
 %For  \TeX\ itself, the
 %presence of virtual fonts makes no difference: everything
@@ -932,39 +972,40 @@ PostScript 的情况下通过
 %than one position (a~way of forming accented characters),
 %or to include \cs{special} information (for
 %instance to set gray levels).
-对于 \TeX\ 本身，
-虚拟字体的存在没有区别：一切
-仍然基于包含度量
-信息的 \n{tfm} 文件。然而，在屏幕或打印机上显示
-生成的 \n{dvi} 文件的屏幕或打印机驱动程序
-将搜索扩展名为 \n{.vf} 的文件，以确定
-字符如何解释。
-例如，\n{vf} 文件可以指示驱动程序
-将一个字符解释为
-某个字体文件中的某个位置，将一个字符解释为多个
-位置（一种形成带重音字符的方式），
-或者包含 \cs{special} 信息（例如
-设置灰度级别）。
+For  \TeX\ itself, the
+presence of virtual fonts makes no difference: everything
+is still based on \n{tfm} files containing metric
+information. However, the screen or printer driver that displays
+the resulting \n{dvi} file on the screen or on a printer
+will search for files with extension \n{.vf} to determine
+how characters are to be interpreted.
+The \n{vf} file can, for instance, instruct the driver
+to interpret a character as a certain position
+in a certain font file, to interpret a character as more
+than one position (a~way of forming accented characters),
+or to include \cs{special} information (for
+instance to set gray levels).
 
 %Readable variants of \n{vf} files have extension \n{vpl},
 %analogous to the \n{pl} files for the \n{tfm} files; see above.
 %Conversion between \n{vf} and \n{vpl} files can be
 %performed with the \n{vftovp} and \n{vptovf} programs.
-\n{vf} 文件的可读变体具有扩展名 \n{vpl}，
-类似于 \n{tfm} 文件的 \n{pl} 文件；见上文。
-\n{vf} 和 \n{vpl} 文件之间的转换可以通过
-\n{vftovp} 和 \n{vptovf} 程序执行。
+Readable variants of \n{vf} files have extension \n{vpl},
+analogous to the \n{pl} files for the \n{tfm} files; see above.
+Conversion between \n{vf} and \n{vpl} files can be
+performed with the \n{vftovp} and \n{vptovf} programs.
 
 %However, because virtual fonts are a matter for
 %\indexterm{device drivers}, no more details will be given in this book.
-然而，由于虚拟字体是 \indexterm{设备驱动程序} 的问题，本书将不再提供更多细节。
+However, because virtual fonts are a matter for
+\indexterm{device drivers}, no more details will be given in this book.
 
 %%\spoint Font files
 %\subsection{Font files}
 %\index{font files|(}
 %\spoint Font files
-\subsection{字体文件}
-\index{字体文件|(}
+\subsection{Font files}
+\index{font files|(}
 
 %Character descriptions are stored in three types of files.
 %\begin{description} \item [gf]
@@ -976,21 +1017,23 @@ PostScript 的情况下通过
 %    Pixel files. The \n{pxl} format is a pure bitmap format.
 %Thus it is easy to generate \n{pxl} files from, for instance,
 %scanner images.
-字符描述存储在三种类型的文件中。
+Character descriptions are stored in three types of files.
 \begin{description} \item [gf]
-    通用字体文件 (Generic Font files)。
-这是 Metafont 程序生成的文件类型。
-直接使用这种文件类型的预览器或打印机驱动程序不多。
+    Generic Font files.
+This is the file type that the Metafont program generates.
+There are not many previewers or printer drivers that use
+this type of file directly.
 \item [pxl]
-    像素文件 (Pixel files)。\n{pxl} 格式是纯位图格式。
-因此，例如，从扫描仪图像生成 \n{pxl} 文件很容易。
+    Pixel files. The \n{pxl} format is a pure bitmap format.
+Thus it is easy to generate \n{pxl} files from, for instance,
+scanner images.
 
 %This format should be superseded by the \n{pk} format.
 %Pixel files can become rather big,
 %as their size grows quadratically in the size of the characters.
-这种格式应该被 \n{pk} 格式取代。
-像素文件会变得相当大，
-因为它们的大小随字符大小呈二次方增长。
+This format should be superseded by the \n{pk} format.
+Pixel files can become rather big,
+as their size grows quadratically in the size of the characters.
 
 %\item [pk]
 %    Packed files. Pixel files can be packed by a form of run-length
@@ -1002,21 +1045,22 @@ PostScript 的情况下通过
 %has to unpack it before it is   able to use it.
 %\end{description}
 \item [pk]
-    打包文件 (Packed files)。像素文件可以通过一种行程长度
-编码形式进行打包：不是存储完整的位图，而是只存储
-黑色和白色像素“行程”的起始位置和长度。这使得 \n{pk} 文件的大小
-大约与字符大小呈线性关系。
-然而，使用打包字体文件的预览器或打印机驱动程序
-在使用之前必须对其进行解包。
+    Packed files. Pixel files can be packed by a form of run-length
+encoding: instead of storing the complete bitmap only the
+starting positions and lengths of `runs' of black and white
+pixels are stored. This makes the size of \n{pk} files
+approximately linear in the size of the characters.
+However, a previewer or printer driver using a packed font file
+has to unpack it before it is   able to use it.
 \end{description}
 
 %The following conversion programs exist:
 %\n{gftopxl}, \n{gftopk}, \n{pktopxl}, \n{pxltopk}.
-存在以下转换程序：
-\n{gftopxl}、\n{gftopk}、\n{pktopxl}、\n{pxltopk}。
+The following conversion programs exist:
+\n{gftopxl}, \n{gftopk}, \n{pktopxl}, \n{pxltopk}.
 
 %\index{font files|)}
-\index{字体文件|)}
+\index{font files|)}
 
 %\subsection{Computer Modern}
 \subsection{Computer Modern}
@@ -1035,15 +1079,20 @@ PostScript 的情况下通过
 %of types \cite{Vox}. Ultimately, the inspiration for the Didone
 %types is the `Romain du Roi', the type that was designed by
 %Nicolas Jaugeon around 1692 for the French Imprimerie Royale.
-标准发行版中随 \TeX\ 提供的唯一字体家族是
+The only family of typefaces that comes with \TeX\ 
+in the standard distribution is the 
 \indexterm{Computer Modern}
-字体家族。这是 Donald Knuth 对 Monotype Modern 8A 字体的改编（使用 \cite{S} 的术语），
-该字体用于他的《{\italic 计算机程序设计艺术}》系列的第一卷。
-所有“现代字体”都源自 1780 年至 1800 年间由法国的 Firmin Didot、
-意大利的 Giambattista Bodoni 和德国的 Justus Erich Walbaum 雕刻的字体。
-在前两者之后，这些字体也被称为“Didone”字体。这个名称是在 Vox 字体分类 \cite{Vox} 中创造的。
-最终，Didone 字体的灵感来自“Romain du Roi”，这种字体由
-Nicolas Jaugeon 于 1692 年左右为法国皇家印刷厂 (Imprimerie Royale) 设计。
+family of typefaces. This is an adaptation (using the terminology
+of~\cite{S}) by Donald Knuth of the Monotype Modern~8A typeface
+that was used for the first volume of his {\italic Art of Computer
+Programming\/} series. The `modern faces' all derive from the
+types that were cut between 1780 and 1800 by Firmin Didot in
+France, Giambattista Bodoni in Italy, and Justus Erich Walbaum
+in Germany. After the first two, these types are also called
+`Didone' types. This name was coined in the Vox classification
+of types \cite{Vox}. Ultimately, the inspiration for the Didone
+types is the `Romain du Roi', the type that was designed by
+Nicolas Jaugeon around 1692 for the French Imprimerie Royale.
 
 %Didone types are characterized by a strong vertical orientation,
 %and thin hairlines. The vertical accent is strengthened by the
@@ -1058,16 +1107,19 @@ Nicolas Jaugeon 于 1692 年左右为法国皇家印刷厂 (Imprimerie Royale) �
 %With the current proliferation of low resolution (around
 %300 dot per inch) printers, the Computer Modern is
 %a somewhat unfortunate choice.
-Didone 字体以强烈的垂直方向和细发丝线为特征。
-通过将曲线内部扁平化，垂直强调得到加强。
-结果是清晰明亮的页面，前提是打印小心且使用优质纸张。
-\message{参考格式}
-然而，它们相当脆弱；\cite{Up}
-将其比作同一时期精致但易碎的家具，称人们害怕使用两者，
-“因为两者似乎都有碎裂的危险”。
-随着目前低分辨率（约
-300 点每英寸）打印机的普及，Computer Modern 是
-一个有些不幸的选择。
+Didone types are characterized by a strong vertical orientation,
+and thin hairlines. The vertical accent is strengthened by the
+fact that the insides of curves are flattened.
+The result is a clear and brilliant page, provided that the
+printing is done carefully and on good quality paper.
+\message{Reference format}
+However, they are quite vulnerable; \cite{Up}
+compares them to the distinguished but fragile furniture
+from the same period, saying one is afraid to use either,
+`for both seem in danger of breaking in pieces'.
+With the current proliferation of low resolution (around
+300 dot per inch) printers, the Computer Modern is
+a somewhat unfortunate choice.
 
 %Recently, Donald Knuth has developed 
 %a new typeface (or rather, a subfamily of typefaces)
@@ -1082,29 +1134,33 @@ Didone 字体以强烈的垂直方向和细发丝线为特征。
 %and square serifs. They do not have anything to do with Egypt;
 %such types happened to be popular in the first half of the nineteenth
 %century when Egyptology was developing and popular.
-最近，Donald Knuth 开发了一种
-新字体（或者更确切地说，是字体的一个子家族），
-通过改变 Computer Modern 家族中的参数。结果是一种所谓的
-“埃及体”字体：Computer Concrete \cite{K:cc}。
-这个名字来源于
-它主要用于书籍《{\italic 具体数学}》的事实。
-埃及体字体（在 Vox 分类中属于“M\'ecanes”，意为构造的，
-而非源自手写字母）具有非常均匀的线宽
-和方形衬线。它们与埃及没有任何关系；
-这类字体恰好在十九世纪上半叶，当埃及学发展并流行时，广受欢迎。
+Recently, Donald Knuth has developed 
+a new typeface (or rather, a subfamily of typefaces)
+by changing parameters
+in the Computer Modern family. The result is a so-called
+`Egyptian' typeface: Computer Concrete \cite{K:cc}.
+The name derives from the
+fact that it was intended primarily for the book {\italic Concrete
+Mathematics}. Egyptian typefaces (they fall under the `M\'ecanes'
+in the Vox classification, meaning constructed,
+not derived from written letters) have a very uniform line width
+and square serifs. They do not have anything to do with Egypt;
+such types happened to be popular in the first half of the nineteenth
+century when Egyptology was developing and popular.
 
 %%\point \TeX\ and web
 %\section{\TeX\ and web}
 %\point \TeX\ and web
-\section{\TeX\ 与 \web}
+\section{\TeX\ and web}
 
 %The \TeX\ program is written in \web, a programming language
 %\thecstoidx web\par
 %that can be considered as a subset of \indexterm{Pascal}, augmented with
 %a preprocessor.
-\TeX\ 程序是用 \web\ 编写的，这是一种编程语言，
+The \TeX\ program is written in \web, a programming language
 \thecstoidx web\par
-可以被认为是 \indexterm{Pascal} 的一个子集，并增加了预处理器。
+that can be considered as a subset of \indexterm{Pascal}, augmented with
+a preprocessor.
 
 %\TeX\ makes no use of some features of Pascal, in order to
 %facilitate porting to Pascal systems other than the one
@@ -1115,14 +1171,15 @@ Didone 字体以强烈的垂直方向和细发丝线为特征。
 %writing to global variables, the only way
 %values are returned is through
 %\n{Function} values.
-\TeX\ 不使用 Pascal 的某些特性，以便
-方便移植到它最初设计之外的 Pascal 系统，
-甚至可以自动翻译成其他编程语言，例如 C。
-例如，它不使用 Pascal 的 \n{With} 构造。
-此外，过程没有输出参数；除了
-写入全局变量之外，唯一返回
-值的方式是通过
-\n{Function} 值。
+\TeX\ makes no use of some features of Pascal, in order to
+facilitate porting to Pascal systems other than the one
+it was originally designed for, and even to enable automatic
+translation to other programming languages such as~C.
+For instance, it does not use the Pascal \n{With} construct.
+Also, procedures do not have output parameters; apart from
+writing to global variables, the only way
+values are returned is through
+\n{Function} values.
 
 %Actually, \web\ is more than a superset of a subset of Pascal
 %(and to be more precise, it can also be used with other
@@ -1133,26 +1190,26 @@ Didone 字体以强烈的垂直方向和细发丝线为特征。
 %This idea of `literate programming' was
 %introduced  in~\cite{K:literate};
 %for more information, see~\cite{Sewell}.
-实际上，\web\ 不仅仅是 Pascal 子集的超集
-（更精确地说，它也可以与其他
-编程语言一起使用）；
-它是一个“结构化文档系统”。这意味着
-\web\ 程序员将程序代码片段
-与它们的文档交织在一起，写入一个文件中。
-这种“文学化编程”的思想由
-\cite{K:literate} 引入；
-更多信息请参见 \cite{Sewell}。
+Actually, \web\ is more than a superset of a subset of Pascal
+(and to be more precise, it can also be used with other
+programming languages);
+it is a `system of structured documentation'. This means that
+the \web\ programmer writes pieces of program code,
+interspersed with their documentation, in one file. 
+This idea of `literate programming' was
+introduced  in~\cite{K:literate};
+for more information, see~\cite{Sewell}.
 
 %Two auxiliary programs,
 %Tangle and Weave, can then be used to strip the documentation
 %and convert \web\ into regular Pascal, or to convert the
 %\web\ file into a \TeX\ file that will typeset the program 
 %and documentation.
-然后可以使用两个辅助程序，
-Tangle 和 Weave，来剥离文档
-并将 \web\ 转换为常规 Pascal，或者将
-\web\ 文件转换为 \TeX\ 文件，用于排版程序
-和文档。
+Two auxiliary programs,
+Tangle and Weave, can then be used to strip the documentation
+and convert \web\ into regular Pascal, or to convert the
+\web\ file into a \TeX\ file that will typeset the program 
+and documentation.
 
 %Portability of \web\ programs is achieved by the `change file'
 %mechanism. A~change file is a list of changes to be made to
@@ -1160,17 +1217,18 @@ Tangle 和 Weave，来剥离文档
 %These changes can comprise both adaptations of the \web\ file
 %to the particular Pascal compiler that will be used, and
 %bug fixes to \TeX. Thus the \n{TeX.web} file need never be edited.
-\web\ 程序的移植性通过“更改文件”
-机制实现。更改文件是要对
-\web\ 文件进行的更改列表；有点像流编辑器脚本。
-这些更改可以包括 \web\ 文件对将使用的特定 Pascal 编译器的适配，以及
-\TeX\ 的错误修复。因此，\n{TeX.web} 文件无需编辑。
+Portability of \web\ programs is achieved by the `change file'
+mechanism. A~change file is a list of changes to be made to
+the \web\ file; a~bit like a stream editor script.
+These changes can comprise both adaptations of the \web\ file
+to the particular Pascal compiler that will be used, and
+bug fixes to \TeX. Thus the \n{TeX.web} file need never be edited.
 
 
 %%\point The \TeX\ Users Group
 %\section{The \TeX\ Users Group}
 %\point The \TeX\ Users Group
-\section{\TeX\ 用户组}
+\section{The \TeX\ Users Group}
 
 %\TeX\ users have joined into several users groups
 %over the last decade. Many national or language
@@ -1183,16 +1241,17 @@ Tangle 和 Weave，来剥离文档
 %     Portland, OR 97208-2311, USA
 %\end{disp}
 % or electronically at \n{office@tug.org} on the Internet.
-在过去的十年中，\TeX\ 用户已加入多个用户组。
-许多国家或语言用户组存在，其中许多都出版通讯。
-所有 \TeX\ 用户组中最古老的一个就简单地称为
-：\TeX\ 用户组，或 \indexterm{TUG}，
-其期刊名为 \indexterm{TUGboat}。
-您可以通过以下地址联系他们：
+\TeX\ users have joined into several users groups
+over the last decade. Many national or language
+users groups exist, and a lot of them publish newsletters.
+The oldest of all \TeX\ users groups is simply called
+that: the \TeX\ Users Group, or \indexterm{TUG},
+and its journal is called \indexterm{TUGboat}.
+You can reach them at
 \begin{disp} \TeX\ Users Group\nl P.O. Box 2311\nl
      Portland, OR 97208-2311, USA
 \end{disp}
- 或通过电子邮件在互联网上联系 \n{office@tug.org}。
+ or electronically at \n{office@tug.org} on the Internet.
 
 
 %\endofchapter

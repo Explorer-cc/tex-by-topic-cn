@@ -7,13 +7,16 @@
 \begin{document}
 
 %\chapter{Display Math}\label{displaymath}
-\chapter{显示数学}\label{displaymath}
+\chapter{Display Math}\label{displaymath}
 
 %Displayed formulas are set on a line of their own, usually
 %somewhere in a paragraph. This chapter explains
 %how surrounding white space (both above/below and to the
 %left/right) is calculated.
-显示公式通常在段落中独立成行。本章解释了如何计算其周围的空白（包括上方/下方和左侧/右侧）。
+Displayed formulas are set on a line of their own, usually
+somewhere in a paragraph. This chapter explains
+how surrounding white space (both above/below and to the
+left/right) is calculated.
 
 %\label{cschap:abovedisplayskip}\label{cschap:belowdisplayskip}\label{cschap:abovedisplayshortskip}\label{cschap:belowdisplayshortskip}\label{cschap:predisplaypenalty}\label{cschap:postdisplaypenalty}\label{cschap:displayindent}\label{cschap:displaywidth}\label{cschap:predisplaysize}\label{cschap:everydisplay}\label{cschap:eqno}\label{cschap:leqno}
 %\begin{inventory}
@@ -26,9 +29,9 @@
 \begin{inventory}
 \item [\cs{abovedisplayskip \cs{belowdisplayskip}}]
 \mdqon
-      显示公式上方/下方粘连。
+      Glue above/""below a display.
 \mdqoff
-      Plain \TeX\ 默认值：\n{12pt plus 3pt minus 9pt}
+      Plain \TeX\ default:~\n{12pt plus 3pt minus 9pt}
 
 %\item [\cs{abovedisplayshortskip \cs{belowdisplayshortskip}}]
 %\mdqon
@@ -39,10 +42,11 @@
 %      \n{7pt plus 3pt minus 4pt} respectively.
 \item [\cs{abovedisplayshortskip \cs{belowdisplayshortskip}}]
 \mdqon
-      如果显示公式前的行较短，则显示公式上方/下方粘连。
+      Glue above/""below a display if the line preceding the display 
 \mdqoff
-      Plain \TeX\ 默认值：\n{0pt plus 3pt} 和
-      \n{7pt plus 3pt minus 4pt}。
+      was short.
+      Plain \TeX\ defaults:~\n{0pt plus 3pt} and
+      \n{7pt plus 3pt minus 4pt} respectively.
 
 %\item [\cs{predisplaypenalty \cs{postdisplaypenalty}}]
 %\mdqon
@@ -52,40 +56,42 @@
 %      respectively.
 \item [\cs{predisplaypenalty \cs{postdisplaypenalty}}]
 \mdqon
-      放置在显示公式上方/下方垂直列表中的罚值。
+      Penalty placed in the vertical list above/""below a display.
 \mdqoff
-      Plain \TeX\ 默认值：\n{10$\,$000} 和 \n{0}。
+      Plain \TeX\ defaults:~\n{10$\,$000} and~\n{0}
+      respectively.
 
 %\item [\cs{displayindent}] 
 %      Distance by which the box, in which the display 
 %      is centred, is indented owing to hanging indentation.
 \item [\cs{displayindent}] 
-      由于悬挂缩进，显示公式居中所在的盒子缩进的距离。
+      Distance by which the box, in which the display 
+      is centred, is indented owing to hanging indentation.
 
 %\item [\cs{displaywidth}] 
 %      Width of the box in which the display is centred.
 \item [\cs{displaywidth}] 
-      显示公式居中所在的盒子的宽度。
+      Width of the box in which the display is centred.
 
 %\item [\cs{predisplaysize}] 
 %      Effective width of the line preceding the display.
 \item [\cs{predisplaysize}] 
-      显示公式前一行的有效宽度。
+      Effective width of the line preceding the display.
 
 %\item [\cs{everydisplay}] 
 %      Token list inserted at the start of a display.
 \item [\cs{everydisplay}] 
-      在显示公式开始时插入的记号列表。
+      Token list inserted at the start of a display.
 
 %\item [\cs{eqno}] 
 %      Place a right equation number in a display formula.
 \item [\cs{eqno}] 
-      在显示公式中放置一个右侧方程编号。
+      Place a right equation number in a display formula.
 
 %\item [\cs{leqno}] 
 %      Place a left equation number in a display formula.
 \item [\cs{leqno}] 
-      在显示公式中放置一个左侧方程编号。
+      Place a left equation number in a display formula.
 
 %\end{inventory}
 \end{inventory}
@@ -93,7 +99,7 @@
 %%\point Displays
 %\section{Displays}
 %\point Displays
-\section{显示公式}
+\section{Displays}
 
 %\TeX\ starts building a \indexterm{display math} formula
 %when it encounters two
@@ -101,10 +107,12 @@
 %\verb>$>~in plain \TeX) in a row.
 %Another such pair (possibly followed
 %\alt by one optional space) indicates the end of the display.
-当 \TeX\ 在输入中遇到两个
-数学切换字符（类别 3\index{category!3} 的字符，在 plain \TeX\ 中是 \verb>$>）时，它开始构建一个 \indexterm{显示数学} 公式。
-另一对这样的字符（可能后面跟着
-\alt 一个可选空格）表示显示公式的结束。
+\TeX\ starts building a \indexterm{display math} formula
+when it encounters two
+math shift characters (characters of category~3\index{category!3},
+\verb>$>~in plain \TeX) in a row.
+Another such pair (possibly followed
+\alt by one optional space) indicates the end of the display.
 
 %Math shift is a \gr{horizontal command}, but displays are only
 %allowed in unrestricted horizontal mode
@@ -113,12 +121,13 @@
 %surrounding (possibly internal) vertical mode in order to calculate
 %quantities such as~\cs{prevgraf}; the result of the display is
 %appended to the vertical list.
-数学切换是一个 \gr{水平命令}，但显示公式只允许在无限制水平模式下使用
-（在受限水平模式下，\verb>$$> 是一个空的数学公式）。
-然而，显示公式本身是在
-周围（可能内部）的垂直模式中启动的，以便计算
-像 \cs{prevgraf} 这样的量；显示公式的结果被
-附加到垂直列表。
+Math shift is a \gr{horizontal command}, but displays are only
+allowed in unrestricted horizontal mode
+(\verb>$$>~is an empty math formula in restricted horizontal mode).
+Displays themselves, however, are started in the
+surrounding (possibly internal) vertical mode in order to calculate
+quantities such as~\cs{prevgraf}; the result of the display is
+appended to the vertical list.
 
 %The part of the paragraph above the display is broken into
 %lines as an independent paragraph (but \cs{prevgraf} is
@@ -133,43 +142,49 @@
 %\cs{displayindent}, \cs{displaywidth}, and \cs{predisplaysize}).
 %See page~\pageref{left:display} for an example of the use
 %of \cs{everydisplay}.
-显示公式上方的段落部分被断成独立的行（但 \cs{prevgraf} 会
-继承；见下文），段落的其余部分则从一个空列表和 \cs{spacefactor}
-等于 1000 开始设置。
-\cs{everypar} 记号不会插入到显示公式后的段落部分，
-也不会插入 \cs{parskip} 粘连。
+The part of the paragraph above the display is broken into
+lines as an independent paragraph (but \cs{prevgraf} is
+carried over; see below), and the remainder of the
+paragraph is set, starting with an empty list and \cs{spacefactor}
+equal to~1000. 
+The \cs{everypar} tokens are not inserted for the part of the
+paragraph after the display, nor is \cs{parskip} glue inserted.
  
-在显示公式的开头，\csidx{everydisplay}
-记号列表被插入（但在计算 \cs{displayindent}、\cs{displaywidth} 和 \cs{predisplaysize} 之后）。
-有关 \cs{everydisplay} 用法的示例，请参见第 \pageref{left:display} 页。
+Right at the beginning of the display the \csidx{everydisplay}
+token list is inserted (but after the calculation of
+\cs{displayindent}, \cs{displaywidth}, and \cs{predisplaysize}).
+See page~\pageref{left:display} for an example of the use
+of \cs{everydisplay}.
 
 %The page builder is exercised
 %before the display 
 %(but after the \cs{everydisplay} tokens have been inserted),
 %and after the display finishes.
-页面构建器在显示公式之前
-（但在 \cs{everydisplay} 记号插入之后）
-和显示公式结束之后运行。
+The page builder is exercised
+before the display 
+(but after the \cs{everydisplay} tokens have been inserted),
+and after the display finishes.
 
 %The `display style' of math typesetting was treated in 
 %Chapter~\ref{mathfont}.
-数学排版的“显示样式”已在第 \ref{mathfont} 章中讨论。
+The `display style' of math typesetting was treated in 
+Chapter~\ref{mathfont}.
 
 %%\point Displays in paragraphs
 %\section{Displays in paragraphs}
 %\point Displays in paragraphs
-\section{段落中的显示公式}
+\section{Displays in paragraphs}
 
 %Positioning of a display in a paragraph may be influenced
 %by hanging indentation or a \cs{parshape} specification.
 %For this, \TeX\ uses the \cs{prevgraf} parameter
 %(see Chapter~\ref{par:shape}), and
 %acts as if the display is three lines deep.
-段落中显示公式的定位可能会受到
-悬挂缩进或 \cs{parshape} 规范的影响。
-为此，\TeX\ 使用 \cs{prevgraf} 参数
-（参见第 \ref{par:shape} 章），并
-表现得好像显示公式有三行深。
+Positioning of a display in a paragraph may be influenced
+by hanging indentation or a \cs{parshape} specification.
+For this, \TeX\ uses the \cs{prevgraf} parameter
+(see Chapter~\ref{par:shape}), and
+acts as if the display is three lines deep.
 
 %If $n$ is the value of \cs{prevgraf} when the display starts
 %\ldash so there are $n$ lines of text above the display \rdash 
@@ -177,12 +192,12 @@
 %The display occupies, as it were, lines $n+1$, $n+2$, and~$n+3$.
 %The shift and line width for the display are those
 %that would hold for line~$n+2$.
-如果 $n$ 是显示公式开始时 \cs{prevgraf} 的值
-\ldash 也就是说，显示公式上方有 $n$ 行文本 \rdash 
-当段落恢复时，\cs{prevgraf} 被设置为 $n+3$。
-显示公式占据了第 $n+1$、 $n+2$ 和 $n+3$ 行。
-显示公式的偏移量和行宽是
-适用于第 $n+2$ 行的值。
+If $n$ is the value of \cs{prevgraf} when the display starts
+\ldash so there are $n$ lines of text above the display \rdash 
+\cs{prevgraf} is set to to $n+3$ when the paragraph resumes.
+The display occupies, as it were, lines $n+1$, $n+2$, and~$n+3$.
+The shift and line width for the display are those
+that would hold for line~$n+2$.
 
 %The shift for the display is recorded in \cs{displayindent};
 %\cstoidx displayindent\par\cstoidx displaywidth\par
@@ -194,25 +209,26 @@
 %\TeX\ will use the
 %values that hold after the math list 
 %of the display has been processed.
-显示公式的偏移量记录在 \cs{displayindent} 中；
+The shift for the display is recorded in \cs{displayindent};
 \cstoidx displayindent\par\cstoidx displaywidth\par
-行宽记录在\handbreak \cs{displaywidth} 中。这些参数
-（以及下文解释的 \cs{predisplaysize}）
-在扫描到 \verb>$$> 之后立即设置。
-通常它们分别等于零和 \cs{hsize}。
-用户可以更改这些参数的值；
-\TeX\ 将使用
-显示公式的数学列表处理后所持有的值。
+the line width is recorded in\handbreak \cs{displaywidth}. These parameters
+(and the \cs{predisplaysize} explained below)
+are set immediately after the \verb>$$> has been scanned.
+Usually they are equal to zero and \cs{hsize} respectively.
+The user can change the values of these parameters; 
+\TeX\ will use the
+values that hold after the math list 
+of the display has been processed.
 
 %A~display is vertical material, and therefore
 %not influenced by settings of \cs{leftskip} and \cs{rightskip}.
-显示公式是垂直材料，因此
-不受 \cs{leftskip} 和 \cs{rightskip} 设置的影响。
+A~display is vertical material, and therefore
+not influenced by settings of \cs{leftskip} and \cs{rightskip}.
 
 %%\point Vertical material around displays
 %\section{Vertical material around displays}
 %\point Vertical material around displays
-\section{显示公式周围的垂直材料}
+\section{Vertical material around displays}
 
 %A display is preceded in the vertical list by
 %\begin{itemize}\item a penalty of size \cs{predisplaypenalty}
@@ -232,24 +248,24 @@
 %\cs{belowdisplayshortskip}; this glue is omitted in cases
 %where an~\cs{eqno} equation number is set on a line of
 %its own (see below).\end{itemize}
-显示公式在垂直列表中前面有：
-\begin{itemize}\item 一个大小为 \cs{predisplaypenalty} 的罚值
+A display is preceded in the vertical list by
+\begin{itemize}\item a penalty of size \cs{predisplaypenalty}
    \cstoidx predisplaypenalty\par\cstoidx abovedisplayskip\par
    \cstoidx abovedisplayshortskip\par
-（plain \TeX\ 默认值 $10\,000$），以及
-\item 大小为 \cs{abovedisplayskip}
-或 \cs{abovedisplayshortskip} 的粘连；在
-\cs{leqno} 方程编号独立成行的情况下，此粘连会被省略（见下文）。
-\end{itemize}
-显示公式后面有：
-\begin{itemize}\item 一个大小为 \cs{postdisplaypenalty} 的罚值
+(plain \TeX\ default~$10\,000$), and
+\item glue of size \cs{abovedisplayskip} 
+or \cs{abovedisplayshortskip}; this glue is omitted in
+cases where a~\cs{leqno} equation number is set on
+a line of its own (see below).\end{itemize}
+A display is followed by 
+\begin{itemize}\item a penalty of size \cs{postdisplaypenalty}
    \cstoidx postdisplaypenalty\par\cstoidx belowdisplayskip\par
    \cstoidx belowdisplayshortskip\par
-（默认值 0），以及可能
-\item 大小为 \cs{belowdisplayskip} 或
-\cs{belowdisplayshortskip} 的粘连；在
-\cs{eqno} 方程编号独立成行的情况下，此粘连会被省略（见下文）。
-\end{itemize}
+(default~0), and possibly
+\item glue of size \cs{belowdisplayskip} or 
+\cs{belowdisplayshortskip}; this glue is omitted in cases
+where an~\cs{eqno} equation number is set on a line of
+its own (see below).\end{itemize}
 
 %The `short' variants of the glue are taken if
 %there is no \cs{leqno} left equation number, and if
@@ -262,15 +278,17 @@
 %of the display has
 %been scanned, together with the \cs{displaywidth}
 %and \cs{displayindent} explained above.
-如果不存在 \cs{leqno} 左方程编号，并且
-显示公式上方段落的最后一行
-足够短，使得显示公式可以稍微上移而不
-过于靠近该行，则采用粘连的“短”变体。
-为了做出此决定，前一行的有效宽度
-保存在 \csidx{predisplaysize} 中。
-此值在扫描到显示公式的开 \verb>$$> 之后立即计算，
-同时计算的还有上面解释的 \cs{displaywidth}
-和 \cs{displayindent}。
+The `short' variants of the glue are taken if
+there is no \cs{leqno} left equation number, and if
+the last line of the paragraph above the display is
+short enough for the display to be raised a bit without
+coming too close to that line.
+In order to decide this, the effective width of the
+preceding line is saved in \csidx{predisplaysize}.
+This value is calculated immediately after the opening \verb>$$>
+of the display has
+been scanned, together with the \cs{displaywidth}
+and \cs{displayindent} explained above.
 
 %Remembering that the part of the paragraph above the display
 %has already been broken into lines, the following method
@@ -280,13 +298,14 @@
 %of the last box in it. The \cs{predisplaysize} is then
 %the place of that rightmost edge, plus any amount by which
 %the last line was shifted, plus two ems in the current font.
-考虑到显示公式上方段落的部分
-已经断成行，以下是
-查找最后一行有效宽度的方法。
-\TeX\ 取列表中的最后一个盒子，它是一个包含
-最后一行的水平盒子，并定位其中最后一个盒子的右边缘。
-然后 \cs{predisplaysize} 是该最右边缘的位置，加上
-最后一行被移动的任何量，再加上当前字体中的两个 em。
+Remembering that the part of the paragraph above the display
+has already been broken into lines, the following method
+for finding the effective width of the last line ensues.
+\TeX\ takes the last box of the list, which is a horizontal
+box containing the last line, and locates the right edge
+of the last box in it. The \cs{predisplaysize} is then
+the place of that rightmost edge, plus any amount by which
+the last line was shifted, plus two ems in the current font.
 
 %There are two exceptions to this. The \cs{predisplaysize}
 %is taken to be $-$\cs{maxdimen} if there was no previous line,
@@ -301,23 +320,24 @@
 %and such dependences
 %\mdqoff
 %should be kept out of \TeX's global decision processes.
-对此有两种例外。如果前面没有行，
-即显示公式是段落的开头，或者它跟在另一个显示公式之后，
-则 \cs{predisplaysize} 被视为 $-$\cs{maxdimen}；
-如果最后一行的粘连未设置为其自然宽度，
-则 \cs{predisplaysize} 被视为 \cs{maxdimen}，
-这可能发生在 \cs{parfillskip} 只包含有限伸展量的情况下。
-最后一条规定是由于粘连
+There are two exceptions to this. The \cs{predisplaysize}
+is taken to be $-$\cs{maxdimen} if there was no previous line,
+that is,
+the display started the paragraph, or it followed another display;
+\cs{predisplaysize} is taken to be \cs{maxdimen}
+if the glue in the last line was not set at its natural width,
+which may happen if the \cs{parfillskip} contained only finite
+stretch. The reason for the last clause is that glue
 \mdqon
-设置略微具有 \emph{机器相关性}\index{machine dependence}，
-而这种相关性
+setting is slightly \emph{machine"-dependent}\index{machine dependence},
+and such dependences
 \mdqoff
-应避免影响 \TeX\ 的全局决策过程。
+should be kept out of \TeX's global decision processes.
 
 %%\point Glue setting of the display math list
 %\section{Glue setting of the display math list}
 %\point Glue setting of the display math list
-\section{显示数学列表的粘连设置}
+\section{Glue setting of the display math list}
 
 %The display has to fit in \cs{displaywidth}, 
 %but in addition to the formula there
@@ -327,12 +347,13 @@
 %\mdqon
 %\cs{font\-dimen\-6}""\cs{textfont2}.
 %\mdqoff
-显示公式必须适应 \cs{displaywidth}，
-但除了公式之外，还可能有一个方程编号。
-公式与方程编号之间的最小间隔应为
-符号字体中的一个 em，即
+The display has to fit in \cs{displaywidth}, 
+but in addition to the formula there
+may be an equation number. The minimum separation
+between the formula and the equation number should
+be one em in the symbol font, that is,
 \mdqon
-\cs{font\-dimen\-6}""\cs{textfont2}。
+\cs{font\-dimen\-6}""\cs{textfont2}.
 \mdqoff
 
 %If the formula plus any equation number
@@ -349,24 +370,25 @@
 %if it was a very long formula the box in which it is
 %set may still be overfull. \TeX\ nevers breaks a displayed
 %formula.
-如果公式加上任何方程编号
-和间隔适合 \cs{displaywidth}，
-则公式中的粘连以其自然宽度设置。
-如果它不适合，
-但公式包含足够的收缩量，则会收缩。
-否则，\TeX\ 会将任何方程编号
-独立成行，并且公式中的粘连会
-设置为适应 \cs{displaywidth}。
-当方程编号
-独立成行时，公式现在很可能适合
-显示宽度；然而，
-如果它是一个非常长的公式，其所在的盒子
-可能仍然过满。\TeX\ 从不拆分显示公式。
+If the formula plus any equation number
+and separation fit into \cs{displaywidth},
+the glue in the formula is set at its natural width. 
+If it does not fit,
+but the formula contains enough shrink, it is shrunk.
+Otherwise \TeX\ puts any equation number
+on a line of its own, and the glue in the formula is
+set to fit it in \cs{displaywidth}.
+With the equation
+number on a separate line the formula may now very well fit in the
+display width; however,
+if it was a very long formula the box in which it is
+set may still be overfull. \TeX\ nevers breaks a displayed
+formula.
 
 %%\point Centring the display formula: displacement
 %\section{Centring the display formula: displacement}
 %\point Centring the display formula: displacement
-\section{显示公式居中：位移}
+\section{Centring the display formula: displacement}
 
 %Based on the width of the box containing the formula \ldash which
 %may not really `contain' it; it may be overfull \rdash 
@@ -375,11 +397,13 @@
 %Initially, a displacement is calculated that is 
 %half the difference between \cs{displaywidth} and the
 %width of the formula box.
-根据包含公式的盒子的宽度 \ldash 该盒子可能并非真正“包含”它；它可能过满 \rdash 
-\TeX\ 尝试将公式在 \cs{displaywidth} 中居中，
-即不考虑方程编号。
-最初，计算出的位移是
-\cs{displaywidth} 与公式盒子宽度之间差值的一半。
+Based on the width of the box containing the formula \ldash which
+may not really `contain' it; it may be overfull \rdash 
+\TeX\ tries to centre the formula in the \cs{displaywidth},
+that is, without taking the equation number into account.
+Initially, a displacement is calculated that is 
+half the difference between \cs{displaywidth} and the
+width of the formula box.
 
 %However, if there is an equation number that will not
 %be put on a separate line and the displacement is less than
@@ -388,24 +412,25 @@
 %started with glue; otherwise it is such that the
 %formula box is centred in the space left by the equation
 %number.
-然而，如果存在一个不会
-独立成行的方程编号，并且位移小于
-方程编号宽度的两倍，则会计算一个新的位移。
-如果公式以粘连开始，则此新位移为零；
-否则，它会使得
-公式盒子在方程编号留下的空间中居中。
+However, if there is an equation number that will not
+be put on a separate line and the displacement is less than
+twice the width of the equation number, a new displacement
+is calculated. This new displacement is zero if the formula
+started with glue; otherwise it is such that the
+formula box is centred in the space left by the equation
+number.
 
 %If there was no equation number, or if the equation number
 %will be put on a separate line, the formula box
 %is now placed, shifted right by \cs{displayindent} plus
 %the displacement calculated above.
-如果没有方程编号，或者方程编号
-将独立成行，则公式盒子
-现在放置在 \cs{displayindent} 加上
-上面计算的位移向右偏移的位置。
+If there was no equation number, or if the equation number
+will be put on a separate line, the formula box
+is now placed, shifted right by \cs{displayindent} plus
+the displacement calculated above.
 
 %\section{Equation numbers}
-\section{方程编号}
+\section{Equation numbers}
 
 %\index{equation numbering|(}
 \index{equation numbering|(}
@@ -417,25 +442,25 @@
 %for an equation number placed on the right, or
 %\begin{Disp}\cs{leqno}\gr{math mode material}\verb>$$>\end{Disp}
 %for an equation number placed on the left.
-用户可以通过以下方式为显示公式指定方程编号：
+The user can specify a equation number for a display
+by ending it with 
 \cstoidx eqno\par\cstoidx leqno\par
-以
-\begin{Disp}\cs{eqno}\gr{数学模式材料}\verb>$$>\end{Disp}
-结尾，用于放置在右侧的方程编号，或
-以
-\begin{Disp}\cs{leqno}\gr{数学模式材料}\verb>$$>\end{Disp}
-结尾，用于放置在左侧的方程编号。
+\begin{Disp}\cs{eqno}\gr{math mode material}\verb>$$>\end{Disp}
+for an equation number placed on the right, or
+\begin{Disp}\cs{leqno}\gr{math mode material}\verb>$$>\end{Disp}
+for an equation number placed on the left.
 
 %%\spoint Ordinary equation numbers
 %\subsection{Ordinary equation numbers}
 %\spoint Ordinary equation numbers
-\subsection{普通方程编号}
+\subsection{Ordinary equation numbers}
 
 %Above it was described how \TeX\ calculates a displacement
 %from the display formula and the equation number, if this
 %is to be put on the same line as the formula.
-上文描述了 \TeX\ 如何根据显示公式和方程编号计算位移，
-如果方程编号要与公式放在同一行。
+Above it was described how \TeX\ calculates a displacement
+from the display formula and the equation number, if this
+is to be put on the same line as the formula.
 
 %If the equation number was a  \cs{leqno} number,
 %\TeX\ places a box containing
@@ -443,12 +468,12 @@
 %\item a kern with the size of the displacement calculated, and
 %\item the formula.\end{itemize}
 %This box is shifted right by \cs{displayindent}.
-如果方程编号是 \cs{leqno} 编号，
-\TeX\ 会放置一个包含以下内容的盒子：
-\begin{itemize}\item 方程编号，
-\item 一个大小为计算出的位移的字距调整，以及
-\item 公式。\end{itemize}
-这个盒子会向右偏移 \cs{displayindent}。
+If the equation number was a  \cs{leqno} number,
+\TeX\ places a box containing
+\begin{itemize}\item the equation number,
+\item a kern with the size of the displacement calculated, and
+\item the formula.\end{itemize}
+This box is shifted right by \cs{displayindent}.
 
 %If the equation number was an \cs{eqno} number,
 %\TeX\ places a box containing
@@ -457,18 +482,18 @@
 %\item the equation number.\end{itemize}
 %This box is shifted right by \cs{displayindent} plus
 %the displacement calculated.
-如果方程编号是 \cs{eqno} 编号，
-\TeX\ 会放置一个包含以下内容的盒子：
-\begin{itemize}\item 公式，
-\item 一个大小为计算出的位移的字距调整，以及
-\item 方程编号。\end{itemize}
-这个盒子会向右偏移 \cs{displayindent} 加上
-计算出的位移。
+If the equation number was an \cs{eqno} number,
+\TeX\ places a box containing
+\begin{itemize}\item the formula,
+\item a kern with the size of the displacement calculated, and
+\item the equation number.\end{itemize}
+This box is shifted right by \cs{displayindent} plus
+the displacement calculated.
 
 %%\spoint The equation number on a separate line
 %\subsection{The equation number on a separate line}
 %\spoint The equation number on a separate line
-\subsection{独立成行的方程编号}
+\subsection{The equation number on a separate line}
 
 %Since displayed formulas may become rather big, \TeX\ can decide
 %(as was described above)
@@ -479,43 +504,44 @@
 %in a box that is shifted to the right 
 %by \cs{displayindent} plus \cs{displaywidth} minus the width of
 %the equation number box.
-由于显示公式可能变得相当大，\TeX\ 可以决定
-（如上所述）
-任何方程编号都应独立成行。
-然后，左侧放置的方程编号将放置在显示公式上方，
-在一个向右偏移 \cs{displayindent} 的盒子中；
-右侧放置的方程编号将放置在显示公式下方，
-在一个向右偏移
-\cs{displayindent} 加上 \cs{displaywidth} 减去
-方程编号盒子宽度的盒子中。
+Since displayed formulas may become rather big, \TeX\ can decide
+(as was described above)
+that any equation number should be placed on a line of its own.
+A~left-placed equation number is then to be placed above the
+display, in a box that is shifted right by \cs{displayindent};
+a right-placed equation number will be placed below the display,
+in a box that is shifted to the right 
+by \cs{displayindent} plus \cs{displaywidth} minus the width of
+the equation number box.
 
 %In both cases a penalty of $10\,000$ is placed between the equation
 %number box and the formula.
-在这两种情况下，方程编号盒子和公式之间都会放置一个 $10\,000$ 的罚值。
+In both cases a penalty of $10\,000$ is placed between the equation
+number box and the formula.
 
 %\TeX\ does not put extra glue above a left-placed
 %equation number or below
 %a right-placed equation number; \TeX\ here relies on
 %the baselineskip mechanism.
-\TeX\ 不会在左侧放置的
-方程编号上方或右侧放置的
-方程编号下方放置额外粘连；\TeX\ 在此依赖于
-基线跳过机制。
+\TeX\ does not put extra glue above a left-placed
+equation number or below
+a right-placed equation number; \TeX\ here relies on
+the baselineskip mechanism.
 
 %\index{equation numbering|)}
 \index{equation numbering|)}
 
 %\section{Non-centred displays}
 %\label{left:display}
-\section{非居中显示公式}
+\section{Non-centred displays}
 \label{left:display}
 
 %As a default, \TeX\ will center displays.
 %In order to get \indextermbus{non-centred}{displays} some
 %macro trickery is needed. 
-默认情况下，\TeX\ 会居中显示公式。
-为了获得 \indextermbus{非居中}{显示公式}，需要一些
-宏技巧。
+As a default, \TeX\ will center displays.
+In order to get \indextermbus{non-centred}{displays} some
+macro trickery is needed. 
 
 %One approach would
 %be to write a macro \cs{DisplayEquation}
@@ -533,21 +559,21 @@
 %\mdqon
 %and having this come out as a left"-aligning display.
 %\mdqoff
-一种方法是
-编写一个宏 \cs{DisplayEquation}，
-它基本上看起来像
+One approach would
+be to write a macro \cs{DisplayEquation}
+that would basically look like
 \begin{verbatim}
 \def\DisplayEquation#1{%
     \par \vskip\abovedisplayskip
     \hbox{\kern\parindent$\displaystyle#1$}
     \vskip\belowdisplayskip \noindent}
 \end{verbatim}
-但如果能直接写成
+but it would be nicer if one could just write
 \begin{verbatim}
 $$ ... \eqno ... $$
 \end{verbatim}
 \mdqon
-并使其显示为左对齐的显示公式，那就更好了。
+and having this come out as a left"-aligning display.
 \mdqoff
 
 %Using the \cs{everydisplay} token list, the above
@@ -585,41 +611,41 @@ $$ ... \eqno ... $$
 %There is no need to use \cs{displayindent} anywhere
 %in this macro, because \TeX\ itself will shift the
 %display appropriately.
-利用 \cs{everydisplay} 记号列表，上述
-想法可以实现。基本思路是编写
+Using the \cs{everydisplay} token list, the above
+idea can be realized. The basic idea is to write
 \begin{verbatim}
 \everydisplay{\IndentedDisplay}
 \def\IndentedDisplay#1$${ ...
 \end{verbatim}
-这样宏 \cs{IndentedDisplay}
-将接收公式，包括任何方程编号。
-第一步是提取方程编号，
-如果它存在。这创造性地使用了带定界符的
-宏参数。
+so that the macro \cs{IndentedDisplay}
+will receive the formula, including any equation number.
+The first step is now to extract an equation number
+if it is present. This makes creative use of delimited
+macro parameters.
 \begin{verbatim}
 \def\ExtractEqNo#1\eqno#2\eqno#3\relax
    {\def\Equation{#1}\def\EqNo{#2}}
 \def\IndentedDisplay#1$${%
     \ExtractEqNo#1\eqno\eqno\relax
 \end{verbatim}
-接下来，方程应在可用空间
-\cs{displaywidth} 中设置：
+Next the equation should be set in the available
+space \cs{displaywidth}:
 \begin{verbatim}
     \hbox to \displaywidth
         {\kern\parindent
          $\displaystyle\Equation$\hfil$\EqNo$}$$
     }
 \end{verbatim}
-请注意，宏以闭合的 \verb>$$> 结束，
-以平衡导致
-插入 \cs{everydisplay} 记号的开美元符号。
-这也意味着包含
-显示内容的盒子将自动被
-\cs{abovedisplayskip} 和
-\cs{belowdisplayskip} 粘连包围。
-在这个宏中不需要在任何地方使用 \cs{displayindent}，
-因为 \TeX\ 本身会适当地移动
-显示内容。
+Note that the macro ends in the closing \verb>$$>
+to balance the opening dollars that caused
+insertion of the \cs{everydisplay} tokens.
+This also means that the box containing the
+displayed material will automatically be
+surrounded by \cs{abovedisplayskip} and
+\cs{belowdisplayskip} glue.
+There is no need to use \cs{displayindent} anywhere
+in this macro, because \TeX\ itself will shift the
+display appropriately.
 
 %% 
 %\endofchapter

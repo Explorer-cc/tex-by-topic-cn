@@ -95,10 +95,9 @@
 %between all lines.
 通过插入\indextermbus{行间}{粘连}，
 \TeX\ 试图让竖直列的盒子的基准点保持一定的距离。
-特别地，它试图让普通文本的各行保持恒定的\indextermsub{基线}{距离}：\csidx{baselineskip}。实际上，
-\cs{baselineskip} 是一个\gr{glue}，因此行距是可以伸缩的。
-然而，它的自然尺寸，
-以及伸长量和收缩量，在各行之间是一致的。
+特别地，它试图让普通文本的各行保持恒定的\indextermsub{基线}{距离}。
+实际上，\cs{baselineskip} 是一个\gr{glue}，因此行距是可以伸缩的。
+然而，它的自然尺寸以及伸长量和收缩量，在各行之间是一致的。
 
 %When boxes, whether they are lines of a paragraph or explicit boxes,
 %are appended to a vertical list, glue 
@@ -166,15 +165,13 @@
 %\end{itemize}
 确切的处理过程如下：
 \begin{itemize}
-\item 如果 \cs{prevdepth} 小于或等于 \n{-1000pt}，
-不添加任何粘连，否则
-\item \TeX\ 计算出上一个盒子底部和当前盒子顶部的距离，
-即 \cs{baselineskip} 的自然宽度减去 \cs{prev\-depth}（上一个盒子的深度）再减去当前盒子的高度；
-\item 如果这个距离至少为 \csidx{lineskiplimit}，
-则添加粘连，其自然尺寸为计算出的距离，
-伸长量和收缩量为 \cs{baselineskip} 的伸长量和收缩量，
-\item 否则添加 \csidx{lineskip} 粘连。
-\item \csidx{prevdepth} 被设置为当前项目的深度。
+\item 如果 \cs{prevdepth} 小于或等于 \n{-1000pt}，不会添加任何粘连，否则
+\item \TeX\ 计算出上一个盒子底部和当前盒子顶部的距离：
+它用 \cs{baselineskip} 减去 \cs{prev\-depth}（上一个盒子的深度）再减去当前盒子的高度；
+\item 如果这个距离小于 \csidx{lineskiplimit}，\TeX\ 添加一个粘连，
+这个粘连的自然尺寸等于该距离，伸长量和收缩量等于 \cs{baselineskip} 的伸长量和收缩量。
+\item 否则，\TeX\ 改为添加 \csidx{lineskip} 粘连。
+\item \TeX\ 将 \csidx{prevdepth} 设为当前项目的深度。
 \end{itemize}
 
 %There are two exceptional  situations:
@@ -182,10 +179,9 @@
 %and the \cs{prevdepth} is not updated by an \cs{unvbox}
 %or \cs{unvcopy} command. After a rule interline glue
 %is prevented by a value of \n{-1000pt} of the \cs{prevdepth}.
-这里有两个例外情况：
-在标尺前后不添加行间粘连，
-并且 \cs{unvbox} 或 \cs{unvcopy} 命令不更新 \cs{prevdepth}。
-在标尺之后，通过将 \cs{prevdepth} 的值设为 \n{-1000pt} 来阻止行间粘连。
+这里有两个例外情形：在标尺前后不添加行间粘连，
+而 \cs{unvbox} 或 \cs{unvcopy} 命令不改变 \cs{prevdepth} 值。
+在标线之后行间粘连是由于 \cs{prevdepth} 等于 \n{-1000pt} 而被阻止。
 
 %The above process is carried out, irrespective of what extra
 %glue may have been inserted in between the boxes.
@@ -194,10 +190,10 @@
 %and therefore also not the amount of baselineskip glue.
 %The same holds for glue added with \cs{vadjust} inside
 %a paragraph.
-上述过程的执行，与盒子之间可能插入的额外粘连无关。
-因此，在垂直模式下盒子之间的跳过不会影响从基线距离计算出的距离，
-也因此不会影响 \cs{baselineskip} 粘连的数量。
-这同样适用于在段落内部使用 \cs{vadjust} 添加的粘连。
+上面的处理过程不考虑盒子间另外插入的粘连。
+因此竖直模式中添加的盒子间距不会影响从基线距离算出的结果，
+从而不影响行间粘连的大小。
+这个规则也适用于在段落中用 \cs{vadjust} 添加的粘连。
 
 %\begin{example}
 %\begin{verbatim}
@@ -278,31 +274,29 @@
 %\end{verbatim}
 %so, when boxes start to touch each other, they are
 %moved one point apart.
-Plain \TeX\ 的默认值是
+Plain \TeX\ 中的默认值为
 \begin{verbatim}
 \lineskiplimit=0pt lineskip=1pt
 \end{verbatim}
-因此，当盒子开始相互接触时，它们会被移开一个点。
+因此，当两个盒子开始碰到时，它们被拉开一个点的距离。
 
 %\section{The perceived depth of boxes}
-\section{盒子的感知深度}
+\section{盒子深度}
 
 %The decision process for interline glue uses \csidx{prevdepth}
 %as the perceived depth of the preceding box on the vertical
 %list. The \cs{prevdepth} parameter can be used only in
 %vertical mode.
-行间粘连的决策过程使用 \csidx{prevdepth}
-作为竖直列表中前一个盒子的感知深度。
-\cs{prevdepth} 参数只能在垂直模式下使用。
+在确定行间粘连时，\csidx{prevdepth} 代表竖直列中前一个盒子的深度。
+\cs{prevdepth} 参数只能在竖直模式中使用。
 
 %The \cs{prevdepth} is set to the depth of boxes added to the
 %vertical list, but it is not affected by \cs{unvbox}
 %or \cs{unvcopy}. After an \cs{hrule} it is set to
 %\n{-1000pt} to prevent interline glue before the next box.
-\cs{prevdepth} 被设置为添加到
-垂直列表中的盒子的深度，但它不受 \cs{unvbox}
-或 \cs{unvcopy} 的影响。在 \cs{hrule} 之后，它被设置为
-\n{-1000pt} 以防止在下一个盒子之前插入行间粘连。
+\cs{prevdepth} 被设定为添加到竖直列的盒子的深度，
+但它不受 \cs{unvbox} 或 \cs{unvcopy} 影响。
+在 \cs{hrule} 之后它被设为 \n{-1000pt} 以阻止在下个盒子前生成行间粘连。
 
 %At the beginning of a vertical list \cs{prevdepth}
 %is set to \n{-1000pt}, except in an \cs{halign}
@@ -310,12 +304,10 @@ Plain \TeX\ 的默认值是
 %is carried over from the surrounding list.
 %At the end of the alignment the value of \cs{prevdepth}
 %set by the last alignment row is carried to the outer list.
-在垂直列表的开头，\cs{prevdepth}
-被设置为 \n{-1000pt}，但在 \cs{halign}
-及其包含的 \cs{noalign} 代码中除外，
-在那里它继承自周围的列表。
-在对齐结束时，由最后一个对齐行设置的 \cs{prevdepth} 值
-会传递到外部列表。
+在竖直列的开头，\cs{prevdepth} 被设为 \n{-1000pt}，
+除非在 \cs{halign} 和 \cs{noalign} 中，
+此时使用的是外层列表的 \cs{prevdepth} 值。
+在阵列的结尾，阵列末尾行设定的 \cs{prevdepth} 的值被送到外层列表中。
 
 %In order to prevent interline glue just once, all that
 %is needed is to alter the \cs{prevdepth}.
@@ -323,8 +315,7 @@ Plain \TeX\ 的默认值是
 %\begin{verbatim}
 %\def\nointerlineskip{\prevdepth=-1000pt}
 %\end{verbatim}
-为了只阻止一次行间粘连，
-只需更改 \cs{prevdepth}。
+为阻止一次行间粘连，只需要修改 \cs{prevdepth}。
 \cstoidx nointerlineskip\par
 \begin{verbatim}
 \def\nointerlineskip{\prevdepth=-1000pt}
@@ -344,21 +335,19 @@ Plain \TeX\ 的默认值是
 %always. 
 %Settings for \cs{baselineskip} do not matter any more then.
 \csidx{offinterlineskip} 宏要彻底得多：
-它阻止{\sl 所有}行间粘连，从调用它的那一刻起，
-或者，如果它在段落内部使用，
-则从该段落的开头开始。
-它的定义是
+它使得{\sl 所有\/}行间粘连都为零，从调用它的时刻算起，
+或者，倘若在段落中间使用它，从段落开头处算起。
+它的定义为
 \begin{verbatim}
 \baselineskip=-1000pt \lineskip=0pt 
 \lineskiplimit\maxdimen
 \end{verbatim}
-其中第二行是关键：它
-导致 \TeX\ 总是添加 \cs{lineskip} 粘连（其值为零）。
-此时 \cs{baselineskip} 的设置就不再重要了。
+其中第二行是关键之处：它使得 \TeX\ 添加的 \cs{lineskip} 粘连始终等于零。
+这样 \cs{baselineskip} 的设置将不再重要。
 
 %The \cs{offinterlineskip} macro has an important application
 %in alignments (see Chapter~\ref{align}).
-\cs{offinterlineskip} 宏在对齐中有一个重要的应用（见第 \ref{align} 章）。
+\cs{offinterlineskip} 宏在阵列中能派上用场（见第~\ref{align}~章）。
 
 %By setting
 %\begin{verbatim}
@@ -371,8 +360,8 @@ Plain \TeX\ 的默认值是
 \begin{verbatim}
 \lineskiplimit=-\maxdimen
 \end{verbatim}
-你可以强制 \TeX\ 总是应用 \cs{baselineskip}，
-无论这是否会导致盒子靠得太近，甚至是否会导致它们重叠。
+你可以强制 \TeX\ 始终使用 \cs{baselineskip}，
+而不管是否将导致盒子靠得太近，或者导致它们重叠。
 
 
 %%\point Terminology
@@ -388,29 +377,24 @@ Plain \TeX\ 的默认值是
 %be larger (see~\cite{White:line} for a discussion of this),
 %strips of lead would be inserted. The extra distance was
 %called the `leading' (pronounced `ledding').
-在铅字排版中，特定字体的所有字母都印在相同
-大小的“字身”上。因此，每行铅字都有相同的高度和深度，
-由此产生的基线之间的距离将是该字体的一些合适
-值。如果由于某种原因该距离应
-更大（参见 \cite{White:line} 对此的讨论），
-则会插入铅条。额外的距离被称为“leading”（发音为“ledding”）。
+在铅字排版时代，一个字体的所有字母都印在相同大小的`字身'上。
+因此排版的每行都有相同的高度和深度，从而基线的距离将有合适的大小。
+若由于某原因需要增加此距离（见~\cite{White:line}~对此问题的讨论），
+则需要插入一个铅条（strips of lead）。
+这个额外的距离就称为`leading'（发音同`ledding'）。
 
 %With phototypesetting, when the baseline distance was sometimes
 %called the `film transport', this terminology blurred, and the
-%term `leading' was也被 used for the baseline distance. Some of this
+%term `leading' was also used for the baseline distance. Some of this
 %confusion is also present in \TeX: the parameter \cs{baselineskip}
 %specifies the baseline distance, but in the trace output
 %(see the examples above) the glue inserted to make the 
 %baseline distance equal to \cs{baselineskip} is called
 %\cs{baselineskip}.
-在照相排版中，当基线距离有时
-被称为“胶片传输”时，这个术语变得模糊，并且
-“leading”一词也被用于基线距离。这种
-混淆在 \TeX\ 中也存在：参数 \cs{baselineskip}
-指定基线距离，但在追踪输出中
-（参见上面的例子），为了使
-基线距离等于 \cs{baselineskip} 而插入的粘连也被称为
-\cs{baselineskip}。
+在照相排版时代，基线距离有时候被称为`film transport'，
+而`leading'这个术语变得模糊，有时也被用于表示基线距离。这种混乱同样出现在 \TeX\ 中：
+参数 \cs{baselineskip} 指定基线距离，但是在追踪输出中（见上面的例子），
+为保证基线距离等于\cs{baselineskip}而插入的粘连也被称为 \cs{baselineskip}。
 
 %%\point Additional remarks
 %\section{Additional remarks}
@@ -421,10 +405,9 @@ Plain \TeX\ 的默认值是
 %to have the same baseline distance throughout. However,
 %for one-page documents you may add stretchability to the
 %baselineskip, for instance if the text has to be flush bottom.
-一般来说，对于超过一页的文档，
-最好自始至终保持相同的基线距离。然而，
-对于单页文档，你可以为
-基线距离添加可伸缩性，例如如果文本必须底部对齐。
+一般地，对于超过一页的文档，自始至终保持相同的基线距离比较合适。
+然而，对于单页文档，你可以添加伸长度到 \cs{baselineskip}，
+这样可以让文本在底部对齐。
 
 %Increasing the distance between just one pair of lines
 %can be done with \cs{vadjust}. The argument of this
@@ -433,13 +416,10 @@ Plain \TeX\ 的默认值是
 %vertical list right after the line where this command was given.
 %The second line of this paragraph, for instance, 
 %contains the command \verb-\vadjust{\kern2pt}-.
-仅增加一对行之间的距离
-可以使用 \cs{vadjust} 完成。此
-命令的参数是垂直材料，它\vadjust{\kern2pt}%
-将被插入到
-垂直列表中，紧随该命令所在的行之后。
-例如，本段落的第二行
-包含命令 \verb-\vadjust{\kern2pt}-。
+若仅仅想增加某两行的距离，你可以使用 \cs{vadjust} 命令。
+这个命令的参量是竖直素材，\vadjust{\kern2pt}%
+它们将被插入到竖直列并放在这个命令所在的行之后。
+比如这个段落的第二行就包含命令 \verb-\vadjust{\kern2pt}-。
 
 %The amount of leading cannot be changed in the middle of
 %a paragraph, because the value for \cs{baselineskip}
@@ -447,11 +427,9 @@ Plain \TeX\ 的默认值是
 %is current when the paragraph is finally broken and
 %added to the main vertical list. The same holds
 %for the \cs{lineskip} and \cs{lineskiplimit}.
-行间距的数量不能在段落中间更改，
-因为 \cs{baselineskip} 的值
-是段落最终断开并
-添加到主垂直列表时使用的当前值。
-\cs{lineskip} 和 \cs{lineskiplimit} 也是如此。
+行间距的大小可以在段落中间修改，
+这是因为在分段为行并添加到主竖直列时才会用到 \cs{baselineskip} 的当前值。
+\cs{lineskip} 和 \cs{lineskiplimit} 类似。
 
 %The plain \TeX\ macro \csidx{openup}
 %increases the \cs{baselineskip}, \cs{lineskip}, and
@@ -459,11 +437,10 @@ Plain \TeX\ 的默认值是
 %to the macro. In effect, this increases line distances
 %by this amount regardless of whether they are governed
 %by \cs{baselineskip} or \cs{lineskip}.
-plain \TeX\ 宏 \csidx{openup}
-将 \cs{baselineskip}、\cs{lineskip} 和
-\cs{lineskiplimit} 增加宏参数的量。
-实际上，这会使行距增加此量，
-无论它们是由 \cs{baselineskip} 还是 \cs{lineskip} 控制。
+Plain \TeX\ 宏 \csidx{openup} 给 \cs{baselineskip}、\cs{lineskip}
+和 \cs{lineskiplimit} 增加宏参量所指定的大小。
+其效果是给行间距增加所指定的大小，无论它是由 \cs{baselineskip}
+还是由 \cs{lineskip} 给出。
 
 
 %\endofchapter

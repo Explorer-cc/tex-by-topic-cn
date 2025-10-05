@@ -8,17 +8,17 @@
 
 %\chapter{Spacing}\label{space}
 %\index{spacing|(}
-\chapter{间距}\label{space}
+\chapter{Spacing}\label{space}
 \index{spacing|(}
 
 %The usual interword space in \TeX\ is specified in the
 %font information, but the user can override this.
 %This chapter explains the rules by which
 %\TeX\ calculates interword space.
-\TeX\ 中通常的单词间距在
-字体信息中指定，但用户可以覆盖此设置。
-本章解释了 \TeX\ 计算单词间距的
-规则。
+The usual interword space in \TeX\ is specified in the
+font information, but the user can override this.
+This chapter explains the rules by which
+\TeX\ calculates interword space.
 
 %\label{cschap:char322}\label{cschap:spaceskip}\label{cschap:xspaceskip}\label{cschap:spacefactor}\label{cschap:sfcode}\label{cschap:frenchspacing}\label{cschap:nonfrenchspacing}
 %\begin{inventory}
@@ -30,58 +30,59 @@
 %      Insert the same amount of space as a space token would
 %      if \cs{spacefactor}${}=1000$.
 \item [\cs{\char32}]
-      控制空格。
-      插入与空格记号相同的间距，
-      如果 \cs{spacefactor}${}=1000$。
+      Control space.
+      Insert the same amount of space as a space token would
+      if \cs{spacefactor}${}=1000$.
 
 %\item [\cs{spaceskip}] 
 %      Interword glue if non-zero.
 \item [\cs{spaceskip}] 
-      如果非零，则为单词间粘连。
+      Interword glue if non-zero.
 
 %\item [\cs{xspaceskip}] 
 %      Interword glue if non-zero and \cs{spacefactor}${}\geq2000$.
 \item [\cs{xspaceskip}] 
-      如果非零且 \cs{spacefactor}${}\geq2000$，则为单词间粘连。
+      Interword glue if non-zero and \cs{spacefactor}${}\geq2000$.
 
 %\item [\cs{spacefactor}] 
 %      1000 times the ratio by which the stretch (shrink) component of the
 %      interword glue should be multiplied (divided).
 \item [\cs{spacefactor}] 
-      单词间粘连的伸展（收缩）分量应乘以（除以）的比例的 1000 倍。
+      1000 times the ratio by which the stretch (shrink) component of the
+      interword glue should be multiplied (divided).
 
 %\item [\cs{sfcode}] 
 %      Value for \cs{spacefactor} associated with a character.
 \item [\cs{sfcode}] 
-      与字符关联的 \cs{spacefactor} 值。
+      Value for \cs{spacefactor} associated with a character.
 
 %\item [\cs{frenchspacing}]
 %      Macro to switch off extra space after punctuation.
 \item [\cs{frenchspacing}]
-      关闭标点符号后额外间距的宏。
+      Macro to switch off extra space after punctuation.
 
 %\item [\cs{nonfrenchspacing}]
 %      Macro to switch on extra space after punctuation.
 \item [\cs{nonfrenchspacing}]
-      开启标点符号后额外间距的宏。
+      Macro to switch on extra space after punctuation.
 
 %\end{inventory}
 \end{inventory}
 
 
 %\section{Introduction}
-\section{引言}
+\section{Introduction}
 
 %In between words in a text, \TeX\ inserts space. This space has a
 %natural component, plus stretch and shrink to make justified
 %(right-aligned) text possible. Now, in certain styles of typesetting,
 %there is more space after punctuation. This chapter discusses the
 %mechanism that \TeX\ uses to realize such effect.
-在文本中的单词之间，\TeX\ 会插入间距。这个间距有一个
-自然分量，加上伸展和收缩，以实现对齐
-（右对齐）文本。现在，在某些排版风格中，
-标点符号后会有更多间距。本章讨论了 \TeX\ 用来
-实现这种效果的机制。
+In between words in a text, \TeX\ inserts space. This space has a
+natural component, plus stretch and shrink to make justified
+(right-aligned) text possible. Now, in certain styles of typesetting,
+there is more space after punctuation. This chapter discusses the
+mechanism that \TeX\ uses to realize such effect.
 
 %Here is the general idea:
 %\begin{itemize}
@@ -94,22 +95,22 @@
 %  And...} the space is modified according to the period, not the
 %  closing parenthesis.
 %\end{itemize}
-一般思路如下：
+Here is the general idea:
 \begin{itemize}
-\item 在每个字符记号之后，\cs{spacefactor} 量会
-  用该字符的间距因子代码更新。
-\item 插入间距时，其自然大小可以增加
-  （如果 \cs{spacefactor}${}\geq2000$），并且通常其伸展会被
-  乘以 \cs{spacefactor}${}/1000$，收缩则被除以该因子。
-\item 还有其他规则，例如在 \n{...word.) And...} 中，
-  间距是根据句号而不是
-  右括号修改的。
+\item After every character token, the \cs{spacefactor} quantity is
+  updated with the space factor code of that character.
+\item When space is inserted, its natural size can be augmented
+  (if \cs{spacefactor}${}\geq2000$), and in general its stretch is
+  multiplied, and its shrink divided, by \cs{spacefactor}${}/1000$.
+\item There are further rules, for instance so that in \n{...word.)
+  And...} the space is modified according to the period, not the
+  closing parenthesis.
 \end{itemize}
 
 %%\point Automatic interword space
 %\section{Automatic interword space}
 %\point Automatic interword space
-\section{自动单词间距}
+\section{Automatic interword space}
 
 
 %For every space token in horizontal mode the interword glue
@@ -121,21 +122,26 @@
 %space, and 4~is the amount of shrink. Font dimension
 %7 is called the `extra space'; see below (the list
 %of all the font dimensions appears on page~\pageref{font:dims}). 
-对于水平模式中的每个空格记号，当前字体的
-单词间粘连会被插入，带有伸展和收缩分量，所有这些都由
-\cs{fontdimen} 参数决定。
-具体来说，字体尺寸 2 是正常的单词间距，
-尺寸 3 是单词间距的伸展量，
-尺寸 4 是收缩量。字体尺寸
-7 称为“额外间距”；见下文（所有字体尺寸的列表
-出现在第 \pageref{font:dims} 页）。
+For every space token in horizontal mode the interword glue
+of the current font
+is inserted, with stretch and shrink components, all
+determined by \cs{fontdimen} parameters.
+To be specific, font dimension~2 is the normal interword space,
+dimension~3 is the amount of stretch of the interword
+space, and 4~is the amount of shrink. Font dimension
+7 is called the `extra space'; see below (the list
+of all the font dimensions appears on page~\pageref{font:dims}). 
 
 %Ordinarily all spaces between words (in one font) would be treated the
 %same. To allow for differently sized spaces \ldash for instance a
 %typeset equivalent of the double spacing after punctuation in
 %typewritten documents \rdash \TeX\ associates with each character a
 %so-called \indextermsub{space}{factor}.
-通常，单词之间（在同一字体中）的所有空格都会被同等对待。为了允许不同大小的间距 \ldash 例如，排版中与打字文档中标点符号后的双倍间距等效 \rdash \TeX\ 会为每个字符关联一个所谓的 \indextermsub{间距}{因子}。
+Ordinarily all spaces between words (in one font) would be treated the
+same. To allow for differently sized spaces \ldash for instance a
+typeset equivalent of the double spacing after punctuation in
+typewritten documents \rdash \TeX\ associates with each character a
+so-called \indextermsub{space}{factor}.
 
 %When a character is added to the current horizontal list,
 %the space factor code (\csidx{sfcode})
@@ -152,20 +158,21 @@
 %  initials; see section~\ref{sec:sf-punct}.
 %\end{itemize}
 %The maximum space factor  is~$32\,767$.
-当一个字符被添加到当前水平列表时，
-该字符的间距因子代码（\csidx{sfcode}）
-会被赋值给间距因子 \csidx{spacefactor}。
-此规则有两个例外：
+When a character is added to the current horizontal list,
+the space factor code (\csidx{sfcode})
+of that character
+is assigned to the space factor \csidx{spacefactor}.
+There are two exceptions to this rule:
 \begin{itemize}
-\item 当间距因子代码为零时，\cs{spacefactor} 不会
-  改变。此机制允许间距因子在括号等中持续存在；
-  参见 \ref{sec:sf-through-paren} 节。
-\item 当最后一个字符的间距因子代码 ${>}1000$
-  且当前间距因子 ${<}1000$ 时，间距因子
-  变为 1000。此机制可防止首字母后出现过长的间距；
-  参见 \ref{sec:sf-punct} 节。
+\item When the space factor code is zero, the \cs{spacefactor} does
+  not change. This mechanism allows space factors to persist through
+  parentheses and such; see section~\ref{sec:sf-through-paren}.
+\item When the space factor code of the last character is ${>}1000$
+  and the current space factor is ${<}1000$, the space factor
+  becomes~1000. This mechanism prevents elongated spaces after
+  initials; see section~\ref{sec:sf-punct}.
 \end{itemize}
-最大间距因子是 $32\,767$。
+The maximum space factor  is~$32\,767$.
 
 %The stretch component of the interword space is
 %multiplied by the space factor divided by 1000;
@@ -173,17 +180,17 @@
 %The extra space (font dimension~7) is
 %added to the natural component of the
 %interword space when the space factor is~${}\geq2000$.
-单词间距的伸展分量被
-乘以间距因子除以 1000；
-收缩分量则被除以该因子。
-当间距因子 ${}\geq2000$ 时，
-额外间距（字体尺寸 7）会
-添加到单词间距的自然分量中。
+The stretch component of the interword space is
+multiplied by the space factor divided by 1000;
+the shrink component is divided by this factor. 
+The extra space (font dimension~7) is
+added to the natural component of the
+interword space when the space factor is~${}\geq2000$.
 
 %%\point User interword space
 %\section{User interword space}
 %\point User interword space
-\section{用户自定义单词间距}
+\section{User interword space}
 
 %The user can override the interword space contained in
 %the \cs{fontdimen} parameters
@@ -194,25 +201,27 @@
 %(\cs{fontdimen2} plus \cs{fontdimen3} minus \cs{fontdimen4}), but
 %a non-zero \cs{xspaceskip} is used as interword space if
 %the space factor is~${}\geq2000$.
-用户可以通过将
-\csidx{spaceskip} 和 \csidx{xspaceskip} 设置为非零值来
-覆盖 \cs{fontdimen} 参数中包含的单词间距。
-如果 \cs{spaceskip} 非零，它将代替
-正常的单词间距
-（\cs{fontdimen2} 加 \cs{fontdimen3} 减 \cs{fontdimen4}），但
-如果间距因子 ${}\geq2000$，则非零的 \cs{xspaceskip} 将用作单词间距。
+The user can override the interword space contained in
+the \cs{fontdimen} parameters
+by setting the
+\csidx{spaceskip} and the \csidx{xspaceskip} to non-zero values.
+If \cs{spaceskip} is non-zero, it is taken instead
+of the normal interword space
+(\cs{fontdimen2} plus \cs{fontdimen3} minus \cs{fontdimen4}), but
+a non-zero \cs{xspaceskip} is used as interword space if
+the space factor is~${}\geq2000$.
 
 %If the \cs{spaceskip} is used,
 %its stretch and shrink components are
 %multiplied and divided respectively by \cs{spacefactor}$/1000$.
-如果使用 \cs{spaceskip}，
-其伸展和收缩分量将分别乘以和除以
-\cs{spacefactor}$/1000$。
+If the \cs{spaceskip} is used,
+its stretch and shrink components are
+multiplied and divided respectively by \cs{spacefactor}$/1000$.
 
 %Note that, if \cs{spaceskip} and \cs{xspaceskip} are
 %defined in terms of \n{em}, they change with the font.
-请注意，如果 \cs{spaceskip} 和 \cs{xspaceskip} 是
-以 \n{em} 定义的，它们会随字体而改变。
+Note that, if \cs{spaceskip} and \cs{xspaceskip} are
+defined in terms of \n{em}, they change with the font.
 
 %\begin{example} Let the following macros be given:
 %\begin{verbatim}
@@ -221,15 +230,61 @@
 %\def\c{\vrule height10pt width4pt\relax}
 %\end{verbatim} 
 %    then
-\begin{example} 假设给出以下宏：
+\begin{example} Let the following macros be given:
 \begin{verbatim}
 \def\a.{\vrule height10pt width4pt\spacefactor=1000\relax}
 \def\b.{\vrule height10pt width4pt\spacefactor=3000\relax}
 \def\c{\vrule height10pt width4pt\relax}
 \end{verbatim} 
-    则
+    then
 
 %%\begin{disp}\leavevmode\PopIndentLevel
+%\begin{disp}\leavevmode\PopIndentLevel
+
+%\hbox{%
+%$\vcenter{\hsize=3in \snugbox{%
+%\begin{verbatim}
+%\vbox{
+%\fontdimen2\font=4pt % normal space 
+%\fontdimen7\font=3pt % extra space
+%\a. \b. \c\par
+%% zero extra space
+%\fontdimen7\font=0pt
+%\a. \b. \c\par
+%% set \spaceskip for normal space
+%\spaceskip=2\fontdimen2\font
+%\a. \b. \c\par
+%% set \xspaceskip
+%\xspaceskip=2pt
+%\a. \b. \c\par
+%}
+%\end{verbatim}
+%}}$%
+%%
+%\quad\quad gives\quad\quad
+%%
+%\message{Check snug and drop!}%
+%$\vcenter{\snugbox{\parindent0pt\parskip=0pt
+%\def\a.{\vrule height10pt width4pt\spacefactor=1000\relax}
+%\def\b.{\vrule height10pt width4pt\spacefactor=3000\relax}
+%\def\c{\vrule height10pt width4pt\relax}
+%\leavevmode\strut\par\hbox{}\hbox{}
+%% set the normal space and extra space
+%\fontdimen2\font=4pt \fontdimen7\font=3pt
+%\a. \b. \c\par \vskip2\baselineskip
+%% zero extra space
+%\fontdimen7\font=0pt
+%\a. \b. \c\par \vskip2\baselineskip
+%% set \spaceskip for normal space
+%\spaceskip=2\fontdimen2\font
+%\a. \b. \c\par \vskip2\baselineskip
+%% set \xspaceskip
+%\xspaceskip=2pt
+%\a. \b. \c\par \leavevmode\strut
+%}}$%
+%%
+%}
+%%\end{disp}
 \hbox{%
 $\vcenter{\hsize=3in \snugbox{%
 \begin{verbatim}
@@ -250,7 +305,7 @@ $\vcenter{\hsize=3in \snugbox{%
 \end{verbatim}
 }}$%
 %
-\quad\quad 给出\quad\quad
+\quad\quad gives\quad\quad
 %
 \message{Check snug and drop!}%
 $\vcenter{\snugbox{\parindent0pt\parskip=0pt
@@ -284,19 +339,21 @@ $\vcenter{\snugbox{\parindent0pt\parskip=0pt
 %it is taken (fourth line) instead of the \cs{spaceskip}
 %for the high value of the space factor.
 %\end{example}
-在所有这些行中，粘连都设置为自然宽度。在第一行中，\cs{b} 之后的高间距因子值导致添加
-额外间距 \cs{fontdimen7}。如果此值为零（第二行），则
-间距因子值之间的唯一区别是伸展/收缩
-比率。在第三行中，所有间距因子值都使用 \cs{spaceskip}。如果 \cs{xspaceskip} 非零，
-则对于高间距因子值，它将代替 \cs{spaceskip}
-被使用（第四行）。
+In all of these lines the glue is set at natural width. In the first
+line the high space factor value after \cs{b} causes the extra
+space \cs{fontdimen7} to be added. If this is zero (second line), the
+only difference between space factor values is the stretch/shrink
+ratio. In the third line the \cs{spaceskip} is taken
+for all space factor values. If the \cs{xspaceskip} is nonzero,
+it is taken (fourth line) instead of the \cs{spaceskip}
+for the high value of the space factor.
 \end{example}
 
 %%\point[tie] Control space and tie
 %\section{Control space and tie}
 %\label{tie}
 %\point[tie] Control space and tie
-\section{控制空格和连接符}
+\section{Control space and tie}
 \label{tie}
 
 %The control character \csc{\char32}, \indextermbus{control}{space}
@@ -304,10 +361,11 @@ $\vcenter{\snugbox{\parindent0pt\parskip=0pt
 %which inserts a space,  \csidx{\char32}
 %acting as if the current space factor is~1000.
 %However, it does not affect the value of \cs{spacefactor}.
-控制字符 \csc{\char32}，\indextermbus{控制}{空格}
-是一个水平命令，它插入一个空格，
-\csidx{\char32} 的作用就好像当前间距因子是 1000。
-然而，它不影响 \cs{spacefactor} 的值。
+The control character \csc{\char32}, \indextermbus{control}{space}
+is a horizontal command
+which inserts a space,  \csidx{\char32}
+acting as if the current space factor is~1000.
+However, it does not affect the value of \cs{spacefactor}.
 
 %Control space has two main uses. First, it is convenient to use after
 %a control sequence: \verb+\TeX\ is fun!+
@@ -331,28 +389,28 @@ $\vcenter{\snugbox{\parindent0pt\parskip=0pt
 %\hbox spread 9pt{\nonfrenchspacing
 %      The Reverend Dr.\ Drofnats}\end{disp}
 %(The \n{spread 9pt} is used to make the effect more visible.)
-控制空格有两个主要用途。首先，它方便在
-控制序列之后使用：\verb+\TeX\ is fun!+
-其次，当 \cs{nonfrenchspacing}
-（见下文）生效时，它可以在缩写词之后使用。例如：
+Control space has two main uses. First, it is convenient to use after
+a control sequence: \verb+\TeX\ is fun!+
+Secondly, it can be used after abbreviations when \cs{nonfrenchspacing}
+(see below) is in effect. For example:
 \begin{verbatim}
 \hbox spread 9pt{\nonfrenchspacing
       The Reverend Dr. Drofnats}
 \end{verbatim}
-给出
+gives
 \begin{disp} \hbadness=10000 \leavevmode
 \hbox spread 9pt{\nonfrenchspacing
       The Reverend Dr. Drofnats}\end{disp}
-而
+while
 \begin{verbatim}
 \hbox spread 9pt{\nonfrenchspacing
       The Reverend Dr.\ Drofnats}
 \end{verbatim}
-给出
+gives
 \begin{disp} \hbadness=10000 \leavevmode
 \hbox spread 9pt{\nonfrenchspacing
       The Reverend Dr.\ Drofnats}\end{disp}
-（\n{spread 9pt} 用于使效果更明显。）
+(The \n{spread 9pt} is used to make the effect more visible.)
 
 %The active character (in the plain format) tilde or
 %\indexterm{tie},~\n{\char126},
@@ -364,38 +422,38 @@ $\vcenter{\snugbox{\parindent0pt\parskip=0pt
 %\end{verbatim}
 %Such an active tilde is called a `tie'; it inserts an ordinary 
 %amount of space, and prohibits breaking at this space.
-在 plain 格式中，活动字符波浪号或
-\indexterm{连接符}，\n{\char126}，
+The active character (in the plain format) tilde or
+\indexterm{tie},~\n{\char126},
 \term ~@\char126\par
-使用控制空格：它定义为
+uses control space: it is defined as
 \begin{verbatim}
 \catcode`\~=\active
 \def~{\penalty10000\ }
 \end{verbatim}
-这种活动波浪号被称为“连接符”；它插入一个普通的
-间距量，并禁止在此间距处断行。
+Such an active tilde is called a `tie'; it inserts an ordinary 
+amount of space, and prohibits breaking at this space.
 
 
 %%\point More on the space factor
 %\section{More on the space factor}
 %\point More on the space factor
-\section{关于间距因子的更多信息}
+\section{More on the space factor}
 
 %%\spoint Space factor assignments
 %\subsection{Space factor assignments}
 %\spoint Space factor assignments
-\subsection{间距因子赋值}
+\subsection{Space factor assignments}
 
 %The space factor of a particular character 
 %is contained in its \indexterm{spacefactor code}
 %and can be assigned as
 %\cstoidx sfcode\par
 %\begin{disp}\cs{sfcode}\gr{8-bit number}\gr{equals}\gr{number}\end{disp}
-特定字符的间距因子
-包含在其 \indexterm{间距因子代码} 中，
-并可以赋值为
+The space factor of a particular character 
+is contained in its \indexterm{spacefactor code}
+and can be assigned as
 \cstoidx sfcode\par
-\begin{disp}\cs{sfcode}\gr{8位数字}\gr{等于}\gr{数字}\end{disp}
+\begin{disp}\cs{sfcode}\gr{8-bit number}\gr{equals}\gr{number}\end{disp}
 
 %\IniTeX\ assigns a space factor code of 1000 to all characters
 %\label{ini:sf}%
@@ -405,28 +463,30 @@ $\vcenter{\snugbox{\parindent0pt\parskip=0pt
 %\verb-\sfcode`\.=3000-, which triples the stretch and shrink
 %after a full stop. Also, for all space factor values $\geq2000$
 %the extra space is added; see above.
-\IniTeX\ 将 1000 的间距因子代码赋值给所有字符，
+\IniTeX\ assigns a space factor code of 1000 to all characters
 \label{ini:sf}%
-除了大写字符；它们获得 999 的间距因子代码。
-plain 格式随后将大于 1000 的间距因子代码赋值给各种标点符号，
-例如 \verb-\sfcode`\.=3000-，这会将句号后的伸展和收缩量增加三倍。
-此外，对于所有间距因子值 $\geq2000$，
-会添加额外间距；见上文。
+except uppercase characters; they get a space factor code of~999.
+The plain format then assigns space factor codes greater than
+1000 to various punctuation symbols, for instance
+\verb-\sfcode`\.=3000-, which triples the stretch and shrink
+after a full stop. Also, for all space factor values $\geq2000$
+the extra space is added; see above.
 
 %%\spoint Punctuation
 %\subsection{Punctuation}
 %\label{sec:sf-punct}
 %\spoint Punctuation
-\subsection{标点符号}
+\subsection{Punctuation}
 \label{sec:sf-punct}
 
 %Because the space factor cannot jump from a value below 1000
 %to one above, a punctuation symbol after an uppercase
 %character will not have the effect on the interword space
 %that punctuation after a lowercase character has.
-由于间距因子不能从低于 1000 的值跳到高于 1000 的值，
-因此大写字符后的标点符号不会对单词间距产生
-小写字符后标点符号那样的影响。
+Because the space factor cannot jump from a value below 1000
+to one above, a punctuation symbol after an uppercase
+character will not have the effect on the interword space
+that punctuation after a lowercase character has.
 
 %\begin{example}
 %\begin{verbatim}
@@ -469,24 +529,24 @@ A% \sfcode`A=999,  space factor becomes 999
 %a box the space factor is set to~1000.
 %The \LaTeX\ macro \cs{@} is equivalent to the first
 %possibility.
-因此，首字母
-不会被误认为是句子结尾。
-如果一个大写字符确实结束了一个句子，例如
+Thus, initials
+are not mistaken for sentence ends.
+If an uppercase character does end a sentence, for instance
 \begin{verbatim}
 ... and NASA.
 \end{verbatim}
-有几种解决方案：
+there are several solutions:
 \begin{verbatim}
 ... NASA\spacefactor=1000.
 \end{verbatim}
-或者
+or
 \begin{verbatim}
 ... NASA\hbox{}.
 \end{verbatim}
-这利用了盒子之后
-间距因子被设置为 1000 的事实。
-\LaTeX\ 宏 \cs{@} 等同于第一种
-可能性。
+which abuses the fact that after
+a box the space factor is set to~1000.
+The \LaTeX\ macro \cs{@} is equivalent to the first
+possibility.
 
 %In the plain format two macros are defined that switch between
 %\cstoidx frenchspacing\par
@@ -496,14 +556,14 @@ A% \sfcode`A=999,  space factor becomes 999
 %The macro \cs{frenchspacing} sets the space factor code
 %of all punctuation to~1000; the macro \cs{nonfrenchspacing}
 %sets it to values greater than~1000.
-在 plain 格式中，定义了两个宏，用于在
+In the plain format two macros are defined that switch between
 \cstoidx frenchspacing\par
 \cstoidx nonfrenchspacing\par
-统一单词间距（\indexterm{frenchspacing}）
-和标点符号后额外间距（这更像是美国习俗）之间切换。
-宏 \cs{frenchspacing} 将所有标点符号的间距因子代码
-设置为 1000；宏 \cs{nonfrenchspacing}
-将其设置为大于 1000 的值。
+uniform interword spacing, \indexterm{frenchspacing},
+and extra space after punctuation, which is more an American custom.
+The macro \cs{frenchspacing} sets the space factor code
+of all punctuation to~1000; the macro \cs{nonfrenchspacing}
+sets it to values greater than~1000.
 
 %Here are the actual definitions from \n{plain.tex}:
 %\begin{verbatim}
@@ -519,7 +579,7 @@ A% \sfcode`A=999,  space factor becomes 999
 %\mathchardef\@m=1000
 %\end{verbatim}
 %is given in the plain format.
-以下是 \n{plain.tex} 中的实际定义：
+Here are the actual definitions from \n{plain.tex}:
 \begin{verbatim}
 \def\frenchspacing{\sfcode`\.\@m \sfcode`\?\@m 
   \sfcode`\!\@m \sfcode`\:\@m 
@@ -528,11 +588,11 @@ A% \sfcode`A=999,  space factor becomes 999
   \sfcode`\!3000 \sfcode`\:2000
   \sfcode`\;1500 \sfcode`\,1250 }
 \end{verbatim}
-其中
+where
 \begin{verbatim}
 \mathchardef\@m=1000
 \end{verbatim}
-在 plain 格式中给出。
+is given in the plain format.
 
 %French spacing is a somewhat controversial issue:
 %\TeXbook\ acts as if non-French spacing
@@ -548,33 +608,49 @@ A% \sfcode`A=999,  space factor becomes 999
 %is rather small, so it carries some extra visual space 
 % of its own above it. This book does not use extra space
 %after punctuation.
-法式间距是一个颇具争议的问题：
-\TeXbook\ 的论调似乎是非法式间距
-是印刷中的标准做法，但例如在 \cite{Hart} 中
-可以找到“正常文本中所有标点符号后都应使用行间距”。
-标点符号后的额外间距
-可能被认为是“打字机习惯”，但这
-并非完全正确。它过去比现在普遍得多，
-并且有一些反对它的合理论据：
-句子末尾的句号（点），在其中额外标点符号最明显，
-本身相当小，因此它上方带有一些额外的视觉间距。
-本书不使用标点符号后的额外间距。
+French spacing is a somewhat controversial issue:
+\TeXbook\ acts as if non-French spacing
+is standard practice in printing, but for instance in~\cite{Hart}
+one finds `The space of the line should be used after
+all points in normal text'.
+Extra space after punctuation 
+may be considered a `typewriter habit', but this is
+not entirely true. It used to be a lot more common
+than it is nowadays, and there are rational arguments
+against it: the full stop (point, period) at the end of a
+sentence, where extra punctuation is most visible, 
+is rather small, so it carries some extra visual space 
+ of its own above it. This book does not use extra space
+after punctuation.
 
 %%\spoint Other non-letters
 %\subsection{Other non-letters}
 %\label{sec:sf-through-paren}
 %\spoint Other non-letters
-\subsection{其他非字母字符}
+\subsection{Other non-letters}
 \label{sec:sf-through-paren}
 
 %The zero value of the space factor code makes
 %characters that are not a letter and not punctuation
 %`transparent' for the space factor.
-间距因子代码的零值使得
-非字母且非标点符号的字符
-对间距因子“透明”。
+The zero value of the space factor code makes
+characters that are not a letter and not punctuation
+`transparent' for the space factor.
 
 %\message{check break after Example}
+%\begin{example}
+%\begin{verbatim}
+%a% \sfcode`a=1000, space factor becomes 1000
+%.% \sfcode`.=3000, spacefactor becomes 3000
+% % subsequent spaces will be increased.
+
+%a% \sfcode`a=1000, space factor becomes 1000
+%.% \sfcode`.=3000, space factor becomes 3000
+%)% \sfcode`)=0,    space factor stays 3000
+% % subsequent spaces will be increased.
+%\end{verbatim}
+%\end{example}
+\message{check break after Example}
 \begin{example}
 \begin{verbatim}
 a% \sfcode`a=1000, space factor becomes 1000
@@ -591,7 +667,7 @@ a% \sfcode`a=1000, space factor becomes 1000
 %%\spoint Other influences on the space factor
 %\subsection{Other influences on the space factor}
 %\spoint Other influences on the space factor
-\subsection{间距因子的其他影响}
+\subsection{Other influences on the space factor}
 
 %The space factor is 1000 when \TeX\ starts forming a
 %horizontal list, in particular after \cs{indent}, \cs{noindent},
@@ -599,22 +675,24 @@ a% \sfcode`a=1000, space factor becomes 1000
 %a \cs{vrule}, an accent, or a \gr{box} (in horizontal mode), but
 %it is not influenced by \cs{unhbox} or \cs{unhcopy}
 %commands.
-当 \TeX\ 开始形成水平列表时，间距因子为 1000，
-特别是在 \cs{indent}、\cs{noindent} 之后，
-以及紧接在显示公式之后。在
-\cs{vrule}、重音符号或 \gr{盒子}（在水平模式下）之后，它也为 1000，但
-它不受 \cs{unhbox} 或 \cs{unhcopy}
-命令的影响。
+The space factor is 1000 when \TeX\ starts forming a
+horizontal list, in particular after \cs{indent}, \cs{noindent},
+and directly after a display. It is also 1000 after
+a \cs{vrule}, an accent, or a \gr{box} (in horizontal mode), but
+it is not influenced by \cs{unhbox} or \cs{unhcopy}
+commands.
 
 %In the first column of a \cs{valign} the space factor of
 %the surrounding horizontal list is carried over; similarly,
 %after a vertical alignment the space factor is set to the
 %value reached in the last column.
-在 \cs{valign} 的第一列中，周围水平列表的间距因子会继承过来；
-类似地，在垂直对齐之后，间距因子会被设置为
-最后一列达到的值。
+In the first column of a \cs{valign} the space factor of
+the surrounding horizontal list is carried over; similarly,
+after a vertical alignment the space factor is set to the
+value reached in the last column.
 
 %\endofchapter
 \endofchapter
 
 \end{document}
+

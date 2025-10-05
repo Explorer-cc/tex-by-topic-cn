@@ -8,8 +8,8 @@
 
 %\chapter{Tracing}\label{trace}
 %\index{tracing|(}
-\chapter{追踪}\label{trace}
-\index{追踪|(}
+\chapter{Tracing}\label{trace}
+\index{tracing|(}
 
 %\TeX's workings are often quite different from what
 %the programmer expected, so there are ways to discover how \TeX\
@@ -20,26 +20,26 @@
 %(and to the terminal if \cs{tracingonline} is positive),
 %and a number of \cs{show...} commands can be used to ask the
 %current status or value of various items of \TeX.
-\TeX\ 的工作方式通常与
-程序员预期的大相径庭，因此有一些方法可以发现 \TeX\
-是如何得出其结果的。\cs{tracing...} 
-命令都将某种类型的
-\indexterm{统计}
-信息写入日志文件
-（如果 \cs{tracingonline} 为正，则也写入终端），
-并且可以使用一些 \cs{show...} 命令来查询 \TeX\ 各种项的
-当前状态或值。
+\TeX's workings are often quite different from what
+the programmer expected, so there are ways to discover how \TeX\
+arrived at the result it did. The \cs{tracing...} 
+commands all write
+\indexterm{statistics}
+information of a certain kind to the log file 
+(and to the terminal if \cs{tracingonline} is positive),
+and a number of \cs{show...} commands can be used to ask the
+current status or value of various items of \TeX.
 
 %In the following list, only \cs{show} and \cs{showthe}
 %display their output on the terminal by default,
 %other \cs{show...} and \cs{tracing...} commands
 %write to the log file. They will write in addition to
 %the terminal if \cs{tracingonline} is positive.
-在以下列表中，默认情况下只有 \cs{show} 和 \cs{showthe}
-在终端上显示其输出，
-其他 \cs{show...} 和 \cs{tracing...} 命令
-写入日志文件。如果 \cs{tracingonline} 为正，它们除了写入日志文件外，还会写入
-终端。
+In the following list, only \cs{show} and \cs{showthe}
+display their output on the terminal by default,
+other \cs{show...} and \cs{tracing...} commands
+write to the log file. They will write in addition to
+the terminal if \cs{tracingonline} is positive.
 
 %\label{cschap:meaning}\label{cschap:show}\label{cschap:showthe}\label{cschap:showbox}\label{cschap:tracingoutput}\label{cschap:showboxdepth}\label{cschap:showboxbreadth}\label{cschap:tracingparagraphs}\label{cschap:tracingpages}\label{cschap:tracinglostchars}\label{cschap:tracingrestores}\label{cschap:tracingstats}\label{cschap:tracingcommands}\label{cschap:tracingmacros}\label{cschap:tracingonline}
 %\begin{inventory}
@@ -48,22 +48,22 @@
 \label{cschap:meaning}\label{cschap:show}\label{cschap:showthe}\label{cschap:showbox}\label{cschap:tracingoutput}\label{cschap:showboxdepth}\label{cschap:showboxbreadth}\label{cschap:tracingparagraphs}\label{cschap:tracingpages}\label{cschap:tracinglostchars}\label{cschap:tracingrestores}\label{cschap:tracingstats}\label{cschap:tracingcommands}\label{cschap:tracingmacros}\label{cschap:tracingonline}
 \begin{inventory}
 \item [\cs{meaning}] 
-      将控制序列的含义以字符串形式给出。
+      Give the meaning of a control sequence as a string of characters.
 
 %\item [\cs{show}] 
 %      Display the meaning of a control sequence.
 \item [\cs{show}] 
-      显示控制序列的含义。
+      Display the meaning of a control sequence.
 
 %\item [\cs{showthe}] 
 %      Display the result of prefixing a token with \cs{the}.
 \item [\cs{showthe}] 
-      显示在记号前加上 \cs{the} 的结果。
+      Display the result of prefixing a token with \cs{the}.
 
 %\item [\cs{showbox}] 
 %      Display the contents of a box.
 \item [\cs{showbox}] 
-      显示盒子的内容。
+      Display the contents of a box.
 
 %\item [\cs{showlists}] 
 %      Display
@@ -72,17 +72,18 @@
 %      This is treated on
 %      page~\pageref{showlists}.
 \item [\cs{showlists}] 
-      显示
-      在所有模式下当前构建的部分列表的
-      内容。这在
-      第 \pageref{showlists} 页有讨论。
+      Display
+      the contents of the partial lists
+      currently built in all modes.
+      This is treated on
+      page~\pageref{showlists}.
 
 %\item [\csidx{tracingcommands}]
 %      If this is~1 \TeX\ displays primitive commands executed; 
 %      if this is 2~or more the outcome of conditionals is also recorded.
 \item [\csidx{tracingcommands}]
-      如果此值为 1，\TeX\ 会显示执行的原始命令；
-      如果此值为 2 或更大，则还会记录条件语句的结果。
+      If this is~1 \TeX\ displays primitive commands executed; 
+      if this is 2~or more the outcome of conditionals is also recorded.
 
 %\item [\csidx{tracingmacros}] 
 %      If this is~1, \TeX\ shows expansion of macros 
@@ -90,46 +91,52 @@
 %      if this is 2~or more \gr{token parameter}s such as
 %      \cs{output} and \cs{everypar} are also traced.
 \item [\csidx{tracingmacros}] 
-      如果此值为 1，\TeX\ 会显示执行的宏展开以及参数的实际值；
-      如果此值为 2 或更大，则 \cs{output} 和 \cs{everypar} 等 \gr{记号参数} 也会被追踪。
+      If this is~1, \TeX\ shows expansion of macros 
+      that are performed and the actual values of the arguments; 
+      if this is 2~or more \gr{token parameter}s such as
+      \cs{output} and \cs{everypar} are also traced.
 
 %\item [\cs{tracingoutput}] 
 %      If this is positive, the log file shows a dump of boxes 
 %      that are shipped to the \n{dvi} file.
 \item [\cs{tracingoutput}] 
-      如果此值为正，日志文件会显示输出到 \n{dvi} 文件的盒子转储。
+      If this is positive, the log file shows a dump of boxes 
+      that are shipped to the \n{dvi} file.
 
 %\item [\cs{showboxdepth}]  
 %      The number of levels of box dump that are shown when 
 %      boxes are displayed.
 \item [\cs{showboxdepth}]  
-      显示盒子时，盒子转储的层级数。
+      The number of levels of box dump that are shown when 
+      boxes are displayed.
 
 %\item [\cs{showboxbreadth}] 
 %      Number of successive elements on each level that are shown when 
 %      boxes are displayed.
 \item [\cs{showboxbreadth}] 
-      显示盒子时，每个层级上显示的连续元素数量。
+      Number of successive elements on each level that are shown when 
+      boxes are displayed.
 
 %\item [\csidx{tracingonline}] 
 %      If this parameter is positive, \TeX\ will write trace      
 %      information to the terminal in addition to the log file.
 \item [\csidx{tracingonline}] 
-      如果此参数为正，\TeX\ 除了写入日志文件外，还会将追踪信息写入终端。
+      If this parameter is positive, \TeX\ will write trace      
+      information to the terminal in addition to the log file.
 
 %\item [\cs{tracingparagraphs}] 
 %      If this parameter is positive, \TeX\ generates      
 %      a trace of the line breaking algorithm.
 \item [\cs{tracingparagraphs}] 
-      如果此参数为正，\TeX\ 会生成
-      行断算法的追踪。
+      If this parameter is positive, \TeX\ generates      
+      a trace of the line breaking algorithm.
 
 %\item [\csidx{tracingpages}] 
 %      If this parameter is positive, \TeX\ generates      
 %      a trace of the page breaking algorithm.
 \item [\csidx{tracingpages}] 
-      如果此参数为正，\TeX\ 会生成
-      分页算法的追踪。
+      If this parameter is positive, \TeX\ generates      
+      a trace of the page breaking algorithm.
 
 %\item [\csidx{tracinglostchars}] 
 %      If this parameter is positive, \TeX\ gives      
@@ -137,16 +144,17 @@
 %      is not present in a font.
 %      Plain default:~1.
 \item [\csidx{tracinglostchars}] 
-      如果此参数为正，\TeX\ 会在每次访问字体中不存在的字符时
-      给出诊断消息。
-      Plain 默认值：1。
+      If this parameter is positive, \TeX\ gives      
+      diagnostic messages whenever a character is accessed that      
+      is not present in a font.
+      Plain default:~1.
 
 %\item [\csidx{tracingrestores}] 
 %      If this parameter is positive, \TeX\ will report      
 %      all values that are restored when a group ends.
 \item [\csidx{tracingrestores}] 
-      如果此参数为正，\TeX\ 会报告
-      组结束时恢复的所有值。
+      If this parameter is positive, \TeX\ will report      
+      all values that are restored when a group ends.
 
 %\item [\cs{tracingstats}] 
 %      If this parameter is~1, \TeX\ reports at the      
@@ -154,24 +162,25 @@
 %      if it is~2, the memory demands are given whenever
 %      a page is shipped out.
 \item [\cs{tracingstats}] 
-      如果此参数为 1，\TeX\ 会在
-      作业结束时报告各种内部数组的使用情况；
-      如果此参数为 2，则在每次输出页面时
-      都会给出内存需求。
+      If this parameter is~1, \TeX\ reports at the      
+      end of the job the usage of various internal arrays;
+      if it is~2, the memory demands are given whenever
+      a page is shipped out.
 
 %\end{inventory}
 \end{inventory}
 
 %\section{Meaning and content: \protect\cs{show}, \protect\cs{showthe}, \protect\cs{meaning}}
-\section{含义和内容：\protect\cs{show}、\protect\cs{showthe}、\protect\cs{meaning}}
+\section{Meaning and content: \protect\cs{show}, \protect\cs{showthe}, \protect\cs{meaning}}
 
 %The meaning of control sequences, and the contents of those
 %that represent internal quantities, can be obtained
 %by the primitive commands \cs{show}, \cs{showthe},
 %and~\cs{meaning}.
-控制序列的含义，以及那些表示内部量的
-内容，可以通过原始命令 \cs{show}、\cs{showthe}
-和 \cs{meaning} 获得。
+The meaning of control sequences, and the contents of those
+that represent internal quantities, can be obtained
+by the primitive commands \cs{show}, \cs{showthe},
+and~\cs{meaning}.
 
 %The control sequences \cs{show} and \cs{meaning} are similar:
 %\alt
@@ -180,13 +189,13 @@
 %output to the log file and the terminal, whereas the latter
 %will produce the same tokens, but they are placed in \TeX's
 %input stream.
-控制序列 \cs{show} 和 \cs{meaning} 相似：
+The control sequences \cs{show} and \cs{meaning} are similar:
 \alt
-前者会向
+the former will give
 \cstoidx show\par\cstoidx meaning\par
-日志文件和终端输出，而后者
-会产生相同的记号，但它们被放置在 \TeX\ 的
-输入流中。
+output to the log file and the terminal, whereas the latter
+will produce the same tokens, but they are placed in \TeX's
+input stream.
 
 %The meaning of a primitive command of \TeX\ is that command itself:
 %\begin{verbatim}
@@ -208,7 +217,7 @@
 %\begin{verbatim}
 %\def\foo#1?#2\par{\set{#1!}\set{#2?}}
 %\show\foo
-% \end{verbatim}
+%\end{verbatim}
 %gives
 %\begin{verbatim}
 %\foo=macro:
@@ -216,34 +225,34 @@
 %\end{verbatim}
 %For macros without parameters the part before the arrow
 %(the parameter text) is empty.
-\TeX\ 原始命令的含义就是该命令本身：
+The meaning of a primitive command of \TeX\ is that command itself:
 \begin{verbatim}
 \show\baselineskip
 \end{verbatim}
-给出
+gives
 \begin{verbatim}
 \baselineskip=\baselineskip
 \end{verbatim}
-已定义量的含义是其定义：
+The meaning of a defined  quantity is its definition:
 \begin{verbatim}
 \show\pageno
 \end{verbatim}
-给出
+gives
 \begin{verbatim}
 \pageno=\count0
 \end{verbatim}
-宏的含义是其参数文本和替换文本：
+The meaning of a macro is its parameter text and replacement text:
 \begin{verbatim}
 \def\foo#1?#2\par{\set{#1!}\set{#2?}}
 \show\foo
 \end{verbatim}
-给出
+gives
 \begin{verbatim}
 \foo=macro:
 #1?#2\par ->\set {#1!}\set {#2?}
 \end{verbatim}
-对于没有参数的宏，箭头之前的部分
-（参数文本）是空的。
+For macros without parameters the part before the arrow
+(the parameter text) is empty.
 
 %The \csidx{showthe} command will display on the log file and terminal 
 %the tokens that \cs{the} produces. 
@@ -256,20 +265,22 @@
 %(see page~\pageref{cat12});
 %the value of \cs{escapechar} is used when control sequences
 %are represented.
-\csidx{showthe} 命令将在日志文件和终端上显示
-\cs{the} 产生的记号。
-在 \cs{show}、\cs{showthe}、\cs{showbox} 和 \cs{showlists} 之后，
-\TeX\ 会请求用户输入；这可以通过
-指定 \cs{scrollmode} 来防止。
-由 \cs{meaning} 和 \cs{the} 生成的字符具有类别 12\index{category!12}，
-除了空格
-（参见第 \pageref{cat12} 页）；
-当表示控制序列时，使用 \cs{escapechar} 的值。
+The \csidx{showthe} command will display on the log file and terminal 
+the tokens that \cs{the} produces. 
+After \cs{show}, \cs{showthe}, \cs{showbox}, and \cs{showlists}
+\TeX\ asks the user for input; this can be prevented
+by specifying \cs{scrollmode}.
+Characters generated
+by \cs{meaning} and \cs{the} have category~12\index{category!12},
+except for spaces
+(see page~\pageref{cat12});
+the value of \cs{escapechar} is used when control sequences
+are represented.
 
 %%\point Show boxes: \cs{showbox}, \cs{tracingoutput}
 %\section{Show boxes: \protect\cs{showbox}, \protect\cs{tracingoutput}}
 %\point Show boxes: \cs{showbox}, \cs{tracingoutput}
-\section{显示盒子：\protect\cs{showbox}、\protect\cs{tracingoutput}}
+\section{Show boxes: \protect\cs{showbox}, \protect\cs{tracingoutput}}
 
 %If \cs{tracingoutput} is positive the log file will
 %\cstoidx tracingoutput\par\cstoidx showbox\par
@@ -277,11 +288,12 @@
 %written to the \n{dvi} file with \cs{shipout}.
 %The same representation is used
 %by the command \cs{showbox}\gr{8-bit number}.
-如果 \cs{tracingoutput} 为正，日志文件将
+If \cs{tracingoutput} is positive the log file will
 \cstoidx tracingoutput\par\cstoidx showbox\par
-收到所有通过 \cs{shipout} 写入 \n{dvi} 文件的盒子的转储表示。
-命令 \cs{showbox}\gr{8位数字} 使用
-相同的表示。
+receive a dumped representation of all boxes that are
+written to the \n{dvi} file with \cs{shipout}.
+The same representation is used
+by the command \cs{showbox}\gr{8-bit number}.
 
 %In the first case \TeX\ will report `Completed box being shipped out';
 %in the second case it will enter \cs{errorstopmode}, and
@@ -289,12 +301,12 @@
 %If \cs{tracingonline} is positive, the box is also displayed
 %on the terminal; if \cs{scrollmode} has been specified,
 %\TeX\ does not stop for input.
-在第一种情况下，\TeX\ 会报告“Completed box being shipped out”；
-在第二种情况下，它将进入 \cs{errorstopmode}，并
-告诉用户“OK. (see the transcript file)”。
-如果 \cs{tracingonline} 为正，盒子也会显示在
-终端上；如果已指定 \cs{scrollmode}，
-\TeX\ 不会停止等待输入。
+In the first case \TeX\ will report `Completed box being shipped out';
+in the second case it will enter \cs{errorstopmode}, and
+tell the user `OK. (see the transcript file)'.
+If \cs{tracingonline} is positive, the box is also displayed
+on the terminal; if \cs{scrollmode} has been specified,
+\TeX\ does not stop for input.
 
 %The upper bound on the
 %number of nested boxes that is dumped is \cs{showboxdepth};
@@ -305,14 +317,15 @@
 %For each box its height, depth, and width
 %are indicated in that order, and for characters it is
 %stated from what font they were taken. 
-转储的嵌套盒子的
-数量上限是 \cs{showboxdepth}；
+The upper bound on the
+number of nested boxes that is dumped is \cs{showboxdepth};
 \cstoidx showboxdepth\par\cstoidx showboxbreadth\par
-每次访问一个层级时，最多显示 \cs{showboxbreadth}
-项，列表的其余部分用 \n{etc.} 概括。
-对于每个盒子，其高度、深度和宽度
-按此顺序指示，对于字符，则
-说明它们取自哪个字体。
+each time a level is visited at most \cs{showboxbreadth}
+items are shown, the remainder of the list is summarized
+with~\n{etc.}
+For each box its height, depth, and width
+are indicated in that order, and for characters it is
+stated from what font they were taken. 
 
 %\begin{example} After
 %\begin{verbatim}
@@ -332,22 +345,22 @@
 %because \TeX\ works with multiples of $2^{-16}$\n{pt}.
 %\message{ifmath: scriptfont fam0 fill!}
 %\end{example}
-\begin{example} 在
+\begin{example} After
 \begin{verbatim}
 \font\tenroman=cmr10 \tenroman
 \setbox0=\hbox{g}
 \showbox0
 \end{verbatim} 
-之后，日志文件将显示
+the log file will show
 \begin{verbatim}
 \hbox(4.30554+1.94444)x5.00002
 .\tenroman g
 \end{verbatim}
-表明该盒子高 \n{4.30554pt}，
-深 \n{1.94444pt}，宽 \n{5.00002pt}，并且它包含
-字体 \cs{tenroman} 中的字符“g”。
-请注意，所有尺寸的第五位小数可能会被四舍五入，
-因为 \TeX\ 以 $2^{-16}$\n{pt} 的倍数工作。
+indicating that the box was \n{4.30554pt} high,
+\n{1.94444pt} deep, and \n{5.00002pt} wide, and that it contained
+a character `g' from the font \cs{tenroman}. 
+Note that the fifth decimal of all sizes may be rounded
+because \TeX\ works with multiples of $2^{-16}$\n{pt}.
 \message{ifmath: scriptfont fam0 fill!}
 \end{example}
 
@@ -372,12 +385,12 @@
 %The value of
 %the baselineskip glue here is such that the baselines of
 %the boxes are at 12 point distance.
-下一个示例包含嵌套盒子，
+The next example has nested boxes, 
 \begin{verbatim}
 \vbox{\hbox{g}\hbox{o}}
 \end{verbatim}
-并且它在盒子之间包含 \cs{baselineskip} 粘连。
-在 \cs{showbox} 命令之后，日志文件输出为：
+and it contains \cs{baselineskip} glue between the boxes.
+After a \cs{showbox} command the log file output is:
 \begin{verbatim}
 \vbox(16.30554+0.0)x5.00002
 .\hbox(4.30554+1.94444)x5.00002
@@ -386,16 +399,18 @@
 .\hbox(4.30554+0.0)x5.00002
 ..\tenroman o
 \end{verbatim}
-每次进入新层级时，行首都会添加一个额外的点。
-请注意，\TeX\ 明确指出
-该粘连是 \cs{baselineskip} 粘连；
-它为所有自动插入的粘连插入此类名称。
-这里基线粘连的值
-使得盒子的基线相距 12 点。
+Each time a new level is entered an extra dot is added to
+the front of the line. Note that \TeX\ tells explicitly
+that the glue is \cs{baselineskip} glue;
+it inserts names like this for all automatically inserted glue.
+The value of
+the baselineskip glue here is such that the baselines of
+the boxes are at 12 point distance.
 
 %Now let us look at explicit (user) glue. \TeX\ indicates the ratio
 %by which it is stretched or shrunk. 
-现在让我们看看显式（用户）粘连。\TeX\ 指示其伸展或收缩的比例。
+Now let us look at explicit (user) glue. \TeX\ indicates the ratio
+by which it is stretched or shrunk. 
 
 %\begin{example}
 %\begin{verbatim}
@@ -424,23 +439,24 @@
 \begin{verbatim}
 \hbox to 20pt {\kern10pt \hskip0pt plus 5pt}
 \end{verbatim}
-给出（表明可用伸展已乘以 \n{2.0}）：
+gives (indicating that the available stretch has been 
+multiplied by~\n{2.0}):
 \begin{verbatim}
 \hbox(0.0+0.0)x20.0, glue set 2.0
 .\kern 10.0
 .\glue 0.0 plus 5.0
 \end{verbatim}
-以及
+and
 \begin{verbatim}
 \hbox to 0pt {\kern10pt \hskip0pt minus 20pt}
 \end{verbatim}
-给出（收缩已乘以 \n{0.5}）：
+gives (the shrink has been multiplied by~\n{0.5})
 \begin{verbatim}
 \hbox(0.0+0.0)x0.0, glue set - 0.5
 .\kern 10.0
 .\glue 0.0 minus 20.0
 \end{verbatim}
-分别。
+respectively.
 \end{example}
 
 %This is an example with infinitely stretchable or shrinkable
@@ -450,12 +466,13 @@
 %\end{verbatim}
 %This means that the horizontal box contained \n{fil} glue, and
 %it was set such that its resulting width was \n{9pt}.
-这是一个无限可伸展或可收缩粘连的示例：
+This is an example with infinitely stretchable or shrinkable
+glue:
 \begin{verbatim}
 \hbox(4.00000+0.14000)x15.0, glue set 9.00000fil
 \end{verbatim}
-这意味着水平盒子包含 \n{fil} 粘连，并且
-它的设置使得其最终宽度为 \n{9pt}。
+This means that the horizontal box contained \n{fil} glue, and
+it was set such that its resulting width was \n{9pt}.
 
 %Underfull boxes are dumped like all other boxes, but
 %the usual `\n{Underfull hbox detected at line...}'
@@ -470,13 +487,14 @@
 %.\kern 10.0
 %.\rule(*+*)x5.0
 %\end{verbatim}
-盒子不足的盒子像所有其他盒子一样被转储，但是
-会给出通常的“\n{Underfull hbox detected at line...}”消息。
-盒子过满的水平盒子包含一个宽度为 \cs{overfullrule} 的垂直线：
+Underfull boxes are dumped like all other boxes, but
+the usual `\n{Underfull hbox detected at line...}'
+is given. Overfull horizontal boxes contain a vertical rule
+of width \cs{overfullrule}:
 \begin{verbatim}
 \hbox to 5pt {\kern10pt}
 \end{verbatim}
-给出
+gives
 \begin{verbatim}
 \hbox(0.0+0.0)x5.0
 .\kern 10.0
@@ -497,30 +515,31 @@
 %\end{verbatim}
 %Preceding or trailing glue around the leader
 %boxes is also not indicated.
-盒子引导线不会完全转储：
+Box leaders are not dumped completely:
 \begin{verbatim}
 .\leaders 40.0
 ..\hbox(4.77313+0.14581)x15.0, glue set 9.76852fil
 ...\tenrm a
 ...\glue 0.0 plus 1.0fil
 \end{verbatim}
-是以下内容的转储：
+is the dump for
 \begin{verbatim}
 \leaders\hbox to 15pt{\tenrm a\hfil}\hskip 40pt
 \end{verbatim}
-引导盒子周围的前导或尾随粘连也未指示。
+Preceding or trailing glue around the leader
+boxes is also not indicated.
 
 %%\point Global statistics
 %\section{Global statistics}
 %\point Global statistics
-\section{全局统计}
+\section{Global statistics}
 
 %The parameter \csidx{tracingstats} can be used to force \TeX\
 %to report at the end of the job the global use of resources.
 %Some production versions of \TeX\ may not have this option.
-参数 \csidx{tracingstats} 可用于强制 \TeX\
-在作业结束时报告资源的全局使用情况。
-某些生产版本的 \TeX\ 可能没有此选项。
+The parameter \csidx{tracingstats} can be used to force \TeX\
+to report at the end of the job the global use of resources.
+Some production versions of \TeX\ may not have this option.
 
 %As an example, here are the statistics for this book:
 %\begin{verbatim}
@@ -547,27 +566,27 @@
 % 17i,6n,19p,245b,422s stack positions out of 
 % 300i,40n,60p,3000b,4000s
 %\end{verbatim}
-以下是本书的统计数据示例：
+As an example, here are the statistics for this book:
 \begin{verbatim}
 Here is how much of TeX's memory you used:
 \end{verbatim}
-字符串内存（受“池大小”限制）：
+String memory (bounded by `pool size'):
 \begin{verbatim}
  877 strings out of 4649
  9928 string characters out of 61781
 \end{verbatim}
-主内存、控制序列、字体内存：
+Main memory, control sequences, font memory:
 \begin{verbatim}
  53071 words of memory out of 262141
  2528 multiletter control sequences out of 9500
  20137 words of font info for 70 fonts,
              out of 72000 for 255
 \end{verbatim}
-连字符：
+Hyphenation:
 \begin{verbatim}
  14 hyphenation exceptions out of 607
 \end{verbatim}
-栈：输入、嵌套、参数、缓冲区和保存栈，分别：
+Stacks: input, nest, parameter, buffer, and save stack respectively,
 \begin{verbatim}
  17i,6n,19p,245b,422s stack positions out of 
  300i,40n,60p,3000b,4000s
@@ -579,7 +598,7 @@ Here is how much of TeX's memory you used:
 %\index{tracing|)}
 %\endofchapter
 %%%%% end of input file [trace]
-\index{追踪|)}
+\index{tracing|)}
 \endofchapter
 %%%% end of input file [trace]
 

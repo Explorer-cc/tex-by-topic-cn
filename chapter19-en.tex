@@ -9,7 +9,7 @@
 %\chapter{Line Breaking}\label{line:break}
 %\index{paragraph!breaking into lines|(}
 %\index{line breaking|(}
-\chapter{断行}\label{line:break}
+\chapter{Line Breaking}\label{line:break}
 \index{paragraph!breaking into lines|(}
 \index{line breaking|(}
 
@@ -19,10 +19,12 @@
 %The various penalties contributing to the cost of line breaking
 %are treated here, as is hyphenation.
 %Page breaking is treated in Chapter~\ref{page:break}.
-本章讨论断行以及 \TeX\ 用来决定如何将段落断成行，
-或在何处分页的“不适度”概念。
-本章讨论了导致断行成本的各种罚值，以及连字符。
-分页在第 \ref{page:break} 章中讨论。
+This chapter treats line breaking and the concept of `badness' that \TeX\
+uses to decide how to break a paragraph into lines,
+or where to break a page.
+The various penalties contributing to the cost of line breaking
+are treated here, as is hyphenation.
+Page breaking is treated in Chapter~\ref{page:break}.
 
 %\label{cschap:penalty}\label{cschap:linepenalty}\label{cschap:hyphenpenalty}\label{cschap:exhyphenpenalty}\label{cschap:adjdemerits}\label{cschap:doublehyphendemerits}\label{cschap:finalhyphendemerits}\label{cschap:allowbreak}\label{cschap:pretolerance}\label{cschap:tolerance}\label{cschap:emergencystretch}\label{cschap:looseness}\label{cschap:prevgraf}\label{cschap:discretionary}\label{cschap:-}\label{cschap:hyphenchar2}\label{cschap:defaulthyphenchar2}\label{cschap:uchyph}\label{cschap:lefthyphenmin}\label{cschap:righthyphenmin}\label{cschap:patterns}\label{cschap:hyphenation}\label{cschap:language}\label{cschap:setlanguage}
 %\begin{inventory}
@@ -31,162 +33,170 @@
 \label{cschap:penalty}\label{cschap:linepenalty}\label{cschap:hyphenpenalty}\label{cschap:exhyphenpenalty}\label{cschap:adjdemerits}\label{cschap:doublehyphendemerits}\label{cschap:finalhyphendemerits}\label{cschap:allowbreak}\label{cschap:pretolerance}\label{cschap:tolerance}\label{cschap:emergencystretch}\label{cschap:looseness}\label{cschap:prevgraf}\label{cschap:discretionary}\label{cschap:-}\label{cschap:hyphenchar2}\label{cschap:defaulthyphenchar2}\label{cschap:uchyph}\label{cschap:lefthyphenmin}\label{cschap:righthyphenmin}\label{cschap:patterns}\label{cschap:hyphenation}\label{cschap:language}\label{cschap:setlanguage}
 \begin{inventory}
 \item [\cs{penalty}]
-      指定在此处不断行的期望程度。
+      Specify desirability of not breaking at this point.
 
 %\item [\cs{linepenalty}]
 %      Penalty value associated with each line break.
 %      Plain \TeX\ default:~\n{10}.
 \item [\cs{linepenalty}]
-      与每次断行相关的罚值。
-      Plain \TeX\ 默认值：\n{10}。
+      Penalty value associated with each line break.
+      Plain \TeX\ default:~\n{10}.
 
 %\item [\cs{hyphenpenalty}]
 %      Penalty associated with break at a discretionary item
 %      in the general case.
 %      Plain \TeX\ default:~\n{50}.
 \item [\cs{hyphenpenalty}]
-      一般情况下，与在自由断字点处断行相关的罚值。
-      Plain \TeX\ 默认值：\n{50}。
+      Penalty associated with break at a discretionary item
+      in the general case.
+      Plain \TeX\ default:~\n{50}.
 
 %\item [\cs{exhyphenpenalty}]
 %      Penalty for breaking a horizontal line at a discretionary
 %      item in the special case where the prebreak text is empty.
 %      Plain \TeX\ default:~\n{50}.
 \item [\cs{exhyphenpenalty}]
-      在特殊情况下，当断前文本为空时，在自由断字点处断开水平行的罚值。
-      Plain \TeX\ 默认值：\n{50}。
+      Penalty for breaking a horizontal line at a discretionary
+      item in the special case where the prebreak text is empty.
+      Plain \TeX\ default:~\n{50}.
 
 %\item [\cs{adjdemerits}]
 %      Penalty for adjacent visually incompatible lines.
 %      Plain \TeX\ default:~\n{10$\,$000}.
 \item [\cs{adjdemerits}]
-      相邻视觉不兼容行的罚值。
-      Plain \TeX\ 默认值：\n{10$\,$000}。
+      Penalty for adjacent visually incompatible lines.
+      Plain \TeX\ default:~\n{10$\,$000}.
 
 %\item [\cs{doublehyphendemerits}]
 %      Penalty for consecutive lines ending with a hyphen.
 %      Plain \TeX\ default: \n{10$\,$000}.
 \item [\cs{doublehyphendemerits}]
-      连续行以连字符结尾的罚值。
-      Plain \TeX\ 默认值：\n{10$\,$000}。
+      Penalty for consecutive lines ending with a hyphen.
+      Plain \TeX\ default: \n{10$\,$000}.
 
 %\item [\cs{finalhyphendemerits}]
 %      Penalty added when the penultimate line of a
 %      paragraph ends with a hyphen.
 %      Plain \TeX\ default:~\n{5000}.
 \item [\cs{finalhyphendemerits}]
-      当段落的倒数第二行以连字符结尾时添加的罚值。
-      Plain \TeX\ 默认值：\n{5000}。
+      Penalty added when the penultimate line of a
+      paragraph ends with a hyphen.
+      Plain \TeX\ default:~\n{5000}.
 
 %\item [\cs{allowbreak}]
 %      Macro for creating a breakpoint by inserting a
 %      \cs{penalty0}.
 \item [\cs{allowbreak}]
-      通过插入 \cs{penalty0} 创建断点的宏。
+      Macro for creating a breakpoint by inserting a
+      \cs{penalty0}.
 
 %\item [\cs{pretolerance}]
 %      Tolerance value for a paragraph without hyphenation.
 %      Plain \TeX\ default:~\n{100}.
 \item [\cs{pretolerance}]
-      不带连字符的段落的容忍值。
-      Plain \TeX\ 默认值：\n{100}。
+      Tolerance value for a paragraph without hyphenation.
+      Plain \TeX\ default:~\n{100}.
 
 %\item [\cs{tolerance}]
 %      Tolerance value for lines in a paragraph with hyphenation.
 %      Plain \TeX\ default:~\n{200}.
 \item [\cs{tolerance}]
-      带连字符的段落中行的容忍值。
-      Plain \TeX\ 默认值：\n{200}。
+      Tolerance value for lines in a paragraph with hyphenation.
+      Plain \TeX\ default:~\n{200}.
 
 %\item [\cs{emergencystretch}]
 %      (\TeX3 only)
 %      Assumed extra stretchability in lines of a paragraph.
 \item [\cs{emergencystretch}]
-      （仅限 \TeX3）
-      段落行中假定的额外伸缩性。
+      (\TeX3 only)
+      Assumed extra stretchability in lines of a paragraph.
 
 %\item [\cs{looseness}]
 %      Number of lines by which this paragraph has to be made longer
 %      than it would be ideally.
 \item [\cs{looseness}]
-      该段落需要比理想情况长出的行数。
+      Number of lines by which this paragraph has to be made longer
+      than it would be ideally.
 
 %\item [\cs{prevgraf}]
 %      The number of lines in the paragraph last
 %      added to the vertical list.
 \item [\cs{prevgraf}]
-      最后添加到竖直列表中的段落的行数。
+      The number of lines in the paragraph last
+      added to the vertical list.
 
 %\item [\cs{discretionary}]
 %      Specify the way a character sequence is split up at a line break.
 \item [\cs{discretionary}]
-      指定字符序列在断行时如何分割。
+      Specify the way a character sequence is split up at a line break.
 
 %\item [\cs{-}]
 %      Discretionary hyphen; this is
 %      equivalent to \verb|\discretionary{-}{}{}|.
 \item [\cs{-}]
-      自由连字符；这
-      等同于 \verb|\discretionary{-}{}{}|。
+      Discretionary hyphen; this is
+      equivalent to \verb|\discretionary{-}{}{}|.
 
 %\item [\cs{hyphenchar}]
 %      Number of the hyphen character of a font.
 \item [\cs{hyphenchar}]
-      字体的连字符的编号。
+      Number of the hyphen character of a font.
 
 %\item [\cs{defaulthyphenchar}]
 %      Value of \cs{hyphenchar} when a font is loaded.
 %      Plain \TeX\ default:~\n{`\cs{-}}.
 \item [\cs{defaulthyphenchar}]
-      加载字体时 \cs{hyphenchar} 的值。
-      Plain \TeX\ 默认值：\n{`\cs{-}}。
+      Value of \cs{hyphenchar} when a font is loaded.
+      Plain \TeX\ default:~\n{`\cs{-}}.
 
 %\item [\cs{uchyph}]
 %      Positive to allow hyphenation of words starting with a capital
 %      letter.
 %      Plain \TeX\ default:~\n{1}.
 \item [\cs{uchyph}]
-      正值允许以大写字母开头的单词进行连字符。
-      Plain \TeX\ 默认值：\n{1}。
+      Positive to allow hyphenation of words starting with a capital
+      letter.
+      Plain \TeX\ default:~\n{1}.
 
 %\item [\cs{lefthyphenmin}]
 %      (\TeX3 only)
 %      Minimal number of characters before a hyphenation.
 %      Plain \TeX\ default:~\n{2}.
 \item [\cs{lefthyphenmin}]
-      （仅限 \TeX3）
-      连字符前最少字符数。
-      Plain \TeX\ 默认值：\n{2}。
+      (\TeX3 only)
+      Minimal number of characters before a hyphenation.
+      Plain \TeX\ default:~\n{2}.
 
 %\item [\cs{righthyphenmin}]
 %      (\TeX3 only)
 %      Minimum number of characters after a hyphenation.
 %      Plain \TeX\ default:~\n{3}.
 \item [\cs{righthyphenmin}]
-      （仅限 \TeX3）
-      连字符后最少字符数。
-      Plain \TeX\ 默认值：\n{3}。
+      (\TeX3 only)
+      Minimum number of characters after a hyphenation.
+      Plain \TeX\ default:~\n{3}.
 
 %\item [\cs{patterns}]
 %      Define a list of hyphenation patterns for the current
 %      value of \cs{language};  allowed only in \IniTeX.
 \item [\cs{patterns}]
-      为 \cs{language} 的当前值定义连字符模式列表；仅在 \IniTeX\ 中允许。
+      Define a list of hyphenation patterns for the current
+      value of \cs{language};  allowed only in \IniTeX.
 
 %\item [\cs{hyphenation}]
 %      Define hyphenation exceptions for the current value of \cs{language}.
 \item [\cs{hyphenation}]
-      为 \cs{language} 的当前值定义连字符例外。
+      Define hyphenation exceptions for the current value of \cs{language}.
 
 %\item [\cs{language}]
 %      Choose a set of hyphenation patterns and exceptions.
 \item [\cs{language}]
-      选择一组连字符模式和例外。
+      Choose a set of hyphenation patterns and exceptions.
 
 %\item [\cs{setlanguage}]
 %      Reset the current language.
 \item [\cs{setlanguage}]
-      重置当前语言。
+      Reset the current language.
 
 %\end{inventory}
 \end{inventory}
@@ -195,7 +205,7 @@
 %%\point Paragraph break cost calculation
 %\section{Paragraph break cost calculation}
 %\point Paragraph break cost calculation
-\section{段落断行成本计算}
+\section{Paragraph break cost calculation}
 
 %A paragraph is broken such that the amount $d$ of {\em demerits\/}
 %associated with breaking it is minimized.
@@ -206,39 +216,47 @@
 %line breaking: \TeX\ can choose to take a slightly less beautiful
 %line in the beginning of the paragraph in order to avoid
 %bigger trouble later on.
-段落的断行方式旨在使与断行相关的{\em 缺点值} $d$ 最小化。
-一个段落的总缺点值是各行缺点值的总和，可能还加上一些额外的
-罚值。将段落作为一个整体考虑而不是逐行断行可以带来更好的
-断行效果：\TeX\ 可以选择在段落开头采用稍微不那么美观的
-行，以避免后续更大的麻烦。
+A paragraph is broken such that the amount $d$ of {\em demerits\/}
+associated with breaking it is minimized.
+The total amount of demerits for a paragraph is the sum
+of those for the individual lines, plus possibly some extra
+penalties. Considering a paragraph as a whole instead of
+breaking it on a line-by-line basis can lead to better
+line breaking: \TeX\ can choose to take a slightly less beautiful
+line in the beginning of the paragraph in order to avoid
+bigger trouble later on.
 
 %For each line demerits are calculated from the {\em badness\/}~$b$
 %of stretching or shrinking the line to the break, and
 %the {\em penalty\/}~$p$ associated with the break.
 %The badness is not allowed to exceed a certain prescribed
 %tolerance.
-对于每一行，缺点值是根据拉伸或收缩该行到断点处的{\em 不适度} $b$，以及与断点相关的{\em 罚值} $p$ 计算得出的。
-不适度不允许超过某个预设的容忍度。
+For each line demerits are calculated from the {\em badness\/}~$b$
+of stretching or shrinking the line to the break, and
+the {\em penalty\/}~$p$ associated with the break.
+The badness is not allowed to exceed a certain prescribed
+tolerance.
 
 %In addition to the demerits for breaking individual lines,
 %\TeX\ assigns demerits for the way lines combine; see below.
-除了单行断行的缺点值之外，
-\TeX\ 还会根据行的组合方式分配缺点值；见下文。
+In addition to the demerits for breaking individual lines,
+\TeX\ assigns demerits for the way lines combine; see below.
 
 %The
 %\mdqon
 %implementation of \TeX's paragraph"-breaking algorithm
 %\mdqoff
 %is explained in~\cite{K:break}.
+The
 \mdqon
-\TeX\ 段落断行算法的实现
+implementation of \TeX's paragraph"-breaking algorithm
 \mdqoff
-在 \cite{K:break} 中有解释。
+is explained in~\cite{K:break}.
 
 %%\spoint Badness
 %\subsection{Badness}
 %\spoint Badness
-\subsection{不适度}
+\subsection{Badness}
 
 %From the ratio between the stretch or shrink present in a
 %line, and the actual stretch or shrink taken,
@@ -247,19 +265,22 @@
 %This badness is an important
 %factor in the process of line breaking.
 %See page~\pageref{bad:form} for the formula for badness.
-根据一行中存在的伸展或收缩量与实际采用的伸展或收缩量之间的比率，
-计算出在特定点断行的 \emph{不适度}\index{badness! and line breaking}\index{line breaking!badness}。
-这种不适度是断行过程中的一个重要
-因素。
-不适度的公式参见第 \pageref{bad:form} 页。
+From the ratio between the stretch or shrink present in a
+line, and the actual stretch or shrink taken,
+the \emph{badness}\index{badness! and line breaking}\index{line breaking!badness}
+of breaking a line at a certain point is calculated.
+This badness is an important
+factor in the process of line breaking.
+See page~\pageref{bad:form} for the formula for badness.
 
 %In this chapter
 %badness will only be discussed in the context of line breaking.
 %Badness is also computed when a vertical list is stretched
 %or shrunk (see Chapter~\ref{page:break}).
-在本章中，
-不适度将仅在断行的上下文中讨论。
-当垂直列表被拉伸或收缩时，也会计算不适度（参见第 \ref{page:break} 章）。
+In this chapter
+badness will only be discussed in the context of line breaking.
+Badness is also computed when a vertical list is stretched
+or shrunk (see Chapter~\ref{page:break}).
 
 %The following terminology is used to describe badness:
 %\begin{description} \item [tight (3)]
@@ -282,37 +303,38 @@
 %if the classifications of two adjacent lines differ by more than~1,
 %the lines are said to be {\em visually incompatible\/}.
 %See below for the \cs{adjdemerits} parameter associated with this.
-以下术语用于描述不适度：
-\begin{description} \item [紧密 (3)]
-是指任何收缩且不适度 $b\geq13$ 的行，
-即，使用了至少一半的收缩量
-（计算方法参见第 \pageref{bad:form} 页）。
-\item [适中 (2)]
-是指任何不适度 $b\leq12$ 的行。
-\item [宽松 (1)]
-是指任何伸展且不适度 $b\geq13$ 的行，
-即，使用了至少一半的伸展量。
-\item [非常宽松 (0)]
-是指任何伸展且不适度 $b\geq100$ 的行，
-即，使用了全部或更多的伸展量。请记住，
-粘连可以伸展，但收缩不能超过其
-允许的量。
+The following terminology is used to describe badness:
+\begin{description} \item [tight (3)]
+is any line that has shrunk with a badness~$b\geq13$,
+that is, by using at least one-half of its amount of shrink
+(see page~\pageref{bad:form} for the computation).
+\item [decent (2)]
+is any line with a badness~$b\leq12$.
+\item [loose (1)]
+is any line that has stretched with a badness~$b\geq13$,
+that is, by using at least one-half of its amount of stretch.
+\item [very loose (0)]
+is any line that has stretched with a badness~$b\geq100$,
+that is, by using its full amount of stretch or more. Recall
+that glue can stretch, but not shrink more than its
+allowed amount.
 \end{description}
-编号用于追踪输出（第 \ref{trace} 章），并且
-也用于以下定义：
-如果两条相邻行的分类差异超过 1，
-则称这些行{\em 视觉上不兼容}。
-有关与此相关的 \cs{adjdemerits} 参数，请参见下文。
+The numbering is used in trace output (Chapter~\ref{trace}), and
+it is also used in the following definition:
+if the classifications of two adjacent lines differ by more than~1,
+the lines are said to be {\em visually incompatible\/}.
+See below for the \cs{adjdemerits} parameter associated with this.
 
 %Overfull horizontal and vertical
 %boxes are passed unnoticed if their excess width
 %or height is less than \cs{hfuzz} or \cs{vfuzz} respectively;
 %they are not reported if the badness is less than
 %\cs{hbadness} or \cs{vbadness} (see Chapter~\ref{boxes}).
-如果水平盒子和垂直盒子的溢出宽度
-或高度分别小于 \cs{hfuzz} 或 \cs{vfuzz}，则它们会被忽略；
-如果其不适度小于
-\cs{hbadness} 或 \cs{vbadness}，则它们不会被报告（参见第 \ref{boxes} 章）。
+Overfull horizontal and vertical
+boxes are passed unnoticed if their excess width
+or height is less than \cs{hfuzz} or \cs{vfuzz} respectively;
+they are not reported if the badness is less than
+\cs{hbadness} or \cs{vbadness} (see Chapter~\ref{boxes}).
 
 %%\spoint Penalties and other break locations
 %\subsection{Penalties and other break locations}
@@ -326,65 +348,70 @@
 %A~penalty of $10\,000$ or more inhibits, and a penalty
 %of $-10\,000$ or less forces, a~break.
 %\spoint Penalties and other break locations
-\subsection{罚值及其他断点位置}
+\subsection{Penalties and other break locations}
 
-断行可以在水平列表中的以下 \emph{断点}\index{lists !horizontal! breakpoints in} 处发生：
-\begin{enumerate} \item 在罚值处。罚值是
-在该处断行的“美学成本”。
-负罚值被视为奖励。
-罚值 $10\,000$ 或更高会阻止断行，而罚值
-$-10\,000$ 或更低会强制断行。
+Line breaks can occur at the following \emph{breakpoints}
+\index{lists !horizontal! breakpoints in}
+in horizontal lists:
+\begin{enumerate} \item At a penalty. The penalty value is the
+`aesthetic cost' of breaking the line at that place.
+Negative penalties are considered as bonuses.
+A~penalty of $10\,000$ or more inhibits, and a penalty
+of $-10\,000$ or less forces, a~break.
 
 %Putting more than one penalty
 %in a row is equivalent to putting just the one with the
 %minimal value, because that one is the best candidate for line breaking.
-连续放置多个罚值等同于只放置其中
-最小值的一个，因为它是断行的最佳候选者。
+Putting more than one penalty
+in a row is equivalent to putting just the one with the
+minimal value, because that one is the best candidate for line breaking.
 
 %Penalties in horizontal mode are inserted by the user (or a
 %user macro). The only exception is the \cs{nobreak}
 %inserted before the \cs{parfillskip} glue.
-水平模式下的罚值由用户（或用户宏）插入。唯一的例外是
-在 \cs{parfillskip} 粘连之前插入的 \cs{nobreak}。
+Penalties in horizontal mode are inserted by the user (or a
+user macro). The only exception is the \cs{nobreak}
+inserted before the \cs{parfillskip} glue.
 
 %\item At a glue, if it is not part of a math formula, and
 %if it is preceded by a non-discardable item (see Chapter~\ref{hvmode}).
 %There is no penalty associated with breaking at glue.
-\item 在粘连处，如果它不是数学公式的一部分，并且
-如果它前面有一个不可丢弃的项（参见第 \ref{hvmode} 章）。
-在粘连处断行没有相关的罚值。
+\item At a glue, if it is not part of a math formula, and
+if it is preceded by a non-discardable item (see Chapter~\ref{hvmode}).
+There is no penalty associated with breaking at glue.
 
 %The condition about the non-discardable precursor is necessary,
 %because otherwise breaking in between  two pieces of glue would
 %be possible, which would cause ragged edges to the paragraph.
-关于不可丢弃前驱的条件是必要的，
-因为否则在两段粘连之间断行是可能发生的，
-这将导致段落边缘参差不齐。
+The condition about the non-discardable precursor is necessary,
+because otherwise breaking in between  two pieces of glue would
+be possible, which would cause ragged edges to the paragraph.
 
 %\item At a kern, if it is not part of a math formula
 %and if it is followed by  glue.
 %There is no penalty associated with breaking at a~kern.
-\item 在字距调整处，如果它不是数学公式的一部分
-并且后面跟着粘连。
-在字距调整处断行没有相关的罚值。
+\item At a kern, if it is not part of a math formula
+and if it is followed by  glue.
+There is no penalty associated with breaking at a~kern.
 
 %\item At a math-off, if that is followed by glue.
 %Since math-off
 %(and math-on) act as kerns (see Chapter~\ref{math}),
 %this is very much like the previous case.
 %There is no penalty associated with breaking at a~math-off.
-\item 在数学模式关闭处，如果其后有粘连。
-由于数学模式关闭（和数学模式开启）作用类似于字距调整（参见第 \ref{math} 章），
-这与前一种情况非常相似。
-在数学模式关闭处断行没有相关的罚值。
+\item At a math-off, if that is followed by glue.
+Since math-off
+(and math-on) act as kerns (see Chapter~\ref{math}),
+this is very much like the previous case.
+There is no penalty associated with breaking at a~math-off.
 
 %\item At a discretionary break. The penalty
 %is the \cs{hyphenpenalty} or the \cs{exhyphenpenalty}.
 %This is treated below.
 %\end{enumerate}
-\item 在自由断字点处。罚值
-是 \cs{hyphenpenalty} 或 \cs{exhyphenpenalty}。
-这将在下文讨论。
+\item At a discretionary break. The penalty
+is the \cs{hyphenpenalty} or the \cs{exhyphenpenalty}.
+This is treated below.
 \end{enumerate}
 
 %Any discardable material following the break \ldash glue, kerns,
@@ -394,18 +421,18 @@ $-10\,000$ 或更低会强制断行。
 %a line break at glue (kern, math-on{/}off) to occur at the
 %front end of the glue item, this implies that that piece
 %of glue disappears in the break.
-断点之后任何可丢弃的材料 \ldash 粘连、字距调整、
+Any discardable material following the break \ldash glue, kerns,
 \mdqon
-数学模式开启/关闭和罚值 \rdash 都会被丢弃。如果认为
+math-on/""off and penalties \rdash  is discarded. If one considers
 \mdqoff
-在粘连（字距调整、数学模式开启/关闭）处发生断行时，断点出现在
-粘连项的前端，这意味着那段
-粘连在断行时会消失。
+a line break at glue (kern, math-on{/}off) to occur at the
+front end of the glue item, this implies that that piece
+of glue disappears in the break.
 
 %%\spoint Demerits
 %\subsection{Demerits}
 %\spoint Demerits
-\subsection{缺点值}
+\subsection{Demerits}
 
 %From the badness of a line and the penalty, if any, the demerits
 %of the line are calculated. Let $l$ be the value of
@@ -415,9 +442,11 @@ $-10\,000$ 或更低会强制断行。
 %\begin{disp}$\displaystyle d=\cases{(l+b)^2+p^2&if $0\leq p<10\,000$\cr
 %           (l+b)^2-p^2&if $-10\,000<p<0$\cr
 %           (l+b)^2    &if $p\leq-10\,000$\cr}$\end{disp}
-根据一行的不适度和罚值（如果有），计算出该行的缺点值。
-设 $l$ 为 \csidx{linepenalty} 的值，$b$ 为该行的不适度，$p$ 为断点处的罚值；
-则 \indexterm{缺点值} $d$ 由下式给出：
+From the badness of a line and the penalty, if any, the demerits
+of the line are calculated. Let $l$ be the value of
+\csidx{linepenalty}, $b$~the badness of the line,
+$p$~the penalty at the break; then the \indexterm{demerits}~$d$
+are given by
 \begin{disp}$\displaystyle d=
 \begin{cases} (l+b)^2+p^2& \text{if } 0\leq p<10\,000 \\
            (l+b)^2-p^2&\text{if } -10\,000<p<0 \\
@@ -428,11 +457,11 @@ $-10\,000$ 或更低会强制断行。
 %in \cite{K:break} as `quite arbitrary',
 %but they have been shown  to lead to
 %good results in practice.
-这个公式和不适度的公式都被
+Both this formula and the one for the badness are described
 \alt
-\cite{K:break} 描述为“相当随意”，
-但它们在实践中已被证明能产生
-良好的结果。
+in \cite{K:break} as `quite arbitrary',
+but they have been shown  to lead to
+good results in practice.
 
 %The demerits for a paragraph are the sum of the demerits for
 %the lines, plus
@@ -444,13 +473,16 @@ $-10\,000$ 或更低会强制断行。
 %\item \csidx{finalhyphendemerits}
 %      if the penultimate line of a paragraph
 %   ends with a hyphen.\end{itemize}
-一个段落的缺点值是各行缺点值的总和，加上
+The demerits for a paragraph are the sum of the demerits for
+the lines, plus
 \begin{itemize}
-\item 任何两条视觉上不兼容的相邻行的 \csidx{adjdemerits}（见上文），
-\item 任何两条连续行以连字符结尾的 \csidx{doublehyphendemerits}，以及
-\item 如果段落的倒数第二行
-   以连字符结尾，则加上 \csidx{finalhyphendemerits}。
-\end{itemize}
+\item the \csidx{adjdemerits} for any two
+      adjacent lines that are not visually compatible (see above),
+\item \csidx{doublehyphendemerits} for any two
+      consecutive lines ending with a hyphen, and the
+\item \csidx{finalhyphendemerits}
+      if the penultimate line of a paragraph
+   ends with a hyphen.\end{itemize}
 
 %At the start of a paragraph \TeX\ acts as if
 %there was a preceding line which was `decent'.
@@ -461,13 +493,15 @@ $-10\,000$ 或更低会强制断行。
 %owing to the infinite stretch in the \cs{parfillskip} \rdash
 %so \cs{adjdemerits} are added if
 %the preceding line is `very loose'.
-在段落开始时，\TeX\ 的行为就好像
-前面有一行是“适中”的。
-因此，如果第一行“非常宽松”，将添加 \cs{adjdemerits}。
-此外，段落的最后一行通常也是“适中”的
-\ldash 由于 \cs{parfillskip} 中的无限伸展，所有空格都设置为自然宽度 \rdash
-因此，如果
-前一行“非常宽松”，也会添加 \cs{adjdemerits}。
+At the start of a paragraph \TeX\ acts as if
+there was a preceding line which was `decent'.
+Therefore \cs{adjdemerits} will be added if the first
+line is `very loose'. Also, the last line
+of a paragraph is ordinarily also `decent'
+\ldash all spaces are set at natural width
+owing to the infinite stretch in the \cs{parfillskip} \rdash
+so \cs{adjdemerits} are added if
+the preceding line is `very loose'.
 
 %Note that the penalties at which a line break
 %is chosen weigh about as heavily as the badness of
@@ -475,15 +509,17 @@ $-10\,000$ 或更低会强制断行。
 %However, the three extra demerit parameters
 %have to be of the order of the square of
 %penalties and badnesses to weigh equally heavily.
-请注意，选择断行的罚值
-与该行的不适度权重差不多，因此它们可以相对较小。
-然而，这三个额外的缺点值参数
-必须是罚值和不适度平方的量级，才能同样重要。
+Note that the penalties at which a line break
+is chosen weigh about as heavily as the badness of
+the line, so they can be relatively small.
+However, the three extra demerit parameters
+have to be of the order of the square of
+penalties and badnesses to weigh equally heavily.
 
 %%\spoint The number of lines of a paragraph
 %\subsection{The number of lines of a paragraph}
 %\spoint The number of lines of a paragraph
-\subsection{段落的行数}
+\subsection{The number of lines of a paragraph}
 
 %After a paragraph has been completed (or partially
 %completed prior to a display), the variable \csidx{prevgraf}
@@ -494,14 +530,15 @@ $-10\,000$ 或更低会强制断行。
 %\TeX's decision processes can be influenced.
 %This may be useful in combination with hanging indentation
 %or \cs{parshape} specifications (see Chapter~\ref{par:shape}).
-段落完成后（或在显示之前部分完成），变量 \csidx{prevgraf}
-记录了段落中的行数。
-通过给这个变量赋值 \ldash 并且
-因为这是一个 \gr{特殊整数}，
-这样的赋值会自动全局生效 \rdash
-\TeX\ 的决策过程可以受到影响。
-这可能与悬挂缩进
-或 \cs{parshape} 规范（参见第 \ref{par:shape} 章）结合使用时很有用。
+After a paragraph has been completed (or partially
+completed prior to a display), the variable \csidx{prevgraf}
+records the number of lines in the paragraph.
+By assigning to this variable \ldash and
+because this is a \gr{special integer}
+such an assignment is automatically global \rdash
+\TeX's decision processes can be influenced.
+This may be useful in combination with hanging indentation
+or \cs{parshape} specifications (see Chapter~\ref{par:shape}).
 
 %\mdqon
 %Some direct influence of the line"-breaking process
@@ -511,10 +548,12 @@ $-10\,000$ 或更低会强制断行。
 %of each line. By increasing the line penalty \TeX\ can be
 %made to minimize the number of lines in a paragraph.
 \mdqon
-断行过程对最终行数的某些直接影响
+Some direct influence of the line"-breaking process
 \mdqoff
-是存在的。其中一个因素是 \cs{linepenalty}，它包含在每行的缺点值中。
-通过增加行罚值，可以使 \TeX\ 最小化段落中的行数。
+on the resulting number of lines exists. One factor
+is the \cs{linepenalty} which is included in the demerits
+of each line. By increasing the line penalty \TeX\ can be
+made to minimize the number of lines in a paragraph.
 
 %Deviations from the optimal number of lines, that is, the
 %number of lines stemming from the optimal way of breaking a
@@ -526,14 +565,16 @@ $-10\,000$ 或更低会强制断行。
 %paragraph should be made longer than is optimal. A~negative
 %value of \cs{looseness} will attempt to make the paragraph shorter
 %by a number of lines that is the absolute value of the parameter.
-与最佳行数（即，将段落断成行的最佳方式所产生的行数）的偏差，
-用户可以通过 \csidx{looseness} 参数强制实现。
-该参数每次形状参数
-被清除时都会重置（参见第 \ref{par:shape} 章），
-它指示当前
-段落应比最佳长度多出多少行。
-\cs{looseness} 的负值将尝试使段落缩短
-参数绝对值所指示的行数。
+Deviations from the optimal number of lines, that is, the
+number of lines stemming from the optimal way of breaking a
+paragraph into lines, can be forced by the user by means
+of the \csidx{looseness} parameter. This parameter, which is
+reset every time the shape parameters
+are cleared (see Chapter~\ref{par:shape}),
+indicates by how many lines the current
+paragraph should be made longer than is optimal. A~negative
+value of \cs{looseness} will attempt to make the paragraph shorter
+by a number of lines that is the absolute value of the parameter.
 
 %\TeX\ will still observe the values
 %of \cs{pretolerance} and \cs{tolerance} (see below)
@@ -542,17 +583,20 @@ $-10\,000$ 或更低会强制断行。
 %Therefore,
 %\TeX\ will only lengthen or shorten a paragraph for as far
 %as is possible without exceeding these parameters.
-在 \cs{looseness} 的影响下加长或缩短段落时，
-\TeX\ 仍将遵守 \cs{pretolerance} 和 \cs{tolerance} 的值（见下文）。
-因此，
-\TeX\ 只会在不超过这些参数的范围内加长或缩短段落。
+\TeX\ will still observe the values
+of \cs{pretolerance} and \cs{tolerance} (see below)
+when lengthening or shortening a paragraph under influence
+of \cs{looseness}.
+Therefore,
+\TeX\ will only lengthen or shorten a paragraph for as far
+as is possible without exceeding these parameters.
 
 
 %%\spoint[between:lines] Between the lines
 %\subsection{Between the lines}
 %\label{between:lines}
 %\spoint[between:lines] Between the lines
-\subsection{行间}
+\subsection{Between the lines}
 \label{between:lines}
 
 %\TeX's
@@ -568,62 +612,63 @@ $-10\,000$ 或更低会强制断行。
 %\item interline glue, which is calculated automatically
 %      on basis of the \cs{prevdepth} (see Chapter~\ref{baseline}).
 %\end{itemize}
-\TeX\ 的
-段落机制将行打包成水平盒子，
-并附加到周围的垂直列表。
-由此产生的垂直项序列是
-一个重复的序列，包括：
-\begin{itemize}\item 包含一行文本的盒子，
-\item 可能迁移的垂直材料（参见第 \pageref{migrate} 页），
-\item 反映在该点分页成本的罚值项，通常是 \cs{interlinepenalty}
-      （参见第 \ref{page:break} 章），以及
-\item 行间粘连，它根据 \cs{prevdepth} 自动计算
-      （参见第 \ref{baseline} 章）。
+\TeX's
+paragraph mechanism packages lines into horizontal boxes
+that are appended to the surrounding vertical list.
+The resulting sequence of vertical items is then a
+repeating sequence of
+\begin{itemize}\item a box containing a line of text,
+\item possibly migrated vertical material (see page~\pageref{migrate}),
+\item a penalty item reflecting the cost of a page break
+      at that point, which is normally the \cs{interlinepenalty}
+      (see Chapter~\ref{page:break}), and
+\item interline glue, which is calculated automatically
+      on basis of the \cs{prevdepth} (see Chapter~\ref{baseline}).
 \end{itemize}
 
 %%\point The process of breaking
 %\section{The process of breaking}
 %\point The process of breaking
-\section{断行过程}
+\section{The process of breaking}
 
 %\TeX\ tries to break paragraphs in such a way that
 %the badness of each line does not exceed a certain tolerance.
 %If there exists more than one solution to this, the one with
 %the fewest demerits is taken.
-\TeX\ 尝试以这样的方式断开段落，即
-每行的不适度不超过一定的容忍度。
-如果存在多个解决方案，则选择
-缺点值最少的一个。
+\TeX\ tries to break paragraphs in such a way that
+the badness of each line does not exceed a certain tolerance.
+If there exists more than one solution to this, the one with
+the fewest demerits is taken.
 
 %By setting \csidx{tracingparagraphs} to a positive value,
 %\TeX\ can be made to report the calculations of the
 %paragraph mechanism in the log file. Some implementations of \TeX\
 %may have this option disabled to make \TeX\ run faster.
-通过将 \csidx{tracingparagraphs} 设置为正值，
-可以使 \TeX\ 在日志文件中报告
-段落机制的计算结果。某些 \TeX\ 实现
-可能会禁用此选项以使 \TeX\ 运行更快。
+By setting \csidx{tracingparagraphs} to a positive value,
+\TeX\ can be made to report the calculations of the
+paragraph mechanism in the log file. Some implementations of \TeX\
+may have this option disabled to make \TeX\ run faster.
 
 %%\spoint Three passes
 %\subsection{Three passes}
 %\spoint Three passes
-\subsection{三遍处理}
+\subsection{Three passes}
 
 %First an attempt is made to split the paragraph into lines
 %without hyphenating, that is, without inserting discretionary
 %hyphens. This attempt succeeds if none of the
 %lines has a badness exceeding \csidx{pretolerance}.
-首先尝试将段落分成行，
-不进行连字符，即不插入自由
-连字符。如果所有行
-的不适度都不超过 \csidx{pretolerance}，则此尝试成功。
+First an attempt is made to split the paragraph into lines
+without hyphenating, that is, without inserting discretionary
+hyphens. This attempt succeeds if none of the
+lines has a badness exceeding \csidx{pretolerance}.
 
 %Otherwise, a second pass is made, inserting discretionaries
 %and using \csidx{tolerance}.
 %\handbreak If \cs{pretolerance} is negative, the first pass is omitted.
-否则，进行第二遍处理，插入自由断字点
-并使用 \csidx{tolerance}。
-\handbreak 如果 \cs{pretolerance} 为负，则省略第一遍处理。
+Otherwise, a second pass is made, inserting discretionaries
+and using \csidx{tolerance}.
+\handbreak If \cs{pretolerance} is negative, the first pass is omitted.
 
 %\TeX\ can be made to make a third pass if the first and
 %second pass fail.
@@ -635,30 +680,32 @@ $-10\,000$ 或更低会强制断行。
 %However, no glue of size \cs{emergencystretch} is
 %actually present, so underfull box messages
 %may still occur.
-如果第一遍和第二遍处理失败，
-可以使 \TeX\ 进行第三遍处理。
-如果 \csidx{emergencystretch} 是一个正尺寸，
-\TeX\ 在计算不适度和缺点值时，将假定每行有
-这么多的额外伸缩性。
-因此，那些仅略微超出给定
-容忍度的解决方案现在将变得可行。
-然而，实际上并没有大小为 \cs{emergencystretch} 的粘连，
-因此仍然可能出现欠满盒子消息。
+\TeX\ can be made to make a third pass if the first and
+second pass fail.
+If \csidx{emergencystretch} is a positive dimension,
+\TeX\ will assume this much extra stretchability
+in each line when badness and demerits are calculated.
+Thus solutions that only slightly exceeded the given
+tolerances will now become feasible.
+However, no glue of size \cs{emergencystretch} is
+actually present, so underfull box messages
+may still occur.
 
 %%\spoint Tolerance values
 %\subsection{Tolerance values}
 %\spoint Tolerance values
-\subsection{容忍值}
+\subsection{Tolerance values}
 
 %How much
 %trouble \TeX\ will have typesetting a piece of text
 %depends partly on the tolerance value.
 %Therefore it is sensible to have some idea of
 %what badness values mean in visual terms.
-\TeX\ 排版一段文本会有多大麻烦，
-部分取决于容忍值。
-因此，对不适度值在视觉上的含义
-有一些了解是明智的。
+How much
+trouble \TeX\ will have typesetting a piece of text
+depends partly on the tolerance value.
+Therefore it is sensible to have some idea of
+what badness values mean in visual terms.
 
 %For lines that are stretched, the badness is
 %100 times the cube of the stretch ratio.
@@ -674,25 +721,25 @@ $-10\,000$ 或更低会强制断行。
 %\begin{disp} \n{3.33pt}${}+2\times{}$\n{1.67pt}${}={}$\n{6.66pt}\end{disp}
 %that is, to exactly double their natural size.
 %It is up to you to decide whether this is too large.
-对于被拉伸的行，不适度是
-伸展比的立方值的 100 倍。
-因此，800 的不适度意味着伸展比
-是 2。
-如果空格是，
+For lines that are stretched, the badness is
+100 times the cube of the stretch ratio.
+A~badness of 800 thus means that the stretch ratio
+is~2.
+If the space is,
 \alt
-如十点 Computer Modern 字体中所示：
+as in the ten-point Computer Modern Font,
 \begin{verbatim}
 3.33pt plus 1.67pt minus 1.11pt
 \end{verbatim}
-800 的不适度意味着空格已被拉伸到
+a badness of 800 means that spaces have been stretched to
 \begin{disp} \n{3.33pt}${}+2\times{}$\n{1.67pt}${}={}$\n{6.66pt}\end{disp}
-也就是说，恰好是其自然大小的两倍。
-这是否过大由您决定。
+that is, to exactly double their natural size.
+It is up to you to decide whether this is too large.
 
 %%\point Discretionaries
 %\section{Discretionaries}
 %\point Discretionaries
-\section{自由断字点}
+\section{Discretionaries}
 
 %A \indexterm{discretionary item} \verb-\discretionary{..}{..}{..}-
 %\cstoidx discretionary\par
@@ -711,36 +758,35 @@ $-10\,000$ 或更低会强制断行。
 %\alt
 %with \n{abg} before the break and \n{hef} after.
 %Note that there is no automatic hyphen character.
-一个 \indexterm{自由断字点} \verb-\discretionary{..}{..}{..}-
+A \indexterm{discretionary item} \verb-\discretionary{..}{..}{..}-
 \cstoidx discretionary\par
-标记了一个单词可以断开的位置。
-这三个参数中的每一个都是 \gr{通用文本}
-（参见第 \ref{gramm} 章）：
-它们依次是：
-\begin{itemize} \item {\em 断前文本}，它附加到
-断点前单词的部分，
-\item {\em 断后文本}，它预置到
-断点后单词的部分，以及
-\item {\em 不断文本}，如果单词
-未在自由断字点处断开，则使用它。
-\end{itemize}
-例如：\verb>ab\discretionary{g}{h}{cd}ef>
-是单词 \hbox{\n{abcdef}}，但它可以被连字符
+marks a place where a word can be broken.
+Each of the three arguments is a \gr{general text}
+(see Chapter~\ref{gramm}):
+they are, in sequence,
+\begin{itemize} \item the {\em pre-break\/} text, which is appended
+to the part of the word before the break,
+\item the {\em post-break\/} text, which is prepended to the part
+of the word after the break, and
+\item the {\em no-break\/} text, which is used if the word
+is not broken at the discretionary item.\end{itemize}
+For example: \verb>ab\discretionary{g}{h}{cd}ef>
+is the word \hbox{\n{abcdef}}, but it can be hyphenated
 \alt
-在断点前是 \n{abg}，断点后是 \n{hef}。
-请注意，没有自动连字符。
+with \n{abg} before the break and \n{hef} after.
+Note that there is no automatic hyphen character.
 
 %All three texts may contain any sorts of tokens,
 %but any primitive commands and macros
 %should expand to boxes, kerns, and characters.
-所有这三种文本都可以包含任何类型的记号，
-但任何原始命令和宏
-都应展开为盒子、字距调整和字符。
+All three texts may contain any sorts of tokens,
+but any primitive commands and macros
+should expand to boxes, kerns, and characters.
 
 %%\spoint Hyphens and discretionaries
 %\subsection{Hyphens and discretionaries}
 %\spoint Hyphens and discretionaries
-\subsection{连字符与自由断字点}
+\subsection{Hyphens and discretionaries}
 
 %Internally, \TeX\ inserts the equivalent of
 %\cstoidx hyphenchar\par
@@ -755,28 +801,28 @@ $-10\,000$ 或更低会强制断行。
 %When a font is loaded, its \cs{hyphenchar} value
 %is set to \csidx{defaulthyphenchar}. The \cs{hyphenchar}
 %value can be changed after this.
-在内部，\TeX\ 在单词可以断开的每个位置
-插入等同于
+Internally, \TeX\ inserts the equivalent of
 \cstoidx hyphenchar\par
 \begin{verbatim}
 \discretionary{\char\hyphenchar\font}{}{}
 \end{verbatim}
-的内容。这导致在任何断点前放置一个 \indextermbus{连字符}{字符}。
-如果 \verb>\hyphenchar\font>
-不在 0--255 的范围内，或者它在
-字体中的位置未被填充，则不插入
-此类自由断字点。
-加载字体时，其 \cs{hyphenchar} 值
-设置为 \csidx{defaulthyphenchar}。此后可以更改 \cs{hyphenchar} 值。
+at every place where a word can be broken. This causes a \indextermbus{hyphen}{character} to be placed before any break.
+No
+such discretionary is inserted if \verb>\hyphenchar\font>
+is not in the range 0--255, or if its position in the
+font is not filled.
+When a font is loaded, its \cs{hyphenchar} value
+is set to \csidx{defaulthyphenchar}. The \cs{hyphenchar}
+value can be changed after this.
 
 %In plain \TeX\ the \cs{defaulthyphenchar} has the value~\verb>`\->, so
 %for all fonts character~45 (the \ascii\ hyphen character)
 %is the hyphen sign, unless
 %it is specified otherwise.
-在 plain \TeX\ 中，\cs{defaulthyphenchar} 的值为 \verb>`\->，因此
-对于所有字体，字符 45（\ascii\ 连字符）
-是连字符号，除非
-另有指定。
+In plain \TeX\ the \cs{defaulthyphenchar} has the value~\verb>`\->, so
+for all fonts character~45 (the \ascii\ hyphen character)
+is the hyphen sign, unless
+it is specified otherwise.
 
 %The primitive command \verb|\-| (called a `discretionary hyphen')
 %\csterm -\par\indexterm{discretionary hyphen}
@@ -786,14 +832,15 @@ $-10\,000$ 或更低会强制断行。
 %Breaking at such a discretionary, whether inserted implicitly
 %by \TeX\ or explicitly by the user, has
 %a cost of \csidx{hyphenpenalty}.
-原始命令 \verb|\-|（称为“自由连字符”）
+The primitive command \verb|\-| (called a `discretionary hyphen')
 \csterm -\par\indexterm{discretionary hyphen}
-等同于上述
+is equivalent to the above
 \handbreak
-\verb|\discretionary{\char\hyphenchar\font}{}{}|。
-在这种自由断字点处断行，无论是 \TeX\ 隐式插入
-还是用户显式插入，都会产生
-\csidx{hyphenpenalty} 的成本。
+\verb|\discretionary{\char\hyphenchar\font}{}{}|.
+Breaking at such a discretionary, whether inserted implicitly
+by \TeX\ or explicitly by the user, has
+a cost of \csidx{hyphenpenalty}.
+
 
 %In unrestricted horizontal mode an empty discretionary
 %\cs{disc\-re\-tio\-na\-ry}\verb-{}{}{}-
@@ -803,14 +850,14 @@ $-10\,000$ 或更低会强制断行。
 %The penalty for breaking a line at
 %such a discretionary with an empty pre-break text
 %is \csidx{exhyphenpenalty}, that is, the `explicit hyphen' penalty.
-在无限制水平模式下，一个空的自由断字点
+In unrestricted horizontal mode an empty discretionary
 \cs{disc\-re\-tio\-na\-ry}\verb-{}{}{}-
-会自动插入在字符之后，
-这些字符的字符码是字体中 \cs{hyphenchar} 的值，
-从而在该点启用连字符。
-在
-这种断前文本为空的自由断字点处断行的罚值
-是 \csidx{exhyphenpenalty}，即“显式连字符”罚值。
+is automatically inserted after characters
+whose character code is the \cs{hyphenchar} value
+of the font, thus enabling hyphenation at that point.
+The penalty for breaking a line at
+such a discretionary with an empty pre-break text
+is \csidx{exhyphenpenalty}, that is, the `explicit hyphen' penalty.
 
 %If a word contains
 %discretionary breaks, for instance
@@ -827,35 +874,37 @@ $-10\,000$ 或更低会强制断行。
 %treating the first and second half of the
 %compound expression as separate words; the penalty
 %before the first skip inhibits breaking before the hyphen.
-如果一个单词包含
-自由断字点，例如
-因为显式连字符，
-\TeX\ 将不再考虑对其进行进一步的连字符。
-人们通过技巧解决了随之而来的问题，
-例如
-\howto 启用包含连字符的单词的连字符\par
+If a word contains
+discretionary breaks, for instance
+because of  explicit hyphen characters,
+\TeX\ will not consider it for further hyphenation.
+People have solved the ensuing problems by tricks
+such as
+\howto Enable hyphenation of a word containing a hyphen\par
 \begin{verbatim}
 \def\={\penalty10000 \hskip0pt -\penalty0 \hskip0pt\relax}
 ... integro\=differential equations...
 \end{verbatim}
-连字符前后跳过使 \TeX\ 将复合表达式的
-前半部分和后半部分视为单独的单词；
-第一个跳过之前的罚值阻止在连字符之前断开。
+The skips before and after the hyphen lead \TeX\ into
+treating the first and second half of the
+compound expression as separate words; the penalty
+before the first skip inhibits breaking before the hyphen.
 
 %%\spoint Examples of discretionaries
 %\subsection{Examples of discretionaries}
 %\spoint Examples of discretionaries
-\subsection{自由断字点示例}
+\subsection{Examples of discretionaries}
 
 %\emph{Languages}\index{languages} such as German or Dutch have words
 %that change spelling when hyphenated (German: `\hbox{backen}' becomes
 %`\hbox{bak-ken}'; Dutch: `\hbox{autootje}' becomes
 %`\hbox{auto-tje}'). This problem can be solved with \TeX's
 %discretionaries.
-\emph{语言}\index{languages}，如德语或荷兰语，有些单词在连字符时会改变拼写（德语：`\hbox{backen}' 变为
-`\hbox{bak-ken}'；荷兰语：`\hbox{autootje}' 变为
-`\hbox{auto-tje}'）。这个问题可以用 \TeX\ 的
-自由断字点解决。
+\emph{Languages}\index{languages} such as German or Dutch have words
+that change spelling when hyphenated (German: `\hbox{backen}' becomes
+`\hbox{bak-ken}'; Dutch: `\hbox{autootje}' becomes
+`\hbox{auto-tje}'). This problem can be solved with \TeX's
+discretionaries.
 
 %For instance, for German (this is inspired by~\cite{Partl}):
 %\begin{verbatim}
@@ -863,12 +912,12 @@ $-10\,000$ 或更低会强制断行。
 %\def"#1{\ifx#1k\discretionary{k-}{k}{ck}\fi}
 %\end{verbatim}
 %which enables the user to write \verb>ba"ken>.
-例如，对于德语（这受 \cite{Partl} 启发）：
+For instance, for German (this is inspired by~\cite{Partl}):
 \begin{verbatim}
 \catcode`\"=\active
 \def"#1{\ifx#1k\discretionary{k-}{k}{ck}\fi}
 \end{verbatim}
-这使得用户可以编写 \verb>ba"ken>。
+which enables the user to write \verb>ba"ken>.
 
 %In Dutch there is a further problem which allows a nice
 %systematic solution. Umlaut characters (`trema' is the
@@ -884,25 +933,25 @@ $-10\,000$ 或更低会强制断行。
 %\end{verbatim}
 %which enables the user to type \verb>na"apen> and
 %\verb>onbe"invloedbaar>.
-在荷兰语中还有一个问题，它允许一个很好的
-系统解决方案。变音符号字符（“trema”是
-荷兰语术语）在断字时通常应该
-消失，例如 `\hbox{na"apen}'
-连字符为 `\hbox{na-apen}'，以及 `\hbox{onbe"invloedbaar}'
-连字符为 `\hbox{onbe-invloedbaar}'。一个解决方案
-（受 \cite{Babel} 启发）是
+In Dutch there is a further problem which allows a nice
+systematic solution. Umlaut characters (`trema' is the
+Dutch term) should often
+disappear in a break, for instance `\hbox{na"apen}'
+hyphenates as `\hbox{na-apen}', and `\hbox{onbe"invloedbaar}'
+hyphenates as `\hbox{onbe-invloedbaar}'. A solution
+(inspired by~\cite{Babel}) is
 \begin{verbatim}
 \catcode`\"=\active
 \def"#1{\ifx#1i\discretionary{-}{i}{\"\i}%
         \else  \discretionary{-}{#1}{\"#1}\fi}
 \end{verbatim}
-这使得用户可以输入 \verb>na"apen> 和
-\verb>onbe"invloedbaar>。
+which enables the user to type \verb>na"apen> and
+\verb>onbe"invloedbaar>.
 
 %%\point Hyphenation
 %\section{Hyphenation}
 %\point Hyphenation
-\section{连字符}
+\section{Hyphenation}
 
 %\TeX's \indexterm{hyphenation}
 %algorithm uses a list of patterns to
@@ -916,16 +965,18 @@ $-10\,000$ 或更低会强制断行。
 %to generate lists of patterns by hand;
 %see for instance~\cite{Vas:add}. Such hand-generated lists
 %may be superior to automatically generated lists.
-\TeX\ 的 \indexterm{连字符}
-算法使用模式列表来
-确定哪些地方的单词可以被连字符断开。
-与这些模式相关的连字符方面
-在 \TeXbook\ 附录 H 中讨论；
-自动生成连字符模式的方法
-在 \cite{Liang} 中描述。
-人们已知会手动生成模式列表；
-例如参见 \cite{Vas:add}。
-此类手动生成的列表可能优于自动生成的列表。
+\TeX's \indexterm{hyphenation}
+algorithm uses a list of patterns to
+determine at what places a word that is a candidate for
+hyphenation can be broken.
+Those aspects of hyphenation connected with these
+patterns are
+treated in appendix~H of \TeXbook;
+the method of generating hyphenation patterns automatically
+is described in~\cite{Liang}. People have been known
+to generate lists of patterns by hand;
+see for instance~\cite{Vas:add}. Such hand-generated lists
+may be superior to automatically generated lists.
 
 %Here it will mainly be described how \TeX\ declares a word to
 %be a candidate for hyphenation. The  problem here is
@@ -933,17 +984,17 @@ $-10\,000$ 或更低会强制断行。
 %that can be attached to a word. Also, {\em implicit kerns\/},
 %that is, kerns inserted because of font information,
 %must  be handled properly.
-这里主要描述 \TeX\ 如何将一个单词声明为
-连字符的候选词。这里的问题是
-如何处理标点符号和可以附加到单词上的引号等内容。
-此外，{\em 隐式字距调整}，
-即由于字体信息而插入的字距调整，
-必须妥善处理。
+Here it will mainly be described how \TeX\ declares a word to
+be a candidate for hyphenation. The  problem here is
+how to cope with punctuation and things such as quotation marks
+that can be attached to a word. Also, {\em implicit kerns\/},
+that is, kerns inserted because of font information,
+must  be handled properly.
 
 %%\spoint Start of a word
 %\subsection{Start of a word}
 %\spoint Start of a word
-\subsection{单词的开头}
+\subsection{Start of a word}
 
 %\TeX\ starts at glue items (if they are not in math mode)
 %looking for a {\em starting letter\/} of a word:
@@ -958,19 +1009,19 @@ $-10\,000$ 或更低会强制断行。
 %for instance, punctuation and quotation marks),
 %or ligatures starting with
 %such a character.
-\TeX\ 从粘连项（如果它们不在数学模式下）开始，
-寻找单词的{\em 起始字母}：
-一个 \cs{lccode} 非零的字符，或者一个以
+\TeX\ starts at glue items (if they are not in math mode)
+looking for a {\em starting letter\/} of a word:
+a character with non-zero \cs{lccode}, or a ligature starting
 \mdqon
-此类字符开头的连字（大写/小写代码在
+with such a character (upper/""lowercase codes are explained
 \mdqoff
-第 \pageref{uc/lc} 页解释）。
-寻找这个起始字母时，
-\TeX\ 会跳过任何隐式字距调整，以及
-\cs{lccode} 为零的字符（这包括，
-例如，标点符号和引号），
-或者以
-此类字符开头的连字。
+on page~\pageref{uc/lc}).
+Looking for this starting letter,
+\TeX\ bypasses any implicit kerns, and
+characters with zero \cs{lccode} (this includes,
+for instance, punctuation and quotation marks),
+or ligatures starting with
+such a character.
 
 %If no suitable starting letter turns up, that is, if
 %something is found that is not a character or ligature,
@@ -980,14 +1031,14 @@ $-10\,000$ 或更低会强制断行。
 %from the same font as the starting letter, or ligatures consisting
 %completely of such characters. Implicit kerns are allowed
 %between the characters and ligatures.
-如果没有找到合适的起始字母，也就是说，如果
-找到了不是字符或连字的东西，
-\TeX\ 会跳过到下一个粘连，并重新开始此算法。
-否则，会收集一个试用词，它由
-所有后续的 \cs{lccode} 非零的字符组成，
-这些字符与起始字母来自相同的字体，或者由
-完全由此类字符组成的连字。
-字符和连字之间允许存在隐式字距调整。
+If no suitable starting letter turns up, that is, if
+something is found that is not a character or ligature,
+\TeX\ skips to the next glue, and starts this algorithm anew.
+Otherwise a trial word is collected consisting of
+all following characters with non-zero \cs{lccode}
+from the same font as the starting letter, or ligatures consisting
+completely of such characters. Implicit kerns are allowed
+between the characters and ligatures.
 
 %If the starting letter is from a font for which the value
 %of \cs{hyphenchar} is invalid, or for which this character
@@ -998,19 +1049,20 @@ $-10\,000$ 或更低会强制断行。
 %The default value for this parameter is~1  in
 %plain \TeX,
 %implying that capitalized words are subject to hyphenation.
-如果起始字母来自一个 \cs{hyphenchar} 值
-无效的字体，或者该字符
-不存在，则该单词的连字符被放弃。
-如果起始字母是大写字母（即，
-它不等于其自身的 \cs{lccode}），\TeX\ 将
-放弃连字符，除非 \csidx{uchyph} 为正。
-此参数在 plain \TeX\ 中的默认值为 1，
-这意味着大写单词受连字符规则约束。
+If the starting letter is from a font for which the value
+of \cs{hyphenchar} is invalid, or for which this character
+does not exist, hyphenation is abandoned for this word.
+If the starting letter is an uppercase letter (that is,
+it is not equal to its own \cs{lccode}), \TeX\ will
+abandon hyphenation unless \csidx{uchyph} is positive.
+The default value for this parameter is~1  in
+plain \TeX,
+implying that capitalized words are subject to hyphenation.
 
 %%\spoint End of a word
 %\subsection{End of a word}
 %\spoint End of a word
-\subsection{单词的结尾}
+\subsection{End of a word}
 
 
 %Following the trial word can be characters (from another
@@ -1025,18 +1077,18 @@ $-10\,000$ 或更低会强制断行。
 %followed by a
 %\begin{itemize}\item box, \item rule, \item math
 %formula, or \item discretionary item.\end{itemize}
-试用词之后可以是字符（来自其他
-字体，或 \cs{lccode} 为零的字符）、连字或隐式字距调整。
-在这些项之后（如果有），必须跟随
-\begin{itemize}\item 粘连或显式字距调整，
-\item 罚值，
-\item 一个 whatsit，或
-\item 一个 \cs{mark}、\cs{insert} 或 \cs{vadjust} 项。
+Following the trial word can be characters (from another
+font, or with zero \cs{lccode}), ligatures or implicit kerns.
+After these items, if any, must follow
+\begin{itemize}\item glue or an explicit kern,
+\item a penalty,
+\item a whatsit, or
+\item a \cs{mark}, \cs{insert}, or \cs{vadjust} item.
 \end{itemize}
-特别是，如果单词后面是
-\begin{itemize}\item 盒子，\item 标尺，\item 数学
-公式，或 \item 自由断字点，\end{itemize}
-则该单词不会被连字符。
+In particular, the word will not be hyphenated if it is
+followed by a
+\begin{itemize}\item box, \item rule, \item math
+formula, or \item discretionary item.\end{itemize}
 
 %Since discretionaries are inserted after the \cs{hyphenchar}
 %of the font, occurrence of this character inhibits further
@@ -1044,17 +1096,17 @@ $-10\,000$ 或更低会强制断行。
 %explicit kerns (see Chapter~\ref{char}), so any \cs{accent}
 %command is considered to be the end of a word, and inhibits
 %hyphenation of the word.
-由于自由断字点是在字体的 \cs{hyphenchar} 之后插入的，
-因此该字符的出现会阻止进一步的连字符。
-此外，重音符号的放置是使用
-显式字距调整实现的（参见第 \ref{char} 章），
-因此任何 \cs{accent} 命令都被视为单词的结尾，并阻止
-该单词的连字符。
+Since discretionaries are inserted after the \cs{hyphenchar}
+of the font, occurrence of this character inhibits further
+hyphenation. Also, placement of accents is implemented using
+explicit kerns (see Chapter~\ref{char}), so any \cs{accent}
+command is considered to be the end of a word, and inhibits
+hyphenation of the word.
 
 %%\spoint \TeX2 versus \TeX3
 %\subsection{\TeX2 versus \TeX3}
 %\spoint \TeX2 versus \TeX3
-\subsection{\TeX2 对比 \TeX3}
+\subsection{\TeX2 versus \TeX3}
 
 %There is a noticeable difference in the treatment of
 %\thecstoidxsub{TeX}{version 3}
@@ -1066,14 +1118,16 @@ $-10\,000$ 或更低会强制断行。
 %there are no two-character pieces of a word stranded at the
 %end or beginning of the line. Both before and after the break
 %there are at least three characters.
-\thecstoidxsub{TeX}{版本 3}
-与 \TeX2 之间，连字符片段的处理存在显著差异。
-\TeX2 坚持断点前的部分应至少为
-两个字符长，断点后的部分应为三个
-字符长。
-从排版角度来看，这是一个明智的决定：这样
-就不会有两字符的单词片段滞留在
-行尾或行首。断点前后都至少有三个字符。
+There is a noticeable difference in the treatment of
+\thecstoidxsub{TeX}{version 3}
+hyphenated fragments between \TeX2 and \TeX3.
+\TeX2 insists that the part before the break should be
+at least two characters, and the part after the break three
+characters, long.
+Typographically this is a sound decision: this way
+there are no two-character pieces of a word stranded at the
+end or beginning of the line. Both before and after the break
+there are at least three characters.
 
 %In \TeX3 two integer parameters have been introduced to control
 %the length of these fragments:
@@ -1081,24 +1135,24 @@ $-10\,000$ 或更低会强制断行。
 %set to 2 and~3 respectively in the plain format for \TeX3.
 %If the sum of these two is 63 or more, all hyphenation is
 %suppressed.
-在 \TeX3 中引入了两个整数参数来控制
-这些片段的长度：
-\csidx{lefthyphenmin} 和 \csidx{righthyphenmin}。在 \TeX3 的 plain 格式中，它们分别
-设置为 2 和 3。
-如果这两者的和为 63 或更大，则所有连字符都被
-抑制。
+In \TeX3 two integer parameters have been introduced to control
+the length of these fragments:
+\csidx{lefthyphenmin} and \csidx{righthyphenmin}. These are
+set to 2 and~3 respectively in the plain format for \TeX3.
+If the sum of these two is 63 or more, all hyphenation is
+suppressed.
 
 %Another addition in \TeX3,
 %the possibility to have several sets of hyphenation patterns,
 %is treated below.
-\TeX3 的另一个新增功能，
-即拥有多套连字符模式的可能性，
-将在下文讨论。
+Another addition in \TeX3,
+the possibility to have several sets of hyphenation patterns,
+is treated below.
 
 %%\spoint Patterns and exceptions
 %\subsection{Patterns and exceptions}
 %\spoint Patterns and exceptions
-\subsection{模式与例外}
+\subsection{Patterns and exceptions}
 
 %The statements
 %\begin{disp}\cs{patterns}\gr{general text}\nl
@@ -1110,16 +1164,16 @@ $-10\,000$ 或更低会强制断行。
 %(see Chapter~\ref{TeXcomm}),
 %and all patterns must be specified before the first
 %paragraph is typeset.
-语句
-\begin{disp}\cs{patterns}\gr{通用文本}\nl
-\csidx{hyphenation}\gr{通用文本}\end{disp}
-是 \gr{连字符赋值}，它们是
-\gr{全局赋值}。
-\csidx{patterns} 命令指定一个
-连字符模式列表，仅在 \IniTeX\ 中允许
-（参见第 \ref{TeXcomm} 章），
-并且所有模式必须在第一个
-段落排版之前指定。
+The statements
+\begin{disp}\cs{patterns}\gr{general text}\nl
+\csidx{hyphenation}\gr{general text}\end{disp}
+are \gr{hyphenation assignment}s, which are
+\gr{global assignment}s.
+The \csidx{patterns} command, which specifies a list
+of hyphenation patterns, is allowed only in \IniTeX\
+(see Chapter~\ref{TeXcomm}),
+and all patterns must be specified before the first
+paragraph is typeset.
 
 %Hyphenation exceptions can be specified at any time
 %\howto Specify exceptional hyphenations\par
@@ -1129,34 +1183,35 @@ $-10\,000$ 或更低会强制断行。
 %\end{verbatim}
 %which specify locations where a word may be hyphenated.
 %Subsequent \cs{hyphenation} statements are cumulative.
-连字符例外可以在任何时候指定
-\howto 指定特殊连字符\par
-通过诸如
+Hyphenation exceptions can be specified at any time
+\howto Specify exceptional hyphenations\par
+with statements such as
 \begin{verbatim}
 \hyphenation{oxy-mo-ron gar-goyle}
 \end{verbatim}
-的语句，这些语句指定了单词可以连字符的位置。
-后续的 \cs{hyphenation} 语句是累积的。
+which specify locations where a word may be hyphenated.
+Subsequent \cs{hyphenation} statements are cumulative.
 
 %In \TeX3 these statements are taken to hold for the
 %language that is the current value of the \cs{language}
 %parameter.
-在 \TeX3 中，这些语句适用于
-作为 \cs{language} 参数当前值的语言。
+In \TeX3 these statements are taken to hold for the
+language that is the current value of the \cs{language}
+parameter.
 
 %%\point Switching hyphenation patterns
 %\section{Switching hyphenation patterns}
 %\point Switching hyphenation patterns
-\section{切换连字符模式}
+\section{Switching hyphenation patterns}
 
 %When typesetting paragraphs, \TeX\ (version~3) can use several
 %\alt
 %sets of patterns and hyphenation exceptions, for at most 256
 %\emph{languages}\index{language}.
-在排版段落时，\TeX\ （版本 3）可以使用多个
+When typesetting paragraphs, \TeX\ (version~3) can use several
 \alt
-模式集和连字符例外，最多支持 256 种
-\emph{语言}\index{language}。
+sets of patterns and hyphenation exceptions, for at most 256
+\emph{languages}\index{language}.
 
 %If a \cs{patterns} or \cs{hyphenation}
 %command is given (see above), \TeX\ stores the patterns or exceptions
@@ -1165,13 +1220,13 @@ $-10\,000$ 或更低会强制断行。
 %patterns must be specified before any typesetting is done.
 %Hyphenation exceptions, however, can
 %be specified cumulatively, and not only in \IniTeX.
-如果给出 \cs{patterns} 或 \cs{hyphenation}
-命令（见上文），\TeX\ 会将模式或例外
-存储在 \csidx{language} 参数的当前值下。
-\cs{patterns} 命令仅在 \IniTeX\ 中允许，并且
-模式必须在进行任何排版之前指定。
-然而，连字符例外可以
-累积指定，并且不仅限于 \IniTeX\ 。
+If a \cs{patterns} or \cs{hyphenation}
+command is given (see above), \TeX\ stores the patterns or exceptions
+under the current value of the \csidx{language} parameter.
+The \cs{patterns} command is only allowed in \IniTeX, and
+patterns must be specified before any typesetting is done.
+Hyphenation exceptions, however, can
+be specified cumulatively, and not only in \IniTeX.
 
 %In addition to the \cs{language} parameter, which can be set by the
 %user, \TeX\ has internally a \indextermbus{current}{language}. This is
@@ -1180,22 +1235,22 @@ $-10\,000$ 或更低会强制断行。
 %value of \cs{language}, and if they differ a whatsit element is added
 %to the horizontal list, resetting the current language to the value of
 %\cs{language}.
-除了用户可以设置的 \cs{language} 参数之外，
-\TeX\ 内部还有一个 \indextermbus{当前}{语言}。
-这在每个段落开始时设置为零。
-对于添加到段落的每个字符，当前语言会与
-\cs{language} 的值进行比较，如果它们不同，
-一个 whatsit 元素会被添加到水平列表，
-并将当前语言重置为 \cs{language} 的值。
+In addition to the \cs{language} parameter, which can be set by the
+user, \TeX\ has internally a \indextermbus{current}{language}. This is
+set to zero at the start of every paragraph.  For every character that
+is added to a paragraph the current language is compared with the
+value of \cs{language}, and if they differ a whatsit element is added
+to the horizontal list, resetting the current language to the value of
+\cs{language}.
 
 %At the start of a paragraph, this whatsit is inserted
 %\altt
 %after the \cs{everypar} tokens, but \cs{lastbox}
 %can still access the indentation box.
-在段落开始时，这个 whatsit 会被插入
+At the start of a paragraph, this whatsit is inserted
 \altt
-在 \cs{everypar} 记号之后，但 \cs{lastbox}
-仍然可以访问缩进盒子。
+after the \cs{everypar} tokens, but \cs{lastbox}
+can still access the indentation box.
 
 %As an example, suppose that a format has been created such that
 %language~0 is English, and language~1 is Dutch. English hyphenations
@@ -1218,23 +1273,22 @@ $-10\,000$ 或更低会强制断行。
 %.\setlanguage1 (hyphenmin 2,3) % language whatsit
 %.\tenrm T                      % start of text
 %\end{verbatim}
-举个例子，假设已经创建了一个格式，使得
-语言 0 是英语，语言 1 是荷兰语。
-如果用户没有另行指定，则将使用英语连字符；
-如果一个作业以
+As an example, suppose that a format has been created such that
+language~0 is English, and language~1 is Dutch. English hyphenations
+will then be used if the user does not specify otherwise;
+if a job starts with
 \begin{verbatim}
 \language=1
 \end{verbatim}
-开始，
-整个文档
-将使用荷兰语连字符排版，因为 \TeX\ 会在
-每个段落的开头插入一个改变当前语言的命令。
-例如：
+the whole document
+will be set using Dutch hyphenations, because \TeX\ will insert
+a command changing the current language at the start of
+every paragraph. For example:
 \begin{verbatim}
 \language=1
 T...
 \end{verbatim}
-给出
+gives
 \begin{verbatim}
 .\hbox(0.0+0.0)x20.0           % indentation
 .\setlanguage1 (hyphenmin 2,3) % language whatsit
@@ -1251,17 +1305,19 @@ T...
 %no hyphenation can take place.
 %See page~\pageref{wide:vbox} for another problem with text
 %in horizontal boxes.
-whatsit 可以显式插入，而无需更改
-\csidx{language} 的值，通过指定
-\begin{disp}\cs{setlanguage}\gr{数字}\end{disp}
-然而，这几乎不需要。
-可能需要的一个情况是，当水平盒子的内容
-解包到段落时：在盒子内部不会自动添加
-whatsits，因为在这种盒子内部
-不会发生连字符。
-关于水平盒子中文本的另一个问题，请参见第 \pageref{wide:vbox} 页。
+The whatsit can be inserted explicitly, without changing
+the value of \csidx{language}, by specifying
+\begin{disp}\cs{setlanguage}\gr{number}\end{disp}
+However, this will hardly ever be needed.
+One case where it may be necessary is when the contents of
+a horizontal box are unboxed to a paragraph: inside the box no
+whatsits are added automatically, since inside such a box
+no hyphenation can take place.
+See page~\pageref{wide:vbox} for another problem with text
+in horizontal boxes.
 
 %\endofchapter
 \endofchapter
 
 \end{document}
+

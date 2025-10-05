@@ -8,12 +8,13 @@
 
 %\chapter{File Input and Output}\label{io}
 %\index{I/O!file|(}
-\chapter{文件输入和输出}\label{io}
+\chapter{File Input and Output}\label{io}
 \index{I/O!file|(}
 
 %This chapter discusses the various ways in which \TeX\ can read from
 %and write to external \indexterm{files}.
-本章讨论 \TeX\ 可以从外部 \indexterm{文件} 读取和写入的各种方式。
+This chapter discusses the various ways in which \TeX\ can read from
+and write to external \indexterm{files}.
 
 %\label{cschap:input}\label{cschap:endinput}\label{cschap:inputlineno}\label{cschap:message}\label{cschap:write}\label{cschap:read}\label{cschap:newread}\label{cschap:newwrite}\label{cschap:openin}\label{cschap:closein}\label{cschap:openout}\label{cschap:closeout}\label{cschap:ifeof}\label{cschap:immediate}\label{cschap:newlinechar}
 %\begin{inventory}
@@ -22,38 +23,39 @@
 \label{cschap:input}\label{cschap:endinput}\label{cschap:inputlineno}\label{cschap:message}\label{cschap:write}\label{cschap:read}\label{cschap:newread}\label{cschap:newwrite}\label{cschap:openin}\label{cschap:closein}\label{cschap:openout}\label{cschap:closeout}\label{cschap:ifeof}\label{cschap:immediate}\label{cschap:newlinechar}
 \begin{inventory}
 \item [\cs{input}] 
-      将指定文件作为 \TeX\ 输入读取。
+      Read a specified file as \TeX\ input. 
 
 %\item [\cs{endinput}] 
 %      Terminate inputting the current file after the current line.
 \item [\cs{endinput}] 
-      在当前行之后终止当前文件的输入。
+      Terminate inputting the current file after the current line.
 
 %\item [\cs{pausing}] 
 %      Specify that \TeX\ should pause after each line that is 
 %      read from a file.
 \item [\cs{pausing}] 
-      指定 \TeX\ 在从文件读取每一行后应暂停。
+      Specify that \TeX\ should pause after each line that is 
+      read from a file.
 
 %\item [\cs{inputlineno}] 
 %      Number of the current input line.
 \item [\cs{inputlineno}] 
-      当前输入行号。
+      Number of the current input line.
 
 %\item [\cs{message}]
 %      Write a message to the terminal.
 \item [\cs{message}]
-      向终端写入一条消息。
+      Write a message to the terminal.
 
 %\item [\cs{write}]   
 %      Write a \gr{general text} to the terminal or to a file. 
 \item [\cs{write}]   
-      将 \gr{通用文本} 写入终端或文件。
+      Write a \gr{general text} to the terminal or to a file. 
 
 %\item [\cs{read}]   
 %      Read a line from a stream into a control sequence.
 \item [\cs{read}]   
-      从流中读取一行到控制序列中。
+      Read a line from a stream into a control sequence.
 
 %\item [\cs{newread \cs{newwrite}}]
 %\mdqon
@@ -61,28 +63,28 @@
 %\mdqoff
 \item [\cs{newread \cs{newwrite}}]
 \mdqon
-      用于分配新输入/输出流的宏。
+      Macro for allocating a new input/""output stream.
 \mdqoff
 
 %\item [\cs{openin \cs{closein}}]
 %      Open/close an input stream.
 \item [\cs{openin \cs{closein}}]
-      打开/关闭输入流。
+      Open/close an input stream.
 
 %\item [\cs{openout \cs{closeout}}]
 %      Open/close an output stream.
 \item [\cs{openout \cs{closeout}}]
-      打开/关闭输出流。
+      Open/close an output stream.
 
 %\item [\cs{ifeof}]  
 %      Test whether a file has been fully read, or does not exist.
 \item [\cs{ifeof}]  
-      测试文件是否已完全读取，或是否存在。
+      Test whether a file has been fully read, or does not exist.
 
 %\item [\cs{immediate}]  
 %      Prefix to have output operations executed right away.
 \item [\cs{immediate}]  
-      前缀，用于使输出操作立即执行。
+      Prefix to have output operations executed right away.
 
 %\item [\cs{escapechar}] 
 %      Number of the character that is  used 
@@ -90,15 +92,17 @@
 %      into character tokens.
 %      \IniTeX\ default:~92.
 \item [\cs{escapechar}] 
-      当控制序列被转换为
-      字符记号时使用的字符编号。
-      \IniTeX\ 默认值：92。
+      Number of the character that is  used 
+      when control sequences are being converted
+      into character tokens.
+      \IniTeX\ default:~92.
 
 %\item [\cs{newlinechar}] 
 %      Number of the character that triggers a new line in
 %      \cs{write} and \cs{message} statements.
 \item [\cs{newlinechar}] 
-      在 \cs{write} 和 \cs{message} 语句中触发新行的字符编号。
+      Number of the character that triggers a new line in
+      \cs{write} and \cs{message} statements.
 
 %\end{inventory}
 \end{inventory}
@@ -107,7 +111,7 @@
 %%\point Including files: \cs{input} and \cs{endinput}
 %\section{Including files: \protect\cs{input} and \protect\cs{endinput}}
 %\point Including files: \cs{input} and \cs{endinput}
-\section{包含文件：\protect\cs{input} 和 \protect\cs{endinput}}
+\section{Including files: \protect\cs{input} and \protect\cs{endinput}}
 
 %Large documents can be segmented in \TeX\ by putting 
 %\cstoidx input\par
@@ -118,13 +122,15 @@
 %extension is given.
 %File names can be delimited with a space or with \cs{relax}.
 %The \cs{input} command is expandable.
-大型文档可以通过将
+Large documents can be segmented in \TeX\ by putting 
 \cstoidx input\par
-部分放入单独的 \indexterm{输入文件} 中，并使用 \cs{input} 将这些文件加载到主文件中，从而在 \TeX\ 中进行分段。
-文件名的确切语法取决于具体实现；大多数情况下，如果未给出明确的
-扩展名，则假定文件扩展名为 \n{.tex}。
-文件名可以用空格或 \cs{relax} 定界。
-\cs{input} 命令是可展开的。
+parts in separate \indexterm{input files}, and loading these with \cs{input}
+into the master file. The exact syntax for
+file names is implementation dependent; most of the
+time a \n{.tex} file extension is assumed if no explicit
+extension is given.
+File names can be delimited with a space or with \cs{relax}.
+The \cs{input} command is expandable.
 
 %If \TeX\ encounters in an input file the
 %\csidx{endinput} statement, it acts as if the file
@@ -132,29 +138,29 @@
 %Any statements on the same line as \cs{endinput} are
 %still executed.
 %The \cs{endinput} statement is expandable.
-如果 \TeX\ 在输入文件中遇到
-\csidx{endinput} 语句，它会像文件
-在该语句所在的行之后结束一样处理。
-与 \cs{endinput} 在同一行上的任何语句仍然
-会执行。
-\cs{endinput} 语句是可展开的。
+If \TeX\ encounters in an input file the
+\csidx{endinput} statement, it acts as if the file
+ends after the line on which the statement occurs.
+Any statements on the same line as \cs{endinput} are
+still executed.
+The \cs{endinput} statement is expandable.
 
 %%\point File I{/}O
 %\section{File I{/}O}
 %\point File I{/}O
-\section{文件 I{/}O}
+\section{File I{/}O}
 
 %\TeX\ supports input and output streams for reading and writing
 %\altt
 %files one line at a time.
-\TeX\ 支持输入和输出流，用于逐行读取和写入
+\TeX\ supports input and output streams for reading and writing
 \altt
-文件。
+files one line at a time.
 
 %%\spoint Opening and closing streams
 %\subsection{Opening and closing streams}
 %\spoint Opening and closing streams
-\subsection{打开和关闭流}
+\subsection{Opening and closing streams}
 
 %\TeX\ supports up to 16 simultaneous input and 16 output 
 %\indexterm{streams}.
@@ -163,12 +169,13 @@
 %stream. This number is assigned by a \cs{chardef} command. 
 %Input streams are completely independent of output
 %streams. 
-\TeX\ 支持多达 16 个同时的输入流和 16 个输出
-\indexterm{流}。
-plain \TeX\ 宏
-\csidx{newread} 和 \csidx{newwrite} 给出未使用的流编号。
-此编号通过 \cs{chardef} 命令赋值。
-输入流与输出流完全独立。
+\TeX\ supports up to 16 simultaneous input and 16 output 
+\indexterm{streams}.
+The plain \TeX\ macros
+\csidx{newread} and \csidx{newwrite} give the number of an unused
+stream. This number is assigned by a \cs{chardef} command. 
+Input streams are completely independent of output
+streams. 
 
 %Input streams are opened by
 %\cstoidx openin\par
@@ -176,13 +183,12 @@ plain \TeX\ 宏
 %and closed by 
 %\cstoidx closein\par
 %\begin{disp}\cs{closein}\gr{4-bit number}\end{disp}
-输入流通过
+Input streams are opened by
 \cstoidx openin\par
-\begin{disp}\cs{openin}\gr{4位数字}\gr{等于}\gr{文件名}\end{disp}
-打开，并通过
+\begin{disp}\cs{openin}\gr{4-bit number}\gr{equals}\gr{filename}\end{disp}
+and closed by 
 \cstoidx closein\par
-\begin{disp}\cs{closein}\gr{4位数字}\end{disp}
-关闭。
+\begin{disp}\cs{closein}\gr{4-bit number}\end{disp}
 
 %Output streams are opened by
 %\cstoidx openout\par
@@ -190,31 +196,31 @@ plain \TeX\ 宏
 %and closed by
 %\cstoidx closeout\par
 %\begin{disp}\cs{closeout}\gr{4-bit number}\end{disp}
-输出流通过
+Output streams are opened by
 \cstoidx openout\par
-\begin{disp}\cs{openout}\gr{4位数字}\gr{等于}\gr{文件名}\end{disp}
-打开，并通过
+\begin{disp}\cs{openout}\gr{4-bit number}\gr{equals}\gr{filename}\end{disp}
+and closed by
 \cstoidx closeout\par
-\begin{disp}\cs{closeout}\gr{4位数字}\end{disp}
-关闭。
+\begin{disp}\cs{closeout}\gr{4-bit number}\end{disp}
 
 %If an output file does not yet exist, it is created
 %by \cs{openout}; if it did exist, an \cs{openout} will
 %cause it to be overwritten.
-如果输出文件尚不存在，则由 \cs{openout} 创建；
-如果它已经存在，则 \cs{openout} 将导致它被覆盖。
+If an output file does not yet exist, it is created
+by \cs{openout}; if it did exist, an \cs{openout} will
+cause it to be overwritten.
 
 %The output operations \cs{openout}, \cs{closeout},
 %and \cs{write} can all three be prefixed by \cs{immediate};
 %see below.
-输出操作 \cs{openout}、\cs{closeout}
-和 \cs{write} 都可以用 \cs{immediate} 作为前缀；
-见下文。
+The output operations \cs{openout}, \cs{closeout},
+and \cs{write} can all three be prefixed by \cs{immediate};
+see below.
 
 %%\spoint Input with \cs{read}
 %\subsection{Input with \cs{read}}
 %\spoint Input with \cs{read}
-\subsection{使用 \cs{read} 进行输入}
+\subsection{Input with \cs{read}}
 
 %In addition to the \cs{input} command, which reads a whole
 %file, \TeX\ has the \csidx{read} operation, which
@@ -226,15 +232,16 @@ plain \TeX\ 宏
 %is read from the designated stream, and the control
 %sequence is defined as a macro without parameters, having
 %that line as replacement text.
-除了读取整个文件的 \cs{input} 命令之外，
-\TeX\ 还有 \csidx{read} 操作，它
-从文件（或用户终端）读取一行。
-read 命令的语法是
+In addition to the \cs{input} command, which reads a whole
+file, \TeX\ has the \csidx{read} operation, which
+reads one line from a file (or from the user terminal).
+The syntax of the read command is
   
-\begin{disp}\cs{read}\gr{数字}\n{到}\gr{控制序列}\end{disp}
-此语句的效果是，从指定流中读取一个输入行，
-并且控制序列被定义为一个没有参数的宏，
-以该行作为替换文本。
+\begin{disp}\cs{read}\gr{number}\n{to}\gr{control sequence}\end{disp}
+The effect of this statement is that one input line
+is read from the designated stream, and the control
+sequence is defined as a macro without parameters, having
+that line as replacement text.
 
 %If the input line is not balanced with respect to braces,
 %\TeX\ will read more than one line, continuing for as long
@@ -243,13 +250,13 @@ read 命令的语法是
 %\alt
 %so the last \cs{read} operation on a stream will always
 %yield a single \cs{par} token.
-如果输入行在花括号方面不平衡，
-\TeX\ 将读取多行，持续读取直到
-获得一个平衡的记号列表。
-\TeX\ 会隐式地在每个输入流后面附加一个空行，
+If the input line is not balanced with respect to braces,
+\TeX\ will read more than one line, continuing for as long
+as is necessary to get a balanced token list.
+\TeX\ implicitly appends an empty line to each input stream,
 \alt
-因此对流的最后一次 \cs{read} 操作将始终
-产生一个单独的 \cs{par} 记号。
+so the last \cs{read} operation on a stream will always
+yield a single \cs{par} token.
 
 %Read operations from any stream outside the range 0--15 \ldash or 
 %streams not associated with an open file, or on which the file
@@ -257,12 +264,12 @@ read 命令的语法是
 %read from the terminal. If the stream number is positive
 %the user is prompted with the name of the control sequence
 %being defined by the \cs{read} statement.
-从范围 0--15 之外的任何流 \ldash 或
-未与打开文件关联的流，或已到达文件
-末尾的流 \rdash 进行读取操作，
-都会从终端读取。如果流编号为正，
-用户会收到正在由 \cs{read} 语句定义的
-控制序列名称的提示。
+Read operations from any stream outside the range 0--15 \ldash or 
+streams not associated with an open file, or on which the file
+end has been reached \rdash 
+read from the terminal. If the stream number is positive
+the user is prompted with the name of the control sequence
+being defined by the \cs{read} statement.
 
 %\begin{example}
 %\begin{verbatim}
@@ -288,17 +295,18 @@ read 命令的语法是
 \begin{verbatim}
 \read16 to \data
 \end{verbatim}
-显示一个提示
+displays a prompt
 \begin{verbatim}
 \data=
 \end{verbatim}
-响应输入“my name”
-使得 read 语句等同于
+and typing `my name'
+in response makes the read statement equivalent
+to
 \begin{verbatim}
 \def\data{my name }
 \end{verbatim}
-输入末尾的空格源自换行符；
-为防止这种情况，可以这样写
+The space at the end of the input derives from the line end;
+to prevent this one could write
 \begin{verbatim}
 {\endlinechar=-1 \global\read16 to \data}
 \end{verbatim}
@@ -307,25 +315,27 @@ read 命令的语法是
 %%\spoint Output with \cs{write}
 %\subsection{Output with \cs{write}}
 %\spoint Output with \cs{write}
-\subsection{使用 \cs{write} 进行输出}
+\subsection{Output with \cs{write}}
 
 %\TeX's \csidx{write} command
 %  
 %\begin{disp}\cs{write}\gr{number}\gr{general text}\end{disp}
 %writes a balanced token list to a file which has been opened
 %by \cs{openout}, to the log file, or to the terminal.
-\TeX\ 的 \csidx{write} 命令
+\TeX's \csidx{write} command
   
-\begin{disp}\cs{write}\gr{数字}\gr{通用文本}\end{disp}
-将一个平衡的记号列表写入已通过 \cs{openout} 打开的文件、日志文件或终端。
+\begin{disp}\cs{write}\gr{number}\gr{general text}\end{disp}
+writes a balanced token list to a file which has been opened
+by \cs{openout}, to the log file, or to the terminal.
 
 %Write operations to a stream outside 0--15 \ldash or to a
 %stream that is not associated with an open file \rdash  go to the log file;
 %if the stream number is positive they 
 %go to the terminal as well as to the log file.
-对范围 0--15 之外的流 \ldash 或未与打开文件关联的流 \rdash 的写入操作会写入日志文件；
-如果流编号为正，它们还会
-写入终端以及日志文件。
+Write operations to a stream outside 0--15 \ldash or to a
+stream that is not associated with an open file \rdash  go to the log file;
+if the stream number is positive they 
+go to the terminal as well as to the log file.
 
 %The token list argument of \cs{write}, defined as
 %  
@@ -342,20 +352,21 @@ read 命令的语法是
 %in a whatsit item on the current list.
 %See further Chapter~\ref{expand} for
 %a discussion of expansion during writing.
-\cs{write} 的记号列表参数，定义为
+The token list argument of \cs{write}, defined as
   
-\begin{disp}\gr{通用文本} $\longrightarrow$ \gr{填充符}%
-       \lb\gr{平衡文本}\gr{右花括号}\end{disp}
-可以有一个隐式的开花括号。
-此参数会像 \cs{edef} 的替换文本一样展开，
-因此，例如，
-任何出现的宏和条件语句都会展开。
-然而，不会执行任何命令。
-此展开发生在
-输出时；见下文。
-在此之前，参数记号列表会存储在
-当前列表中的 whatsit 项中。
-有关写入期间展开的讨论，请参见第 \ref{expand} 章。
+\begin{disp}\gr{general text} $\longrightarrow$ \gr{filler}%
+       \lb\gr{balanced text}\gr{right brace}\end{disp}
+can have an implicit opening brace.
+This argument is expanded as if it were the replacement
+text of an \cs{edef}, so, for instance, 
+any macros and conditionals appearing are expanded.
+No commands are executed, however. 
+This expansion occurs
+at the time of shipping out; see below.
+Until that time the argument token list is stored
+in a whatsit item on the current list.
+See further Chapter~\ref{expand} for
+a discussion of expansion during writing.
 
 %A control sequence output by \cs{write} (or \cs{message})
 %is represented with  a trailing space, and using
@@ -365,13 +376,14 @@ read 命令的语法是
 %the code for the backslash.
 %The trailing space can be prevented by prefixing the control
 %sequence with \cs{string}.
-由 \cs{write}（或 \cs{message}）输出的控制序列
-以一个尾随空格表示，并使用
-字符编号 \cs{escapechar}
-作为转义字符。
-\IniTeX\ 的默认值是 92，
-即反斜杠的代码。
-可以通过在控制序列前加上 \cs{string} 来防止尾随空格。
+A control sequence output by \cs{write} (or \cs{message})
+is represented with  a trailing space, and using
+character number \cs{escapechar}
+for the escape character.
+The \IniTeX\ default for this is~92,
+the code for the backslash.
+The trailing space can be prevented by prefixing the control
+sequence with \cs{string}.
 
 %%\point Whatsits
 %\section{Whatsits}
@@ -389,12 +401,14 @@ read 命令的语法是
 %That is, instead of being done immediately they are saved until
 %the box in which they appear is shipped out 
 %to the \n{dvi} file.
-输入和输出在执行上存在本质区别：
-与输出相关的操作
-（\cs{openout}、\cs{closeout}、\cs{write}）
-是 \emph{异步} 执行的\index{I/O!asynchronous}。
-也就是说，它们不是立即完成，而是被保存起来，直到
-它们出现的盒子被输出到 \n{dvi} 文件。
+There is an essential difference 
+in execution between input and output:
+operations concerning output 
+(\cs{openout}, \cs{closeout}, \cs{write})
+are  executed \emph{asynchronously}\index{I/O!asynchronous}.
+That is, instead of being done immediately they are saved until
+the box in which they appear is shipped out 
+to the \n{dvi} file.
 
 %Writes and the other two output operations are placed
 %in `whatsit' items on whichever list is currently being built.
@@ -403,45 +417,46 @@ read 命令的语法是
 %This delayed output is made necessary by \TeX's
 %asynchronous output routine behaviour.
 %See a worked-out example on page~\pageref{expand:write}.
-写入操作和另外两个输出操作被放置在
-当前正在构建的任何列表上的“whatsit”项中。
-实际操作发生在包含该项的页面部分
-输出到 \n{dvi} 文件时。
-这种延迟输出是 \TeX\ 异步输出例程行为
-所必需的。
-有关详细示例，请参见第 \pageref{expand:write} 页。
+Writes and the other two output operations are placed
+in `whatsit' items on whichever list is currently being built.
+The actual operation occurs when the part of the page
+that has the item is shipped out to the \n{dvi} file.
+This delayed output is made necessary by \TeX's
+asynchronous output routine behaviour.
+See a worked-out example on page~\pageref{expand:write}.
 
 %An \verb.\immediate\write. \ldash or any other \csidx{immediate} output
 %operation \rdash  is executed on the spot, and
 %does not place a whatsit item on the current list.
-一个 \verb.\immediate\write. \ldash 或任何其他 \csidx{immediate} 输出
-操作 \rdash 会立即执行，并且
-不会在当前列表上放置 whatsit 项。
+An \verb.\immediate\write. \ldash or any other \csidx{immediate} output
+operation \rdash  is executed on the spot, and
+does not place a whatsit item on the current list.
 
 %The argument of a \cs{special} command
 %(see page~\pageref{special}) is also placed in a whatsit.
-\cs{special} 命令的参数
-（参见第 \pageref{special} 页）也放置在 whatsit 中。
+The argument of a \cs{special} command
+(see page~\pageref{special}) is also placed in a whatsit.
 
 %Whatsit items in leader boxes are ignored.
-引导盒中的 whatsit 项被忽略。
+Whatsit items in leader boxes are ignored.
 
 %\index{whatsits|)}
 \index{whatsits|)}
 
 %\section{Assorted remarks}
-\section{杂项备注}
+\section{Assorted remarks}
 
 %%\spoint Inspecting input
 %\subsection{Inspecting input}
 %\spoint Inspecting input
-\subsection{检查输入}
+\subsection{Inspecting input}
 
 %\TeX\ records the current line number in the current input file
 %in the \gr{internal integer} parameter \csidx{inputlineno}
 %(in \TeX3).
-\TeX\ 在 \gr{内部整数} 参数 \csidx{inputlineno} 中
-（在 \TeX3 中）记录当前输入文件中的当前行号。
+\TeX\ records the current line number in the current input file
+in the \gr{internal integer} parameter \csidx{inputlineno}
+(in \TeX3).
 
 %If the parameter \csidx{pausing} is positive, \TeX\ shows
 %every line that is input on the terminal \emph{screen}\index{I/O!screen},
@@ -451,17 +466,19 @@ read 命令的语法是
 %in the source file: it is for instance not necessary
 %to prefix them with~`i', as would be necessary when 
 %\TeX\ pauses for an error.
-如果参数 \csidx{pausing} 为正，\TeX\ 会在终端 \emph{屏幕}\index{I/O!screen} 上显示
-输入的每一行，
-并给用户插入命令的机会。这些命令例如可以是 \cs{show} 命令。
-插入的命令被视为直接
-在源文件中：例如，不需要
-在它们前面加上“i”，而这在 \TeX\ 因错误暂停时是必需的。
+If the parameter \csidx{pausing} is positive, \TeX\ shows
+every line that is input on the terminal \emph{screen}\index{I/O!screen},
+and gives the user the opportunity
+to insert commands. These can for instance be \cs{show} commands.
+Inserted commands are treated as if they were directly
+in the source file: it is for instance not necessary
+to prefix them with~`i', as would be necessary when 
+\TeX\ pauses for an error.
 
 %%\spoint Testing for existence of files
 %\subsection{Testing for existence of files}
 %\spoint Testing for existence of files
-\subsection{测试文件是否存在}
+\subsection{Testing for existence of files}
 
 %\TeX\ is not the friendliest of systems when you
 %\howto Test whether a file exists\par
@@ -478,25 +495,26 @@ read 命令的语法是
 %if an input stream does not correspond to a physical file,
 %so if this conditional is not true,
 %the file exists and an \cs{input} command can safely be given.
-当您要求 \TeX\ 输入一个不存在的文件时，
-\TeX\ 并不是最友好的系统。因此，可以使用以下
-命令序列来避免麻烦\label{ex:eof}：
+\TeX\ is not the friendliest of systems when you
+\howto Test whether a file exists\par
+ask it to input a non-existing file. Therefore the following
+sequence of commands can be used to prevent trouble\label{ex:eof}:
 \begin{verbatim}
 \newread\instream \openin\instream= fname.tex
 \ifeof\instream \message{File 'fname' does not exist!}
 \else \closein\instream \input fname.tex
 \fi
 \end{verbatim}
-这里使用给定的文件名打开一个输入流。
-如果输入流不对应物理文件，
-文件结束测试也为真，
-因此如果此条件不为真，
-则文件存在，并且可以安全地给出 \cs{input} 命令。
+Here an input stream is opened with the given file name.
+The end-of-file test is also true
+if an input stream does not correspond to a physical file,
+so if this conditional is not true,
+the file exists and an \cs{input} command can safely be given.
 
 %%\spoint Timing problems
 %\subsection{Timing problems}
 %\spoint Timing problems
-\subsection{时序问题}
+\subsection{Timing problems}
 
 %The synchronization between write operations on the
 %one hand, and opening/closing operations
@@ -504,11 +522,12 @@ read 命令的语法是
 %can be a crucial point. Auxiliary files, such as are
 %used by various formats to implement cross-references,
 %are a good illustration of this.
-一方面是写入操作，
-另一方面是文件的打开/关闭操作，
-两者之间的同步可能是一个关键点。辅助文件，例如
-各种格式用于实现交叉引用的文件，
-很好地说明了这一点。
+The synchronization between write operations on the
+one hand, and opening/closing operations
+of files on the other hand,
+can be a crucial point. Auxiliary files, such as are
+used by various formats to implement cross-references,
+are a good illustration of this.
 
 %Suppose that during a run of \TeX\ the auxiliary file is written, and
 %\howto Input a file that was created in the same run of \TeX\par
@@ -526,24 +545,27 @@ read 命令的语法是
 %in order to close off the last page,
 %so all writes will indeed have been performed before the
 %file is closed.
-假设在 \TeX\ 运行期间辅助文件被写入，并且
-\howto 输入在同一次 \TeX\ 运行中创建的文件\par
-在运行结束时，出于各种目的（例如查看引用是否已更改），它必须再次被输入。
-\cs{input} 命令会立即执行，因此
-文件必须已通过 \verb=\immediate\closeout= 关闭。
-然而，现在文件有可能在所有写入操作完成之前就被关闭。
-以下序列可以解决这个问题：
+Suppose that during a run of \TeX\ the auxiliary file is written, and
+\howto Input a file that was created in the same run of \TeX\par
+at the end of the run it has to be input again for a variety
+of purposes (such as seeing whether references have changed).
+An \cs{input} command is executed right away, so
+the file must have been closed with an \verb=\immediate\closeout=.
+However, now it becomes possible that the file is closed 
+before all writes to it have been performed.
+The following sequence remedies this:
 \begin{verbatim}
 \par\vfil\penalty -10000 \immediate\closeout\auxfile
 \end{verbatim}
-前三个命令激活输出例程，
-以便关闭最后一页，
-这样在文件关闭之前，所有写入操作确实已经完成。
+The first three commands activate the output routine
+in order to close off the last page,
+so all writes will indeed have been performed before the
+file is closed.
 
 %%\spoint \cs{message} versus \cs{immediate}\cs{write}16
 %\subsection{\cs{message} versus \cs{immediate}\cs{write}16}
 %\spoint \cs{message} versus \cs{immediate}\cs{write}16
-\subsection{\cs{message} 与 \cs{immediate}\cs{write}16 的对比}
+\subsection{\cs{message} versus \cs{immediate}\cs{write}16}
 
 %Messages to the user can be given using 
 %\csidx{message}\gr{general text}, which writes to the  terminal.
@@ -554,12 +576,15 @@ read 命令的语法是
 %a~maximum of 1000 characters is written per message;
 %this is not a compile-time constant, but is hard-wired 
 %into the \TeX\ program.
-可以使用 \csidx{message}\gr{通用文本} 向用户发送消息，它会写入终端。
-消息会相互追加；
-当行长（一个 \TeX\ 编译时常量）达到时，行会换行。
-在 \TeX\ 版本 2 中，
-每条消息最多写入 1000 个字符；
-这不是一个编译时常量，而是硬编码到 \TeX\ 程序中。
+Messages to the user can be given using 
+\csidx{message}\gr{general text}, which writes to the  terminal.
+Messages are appended to one another; 
+the line is wrapped when the line
+length (a~\TeX\ compile-time constant) has been reached.
+In \TeX\ version2,
+a~maximum of 1000 characters is written per message;
+this is not a compile-time constant, but is hard-wired 
+into the \TeX\ program.
 
 %Each message given with \verb=\immediate\write=
 %starts on a new line; the user can force a new line
@@ -568,17 +593,18 @@ read 命令的语法是
 %in \cs{message}. The plain \TeX\ default for \cs{newlinechar} is~\n{-1}; 
 %the \LaTeX\ default of~\n{10} allows you to write 
 %\verb+\message{two^^Jlines}+.
-每个通过 \verb=\immediate\write= 给出的消息
-都从新行开始；用户可以通过在消息中包含
-编号为 \csidx{newlinechar} 的字符来强制换行。
-此参数在 \cs{message} 中也有效。plain \TeX\ 中 \cs{newlinechar} 的默认值是 \n{-1}；
-\LaTeX\ 的默认值 \n{10} 允许您编写
-\verb+\message{two^^Jlines}+。
+Each message given with \verb=\immediate\write=
+starts on a new line; the user can force a new line
+in the message by including the character with
+number~\csidx{newlinechar}. This parameter also works
+in \cs{message}. The plain \TeX\ default for \cs{newlinechar} is~\n{-1}; 
+the \LaTeX\ default of~\n{10} allows you to write 
+\verb+\message{two^^Jlines}+.
 
 %%\spoint Write inside a vertical box
 %\subsection{Write inside a vertical box}
 %\spoint Write inside a vertical box
-\subsection{在垂直盒子内写入}
+\subsection{Write inside a vertical box}
 
 %Since a write operation winds up on the vertical list in a whatsit,
 %issuing one at the start of a \cs{vtop} 
@@ -591,22 +617,22 @@ read 命令的语法是
 %will have the~\vtop{\write-1{vtop gezien}\hbox{more text}}~dangling 
 %from the baseline (and when this book is \TeX ed the
 %message `Hello!' appears on the screen).
-由于写入操作最终会以 whatsit 形式出现在垂直列表中，
-在 \cs{vtop} 开头执行写入操作
-可能会影响该盒子的高度
-（参见第 \ref{boxes} 章）。例如，
+Since a write operation winds up on the vertical list in a whatsit,
+issuing one at the start of a \cs{vtop} 
+will probably influence the height of that box
+(see  Chapter~\ref{boxes}). As an example,
 \begin{verbatim}
 have the \vtop{\write\terminal{Hello!}\hbox{more text}}
 dangling from
 \end{verbatim}
-将使 \vtop{\write-1{vtop gezien}\hbox{more text}} 悬挂
-在基线上（当这本书被 \TeX\ 排版时，
-消息“Hello!”会出现在屏幕上）。
+will have the~\vtop{\write-1{vtop gezien}\hbox{more text}}~dangling 
+from the baseline (and when this book is \TeX ed the
+message `Hello!' appears on the screen).
 
 %%\spoint Expansion and spaces in \cs{write} and \cs{message}
 %\subsection{Expansion and spaces in \cs{write} and \cs{message}}
 %\spoint Expansion and spaces in \cs{write} and \cs{message}
-\subsection{\cs{write} 和 \cs{message} 中的展开和空格}
+\subsection{Expansion and spaces in \cs{write} and \cs{message}}
 
 %Both \cs{write} and \cs{message} expand their argument
 %as if it were the replacement text of an \cs{edef}.
@@ -616,14 +642,14 @@ dangling from
 %\end{verbatim}
 %will
 %write out~`\n b'.
-\cs{write} 和 \cs{message} 都将其参数展开，
-就像它是 \cs{edef} 的替换文本一样。
-因此
+Both \cs{write} and \cs{message} expand their argument
+as if it were the replacement text of an \cs{edef}.
+Therefore
 \begin{verbatim}
 \def\a{b}\message{\a}
 \end{verbatim}
-将
-输出 `\n b'。
+will
+write out~`\n b'.
 
 %Unexpandable control sequences are displayed with a trailing
 %space (and prefixed with the \cs{escapechar}):
@@ -632,13 +658,13 @@ dangling from
 %\end{verbatim}
 %will write out
 %`\verb>\hbox \vbox !>'. Undefined control sequences give an error here.
-不可展开的控制序列会以尾随空格显示
-（并以 \cs{escapechar} 为前缀）：
+Unexpandable control sequences are displayed with a trailing
+space (and prefixed with the \cs{escapechar}):
 \begin{verbatim}
 \message{\hbox\vbox!}
 \end{verbatim}
-将输出
-`\verb>\hbox \vbox !>'。未定义的控制序列在这里会报错。
+will write out
+`\verb>\hbox \vbox !>'. Undefined control sequences give an error here.
 
 %Expandable control sequences can be written out with some
 %care:
@@ -648,13 +674,14 @@ dangling from
 %{\let\ifx\relax \message{\ifx}}
 %\end{verbatim}
 %all write out `\verb>\ifx>'.
-可展开的控制序列可以小心地输出：
+Expandable control sequences can be written out with some
+care:
 \begin{verbatim}
 \message{\noexpand\ifx}
 \message{\string\ifx}
 {\let\ifx\relax \message{\ifx}}
 \end{verbatim}
-都会输出 `\verb>\ifx>'。
+all write out `\verb>\ifx>'.
 
 %Note, however, that spaces after expandable control sequences
 %are removed in the input processor, which goes into state~$S$
@@ -677,27 +704,27 @@ dangling from
 %\end{verbatim}
 %does not work: it displays `\verb=b{ }d='
 %since braces are unexpandable character tokens.
-然而请注意，可展开控制序列后面的空格
-在输入处理器中会被移除，输入处理器在控制序列之后进入状态 S。
-因此
+Note, however, that spaces after expandable control sequences
+are removed in the input processor, which goes into state~$S$
+after a control sequence. Therefore
 \begin{verbatim}
 \def\a{b}\def\c{d}
 \message{\a \c}
 \end{verbatim}
-输出 `\n{bd}'。
-插入空格可以按如下方式完成：
+writes out `\n{bd}'.
+Inserting a space can be done as follows:
 \begin{verbatim}
 \def\space{ } % in plain TeX
 \message{\a\space\c}
 \end{verbatim}
-显示 `\n{b d}'。
-请注意
+displays `\n{b d}'.
+Note that
 \begin{verbatim}
  
 \message{\a{ }\c}
 \end{verbatim}
-不起作用：它显示 `\verb=b{ }d='
-因为花括号是不可展开的字符记号。
+does not work: it displays `\verb=b{ }d='
+since braces are unexpandable character tokens.
 
 %\index{I/O!file|)}
 %\endofchapter
